@@ -26,9 +26,15 @@ namespace Read4Me
         int speechRate_en = 1; // Ranges from -10 to 10
         int volume = 80; // Range from 0 to 100.
         bool paused = false;
-        string folder_for_batch;
+        
+        // declare writes & reader and folder
         StreamReader map_reader;
         StreamWriter map_writer;
+        string folder_for_batch;
+
+        // show/hide main window
+        bool mAllowVisible;     // ContextMenu's Show command used
+        bool mAllowClose;       // ContextMenu's Exit command used
         
         public Form1()
         {
@@ -45,6 +51,7 @@ namespace Read4Me
             tbarRate.Value = speechRate;
             trbVolume.Value = volume;
 
+            // advertisment spoken at first call, speak it at volume 0
             speech.Rate = 10;
             speech.Volume = 0;
             speech.Speak("<lang langid=\"402\">а</lang>", SpeechVoiceSpeakFlags.SVSFlagsAsync | SpeechVoiceSpeakFlags.SVSFIsXML | SpeechVoiceSpeakFlags.SVSFPurgeBeforeSpeak);
@@ -57,76 +64,146 @@ namespace Read4Me
 
             // langid: http://www.usb.org/developers/docs/USB_LANGIDs.pdf
 
-            // open
-            Hotkey hk_open = new Hotkey();
-            hk_open.KeyCode = Keys.O;
-            hk_open.Control = true;
-            hk_open.Windows = true;
-            hk_open.Pressed += delegate
+            List<Hotkey> hotkeys = new List<Hotkey>();
+            
+            List<Keys> keycodes = new List<Keys>();
+            keycodes.Add(Keys.O);
+            keycodes.Add(Keys.B);
+            keycodes.Add(Keys.D);
+            keycodes.Add(Keys.E);
+            keycodes.Add(Keys.V);
+            keycodes.Add(Keys.N);
+            keycodes.Add(Keys.S);
+
+            List<Action> actions = new List<Action>();
+            actions.Add(() => this.ShowForm());
+            actions.Add(() => this.readClipboard("402"));
+            actions.Add(() => this.readClipboard("407"));
+            actions.Add(() => this.readClipboard("409"));
+            actions.Add(() => this.SpeechSkip(-1));
+            actions.Add(() => this.SpeechSkip(1));
+            actions.Add(() => this.SpeechStop());
+            
+            for (int i = 0; i < keycodes.Count; i++)
             {
-                mAllowVisible = true;
-                mLoadFired = true;
-                Show();
-                this.Activate();
-            };
+                hotkeys.Add(new Hotkey());
+                hotkeys[i].KeyCode = keycodes[i];
+                hotkeys[i].Control = true;
+                hotkeys[i].Windows = true;
+                int delegate_num = i;
+                hotkeys[i].Pressed += delegate { actions[delegate_num](); };
 
-            // BG
-            Hotkey hk_bg = new Hotkey();
-            hk_bg.KeyCode = Keys.B;
-            hk_bg.Control = true;
-            hk_bg.Windows = true;
-            hk_bg.Pressed += delegate { readClipboard("402"); };
-
-            // GE
-            Hotkey hk_ge = new Hotkey();
-            hk_ge.KeyCode = Keys.D;
-            hk_ge.Control = true;
-            hk_ge.Windows = true;
-            hk_ge.Pressed += delegate { readClipboard("407"); };
-
-            // EN
-            Hotkey hk_en = new Hotkey();
-            hk_en.KeyCode = Keys.E;
-            hk_en.Control = true;
-            hk_en.Windows = true;
-            hk_en.Pressed += delegate { readClipboard("409"); };
-
-            // skip forwards
-            Hotkey hk_sf = new Hotkey();
-            hk_sf.KeyCode = Keys.V;
-            hk_sf.Control = true;
-            hk_sf.Windows = true;
-            hk_sf.Pressed += delegate { SpeechSkip(-1); };
-
-            // skip backwards
-            Hotkey hk_sb = new Hotkey();
-            hk_sb.KeyCode = Keys.N;
-            hk_sb.Control = true;
-            hk_sb.Windows = true;
-            hk_sb.Pressed += delegate { SpeechSkip(1); };
-
-            // pause/stop
-            Hotkey hk_st = new Hotkey();
-            hk_st.KeyCode = Keys.S;
-            hk_st.Control = true;
-            hk_st.Windows = true;
-            hk_st.Pressed += delegate { SpeechStop(); };
-
-            if (!hk_sb.GetCanRegister(this) && !hk_sf.GetCanRegister(this) && !hk_en.GetCanRegister(this) && !hk_ge.GetCanRegister(this) && !hk_open.GetCanRegister(this) && !hk_st.GetCanRegister(this))
-            {
-                MessageBox.Show("Error registering one or more hotkeys!");
-            }
-            else
-            {
-                hk_sb.Register(this);
-                hk_sf.Register(this);
-                hk_bg.Register(this);
-                hk_en.Register(this);
-                hk_ge.Register(this);
-                hk_open.Register(this);
-                hk_st.Register(this);
+                if (!hotkeys[i].GetCanRegister(this))
+                {
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        sWorkingStatus.Text = "Error registering one or more hotkeys!";
+                    });
+                }
+                else
+                {
+                    hotkeys[i].Register(this);
+                }
             }
         }
+
+        // Minimize app to tray
+        // http://stackoverflow.com/questions/1730731/how-to-start-winform-app-minimized-to-tray
+        protected override void SetVisibleCore(bool value)
+        {
+            if (!mAllowVisible) value = false;
+            base.SetVisibleCore(value);
+        }
+
+        // Close to tray
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            if (!mAllowClose)
+            {
+                HideForm();
+                e.Cancel = true;
+            }
+            base.OnFormClosing(e);
+        }
+
+        // Show form from tray strip menu
+        private void showStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowForm();
+        }
+
+        // Close form from tray strip menu
+        private void exitStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mAllowClose = true;
+            Close();
+        }
+
+        private void ShowForm()
+        {
+            mAllowVisible = true;
+            Show();
+            this.Activate();
+        }
+
+        private void HideForm()
+        {
+            mAllowVisible = false;
+            this.Hide();
+        }
+
+        void Form1_Resize(object sender, System.EventArgs e)
+        {
+            HideForm();
+        }
+
+        private void mynotifyicon_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                if (mAllowVisible == true)
+                {
+                    HideForm();
+                }
+                else
+                {
+                    ShowForm();
+                }
+            }
+        }
+
+        private void bExit_Click(object sender, EventArgs e)
+        {
+            mAllowClose = mAllowVisible = true;
+            Close();
+        }
+
+        protected override bool ProcessCmdKey(ref System.Windows.Forms.Message msg, System.Windows.Forms.Keys keyData)
+        {
+            try
+            {
+                if (msg.WParam.ToInt32() == (int)Keys.Escape)
+                {
+                    this.Hide();
+                }
+                else
+                {
+                    return base.ProcessCmdKey(ref msg, keyData);
+                }
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show("Key Overrided Events Error:" + Ex.Message);
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+
+
+
+        // Speech // Speech // Speech // Speech // Speech // Speech // Speech // Speech // Speech // Speech // Speech
+        // Speech // Speech // Speech // Speech // Speech // Speech // Speech // Speech // Speech // Speech // Speech
+        // Speech // Speech // Speech // Speech // Speech // Speech // Speech // Speech // Speech // Speech // Speech
 
         private void SpeechSkip(int items)
         {
@@ -148,43 +225,6 @@ namespace Read4Me
                     paused = false;
                 }
             }
-        }
-
-
-        // http://stackoverflow.com/questions/1730731/how-to-start-winform-app-minimized-to-tray
-        bool mAllowVisible;     // ContextMenu's Show command used
-        bool mAllowClose;       // ContextMenu's Exit command used
-        bool mLoadFired;        // Form was shown once
-
-        protected override void SetVisibleCore(bool value)
-        {
-            if (!mAllowVisible) value = false;
-            base.SetVisibleCore(value);
-        }
-
-        protected override void OnFormClosing(FormClosingEventArgs e)
-        {
-            if (!mAllowClose)
-            {
-                this.Hide();
-                e.Cancel = true;
-            }
-            base.OnFormClosing(e);
-        }
-
-        private void showStripMenuItem_Click(object sender, EventArgs e)
-        {
-            mAllowVisible = true;
-            mLoadFired = true;
-            Show();
-            this.Activate();
-        }
-
-        private void exitStripMenuItem_Click(object sender, EventArgs e)
-        {
-            mAllowClose = mAllowVisible = true;
-            if (!mLoadFired) Show();
-            Close();
         }
 
         string toRead;
@@ -283,32 +323,6 @@ namespace Read4Me
         private void trbVolume_Scroll(object sender, EventArgs e)
         {
             volume = trbVolume.Value;
-        }
-
-        void Form1_Resize(object sender, System.EventArgs e)
-        {
-            minToTray();
-        }
-
-        private void mynotifyicon_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                if (mAllowVisible == true)
-                {
-                    minToTray();
-                }
-                else
-                {
-                    showStripMenuItem_Click(sender, e);
-                }
-            }
-        }
-
-        private void minToTray()
-        {
-            mAllowVisible = false;
-            this.Hide();
         }
 
         private void bBrowse_Click(object sender, EventArgs e)
@@ -549,33 +563,6 @@ namespace Read4Me
 
             // batch convert xml to mp3
             BatchConvert(outdir + "xml");
-        }
-
-        private void bExit_Click(object sender, EventArgs e)
-        {
-            mAllowClose = mAllowVisible = true;
-            if (!mLoadFired) Show();
-            Close();
-        }
-
-        protected override bool ProcessCmdKey(ref System.Windows.Forms.Message msg, System.Windows.Forms.Keys keyData)
-        {
-            try
-            {
-                if (msg.WParam.ToInt32() == (int)Keys.Escape)
-                {
-                    this.Hide();
-                }
-                else
-                {
-                    return base.ProcessCmdKey(ref msg, keyData);
-                }
-            }
-            catch (Exception Ex)
-            {
-                MessageBox.Show("Key Overrided Events Error:" + Ex.Message);
-            }
-            return base.ProcessCmdKey(ref msg, keyData);
         }
     }
 }
