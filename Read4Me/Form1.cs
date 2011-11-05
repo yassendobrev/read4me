@@ -38,16 +38,45 @@ namespace Read4Me
         
         public Form1()
         {
+            string line;
             InitializeComponent();
-            register_hotkeys();
+            RegisterHotkeys();
 
             foreach (ISpeechObjectToken Token in speech.GetVoices(string.Empty, string.Empty))
             {
                 // Populate the ComboBox Entries ..
                 cmbVoices.Items.Add(Token.GetDescription(49));
+                comboBox1.Items.Add(Token.GetDescription(49));
+                comboBox2.Items.Add(Token.GetDescription(49));
+                comboBox3.Items.Add(Token.GetDescription(49));
+                comboBox4.Items.Add(Token.GetDescription(49));
+                comboBox5.Items.Add(Token.GetDescription(49));
+                comboBox6.Items.Add(Token.GetDescription(49));
             }
+            try
+            {
+                /*
+                map_reader = new StreamReader(Path.GetDirectoryName(Application.ExecutablePath) + "\\Read4Me.ini");
+                while (!map_reader.EndOfStream)
+                {
+                    line = map_reader.ReadLine();
+                    switch (line)
+                    {
+                        case "# General Hotkeys":
 
-            cmbVoices.SelectedIndex = 0;    // Select the first Index of the comboBox 
+                        break;
+                        default:
+                        break;
+                    }
+                }
+                map_reader.Close();
+                */
+            }
+            catch
+            {
+                sWorkingStatus.Text = "No settings file found!";
+            }
+            cmbVoices.SelectedIndex = 0; // Select the first Index of the comboBox 
             tbarRate.Value = speechRate;
             trbVolume.Value = volume;
 
@@ -57,7 +86,11 @@ namespace Read4Me
             speech.Speak("<lang langid=\"402\">а</lang>", SpeechVoiceSpeakFlags.SVSFlagsAsync | SpeechVoiceSpeakFlags.SVSFIsXML | SpeechVoiceSpeakFlags.SVSFPurgeBeforeSpeak);
         }
 
-        private void register_hotkeys()
+        private void ReadSettings()
+        {
+        }
+
+        private void RegisterHotkeys()
         {
             // register hotkeys
             // http://bloggablea.wordpress.com/2007/05/01/global-hotkeys-with-net/
@@ -68,21 +101,21 @@ namespace Read4Me
             
             List<Keys> keycodes = new List<Keys>();
             keycodes.Add(Keys.O);
+            keycodes.Add(Keys.S);
+            keycodes.Add(Keys.V);
+            keycodes.Add(Keys.N);
             keycodes.Add(Keys.B);
             keycodes.Add(Keys.D);
             keycodes.Add(Keys.E);
-            keycodes.Add(Keys.V);
-            keycodes.Add(Keys.N);
-            keycodes.Add(Keys.S);
 
             List<Action> actions = new List<Action>();
-            actions.Add(() => this.ShowForm());
+            actions.Add(() => this.ToggleForm());
+            actions.Add(() => this.SpeechStop());
+            actions.Add(() => this.SpeechSkip(-1));
+            actions.Add(() => this.SpeechSkip(1));
             actions.Add(() => this.readClipboard("402"));
             actions.Add(() => this.readClipboard("407"));
             actions.Add(() => this.readClipboard("409"));
-            actions.Add(() => this.SpeechSkip(-1));
-            actions.Add(() => this.SpeechSkip(1));
-            actions.Add(() => this.SpeechStop());
             
             for (int i = 0; i < keycodes.Count; i++)
             {
@@ -135,10 +168,42 @@ namespace Read4Me
         // Close form from tray strip menu
         private void exitStripMenuItem_Click(object sender, EventArgs e)
         {
-            mAllowClose = true;
-            Close();
+            CloseForm();
         }
 
+        // Show/hide form when icon in tray clicked
+        private void mynotifyicon_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ToggleForm();
+            }
+        }
+
+        // Close form
+        private void bExit_Click(object sender, EventArgs e)
+        {
+            CloseForm();
+        }
+
+        // Hide form when ESC key pressed
+        protected override bool ProcessCmdKey(ref System.Windows.Forms.Message msg, System.Windows.Forms.Keys keyData)
+        {
+            try
+            {
+                if (msg.WParam.ToInt32() == (int)Keys.Escape)
+                {
+                    HideForm();
+                }
+            }
+            catch
+            {
+                // do nothing
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        // Show form
         private void ShowForm()
         {
             mAllowVisible = true;
@@ -146,59 +211,32 @@ namespace Read4Me
             this.Activate();
         }
 
+        // Hide form to tray
         private void HideForm()
         {
             mAllowVisible = false;
             this.Hide();
         }
 
-        void Form1_Resize(object sender, System.EventArgs e)
+        // Toggle form visibility
+        private void ToggleForm()
         {
-            HideForm();
-        }
-
-        private void mynotifyicon_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
+            if (mAllowVisible == true)
             {
-                if (mAllowVisible == true)
-                {
-                    HideForm();
-                }
-                else
-                {
-                    ShowForm();
-                }
+                HideForm();
+            }
+            else
+            {
+                ShowForm();
             }
         }
 
-        private void bExit_Click(object sender, EventArgs e)
+        // Close form
+        void CloseForm()
         {
-            mAllowClose = mAllowVisible = true;
+            mAllowClose = true;
             Close();
         }
-
-        protected override bool ProcessCmdKey(ref System.Windows.Forms.Message msg, System.Windows.Forms.Keys keyData)
-        {
-            try
-            {
-                if (msg.WParam.ToInt32() == (int)Keys.Escape)
-                {
-                    this.Hide();
-                }
-                else
-                {
-                    return base.ProcessCmdKey(ref msg, keyData);
-                }
-            }
-            catch (Exception Ex)
-            {
-                MessageBox.Show("Key Overrided Events Error:" + Ex.Message);
-            }
-            return base.ProcessCmdKey(ref msg, keyData);
-        }
-
-
 
 
         // Speech // Speech // Speech // Speech // Speech // Speech // Speech // Speech // Speech // Speech // Speech
