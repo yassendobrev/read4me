@@ -2,6 +2,7 @@
 using SpeechLib;
 using System.Threading;
 using System.IO;
+using System.Collections;
 
 namespace Read4Me
 {
@@ -15,6 +16,8 @@ namespace Read4Me
         int speechRate_en = 1; // Ranges from -10 to 10
         int volume = 80; // Range from 0 to 100.
         bool paused = false;
+        // Hashtable langids = new Hashtable();
+        SortedList langids = new SortedList();
         
         // declare writes & reader and folder
         StreamReader file_reader;
@@ -28,7 +31,7 @@ namespace Read4Me
         public Read4MeForm()
         {
             InitializeComponent();
-
+            
             foreach (ISpeechObjectToken Token in speech.GetVoices(string.Empty, string.Empty))
             {
                 // Populate the ComboBox Entries ..

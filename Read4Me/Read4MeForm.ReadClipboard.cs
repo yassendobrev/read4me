@@ -27,28 +27,10 @@ namespace Read4Me
             }
         }
 
-        private void ReadClipboard(string langid, string voice)
+        private void ReadClipboard(string langid, string voice, int srate)
         {
-            int srate;
             string toRead;
-            SpObjectToken voice_sp;
-            if (langid == "402")
-            {// BG
-                srate = speechRate_bg;
-                voice_sp = speech.GetVoices("Name=Gergana", "Language=" + langid).Item(0);
-            }
-            else if (langid == "407")
-            { // DE
-                srate = speechRate_ge;
-                voice_sp = speech.GetVoices("Name=ScanSoft Steffi_Full_22KHz", "Language=" + langid).Item(0);
-            }
-            // else if (langid == "409")
-            else
-            { // EN
-                srate = speechRate_en;
-                voice_sp = speech.GetVoices("Name=VW Julie", "Language=" + langid).Item(0);
-            }
-
+            SpObjectToken voice_sp = speech.GetVoices("Name=" + voice, "Language=" + langid).Item(0);
             paused = false;
             toRead = Clipboard.GetText();
             toRead.Replace("\r\n", "<lang langid=\"409\"><silence msec=\"50\" /></lang>"); // new line -> pause for 50ms
