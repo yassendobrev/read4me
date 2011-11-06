@@ -74,58 +74,65 @@ namespace Read4Me
             this.tpConv = new System.Windows.Forms.TabPage();
             this.tpSpeak = new System.Windows.Forms.TabPage();
             this.tbSettings = new System.Windows.Forms.TabPage();
+            this.Apply = new System.Windows.Forms.Button();
+            this.gbVoices = new System.Windows.Forms.GroupBox();
+            this.cbLang6 = new System.Windows.Forms.ComboBox();
+            this.cbLang5 = new System.Windows.Forms.ComboBox();
+            this.cbLang4 = new System.Windows.Forms.ComboBox();
+            this.cbLang3 = new System.Windows.Forms.ComboBox();
+            this.cbLang2 = new System.Windows.Forms.ComboBox();
+            this.cbLang1 = new System.Windows.Forms.ComboBox();
+            this.lCtrllang1 = new System.Windows.Forms.CheckBox();
+            this.tbHKlang6 = new System.Windows.Forms.TextBox();
+            this.tbHKlang5 = new System.Windows.Forms.TextBox();
+            this.tbHKlang4 = new System.Windows.Forms.TextBox();
+            this.lCtrllang2 = new System.Windows.Forms.CheckBox();
+            this.tbHKlang3 = new System.Windows.Forms.TextBox();
+            this.lCtrllang3 = new System.Windows.Forms.CheckBox();
+            this.tbHKlang2 = new System.Windows.Forms.TextBox();
+            this.lCtrllang6 = new System.Windows.Forms.CheckBox();
+            this.lCtrllang5 = new System.Windows.Forms.CheckBox();
+            this.lCtrllang4 = new System.Windows.Forms.CheckBox();
+            this.tbHKlang1 = new System.Windows.Forms.TextBox();
+            this.lWinKeylang2 = new System.Windows.Forms.CheckBox();
+            this.lAltlang6 = new System.Windows.Forms.CheckBox();
+            this.lAltlang5 = new System.Windows.Forms.CheckBox();
+            this.lAltlang4 = new System.Windows.Forms.CheckBox();
+            this.lWinKeylang1 = new System.Windows.Forms.CheckBox();
+            this.lAltlang3 = new System.Windows.Forms.CheckBox();
+            this.lWinKeylang3 = new System.Windows.Forms.CheckBox();
+            this.lWinKeylang6 = new System.Windows.Forms.CheckBox();
+            this.lAltlang2 = new System.Windows.Forms.CheckBox();
+            this.lWinKeylang5 = new System.Windows.Forms.CheckBox();
+            this.lWinKeylang4 = new System.Windows.Forms.CheckBox();
+            this.lAltlang1 = new System.Windows.Forms.CheckBox();
+            this.gbGeneral = new System.Windows.Forms.GroupBox();
+            this.lCtrl0 = new System.Windows.Forms.CheckBox();
+            this.tbHK3 = new System.Windows.Forms.TextBox();
+            this.lCtrl1 = new System.Windows.Forms.CheckBox();
+            this.tbHK2 = new System.Windows.Forms.TextBox();
+            this.lCtrl2 = new System.Windows.Forms.CheckBox();
+            this.tbHK1 = new System.Windows.Forms.TextBox();
+            this.lCtrl3 = new System.Windows.Forms.CheckBox();
+            this.tbHK0 = new System.Windows.Forms.TextBox();
+            this.lWinKey1 = new System.Windows.Forms.CheckBox();
             this.lAlt3 = new System.Windows.Forms.CheckBox();
+            this.lWinKey0 = new System.Windows.Forms.CheckBox();
             this.lAlt2 = new System.Windows.Forms.CheckBox();
+            this.lWinKey2 = new System.Windows.Forms.CheckBox();
             this.lAlt1 = new System.Windows.Forms.CheckBox();
+            this.lWinKey3 = new System.Windows.Forms.CheckBox();
             this.lAlt0 = new System.Windows.Forms.CheckBox();
             this.lHK0 = new System.Windows.Forms.Label();
-            this.lWinKey3 = new System.Windows.Forms.CheckBox();
-            this.lWinKey2 = new System.Windows.Forms.CheckBox();
-            this.lWinKey0 = new System.Windows.Forms.CheckBox();
-            this.lWinKey1 = new System.Windows.Forms.CheckBox();
-            this.lCtrl3 = new System.Windows.Forms.CheckBox();
-            this.lCtrl0 = new System.Windows.Forms.CheckBox();
-            this.lCtrl2 = new System.Windows.Forms.CheckBox();
-            this.lCtrl1 = new System.Windows.Forms.CheckBox();
-            this.tbHK0 = new System.Windows.Forms.TextBox();
-            this.tbHK1 = new System.Windows.Forms.TextBox();
-            this.tbHK2 = new System.Windows.Forms.TextBox();
-            this.tbHK3 = new System.Windows.Forms.TextBox();
+            this.lHK3 = new System.Windows.Forms.Label();
             this.lHK1 = new System.Windows.Forms.Label();
             this.lHK2 = new System.Windows.Forms.Label();
-            this.lHK3 = new System.Windows.Forms.Label();
-            this.gbGeneral = new System.Windows.Forms.GroupBox();
-            this.gbVoices = new System.Windows.Forms.GroupBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
-            this.checkBox7 = new System.Windows.Forms.CheckBox();
-            this.checkBox8 = new System.Windows.Forms.CheckBox();
-            this.checkBox9 = new System.Windows.Forms.CheckBox();
-            this.checkBox10 = new System.Windows.Forms.CheckBox();
-            this.checkBox11 = new System.Windows.Forms.CheckBox();
-            this.checkBox12 = new System.Windows.Forms.CheckBox();
-            this.checkBox13 = new System.Windows.Forms.CheckBox();
-            this.checkBox14 = new System.Windows.Forms.CheckBox();
-            this.checkBox15 = new System.Windows.Forms.CheckBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.checkBox16 = new System.Windows.Forms.CheckBox();
-            this.checkBox17 = new System.Windows.Forms.CheckBox();
-            this.checkBox18 = new System.Windows.Forms.CheckBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.cbLangid1 = new System.Windows.Forms.ComboBox();
+            this.cbLangid2 = new System.Windows.Forms.ComboBox();
+            this.cbLangid3 = new System.Windows.Forms.ComboBox();
+            this.cbLangid4 = new System.Windows.Forms.ComboBox();
+            this.cbLangid5 = new System.Windows.Forms.ComboBox();
+            this.cbLangid6 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.tbarRate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trbVolume)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -134,8 +141,8 @@ namespace Read4Me
             this.tpConv.SuspendLayout();
             this.tpSpeak.SuspendLayout();
             this.tbSettings.SuspendLayout();
-            this.gbGeneral.SuspendLayout();
             this.gbVoices.SuspendLayout();
+            this.gbGeneral.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbspeech
@@ -344,7 +351,7 @@ namespace Read4Me
             this.sWorkingStatus});
             this.sStrip.Location = new System.Drawing.Point(0, 251);
             this.sStrip.Name = "sStrip";
-            this.sStrip.Size = new System.Drawing.Size(531, 22);
+            this.sStrip.Size = new System.Drawing.Size(580, 22);
             this.sStrip.TabIndex = 19;
             // 
             // sWorkingStatus
@@ -504,7 +511,7 @@ namespace Read4Me
             this.tabControlMain.Location = new System.Drawing.Point(12, 12);
             this.tabControlMain.Name = "tabControlMain";
             this.tabControlMain.SelectedIndex = 0;
-            this.tabControlMain.Size = new System.Drawing.Size(512, 227);
+            this.tabControlMain.Size = new System.Drawing.Size(556, 227);
             this.tabControlMain.TabIndex = 48;
             // 
             // tpConv
@@ -565,202 +572,346 @@ namespace Read4Me
             // 
             this.tbSettings.AutoScroll = true;
             this.tbSettings.AutoScrollMargin = new System.Drawing.Size(5, 5);
+            this.tbSettings.Controls.Add(this.Apply);
             this.tbSettings.Controls.Add(this.gbVoices);
             this.tbSettings.Controls.Add(this.gbGeneral);
             this.tbSettings.Location = new System.Drawing.Point(4, 22);
             this.tbSettings.Name = "tbSettings";
-            this.tbSettings.Size = new System.Drawing.Size(504, 201);
+            this.tbSettings.Size = new System.Drawing.Size(548, 201);
             this.tbSettings.TabIndex = 2;
             this.tbSettings.Text = "Settings";
             this.tbSettings.UseVisualStyleBackColor = true;
             // 
-            // lAlt3
+            // Apply
             // 
-            this.lAlt3.AutoSize = true;
-            this.lAlt3.Location = new System.Drawing.Point(122, 88);
-            this.lAlt3.Name = "lAlt3";
-            this.lAlt3.Size = new System.Drawing.Size(38, 17);
-            this.lAlt3.TabIndex = 2;
-            this.lAlt3.Text = "Alt";
-            this.lAlt3.UseVisualStyleBackColor = true;
+            this.Apply.Location = new System.Drawing.Point(346, 289);
+            this.Apply.Name = "Apply";
+            this.Apply.Size = new System.Drawing.Size(75, 23);
+            this.Apply.TabIndex = 6;
+            this.Apply.Text = "Apply";
+            this.Apply.UseVisualStyleBackColor = true;
+            this.Apply.Click += new System.EventHandler(this.Apply_Click);
             // 
-            // lAlt2
+            // gbVoices
             // 
-            this.lAlt2.AutoSize = true;
-            this.lAlt2.Location = new System.Drawing.Point(122, 65);
-            this.lAlt2.Name = "lAlt2";
-            this.lAlt2.Size = new System.Drawing.Size(38, 17);
-            this.lAlt2.TabIndex = 2;
-            this.lAlt2.Text = "Alt";
-            this.lAlt2.UseVisualStyleBackColor = true;
+            this.gbVoices.Controls.Add(this.cbLang6);
+            this.gbVoices.Controls.Add(this.cbLang5);
+            this.gbVoices.Controls.Add(this.cbLang4);
+            this.gbVoices.Controls.Add(this.cbLangid6);
+            this.gbVoices.Controls.Add(this.cbLangid5);
+            this.gbVoices.Controls.Add(this.cbLangid4);
+            this.gbVoices.Controls.Add(this.cbLangid3);
+            this.gbVoices.Controls.Add(this.cbLangid2);
+            this.gbVoices.Controls.Add(this.cbLangid1);
+            this.gbVoices.Controls.Add(this.cbLang3);
+            this.gbVoices.Controls.Add(this.cbLang2);
+            this.gbVoices.Controls.Add(this.cbLang1);
+            this.gbVoices.Controls.Add(this.lCtrllang1);
+            this.gbVoices.Controls.Add(this.tbHKlang6);
+            this.gbVoices.Controls.Add(this.tbHKlang5);
+            this.gbVoices.Controls.Add(this.tbHKlang4);
+            this.gbVoices.Controls.Add(this.lCtrllang2);
+            this.gbVoices.Controls.Add(this.tbHKlang3);
+            this.gbVoices.Controls.Add(this.lCtrllang3);
+            this.gbVoices.Controls.Add(this.tbHKlang2);
+            this.gbVoices.Controls.Add(this.lCtrllang6);
+            this.gbVoices.Controls.Add(this.lCtrllang5);
+            this.gbVoices.Controls.Add(this.lCtrllang4);
+            this.gbVoices.Controls.Add(this.tbHKlang1);
+            this.gbVoices.Controls.Add(this.lWinKeylang2);
+            this.gbVoices.Controls.Add(this.lAltlang6);
+            this.gbVoices.Controls.Add(this.lAltlang5);
+            this.gbVoices.Controls.Add(this.lAltlang4);
+            this.gbVoices.Controls.Add(this.lWinKeylang1);
+            this.gbVoices.Controls.Add(this.lAltlang3);
+            this.gbVoices.Controls.Add(this.lWinKeylang3);
+            this.gbVoices.Controls.Add(this.lWinKeylang6);
+            this.gbVoices.Controls.Add(this.lAltlang2);
+            this.gbVoices.Controls.Add(this.lWinKeylang5);
+            this.gbVoices.Controls.Add(this.lWinKeylang4);
+            this.gbVoices.Controls.Add(this.lAltlang1);
+            this.gbVoices.Location = new System.Drawing.Point(3, 121);
+            this.gbVoices.Name = "gbVoices";
+            this.gbVoices.Size = new System.Drawing.Size(513, 162);
+            this.gbVoices.TabIndex = 5;
+            this.gbVoices.TabStop = false;
+            this.gbVoices.Text = "Speech voices hotkeys";
             // 
-            // lAlt1
+            // cbLang6
             // 
-            this.lAlt1.AutoSize = true;
-            this.lAlt1.Location = new System.Drawing.Point(122, 42);
-            this.lAlt1.Name = "lAlt1";
-            this.lAlt1.Size = new System.Drawing.Size(38, 17);
-            this.lAlt1.TabIndex = 2;
-            this.lAlt1.Text = "Alt";
-            this.lAlt1.UseVisualStyleBackColor = true;
+            this.cbLang6.FormattingEnabled = true;
+            this.cbLang6.Location = new System.Drawing.Point(191, 130);
+            this.cbLang6.Name = "cbLang6";
+            this.cbLang6.Size = new System.Drawing.Size(227, 21);
+            this.cbLang6.TabIndex = 26;
             // 
-            // lAlt0
+            // cbLang5
             // 
-            this.lAlt0.AutoSize = true;
-            this.lAlt0.Location = new System.Drawing.Point(122, 19);
-            this.lAlt0.Name = "lAlt0";
-            this.lAlt0.Size = new System.Drawing.Size(38, 17);
-            this.lAlt0.TabIndex = 2;
-            this.lAlt0.Text = "Alt";
-            this.lAlt0.UseVisualStyleBackColor = true;
+            this.cbLang5.FormattingEnabled = true;
+            this.cbLang5.Location = new System.Drawing.Point(191, 107);
+            this.cbLang5.Name = "cbLang5";
+            this.cbLang5.Size = new System.Drawing.Size(227, 21);
+            this.cbLang5.TabIndex = 26;
             // 
-            // lHK0
+            // cbLang4
             // 
-            this.lHK0.AutoSize = true;
-            this.lHK0.Location = new System.Drawing.Point(191, 20);
-            this.lHK0.Name = "lHK0";
-            this.lHK0.Size = new System.Drawing.Size(84, 13);
-            this.lHK0.TabIndex = 1;
-            this.lHK0.Text = "Show/Hide form";
+            this.cbLang4.FormattingEnabled = true;
+            this.cbLang4.Location = new System.Drawing.Point(189, 84);
+            this.cbLang4.Name = "cbLang4";
+            this.cbLang4.Size = new System.Drawing.Size(229, 21);
+            this.cbLang4.TabIndex = 26;
             // 
-            // lWinKey3
+            // cbLang3
             // 
-            this.lWinKey3.AutoSize = true;
-            this.lWinKey3.Location = new System.Drawing.Point(53, 88);
-            this.lWinKey3.Name = "lWinKey3";
-            this.lWinKey3.Size = new System.Drawing.Size(63, 17);
-            this.lWinKey3.TabIndex = 0;
-            this.lWinKey3.Text = "WinKey";
-            this.lWinKey3.UseVisualStyleBackColor = true;
+            this.cbLang3.FormattingEnabled = true;
+            this.cbLang3.Location = new System.Drawing.Point(189, 61);
+            this.cbLang3.Name = "cbLang3";
+            this.cbLang3.Size = new System.Drawing.Size(229, 21);
+            this.cbLang3.TabIndex = 26;
             // 
-            // lWinKey2
+            // cbLang2
             // 
-            this.lWinKey2.AutoSize = true;
-            this.lWinKey2.Location = new System.Drawing.Point(53, 65);
-            this.lWinKey2.Name = "lWinKey2";
-            this.lWinKey2.Size = new System.Drawing.Size(63, 17);
-            this.lWinKey2.TabIndex = 0;
-            this.lWinKey2.Text = "WinKey";
-            this.lWinKey2.UseVisualStyleBackColor = true;
+            this.cbLang2.FormattingEnabled = true;
+            this.cbLang2.Location = new System.Drawing.Point(189, 38);
+            this.cbLang2.Name = "cbLang2";
+            this.cbLang2.Size = new System.Drawing.Size(229, 21);
+            this.cbLang2.TabIndex = 26;
             // 
-            // lWinKey0
+            // cbLang1
             // 
-            this.lWinKey0.AutoSize = true;
-            this.lWinKey0.Location = new System.Drawing.Point(53, 19);
-            this.lWinKey0.Name = "lWinKey0";
-            this.lWinKey0.Size = new System.Drawing.Size(63, 17);
-            this.lWinKey0.TabIndex = 0;
-            this.lWinKey0.Text = "WinKey";
-            this.lWinKey0.UseVisualStyleBackColor = true;
+            this.cbLang1.FormattingEnabled = true;
+            this.cbLang1.Location = new System.Drawing.Point(189, 15);
+            this.cbLang1.Name = "cbLang1";
+            this.cbLang1.Size = new System.Drawing.Size(229, 21);
+            this.cbLang1.TabIndex = 26;
             // 
-            // lWinKey1
+            // lCtrllang1
             // 
-            this.lWinKey1.AutoSize = true;
-            this.lWinKey1.Location = new System.Drawing.Point(53, 42);
-            this.lWinKey1.Name = "lWinKey1";
-            this.lWinKey1.Size = new System.Drawing.Size(63, 17);
-            this.lWinKey1.TabIndex = 0;
-            this.lWinKey1.Text = "WinKey";
-            this.lWinKey1.UseVisualStyleBackColor = true;
+            this.lCtrllang1.AutoSize = true;
+            this.lCtrllang1.Location = new System.Drawing.Point(6, 19);
+            this.lCtrllang1.Name = "lCtrllang1";
+            this.lCtrllang1.Size = new System.Drawing.Size(41, 17);
+            this.lCtrllang1.TabIndex = 10;
+            this.lCtrllang1.Text = "Ctrl";
+            this.lCtrllang1.UseVisualStyleBackColor = true;
             // 
-            // lCtrl3
+            // tbHKlang6
             // 
-            this.lCtrl3.AutoSize = true;
-            this.lCtrl3.Location = new System.Drawing.Point(6, 88);
-            this.lCtrl3.Name = "lCtrl3";
-            this.lCtrl3.Size = new System.Drawing.Size(41, 17);
-            this.lCtrl3.TabIndex = 0;
-            this.lCtrl3.Text = "Ctrl";
-            this.lCtrl3.UseVisualStyleBackColor = true;
+            this.tbHKlang6.Location = new System.Drawing.Point(166, 131);
+            this.tbHKlang6.MaxLength = 1;
+            this.tbHKlang6.Name = "tbHKlang6";
+            this.tbHKlang6.Size = new System.Drawing.Size(19, 20);
+            this.tbHKlang6.TabIndex = 20;
             // 
-            // lCtrl0
+            // tbHKlang5
             // 
-            this.lCtrl0.AutoSize = true;
-            this.lCtrl0.Location = new System.Drawing.Point(6, 19);
-            this.lCtrl0.Name = "lCtrl0";
-            this.lCtrl0.Size = new System.Drawing.Size(41, 17);
-            this.lCtrl0.TabIndex = 0;
-            this.lCtrl0.Text = "Ctrl";
-            this.lCtrl0.UseVisualStyleBackColor = true;
+            this.tbHKlang5.Location = new System.Drawing.Point(166, 108);
+            this.tbHKlang5.MaxLength = 1;
+            this.tbHKlang5.Name = "tbHKlang5";
+            this.tbHKlang5.Size = new System.Drawing.Size(19, 20);
+            this.tbHKlang5.TabIndex = 20;
             // 
-            // lCtrl2
+            // tbHKlang4
             // 
-            this.lCtrl2.AutoSize = true;
-            this.lCtrl2.Location = new System.Drawing.Point(6, 65);
-            this.lCtrl2.Name = "lCtrl2";
-            this.lCtrl2.Size = new System.Drawing.Size(41, 17);
-            this.lCtrl2.TabIndex = 0;
-            this.lCtrl2.Text = "Ctrl";
-            this.lCtrl2.UseVisualStyleBackColor = true;
+            this.tbHKlang4.Location = new System.Drawing.Point(166, 85);
+            this.tbHKlang4.MaxLength = 1;
+            this.tbHKlang4.Name = "tbHKlang4";
+            this.tbHKlang4.Size = new System.Drawing.Size(19, 20);
+            this.tbHKlang4.TabIndex = 20;
             // 
-            // lCtrl1
+            // lCtrllang2
             // 
-            this.lCtrl1.AutoSize = true;
-            this.lCtrl1.Location = new System.Drawing.Point(6, 42);
-            this.lCtrl1.Name = "lCtrl1";
-            this.lCtrl1.Size = new System.Drawing.Size(41, 17);
-            this.lCtrl1.TabIndex = 0;
-            this.lCtrl1.Text = "Ctrl";
-            this.lCtrl1.UseVisualStyleBackColor = true;
+            this.lCtrllang2.AutoSize = true;
+            this.lCtrllang2.Location = new System.Drawing.Point(6, 42);
+            this.lCtrllang2.Name = "lCtrllang2";
+            this.lCtrllang2.Size = new System.Drawing.Size(41, 17);
+            this.lCtrllang2.TabIndex = 9;
+            this.lCtrllang2.Text = "Ctrl";
+            this.lCtrllang2.UseVisualStyleBackColor = true;
             // 
-            // tbHK0
+            // tbHKlang3
             // 
-            this.tbHK0.Location = new System.Drawing.Point(166, 16);
-            this.tbHK0.MaxLength = 1;
-            this.tbHK0.Name = "tbHK0";
-            this.tbHK0.Size = new System.Drawing.Size(19, 20);
-            this.tbHK0.TabIndex = 3;
+            this.tbHKlang3.Location = new System.Drawing.Point(166, 62);
+            this.tbHKlang3.MaxLength = 1;
+            this.tbHKlang3.Name = "tbHKlang3";
+            this.tbHKlang3.Size = new System.Drawing.Size(19, 20);
+            this.tbHKlang3.TabIndex = 23;
             // 
-            // tbHK1
+            // lCtrllang3
             // 
-            this.tbHK1.Location = new System.Drawing.Point(166, 39);
-            this.tbHK1.MaxLength = 1;
-            this.tbHK1.Name = "tbHK1";
-            this.tbHK1.Size = new System.Drawing.Size(19, 20);
-            this.tbHK1.TabIndex = 3;
+            this.lCtrllang3.AutoSize = true;
+            this.lCtrllang3.Location = new System.Drawing.Point(6, 65);
+            this.lCtrllang3.Name = "lCtrllang3";
+            this.lCtrllang3.Size = new System.Drawing.Size(41, 17);
+            this.lCtrllang3.TabIndex = 11;
+            this.lCtrllang3.Text = "Ctrl";
+            this.lCtrllang3.UseVisualStyleBackColor = true;
             // 
-            // tbHK2
+            // tbHKlang2
             // 
-            this.tbHK2.Location = new System.Drawing.Point(166, 62);
-            this.tbHK2.MaxLength = 1;
-            this.tbHK2.Name = "tbHK2";
-            this.tbHK2.Size = new System.Drawing.Size(19, 20);
-            this.tbHK2.TabIndex = 3;
+            this.tbHKlang2.Location = new System.Drawing.Point(166, 39);
+            this.tbHKlang2.MaxLength = 1;
+            this.tbHKlang2.Name = "tbHKlang2";
+            this.tbHKlang2.Size = new System.Drawing.Size(19, 20);
+            this.tbHKlang2.TabIndex = 22;
             // 
-            // tbHK3
+            // lCtrllang6
             // 
-            this.tbHK3.Location = new System.Drawing.Point(166, 85);
-            this.tbHK3.MaxLength = 1;
-            this.tbHK3.Name = "tbHK3";
-            this.tbHK3.Size = new System.Drawing.Size(19, 20);
-            this.tbHK3.TabIndex = 3;
+            this.lCtrllang6.AutoSize = true;
+            this.lCtrllang6.Location = new System.Drawing.Point(6, 134);
+            this.lCtrllang6.Name = "lCtrllang6";
+            this.lCtrllang6.Size = new System.Drawing.Size(41, 17);
+            this.lCtrllang6.TabIndex = 4;
+            this.lCtrllang6.Text = "Ctrl";
+            this.lCtrllang6.UseVisualStyleBackColor = true;
             // 
-            // lHK1
+            // lCtrllang5
             // 
-            this.lHK1.AutoSize = true;
-            this.lHK1.Location = new System.Drawing.Point(191, 43);
-            this.lHK1.Name = "lHK1";
-            this.lHK1.Size = new System.Drawing.Size(119, 13);
-            this.lHK1.TabIndex = 1;
-            this.lHK1.Text = "Pause/Resume speech";
+            this.lCtrllang5.AutoSize = true;
+            this.lCtrllang5.Location = new System.Drawing.Point(6, 111);
+            this.lCtrllang5.Name = "lCtrllang5";
+            this.lCtrllang5.Size = new System.Drawing.Size(41, 17);
+            this.lCtrllang5.TabIndex = 4;
+            this.lCtrllang5.Text = "Ctrl";
+            this.lCtrllang5.UseVisualStyleBackColor = true;
             // 
-            // lHK2
+            // lCtrllang4
             // 
-            this.lHK2.AutoSize = true;
-            this.lHK2.Location = new System.Drawing.Point(191, 66);
-            this.lHK2.Name = "lHK2";
-            this.lHK2.Size = new System.Drawing.Size(95, 13);
-            this.lHK2.TabIndex = 1;
-            this.lHK2.Text = "Previous sentence";
+            this.lCtrllang4.AutoSize = true;
+            this.lCtrllang4.Location = new System.Drawing.Point(6, 88);
+            this.lCtrllang4.Name = "lCtrllang4";
+            this.lCtrllang4.Size = new System.Drawing.Size(41, 17);
+            this.lCtrllang4.TabIndex = 4;
+            this.lCtrllang4.Text = "Ctrl";
+            this.lCtrllang4.UseVisualStyleBackColor = true;
             // 
-            // lHK3
+            // tbHKlang1
             // 
-            this.lHK3.AutoSize = true;
-            this.lHK3.Location = new System.Drawing.Point(191, 89);
-            this.lHK3.Name = "lHK3";
-            this.lHK3.Size = new System.Drawing.Size(76, 13);
-            this.lHK3.TabIndex = 1;
-            this.lHK3.Text = "Next sentence";
+            this.tbHKlang1.Location = new System.Drawing.Point(166, 16);
+            this.tbHKlang1.MaxLength = 1;
+            this.tbHKlang1.Name = "tbHKlang1";
+            this.tbHKlang1.Size = new System.Drawing.Size(19, 20);
+            this.tbHKlang1.TabIndex = 21;
+            // 
+            // lWinKeylang2
+            // 
+            this.lWinKeylang2.AutoSize = true;
+            this.lWinKeylang2.Location = new System.Drawing.Point(53, 42);
+            this.lWinKeylang2.Name = "lWinKeylang2";
+            this.lWinKeylang2.Size = new System.Drawing.Size(63, 17);
+            this.lWinKeylang2.TabIndex = 8;
+            this.lWinKeylang2.Text = "WinKey";
+            this.lWinKeylang2.UseVisualStyleBackColor = true;
+            // 
+            // lAltlang6
+            // 
+            this.lAltlang6.AutoSize = true;
+            this.lAltlang6.Location = new System.Drawing.Point(122, 134);
+            this.lAltlang6.Name = "lAltlang6";
+            this.lAltlang6.Size = new System.Drawing.Size(38, 17);
+            this.lAltlang6.TabIndex = 17;
+            this.lAltlang6.Text = "Alt";
+            this.lAltlang6.UseVisualStyleBackColor = true;
+            // 
+            // lAltlang5
+            // 
+            this.lAltlang5.AutoSize = true;
+            this.lAltlang5.Location = new System.Drawing.Point(122, 111);
+            this.lAltlang5.Name = "lAltlang5";
+            this.lAltlang5.Size = new System.Drawing.Size(38, 17);
+            this.lAltlang5.TabIndex = 17;
+            this.lAltlang5.Text = "Alt";
+            this.lAltlang5.UseVisualStyleBackColor = true;
+            // 
+            // lAltlang4
+            // 
+            this.lAltlang4.AutoSize = true;
+            this.lAltlang4.Location = new System.Drawing.Point(122, 88);
+            this.lAltlang4.Name = "lAltlang4";
+            this.lAltlang4.Size = new System.Drawing.Size(38, 17);
+            this.lAltlang4.TabIndex = 17;
+            this.lAltlang4.Text = "Alt";
+            this.lAltlang4.UseVisualStyleBackColor = true;
+            // 
+            // lWinKeylang1
+            // 
+            this.lWinKeylang1.AutoSize = true;
+            this.lWinKeylang1.Location = new System.Drawing.Point(53, 19);
+            this.lWinKeylang1.Name = "lWinKeylang1";
+            this.lWinKeylang1.Size = new System.Drawing.Size(63, 17);
+            this.lWinKeylang1.TabIndex = 5;
+            this.lWinKeylang1.Text = "WinKey";
+            this.lWinKeylang1.UseVisualStyleBackColor = true;
+            // 
+            // lAltlang3
+            // 
+            this.lAltlang3.AutoSize = true;
+            this.lAltlang3.Location = new System.Drawing.Point(122, 65);
+            this.lAltlang3.Name = "lAltlang3";
+            this.lAltlang3.Size = new System.Drawing.Size(38, 17);
+            this.lAltlang3.TabIndex = 19;
+            this.lAltlang3.Text = "Alt";
+            this.lAltlang3.UseVisualStyleBackColor = true;
+            // 
+            // lWinKeylang3
+            // 
+            this.lWinKeylang3.AutoSize = true;
+            this.lWinKeylang3.Location = new System.Drawing.Point(53, 65);
+            this.lWinKeylang3.Name = "lWinKeylang3";
+            this.lWinKeylang3.Size = new System.Drawing.Size(63, 17);
+            this.lWinKeylang3.TabIndex = 7;
+            this.lWinKeylang3.Text = "WinKey";
+            this.lWinKeylang3.UseVisualStyleBackColor = true;
+            // 
+            // lWinKeylang6
+            // 
+            this.lWinKeylang6.AutoSize = true;
+            this.lWinKeylang6.Location = new System.Drawing.Point(53, 134);
+            this.lWinKeylang6.Name = "lWinKeylang6";
+            this.lWinKeylang6.Size = new System.Drawing.Size(63, 17);
+            this.lWinKeylang6.TabIndex = 6;
+            this.lWinKeylang6.Text = "WinKey";
+            this.lWinKeylang6.UseVisualStyleBackColor = true;
+            // 
+            // lAltlang2
+            // 
+            this.lAltlang2.AutoSize = true;
+            this.lAltlang2.Location = new System.Drawing.Point(122, 42);
+            this.lAltlang2.Name = "lAltlang2";
+            this.lAltlang2.Size = new System.Drawing.Size(38, 17);
+            this.lAltlang2.TabIndex = 18;
+            this.lAltlang2.Text = "Alt";
+            this.lAltlang2.UseVisualStyleBackColor = true;
+            // 
+            // lWinKeylang5
+            // 
+            this.lWinKeylang5.AutoSize = true;
+            this.lWinKeylang5.Location = new System.Drawing.Point(53, 111);
+            this.lWinKeylang5.Name = "lWinKeylang5";
+            this.lWinKeylang5.Size = new System.Drawing.Size(63, 17);
+            this.lWinKeylang5.TabIndex = 6;
+            this.lWinKeylang5.Text = "WinKey";
+            this.lWinKeylang5.UseVisualStyleBackColor = true;
+            // 
+            // lWinKeylang4
+            // 
+            this.lWinKeylang4.AutoSize = true;
+            this.lWinKeylang4.Location = new System.Drawing.Point(53, 88);
+            this.lWinKeylang4.Name = "lWinKeylang4";
+            this.lWinKeylang4.Size = new System.Drawing.Size(63, 17);
+            this.lWinKeylang4.TabIndex = 6;
+            this.lWinKeylang4.Text = "WinKey";
+            this.lWinKeylang4.UseVisualStyleBackColor = true;
+            // 
+            // lAltlang1
+            // 
+            this.lAltlang1.AutoSize = true;
+            this.lAltlang1.Location = new System.Drawing.Point(122, 19);
+            this.lAltlang1.Name = "lAltlang1";
+            this.lAltlang1.Size = new System.Drawing.Size(38, 17);
+            this.lAltlang1.TabIndex = 16;
+            this.lAltlang1.Text = "Alt";
+            this.lAltlang1.UseVisualStyleBackColor = true;
             // 
             // gbGeneral
             // 
@@ -791,326 +942,247 @@ namespace Read4Me
             this.gbGeneral.TabStop = false;
             this.gbGeneral.Text = "General hotkeys";
             // 
-            // gbVoices
+            // lCtrl0
             // 
-            this.gbVoices.Controls.Add(this.comboBox6);
-            this.gbVoices.Controls.Add(this.comboBox5);
-            this.gbVoices.Controls.Add(this.comboBox4);
-            this.gbVoices.Controls.Add(this.comboBox3);
-            this.gbVoices.Controls.Add(this.comboBox2);
-            this.gbVoices.Controls.Add(this.comboBox1);
-            this.gbVoices.Controls.Add(this.checkBox1);
-            this.gbVoices.Controls.Add(this.textBox6);
-            this.gbVoices.Controls.Add(this.textBox5);
-            this.gbVoices.Controls.Add(this.textBox1);
-            this.gbVoices.Controls.Add(this.checkBox2);
-            this.gbVoices.Controls.Add(this.textBox2);
-            this.gbVoices.Controls.Add(this.checkBox3);
-            this.gbVoices.Controls.Add(this.textBox3);
-            this.gbVoices.Controls.Add(this.checkBox18);
-            this.gbVoices.Controls.Add(this.checkBox15);
-            this.gbVoices.Controls.Add(this.checkBox4);
-            this.gbVoices.Controls.Add(this.textBox4);
-            this.gbVoices.Controls.Add(this.checkBox5);
-            this.gbVoices.Controls.Add(this.checkBox17);
-            this.gbVoices.Controls.Add(this.checkBox14);
-            this.gbVoices.Controls.Add(this.checkBox6);
-            this.gbVoices.Controls.Add(this.checkBox7);
-            this.gbVoices.Controls.Add(this.checkBox8);
-            this.gbVoices.Controls.Add(this.checkBox9);
-            this.gbVoices.Controls.Add(this.checkBox16);
-            this.gbVoices.Controls.Add(this.checkBox10);
-            this.gbVoices.Controls.Add(this.checkBox13);
-            this.gbVoices.Controls.Add(this.checkBox11);
-            this.gbVoices.Controls.Add(this.checkBox12);
-            this.gbVoices.Location = new System.Drawing.Point(3, 121);
-            this.gbVoices.Name = "gbVoices";
-            this.gbVoices.Size = new System.Drawing.Size(424, 162);
-            this.gbVoices.TabIndex = 5;
-            this.gbVoices.TabStop = false;
-            this.gbVoices.Text = "Speech voices hotkeys";
+            this.lCtrl0.AutoSize = true;
+            this.lCtrl0.Location = new System.Drawing.Point(6, 19);
+            this.lCtrl0.Name = "lCtrl0";
+            this.lCtrl0.Size = new System.Drawing.Size(41, 17);
+            this.lCtrl0.TabIndex = 0;
+            this.lCtrl0.Text = "Ctrl";
+            this.lCtrl0.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // tbHK3
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(6, 19);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(41, 17);
-            this.checkBox1.TabIndex = 10;
-            this.checkBox1.Text = "Ctrl";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.tbHK3.Location = new System.Drawing.Point(166, 85);
+            this.tbHK3.MaxLength = 1;
+            this.tbHK3.Name = "tbHK3";
+            this.tbHK3.Size = new System.Drawing.Size(19, 20);
+            this.tbHK3.TabIndex = 3;
             // 
-            // textBox1
+            // lCtrl1
             // 
-            this.textBox1.Location = new System.Drawing.Point(166, 85);
-            this.textBox1.MaxLength = 1;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(19, 20);
-            this.textBox1.TabIndex = 20;
+            this.lCtrl1.AutoSize = true;
+            this.lCtrl1.Location = new System.Drawing.Point(6, 42);
+            this.lCtrl1.Name = "lCtrl1";
+            this.lCtrl1.Size = new System.Drawing.Size(41, 17);
+            this.lCtrl1.TabIndex = 0;
+            this.lCtrl1.Text = "Ctrl";
+            this.lCtrl1.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // tbHK2
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(6, 42);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(41, 17);
-            this.checkBox2.TabIndex = 9;
-            this.checkBox2.Text = "Ctrl";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.tbHK2.Location = new System.Drawing.Point(166, 62);
+            this.tbHK2.MaxLength = 1;
+            this.tbHK2.Name = "tbHK2";
+            this.tbHK2.Size = new System.Drawing.Size(19, 20);
+            this.tbHK2.TabIndex = 3;
             // 
-            // textBox2
+            // lCtrl2
             // 
-            this.textBox2.Location = new System.Drawing.Point(166, 62);
-            this.textBox2.MaxLength = 1;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(19, 20);
-            this.textBox2.TabIndex = 23;
+            this.lCtrl2.AutoSize = true;
+            this.lCtrl2.Location = new System.Drawing.Point(6, 65);
+            this.lCtrl2.Name = "lCtrl2";
+            this.lCtrl2.Size = new System.Drawing.Size(41, 17);
+            this.lCtrl2.TabIndex = 0;
+            this.lCtrl2.Text = "Ctrl";
+            this.lCtrl2.UseVisualStyleBackColor = true;
             // 
-            // checkBox3
+            // tbHK1
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(6, 65);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(41, 17);
-            this.checkBox3.TabIndex = 11;
-            this.checkBox3.Text = "Ctrl";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.tbHK1.Location = new System.Drawing.Point(166, 39);
+            this.tbHK1.MaxLength = 1;
+            this.tbHK1.Name = "tbHK1";
+            this.tbHK1.Size = new System.Drawing.Size(19, 20);
+            this.tbHK1.TabIndex = 3;
             // 
-            // textBox3
+            // lCtrl3
             // 
-            this.textBox3.Location = new System.Drawing.Point(166, 39);
-            this.textBox3.MaxLength = 1;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(19, 20);
-            this.textBox3.TabIndex = 22;
+            this.lCtrl3.AutoSize = true;
+            this.lCtrl3.Location = new System.Drawing.Point(6, 88);
+            this.lCtrl3.Name = "lCtrl3";
+            this.lCtrl3.Size = new System.Drawing.Size(41, 17);
+            this.lCtrl3.TabIndex = 0;
+            this.lCtrl3.Text = "Ctrl";
+            this.lCtrl3.UseVisualStyleBackColor = true;
             // 
-            // checkBox4
+            // tbHK0
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(6, 88);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(41, 17);
-            this.checkBox4.TabIndex = 4;
-            this.checkBox4.Text = "Ctrl";
-            this.checkBox4.UseVisualStyleBackColor = true;
+            this.tbHK0.Location = new System.Drawing.Point(166, 16);
+            this.tbHK0.MaxLength = 1;
+            this.tbHK0.Name = "tbHK0";
+            this.tbHK0.Size = new System.Drawing.Size(19, 20);
+            this.tbHK0.TabIndex = 3;
             // 
-            // textBox4
+            // lWinKey1
             // 
-            this.textBox4.Location = new System.Drawing.Point(166, 16);
-            this.textBox4.MaxLength = 1;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(19, 20);
-            this.textBox4.TabIndex = 21;
+            this.lWinKey1.AutoSize = true;
+            this.lWinKey1.Location = new System.Drawing.Point(53, 42);
+            this.lWinKey1.Name = "lWinKey1";
+            this.lWinKey1.Size = new System.Drawing.Size(63, 17);
+            this.lWinKey1.TabIndex = 0;
+            this.lWinKey1.Text = "WinKey";
+            this.lWinKey1.UseVisualStyleBackColor = true;
             // 
-            // checkBox5
+            // lAlt3
             // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(53, 42);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(63, 17);
-            this.checkBox5.TabIndex = 8;
-            this.checkBox5.Text = "WinKey";
-            this.checkBox5.UseVisualStyleBackColor = true;
+            this.lAlt3.AutoSize = true;
+            this.lAlt3.Location = new System.Drawing.Point(122, 88);
+            this.lAlt3.Name = "lAlt3";
+            this.lAlt3.Size = new System.Drawing.Size(38, 17);
+            this.lAlt3.TabIndex = 2;
+            this.lAlt3.Text = "Alt";
+            this.lAlt3.UseVisualStyleBackColor = true;
             // 
-            // checkBox6
+            // lWinKey0
             // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.Location = new System.Drawing.Point(122, 88);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(38, 17);
-            this.checkBox6.TabIndex = 17;
-            this.checkBox6.Text = "Alt";
-            this.checkBox6.UseVisualStyleBackColor = true;
+            this.lWinKey0.AutoSize = true;
+            this.lWinKey0.Location = new System.Drawing.Point(53, 19);
+            this.lWinKey0.Name = "lWinKey0";
+            this.lWinKey0.Size = new System.Drawing.Size(63, 17);
+            this.lWinKey0.TabIndex = 0;
+            this.lWinKey0.Text = "WinKey";
+            this.lWinKey0.UseVisualStyleBackColor = true;
             // 
-            // checkBox7
+            // lAlt2
             // 
-            this.checkBox7.AutoSize = true;
-            this.checkBox7.Location = new System.Drawing.Point(53, 19);
-            this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(63, 17);
-            this.checkBox7.TabIndex = 5;
-            this.checkBox7.Text = "WinKey";
-            this.checkBox7.UseVisualStyleBackColor = true;
+            this.lAlt2.AutoSize = true;
+            this.lAlt2.Location = new System.Drawing.Point(122, 65);
+            this.lAlt2.Name = "lAlt2";
+            this.lAlt2.Size = new System.Drawing.Size(38, 17);
+            this.lAlt2.TabIndex = 2;
+            this.lAlt2.Text = "Alt";
+            this.lAlt2.UseVisualStyleBackColor = true;
             // 
-            // checkBox8
+            // lWinKey2
             // 
-            this.checkBox8.AutoSize = true;
-            this.checkBox8.Location = new System.Drawing.Point(122, 65);
-            this.checkBox8.Name = "checkBox8";
-            this.checkBox8.Size = new System.Drawing.Size(38, 17);
-            this.checkBox8.TabIndex = 19;
-            this.checkBox8.Text = "Alt";
-            this.checkBox8.UseVisualStyleBackColor = true;
+            this.lWinKey2.AutoSize = true;
+            this.lWinKey2.Location = new System.Drawing.Point(53, 65);
+            this.lWinKey2.Name = "lWinKey2";
+            this.lWinKey2.Size = new System.Drawing.Size(63, 17);
+            this.lWinKey2.TabIndex = 0;
+            this.lWinKey2.Text = "WinKey";
+            this.lWinKey2.UseVisualStyleBackColor = true;
             // 
-            // checkBox9
+            // lAlt1
             // 
-            this.checkBox9.AutoSize = true;
-            this.checkBox9.Location = new System.Drawing.Point(53, 65);
-            this.checkBox9.Name = "checkBox9";
-            this.checkBox9.Size = new System.Drawing.Size(63, 17);
-            this.checkBox9.TabIndex = 7;
-            this.checkBox9.Text = "WinKey";
-            this.checkBox9.UseVisualStyleBackColor = true;
+            this.lAlt1.AutoSize = true;
+            this.lAlt1.Location = new System.Drawing.Point(122, 42);
+            this.lAlt1.Name = "lAlt1";
+            this.lAlt1.Size = new System.Drawing.Size(38, 17);
+            this.lAlt1.TabIndex = 2;
+            this.lAlt1.Text = "Alt";
+            this.lAlt1.UseVisualStyleBackColor = true;
             // 
-            // checkBox10
+            // lWinKey3
             // 
-            this.checkBox10.AutoSize = true;
-            this.checkBox10.Location = new System.Drawing.Point(122, 42);
-            this.checkBox10.Name = "checkBox10";
-            this.checkBox10.Size = new System.Drawing.Size(38, 17);
-            this.checkBox10.TabIndex = 18;
-            this.checkBox10.Text = "Alt";
-            this.checkBox10.UseVisualStyleBackColor = true;
+            this.lWinKey3.AutoSize = true;
+            this.lWinKey3.Location = new System.Drawing.Point(53, 88);
+            this.lWinKey3.Name = "lWinKey3";
+            this.lWinKey3.Size = new System.Drawing.Size(63, 17);
+            this.lWinKey3.TabIndex = 0;
+            this.lWinKey3.Text = "WinKey";
+            this.lWinKey3.UseVisualStyleBackColor = true;
             // 
-            // checkBox11
+            // lAlt0
             // 
-            this.checkBox11.AutoSize = true;
-            this.checkBox11.Location = new System.Drawing.Point(53, 88);
-            this.checkBox11.Name = "checkBox11";
-            this.checkBox11.Size = new System.Drawing.Size(63, 17);
-            this.checkBox11.TabIndex = 6;
-            this.checkBox11.Text = "WinKey";
-            this.checkBox11.UseVisualStyleBackColor = true;
+            this.lAlt0.AutoSize = true;
+            this.lAlt0.Location = new System.Drawing.Point(122, 19);
+            this.lAlt0.Name = "lAlt0";
+            this.lAlt0.Size = new System.Drawing.Size(38, 17);
+            this.lAlt0.TabIndex = 2;
+            this.lAlt0.Text = "Alt";
+            this.lAlt0.UseVisualStyleBackColor = true;
             // 
-            // checkBox12
+            // lHK0
             // 
-            this.checkBox12.AutoSize = true;
-            this.checkBox12.Location = new System.Drawing.Point(122, 19);
-            this.checkBox12.Name = "checkBox12";
-            this.checkBox12.Size = new System.Drawing.Size(38, 17);
-            this.checkBox12.TabIndex = 16;
-            this.checkBox12.Text = "Alt";
-            this.checkBox12.UseVisualStyleBackColor = true;
+            this.lHK0.AutoSize = true;
+            this.lHK0.Location = new System.Drawing.Point(191, 20);
+            this.lHK0.Name = "lHK0";
+            this.lHK0.Size = new System.Drawing.Size(84, 13);
+            this.lHK0.TabIndex = 1;
+            this.lHK0.Text = "Show/Hide form";
             // 
-            // checkBox13
+            // lHK3
             // 
-            this.checkBox13.AutoSize = true;
-            this.checkBox13.Location = new System.Drawing.Point(53, 111);
-            this.checkBox13.Name = "checkBox13";
-            this.checkBox13.Size = new System.Drawing.Size(63, 17);
-            this.checkBox13.TabIndex = 6;
-            this.checkBox13.Text = "WinKey";
-            this.checkBox13.UseVisualStyleBackColor = true;
+            this.lHK3.AutoSize = true;
+            this.lHK3.Location = new System.Drawing.Point(191, 89);
+            this.lHK3.Name = "lHK3";
+            this.lHK3.Size = new System.Drawing.Size(76, 13);
+            this.lHK3.TabIndex = 1;
+            this.lHK3.Text = "Next sentence";
             // 
-            // checkBox14
+            // lHK1
             // 
-            this.checkBox14.AutoSize = true;
-            this.checkBox14.Location = new System.Drawing.Point(122, 111);
-            this.checkBox14.Name = "checkBox14";
-            this.checkBox14.Size = new System.Drawing.Size(38, 17);
-            this.checkBox14.TabIndex = 17;
-            this.checkBox14.Text = "Alt";
-            this.checkBox14.UseVisualStyleBackColor = true;
+            this.lHK1.AutoSize = true;
+            this.lHK1.Location = new System.Drawing.Point(191, 43);
+            this.lHK1.Name = "lHK1";
+            this.lHK1.Size = new System.Drawing.Size(119, 13);
+            this.lHK1.TabIndex = 1;
+            this.lHK1.Text = "Pause/Resume speech";
             // 
-            // checkBox15
+            // lHK2
             // 
-            this.checkBox15.AutoSize = true;
-            this.checkBox15.Location = new System.Drawing.Point(6, 111);
-            this.checkBox15.Name = "checkBox15";
-            this.checkBox15.Size = new System.Drawing.Size(41, 17);
-            this.checkBox15.TabIndex = 4;
-            this.checkBox15.Text = "Ctrl";
-            this.checkBox15.UseVisualStyleBackColor = true;
+            this.lHK2.AutoSize = true;
+            this.lHK2.Location = new System.Drawing.Point(191, 66);
+            this.lHK2.Name = "lHK2";
+            this.lHK2.Size = new System.Drawing.Size(95, 13);
+            this.lHK2.TabIndex = 1;
+            this.lHK2.Text = "Previous sentence";
             // 
-            // textBox5
+            // cbLangid1
             // 
-            this.textBox5.Location = new System.Drawing.Point(166, 108);
-            this.textBox5.MaxLength = 1;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(19, 20);
-            this.textBox5.TabIndex = 20;
+            this.cbLangid1.FormattingEnabled = true;
+            this.cbLangid1.Location = new System.Drawing.Point(420, 15);
+            this.cbLangid1.Name = "cbLangid1";
+            this.cbLangid1.Size = new System.Drawing.Size(87, 21);
+            this.cbLangid1.TabIndex = 26;
             // 
-            // checkBox16
+            // cbLangid2
             // 
-            this.checkBox16.AutoSize = true;
-            this.checkBox16.Location = new System.Drawing.Point(53, 134);
-            this.checkBox16.Name = "checkBox16";
-            this.checkBox16.Size = new System.Drawing.Size(63, 17);
-            this.checkBox16.TabIndex = 6;
-            this.checkBox16.Text = "WinKey";
-            this.checkBox16.UseVisualStyleBackColor = true;
+            this.cbLangid2.FormattingEnabled = true;
+            this.cbLangid2.Location = new System.Drawing.Point(420, 38);
+            this.cbLangid2.Name = "cbLangid2";
+            this.cbLangid2.Size = new System.Drawing.Size(87, 21);
+            this.cbLangid2.TabIndex = 26;
             // 
-            // checkBox17
+            // cbLangid3
             // 
-            this.checkBox17.AutoSize = true;
-            this.checkBox17.Location = new System.Drawing.Point(122, 134);
-            this.checkBox17.Name = "checkBox17";
-            this.checkBox17.Size = new System.Drawing.Size(38, 17);
-            this.checkBox17.TabIndex = 17;
-            this.checkBox17.Text = "Alt";
-            this.checkBox17.UseVisualStyleBackColor = true;
+            this.cbLangid3.FormattingEnabled = true;
+            this.cbLangid3.Location = new System.Drawing.Point(420, 62);
+            this.cbLangid3.Name = "cbLangid3";
+            this.cbLangid3.Size = new System.Drawing.Size(87, 21);
+            this.cbLangid3.TabIndex = 26;
             // 
-            // checkBox18
+            // cbLangid4
             // 
-            this.checkBox18.AutoSize = true;
-            this.checkBox18.Location = new System.Drawing.Point(6, 134);
-            this.checkBox18.Name = "checkBox18";
-            this.checkBox18.Size = new System.Drawing.Size(41, 17);
-            this.checkBox18.TabIndex = 4;
-            this.checkBox18.Text = "Ctrl";
-            this.checkBox18.UseVisualStyleBackColor = true;
+            this.cbLangid4.FormattingEnabled = true;
+            this.cbLangid4.Location = new System.Drawing.Point(420, 84);
+            this.cbLangid4.Name = "cbLangid4";
+            this.cbLangid4.Size = new System.Drawing.Size(87, 21);
+            this.cbLangid4.TabIndex = 26;
             // 
-            // textBox6
+            // cbLangid5
             // 
-            this.textBox6.Location = new System.Drawing.Point(166, 131);
-            this.textBox6.MaxLength = 1;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(19, 20);
-            this.textBox6.TabIndex = 20;
+            this.cbLangid5.FormattingEnabled = true;
+            this.cbLangid5.Location = new System.Drawing.Point(420, 107);
+            this.cbLangid5.Name = "cbLangid5";
+            this.cbLangid5.Size = new System.Drawing.Size(87, 21);
+            this.cbLangid5.TabIndex = 26;
             // 
-            // comboBox1
+            // cbLangid6
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(189, 15);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(229, 21);
-            this.comboBox1.TabIndex = 26;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(189, 38);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(229, 21);
-            this.comboBox2.TabIndex = 26;
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(189, 61);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(229, 21);
-            this.comboBox3.TabIndex = 26;
-            // 
-            // comboBox4
-            // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(189, 84);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(229, 21);
-            this.comboBox4.TabIndex = 26;
-            // 
-            // comboBox5
-            // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(191, 107);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(227, 21);
-            this.comboBox5.TabIndex = 26;
-            // 
-            // comboBox6
-            // 
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(191, 130);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(227, 21);
-            this.comboBox6.TabIndex = 26;
+            this.cbLangid6.FormattingEnabled = true;
+            this.cbLangid6.Location = new System.Drawing.Point(420, 130);
+            this.cbLangid6.Name = "cbLangid6";
+            this.cbLangid6.Size = new System.Drawing.Size(87, 21);
+            this.cbLangid6.TabIndex = 26;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(531, 273);
+            this.ClientSize = new System.Drawing.Size(580, 273);
             this.Controls.Add(this.tabControlMain);
             this.Controls.Add(this.sStrip);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -1130,10 +1202,10 @@ namespace Read4Me
             this.tpSpeak.ResumeLayout(false);
             this.tpSpeak.PerformLayout();
             this.tbSettings.ResumeLayout(false);
-            this.gbGeneral.ResumeLayout(false);
-            this.gbGeneral.PerformLayout();
             this.gbVoices.ResumeLayout(false);
             this.gbVoices.PerformLayout();
+            this.gbGeneral.ResumeLayout(false);
+            this.gbGeneral.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1207,36 +1279,43 @@ namespace Read4Me
         private System.Windows.Forms.Label lHK3;
         private System.Windows.Forms.GroupBox gbGeneral;
         private System.Windows.Forms.GroupBox gbVoices;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.CheckBox checkBox5;
-        private System.Windows.Forms.CheckBox checkBox6;
-        private System.Windows.Forms.CheckBox checkBox7;
-        private System.Windows.Forms.CheckBox checkBox8;
-        private System.Windows.Forms.CheckBox checkBox9;
-        private System.Windows.Forms.CheckBox checkBox10;
-        private System.Windows.Forms.CheckBox checkBox11;
-        private System.Windows.Forms.CheckBox checkBox12;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.CheckBox checkBox18;
-        private System.Windows.Forms.CheckBox checkBox15;
-        private System.Windows.Forms.CheckBox checkBox17;
-        private System.Windows.Forms.CheckBox checkBox14;
-        private System.Windows.Forms.CheckBox checkBox16;
-        private System.Windows.Forms.CheckBox checkBox13;
-        private System.Windows.Forms.ComboBox comboBox6;
-        private System.Windows.Forms.ComboBox comboBox5;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.CheckBox lCtrllang1;
+        private System.Windows.Forms.TextBox tbHKlang4;
+        private System.Windows.Forms.CheckBox lCtrllang2;
+        private System.Windows.Forms.TextBox tbHKlang3;
+        private System.Windows.Forms.CheckBox lCtrllang3;
+        private System.Windows.Forms.TextBox tbHKlang2;
+        private System.Windows.Forms.CheckBox lCtrllang4;
+        private System.Windows.Forms.TextBox tbHKlang1;
+        private System.Windows.Forms.CheckBox lWinKeylang2;
+        private System.Windows.Forms.CheckBox lAltlang4;
+        private System.Windows.Forms.CheckBox lWinKeylang1;
+        private System.Windows.Forms.CheckBox lAltlang3;
+        private System.Windows.Forms.CheckBox lWinKeylang3;
+        private System.Windows.Forms.CheckBox lAltlang2;
+        private System.Windows.Forms.CheckBox lWinKeylang4;
+        private System.Windows.Forms.CheckBox lAltlang1;
+        private System.Windows.Forms.TextBox tbHKlang6;
+        private System.Windows.Forms.TextBox tbHKlang5;
+        private System.Windows.Forms.CheckBox lCtrllang6;
+        private System.Windows.Forms.CheckBox lCtrllang5;
+        private System.Windows.Forms.CheckBox lAltlang6;
+        private System.Windows.Forms.CheckBox lAltlang5;
+        private System.Windows.Forms.CheckBox lWinKeylang6;
+        private System.Windows.Forms.CheckBox lWinKeylang5;
+        private System.Windows.Forms.ComboBox cbLang6;
+        private System.Windows.Forms.ComboBox cbLang5;
+        private System.Windows.Forms.ComboBox cbLang4;
+        private System.Windows.Forms.ComboBox cbLang3;
+        private System.Windows.Forms.ComboBox cbLang2;
+        private System.Windows.Forms.ComboBox cbLang1;
+        private System.Windows.Forms.Button Apply;
+        private System.Windows.Forms.ComboBox cbLangid1;
+        private System.Windows.Forms.ComboBox cbLangid6;
+        private System.Windows.Forms.ComboBox cbLangid5;
+        private System.Windows.Forms.ComboBox cbLangid4;
+        private System.Windows.Forms.ComboBox cbLangid3;
+        private System.Windows.Forms.ComboBox cbLangid2;
     }
 }
 
