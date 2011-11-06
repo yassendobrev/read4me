@@ -11,10 +11,7 @@ namespace Read4Me
         // some required members 
         SpVoice speech = new SpVoice();
         int speechRate = 4; // Ranges from -10 to 10 
-        int speechRate_bg = 4; // Ranges from -10 to 10
-        int speechRate_ge = 1; // Ranges from -10 to 10
-        int speechRate_en = 1; // Ranges from -10 to 10
-        int volume = 80; // Range from 0 to 100.
+        int volume_global = 80; // Range from 0 to 100.
         bool paused = false;
         // Hashtable langids = new Hashtable();
         SortedList langids = new SortedList();
@@ -45,7 +42,7 @@ namespace Read4Me
             }
             cmbVoices.SelectedIndex = 0; // Select the first Index of the comboBox 
             tbarRate.Value = speechRate;
-            trbVolume.Value = volume;
+            trbVolume.Value = volume_global;
 
             // RegisterHotkeys();
             init_lists();

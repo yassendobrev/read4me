@@ -17,7 +17,7 @@ namespace Read4Me
             else
             {
                 speech.Rate = speechRate;
-                speech.Volume = volume;
+                speech.Volume = volume_global;
                 speech.Speak(tbspeech.Text, SpeechVoiceSpeakFlags.SVSFlagsAsync | SpeechVoiceSpeakFlags.SVSFIsXML);
             }
         }
@@ -38,7 +38,7 @@ namespace Read4Me
                     SpFileStream.Open(sfd.FileName, SpFileMode, false);
                     speech.AudioOutputStream = SpFileStream;
                     speech.Rate = speechRate;
-                    speech.Volume = volume;
+                    speech.Volume = volume_global;
                     speech.Speak(tbspeech.Text, SpeechVoiceSpeakFlags.SVSFlagsAsync | SpeechVoiceSpeakFlags.SVSFIsXML);
                     speech.WaitUntilDone(Timeout.Infinite);
                     SpFileStream.Close();
@@ -69,7 +69,7 @@ namespace Read4Me
 
         private void trbVolume_Scroll(object sender, EventArgs e)
         {
-            volume = trbVolume.Value;
+            volume_global = trbVolume.Value;
         }
     }
 }

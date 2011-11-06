@@ -12,6 +12,8 @@ namespace Read4Me
     {
         List<ComboBox> comboboxes_voice = new List<ComboBox>();
         List<ComboBox> comboboxes_lang = new List<ComboBox>();
+        List<ComboBox> comboboxes_srate = new List<ComboBox>();
+        List<ComboBox> comboboxes_volume = new List<ComboBox>();
         List<CheckBox> checkboxes_ctrl_lang = new List<CheckBox>();
         List<CheckBox> checkboxes_winkey_lang = new List<CheckBox>();
         List<CheckBox> checkboxes_alt_lang = new List<CheckBox>();
@@ -60,7 +62,21 @@ namespace Read4Me
             comboboxes_lang.Add(cbLangid5);
             comboboxes_lang.Add(cbLangid6);
 
-            InitLangid();
+            comboboxes_srate.Add(cbSRate1);
+            comboboxes_srate.Add(cbSRate2);
+            comboboxes_srate.Add(cbSRate3);
+            comboboxes_srate.Add(cbSRate4);
+            comboboxes_srate.Add(cbSRate5);
+            comboboxes_srate.Add(cbSRate6);
+
+            comboboxes_volume.Add(cbVolume1);
+            comboboxes_volume.Add(cbVolume2);
+            comboboxes_volume.Add(cbVolume3);
+            comboboxes_volume.Add(cbVolume4);
+            comboboxes_volume.Add(cbVolume5);
+            comboboxes_volume.Add(cbVolume6);
+
+            InitComboboxes();
         }
 
         private void ReadSettings()
@@ -75,6 +91,7 @@ namespace Read4Me
             char key;
             int lang_num = 0;
             int srate = 0;
+            int volume = 0;
 
             try
             {
@@ -100,8 +117,8 @@ namespace Read4Me
                                 {
                                     key = '\0';
                                 }
-                                SetViewSettings(type, ctrl, winkey, alt, key, "", "", 0);
-                                RegisterHotkey(type, ctrl, winkey, alt, key, "", "", 0);
+                                SetViewSettings(type, ctrl, winkey, alt, key, "", "", 0, 0, 0);
+                                RegisterHotkey(type, ctrl, winkey, alt, key, "", "", 0, 0);
                                 break;
 
                             case "hotkey_speech":
@@ -120,8 +137,10 @@ namespace Read4Me
                                 lang = reader["lang"];
                                 langid = (string)langids[lang];
                                 voice = reader["voice"];
-                                SetViewSettings(type, ctrl, winkey, alt, key, lang, voice, lang_num);
-                                RegisterHotkey(type, ctrl, winkey, alt, key, langid, voice, srate);
+                                srate = Int16.Parse(reader["srate"]);
+                                volume = Int16.Parse(reader["volume"]);
+                                SetViewSettings(type, ctrl, winkey, alt, key, lang, voice, lang_num, srate, volume);
+                                RegisterHotkey(type, ctrl, winkey, alt, key, langid, voice, srate, volume);
                                 lang_num++;
                                 break;
 
@@ -138,7 +157,7 @@ namespace Read4Me
             }
         }
 
-        private void SetViewSettings(string type, bool ctrl, bool winkey, bool alt, char key, string lang, string voice, int lang_num)
+        private void SetViewSettings(string type, bool ctrl, bool winkey, bool alt, char key, string lang, string voice, int lang_num, int srate, int volume)
         {
             switch (type)
             {
@@ -177,6 +196,8 @@ namespace Read4Me
                     textboxes_lang[lang_num].Text = key.ToString();
                     comboboxes_voice[lang_num].SelectedIndex = cbLang1.FindStringExact(voice);
                     comboboxes_lang[lang_num].SelectedIndex = cbLangid1.FindStringExact(lang);
+                    comboboxes_srate[lang_num].SelectedIndex = cbSRate1.FindStringExact(srate.ToString());
+                    comboboxes_volume[lang_num].SelectedIndex = cbVolume1.FindStringExact(volume.ToString());
                     break;
 
                 default:
@@ -187,7 +208,7 @@ namespace Read4Me
         List<Hotkey> hotkeys = new List<Hotkey>();
         List<Keys> keycodes = new List<Keys>();
         List<Action> actions = new List<Action>();
-        private bool RegisterHotkey(string type, bool ctrl, bool winkey, bool alt, char key, string langid, string voice, int srate)
+        private bool RegisterHotkey(string type, bool ctrl, bool winkey, bool alt, char key, string langid, string voice, int srate, int volume)
         {
             // register hotkeys
             // http://bloggablea.wordpress.com/2007/05/01/global-hotkeys-with-net/
@@ -221,7 +242,7 @@ namespace Read4Me
                     break;
 
                 case "speech":
-                    todo_action = () => ReadClipboard(langid, voice, srate);
+                    todo_action = () => ReadClipboard(langid, voice, srate, volume);
                     break;
             }
             hotkeys[current_hotkey].Pressed += delegate { todo_action(); };
@@ -246,7 +267,7 @@ namespace Read4Me
             hotkeys.Clear();
         }
 
-        private void Apply_Click(object sender, EventArgs e)
+        private void WriteSettings(object sender, EventArgs e)
         {
             file_writer = new StreamWriter(Path.GetDirectoryName(Application.ExecutablePath) + "\\Read4Me.ini", false, Encoding.UTF8);
             file_writer.Write("<?xml version=\"1.0\" encoding=\"utf-8\" ?>\r\n");
@@ -259,7 +280,7 @@ namespace Read4Me
             {
                 if ((textboxes_lang[i].Text != "") && ((string)comboboxes_lang[i].SelectedItem != "" && ((string)comboboxes_voice[i].SelectedItem != "")))
                 {
-                    file_writer.Write("    <hotkey_speech type=\"speech\" ctrl=\"" + ((checkboxes_ctrl_lang[i].Checked == true) ? "1" : "0") + "\" winkey=\"" + ((checkboxes_winkey_lang[i].Checked == true) ? "1" : "0") + "\" alt=\"" + ((checkboxes_alt_lang[i].Checked == true) ? "1" : "0") + "\" key=\"" + textboxes_lang[i].Text + "\" lang=\"" + comboboxes_lang[i].SelectedItem + "\" voice=\"" + comboboxes_voice[i].SelectedItem + "\"></hotkey_speech>\r\n");
+                    file_writer.Write("    <hotkey_speech type=\"speech\" ctrl=\"" + ((checkboxes_ctrl_lang[i].Checked == true) ? "1" : "0") + "\" winkey=\"" + ((checkboxes_winkey_lang[i].Checked == true) ? "1" : "0") + "\" alt=\"" + ((checkboxes_alt_lang[i].Checked == true) ? "1" : "0") + "\" key=\"" + textboxes_lang[i].Text + "\" lang=\"" + comboboxes_lang[i].SelectedItem + "\" voice=\"" + comboboxes_voice[i].SelectedItem + "\" srate=\"" + comboboxes_srate[i].SelectedItem + "\" volume=\"" + comboboxes_volume[i].SelectedItem + "\"></hotkey_speech>\r\n");
                 }
             }
             file_writer.Write("</settings>\r\n");
@@ -268,7 +289,7 @@ namespace Read4Me
             ReadSettings();
         }
 
-        private void InitLangid()
+        private void InitComboboxes()
         {
             langids.Add("Afrikaans", "436");
             langids.Add("Albanian", "41c");
@@ -419,6 +440,22 @@ namespace Read4Me
                 foreach (DictionaryEntry entry in langids)
                 {
                     comboboxes_lang[i].Items.Add(entry.Key);
+                }
+            }
+
+            for (int i = 0; i < comboboxes_srate.Count; i++)
+            {
+                for (int j = -10; j <= 10; j++)
+                {
+                    comboboxes_srate[i].Items.Add(j.ToString());
+                }
+            }
+
+            for (int i = 0; i < comboboxes_srate.Count; i++)
+            {
+                for (int j = 0; j <= 100; j++)
+                {
+                    comboboxes_volume[i].Items.Add(j.ToString());
                 }
             }
         }

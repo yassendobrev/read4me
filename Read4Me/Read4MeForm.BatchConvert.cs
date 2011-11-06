@@ -90,7 +90,7 @@ namespace Read4Me
             SpFileStream.Open(file.Replace(".xml", ".wav"), SpFileMode, false);
             speech.AudioOutputStream = SpFileStream;
             speech.Rate = speechRate;
-            speech.Volume = volume;
+            speech.Volume = volume_global;
             // speech.Speak(FileName, SpeechVoiceSpeakFlags.SVSFIsFilename); // not working properly
             speech.Speak(toSpeak, SpeechVoiceSpeakFlags.SVSFlagsAsync | SpeechVoiceSpeakFlags.SVSFIsXML);
             speech.WaitUntilDone(Timeout.Infinite);

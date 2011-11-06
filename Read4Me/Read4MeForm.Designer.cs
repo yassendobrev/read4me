@@ -79,6 +79,12 @@ namespace Read4Me
             this.cbLang6 = new System.Windows.Forms.ComboBox();
             this.cbLang5 = new System.Windows.Forms.ComboBox();
             this.cbLang4 = new System.Windows.Forms.ComboBox();
+            this.cbSRate6 = new System.Windows.Forms.ComboBox();
+            this.cbSRate5 = new System.Windows.Forms.ComboBox();
+            this.cbSRate4 = new System.Windows.Forms.ComboBox();
+            this.cbSRate3 = new System.Windows.Forms.ComboBox();
+            this.cbSRate2 = new System.Windows.Forms.ComboBox();
+            this.cbSRate1 = new System.Windows.Forms.ComboBox();
             this.cbLangid6 = new System.Windows.Forms.ComboBox();
             this.cbLangid5 = new System.Windows.Forms.ComboBox();
             this.cbLangid4 = new System.Windows.Forms.ComboBox();
@@ -133,12 +139,12 @@ namespace Read4Me
             this.lHK3 = new System.Windows.Forms.Label();
             this.lHK1 = new System.Windows.Forms.Label();
             this.lHK2 = new System.Windows.Forms.Label();
-            this.cbSRate1 = new System.Windows.Forms.ComboBox();
-            this.cbSRate2 = new System.Windows.Forms.ComboBox();
-            this.cbSRate3 = new System.Windows.Forms.ComboBox();
-            this.cbSRate4 = new System.Windows.Forms.ComboBox();
-            this.cbSRate5 = new System.Windows.Forms.ComboBox();
-            this.cbSRate6 = new System.Windows.Forms.ComboBox();
+            this.cbVolume1 = new System.Windows.Forms.ComboBox();
+            this.cbVolume2 = new System.Windows.Forms.ComboBox();
+            this.cbVolume3 = new System.Windows.Forms.ComboBox();
+            this.cbVolume4 = new System.Windows.Forms.ComboBox();
+            this.cbVolume5 = new System.Windows.Forms.ComboBox();
+            this.cbVolume6 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.tbarRate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trbVolume)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -358,7 +364,7 @@ namespace Read4Me
             this.sWorkingStatus});
             this.sStrip.Location = new System.Drawing.Point(0, 251);
             this.sStrip.Name = "sStrip";
-            this.sStrip.Size = new System.Drawing.Size(580, 22);
+            this.sStrip.Size = new System.Drawing.Size(699, 22);
             this.sStrip.TabIndex = 19;
             // 
             // sWorkingStatus
@@ -518,7 +524,7 @@ namespace Read4Me
             this.tabControlMain.Location = new System.Drawing.Point(12, 12);
             this.tabControlMain.Name = "tabControlMain";
             this.tabControlMain.SelectedIndex = 0;
-            this.tabControlMain.Size = new System.Drawing.Size(556, 227);
+            this.tabControlMain.Size = new System.Drawing.Size(681, 227);
             this.tabControlMain.TabIndex = 48;
             // 
             // tpConv
@@ -570,7 +576,7 @@ namespace Read4Me
             this.tpSpeak.Location = new System.Drawing.Point(4, 22);
             this.tpSpeak.Name = "tpSpeak";
             this.tpSpeak.Padding = new System.Windows.Forms.Padding(3);
-            this.tpSpeak.Size = new System.Drawing.Size(548, 201);
+            this.tpSpeak.Size = new System.Drawing.Size(620, 201);
             this.tpSpeak.TabIndex = 1;
             this.tpSpeak.Text = "Speak Text";
             this.tpSpeak.UseVisualStyleBackColor = true;
@@ -584,31 +590,37 @@ namespace Read4Me
             this.tbSettings.Controls.Add(this.gbGeneral);
             this.tbSettings.Location = new System.Drawing.Point(4, 22);
             this.tbSettings.Name = "tbSettings";
-            this.tbSettings.Size = new System.Drawing.Size(548, 201);
+            this.tbSettings.Size = new System.Drawing.Size(673, 201);
             this.tbSettings.TabIndex = 2;
             this.tbSettings.Text = "Settings";
             this.tbSettings.UseVisualStyleBackColor = true;
             // 
             // Apply
             // 
-            this.Apply.Location = new System.Drawing.Point(425, 289);
+            this.Apply.Location = new System.Drawing.Point(541, 289);
             this.Apply.Name = "Apply";
-            this.Apply.Size = new System.Drawing.Size(75, 23);
+            this.Apply.Size = new System.Drawing.Size(94, 23);
             this.Apply.TabIndex = 6;
             this.Apply.Text = "Apply";
             this.Apply.UseVisualStyleBackColor = true;
-            this.Apply.Click += new System.EventHandler(this.Apply_Click);
+            this.Apply.Click += new System.EventHandler(this.WriteSettings);
             // 
             // gbVoices
             // 
             this.gbVoices.Controls.Add(this.cbLang6);
             this.gbVoices.Controls.Add(this.cbLang5);
             this.gbVoices.Controls.Add(this.cbLang4);
+            this.gbVoices.Controls.Add(this.cbVolume6);
             this.gbVoices.Controls.Add(this.cbSRate6);
+            this.gbVoices.Controls.Add(this.cbVolume5);
             this.gbVoices.Controls.Add(this.cbSRate5);
+            this.gbVoices.Controls.Add(this.cbVolume4);
             this.gbVoices.Controls.Add(this.cbSRate4);
+            this.gbVoices.Controls.Add(this.cbVolume3);
             this.gbVoices.Controls.Add(this.cbSRate3);
+            this.gbVoices.Controls.Add(this.cbVolume2);
             this.gbVoices.Controls.Add(this.cbSRate2);
+            this.gbVoices.Controls.Add(this.cbVolume1);
             this.gbVoices.Controls.Add(this.cbSRate1);
             this.gbVoices.Controls.Add(this.cbLangid6);
             this.gbVoices.Controls.Add(this.cbLangid5);
@@ -645,7 +657,7 @@ namespace Read4Me
             this.gbVoices.Controls.Add(this.lAltlang1);
             this.gbVoices.Location = new System.Drawing.Point(3, 121);
             this.gbVoices.Name = "gbVoices";
-            this.gbVoices.Size = new System.Drawing.Size(513, 162);
+            this.gbVoices.Size = new System.Drawing.Size(645, 162);
             this.gbVoices.TabIndex = 5;
             this.gbVoices.TabStop = false;
             this.gbVoices.Text = "Speech voices hotkeys";
@@ -656,7 +668,7 @@ namespace Read4Me
             this.cbLang6.FormattingEnabled = true;
             this.cbLang6.Location = new System.Drawing.Point(194, 130);
             this.cbLang6.Name = "cbLang6";
-            this.cbLang6.Size = new System.Drawing.Size(149, 21);
+            this.cbLang6.Size = new System.Drawing.Size(201, 21);
             this.cbLang6.TabIndex = 26;
             // 
             // cbLang5
@@ -665,7 +677,7 @@ namespace Read4Me
             this.cbLang5.FormattingEnabled = true;
             this.cbLang5.Location = new System.Drawing.Point(194, 107);
             this.cbLang5.Name = "cbLang5";
-            this.cbLang5.Size = new System.Drawing.Size(149, 21);
+            this.cbLang5.Size = new System.Drawing.Size(201, 21);
             this.cbLang5.TabIndex = 26;
             // 
             // cbLang4
@@ -674,61 +686,115 @@ namespace Read4Me
             this.cbLang4.FormattingEnabled = true;
             this.cbLang4.Location = new System.Drawing.Point(194, 84);
             this.cbLang4.Name = "cbLang4";
-            this.cbLang4.Size = new System.Drawing.Size(149, 21);
+            this.cbLang4.Size = new System.Drawing.Size(201, 21);
             this.cbLang4.TabIndex = 26;
+            // 
+            // cbSRate6
+            // 
+            this.cbSRate6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbSRate6.FormattingEnabled = true;
+            this.cbSRate6.Location = new System.Drawing.Point(538, 130);
+            this.cbSRate6.Name = "cbSRate6";
+            this.cbSRate6.Size = new System.Drawing.Size(44, 21);
+            this.cbSRate6.TabIndex = 26;
+            // 
+            // cbSRate5
+            // 
+            this.cbSRate5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbSRate5.FormattingEnabled = true;
+            this.cbSRate5.Location = new System.Drawing.Point(538, 107);
+            this.cbSRate5.Name = "cbSRate5";
+            this.cbSRate5.Size = new System.Drawing.Size(44, 21);
+            this.cbSRate5.TabIndex = 26;
+            // 
+            // cbSRate4
+            // 
+            this.cbSRate4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbSRate4.FormattingEnabled = true;
+            this.cbSRate4.Location = new System.Drawing.Point(538, 84);
+            this.cbSRate4.Name = "cbSRate4";
+            this.cbSRate4.Size = new System.Drawing.Size(44, 21);
+            this.cbSRate4.TabIndex = 26;
+            // 
+            // cbSRate3
+            // 
+            this.cbSRate3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbSRate3.FormattingEnabled = true;
+            this.cbSRate3.Location = new System.Drawing.Point(538, 61);
+            this.cbSRate3.Name = "cbSRate3";
+            this.cbSRate3.Size = new System.Drawing.Size(44, 21);
+            this.cbSRate3.TabIndex = 26;
+            // 
+            // cbSRate2
+            // 
+            this.cbSRate2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbSRate2.FormattingEnabled = true;
+            this.cbSRate2.Location = new System.Drawing.Point(538, 38);
+            this.cbSRate2.Name = "cbSRate2";
+            this.cbSRate2.Size = new System.Drawing.Size(44, 21);
+            this.cbSRate2.TabIndex = 26;
+            // 
+            // cbSRate1
+            // 
+            this.cbSRate1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbSRate1.FormattingEnabled = true;
+            this.cbSRate1.Location = new System.Drawing.Point(538, 15);
+            this.cbSRate1.Name = "cbSRate1";
+            this.cbSRate1.Size = new System.Drawing.Size(44, 21);
+            this.cbSRate1.TabIndex = 26;
             // 
             // cbLangid6
             // 
             this.cbLangid6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLangid6.FormattingEnabled = true;
-            this.cbLangid6.Location = new System.Drawing.Point(349, 131);
+            this.cbLangid6.Location = new System.Drawing.Point(401, 130);
             this.cbLangid6.Name = "cbLangid6";
-            this.cbLangid6.Size = new System.Drawing.Size(115, 21);
+            this.cbLangid6.Size = new System.Drawing.Size(131, 21);
             this.cbLangid6.TabIndex = 26;
             // 
             // cbLangid5
             // 
             this.cbLangid5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLangid5.FormattingEnabled = true;
-            this.cbLangid5.Location = new System.Drawing.Point(349, 108);
+            this.cbLangid5.Location = new System.Drawing.Point(401, 107);
             this.cbLangid5.Name = "cbLangid5";
-            this.cbLangid5.Size = new System.Drawing.Size(115, 21);
+            this.cbLangid5.Size = new System.Drawing.Size(131, 21);
             this.cbLangid5.TabIndex = 26;
             // 
             // cbLangid4
             // 
             this.cbLangid4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLangid4.FormattingEnabled = true;
-            this.cbLangid4.Location = new System.Drawing.Point(349, 85);
+            this.cbLangid4.Location = new System.Drawing.Point(401, 84);
             this.cbLangid4.Name = "cbLangid4";
-            this.cbLangid4.Size = new System.Drawing.Size(115, 21);
+            this.cbLangid4.Size = new System.Drawing.Size(131, 21);
             this.cbLangid4.TabIndex = 26;
             // 
             // cbLangid3
             // 
             this.cbLangid3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLangid3.FormattingEnabled = true;
-            this.cbLangid3.Location = new System.Drawing.Point(349, 63);
+            this.cbLangid3.Location = new System.Drawing.Point(401, 62);
             this.cbLangid3.Name = "cbLangid3";
-            this.cbLangid3.Size = new System.Drawing.Size(115, 21);
+            this.cbLangid3.Size = new System.Drawing.Size(131, 21);
             this.cbLangid3.TabIndex = 26;
             // 
             // cbLangid2
             // 
             this.cbLangid2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLangid2.FormattingEnabled = true;
-            this.cbLangid2.Location = new System.Drawing.Point(349, 39);
+            this.cbLangid2.Location = new System.Drawing.Point(401, 38);
             this.cbLangid2.Name = "cbLangid2";
-            this.cbLangid2.Size = new System.Drawing.Size(115, 21);
+            this.cbLangid2.Size = new System.Drawing.Size(131, 21);
             this.cbLangid2.TabIndex = 26;
             // 
             // cbLangid1
             // 
             this.cbLangid1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLangid1.FormattingEnabled = true;
-            this.cbLangid1.Location = new System.Drawing.Point(349, 16);
+            this.cbLangid1.Location = new System.Drawing.Point(401, 15);
             this.cbLangid1.Name = "cbLangid1";
-            this.cbLangid1.Size = new System.Drawing.Size(115, 21);
+            this.cbLangid1.Size = new System.Drawing.Size(131, 21);
             this.cbLangid1.TabIndex = 26;
             // 
             // cbLang3
@@ -737,7 +803,7 @@ namespace Read4Me
             this.cbLang3.FormattingEnabled = true;
             this.cbLang3.Location = new System.Drawing.Point(194, 62);
             this.cbLang3.Name = "cbLang3";
-            this.cbLang3.Size = new System.Drawing.Size(149, 21);
+            this.cbLang3.Size = new System.Drawing.Size(201, 21);
             this.cbLang3.TabIndex = 26;
             // 
             // cbLang2
@@ -746,7 +812,7 @@ namespace Read4Me
             this.cbLang2.FormattingEnabled = true;
             this.cbLang2.Location = new System.Drawing.Point(194, 39);
             this.cbLang2.Name = "cbLang2";
-            this.cbLang2.Size = new System.Drawing.Size(149, 21);
+            this.cbLang2.Size = new System.Drawing.Size(201, 21);
             this.cbLang2.TabIndex = 26;
             // 
             // cbLang1
@@ -755,7 +821,7 @@ namespace Read4Me
             this.cbLang1.FormattingEnabled = true;
             this.cbLang1.Location = new System.Drawing.Point(194, 16);
             this.cbLang1.Name = "cbLang1";
-            this.cbLang1.Size = new System.Drawing.Size(149, 21);
+            this.cbLang1.Size = new System.Drawing.Size(201, 21);
             this.cbLang1.TabIndex = 26;
             // 
             // lCtrllang1
@@ -1203,65 +1269,65 @@ namespace Read4Me
             this.lHK2.TabIndex = 1;
             this.lHK2.Text = "Previous sentence";
             // 
-            // cbSRate1
+            // cbVolume1
             // 
-            this.cbSRate1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbSRate1.FormattingEnabled = true;
-            this.cbSRate1.Location = new System.Drawing.Point(470, 15);
-            this.cbSRate1.Name = "cbSRate1";
-            this.cbSRate1.Size = new System.Drawing.Size(27, 21);
-            this.cbSRate1.TabIndex = 26;
+            this.cbVolume1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbVolume1.FormattingEnabled = true;
+            this.cbVolume1.Location = new System.Drawing.Point(588, 15);
+            this.cbVolume1.Name = "cbVolume1";
+            this.cbVolume1.Size = new System.Drawing.Size(44, 21);
+            this.cbVolume1.TabIndex = 26;
             // 
-            // cbSRate2
+            // cbVolume2
             // 
-            this.cbSRate2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbSRate2.FormattingEnabled = true;
-            this.cbSRate2.Location = new System.Drawing.Point(470, 38);
-            this.cbSRate2.Name = "cbSRate2";
-            this.cbSRate2.Size = new System.Drawing.Size(27, 21);
-            this.cbSRate2.TabIndex = 26;
+            this.cbVolume2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbVolume2.FormattingEnabled = true;
+            this.cbVolume2.Location = new System.Drawing.Point(588, 38);
+            this.cbVolume2.Name = "cbVolume2";
+            this.cbVolume2.Size = new System.Drawing.Size(44, 21);
+            this.cbVolume2.TabIndex = 26;
             // 
-            // cbSRate3
+            // cbVolume3
             // 
-            this.cbSRate3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbSRate3.FormattingEnabled = true;
-            this.cbSRate3.Location = new System.Drawing.Point(470, 61);
-            this.cbSRate3.Name = "cbSRate3";
-            this.cbSRate3.Size = new System.Drawing.Size(27, 21);
-            this.cbSRate3.TabIndex = 26;
+            this.cbVolume3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbVolume3.FormattingEnabled = true;
+            this.cbVolume3.Location = new System.Drawing.Point(588, 61);
+            this.cbVolume3.Name = "cbVolume3";
+            this.cbVolume3.Size = new System.Drawing.Size(44, 21);
+            this.cbVolume3.TabIndex = 26;
             // 
-            // cbSRate4
+            // cbVolume4
             // 
-            this.cbSRate4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbSRate4.FormattingEnabled = true;
-            this.cbSRate4.Location = new System.Drawing.Point(470, 84);
-            this.cbSRate4.Name = "cbSRate4";
-            this.cbSRate4.Size = new System.Drawing.Size(27, 21);
-            this.cbSRate4.TabIndex = 26;
+            this.cbVolume4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbVolume4.FormattingEnabled = true;
+            this.cbVolume4.Location = new System.Drawing.Point(588, 84);
+            this.cbVolume4.Name = "cbVolume4";
+            this.cbVolume4.Size = new System.Drawing.Size(44, 21);
+            this.cbVolume4.TabIndex = 26;
             // 
-            // cbSRate5
+            // cbVolume5
             // 
-            this.cbSRate5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbSRate5.FormattingEnabled = true;
-            this.cbSRate5.Location = new System.Drawing.Point(470, 107);
-            this.cbSRate5.Name = "cbSRate5";
-            this.cbSRate5.Size = new System.Drawing.Size(27, 21);
-            this.cbSRate5.TabIndex = 26;
+            this.cbVolume5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbVolume5.FormattingEnabled = true;
+            this.cbVolume5.Location = new System.Drawing.Point(588, 107);
+            this.cbVolume5.Name = "cbVolume5";
+            this.cbVolume5.Size = new System.Drawing.Size(44, 21);
+            this.cbVolume5.TabIndex = 26;
             // 
-            // cbSRate6
+            // cbVolume6
             // 
-            this.cbSRate6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbSRate6.FormattingEnabled = true;
-            this.cbSRate6.Location = new System.Drawing.Point(470, 130);
-            this.cbSRate6.Name = "cbSRate6";
-            this.cbSRate6.Size = new System.Drawing.Size(27, 21);
-            this.cbSRate6.TabIndex = 26;
+            this.cbVolume6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbVolume6.FormattingEnabled = true;
+            this.cbVolume6.Location = new System.Drawing.Point(588, 130);
+            this.cbVolume6.Name = "cbVolume6";
+            this.cbVolume6.Size = new System.Drawing.Size(44, 21);
+            this.cbVolume6.TabIndex = 26;
             // 
             // Read4MeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(580, 273);
+            this.ClientSize = new System.Drawing.Size(699, 273);
             this.Controls.Add(this.tabControlMain);
             this.Controls.Add(this.sStrip);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -1401,6 +1467,12 @@ namespace Read4Me
         private System.Windows.Forms.ComboBox cbSRate3;
         private System.Windows.Forms.ComboBox cbSRate2;
         private System.Windows.Forms.ComboBox cbSRate1;
+        private System.Windows.Forms.ComboBox cbVolume6;
+        private System.Windows.Forms.ComboBox cbVolume5;
+        private System.Windows.Forms.ComboBox cbVolume4;
+        private System.Windows.Forms.ComboBox cbVolume3;
+        private System.Windows.Forms.ComboBox cbVolume2;
+        private System.Windows.Forms.ComboBox cbVolume1;
     }
 }
 
