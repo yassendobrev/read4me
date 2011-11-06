@@ -17,7 +17,7 @@ using System.Xml;
 
 namespace Read4Me
 {
-    public partial class Form1 : Form
+    public partial class Read4MeForm : Form
     {
         // some required members 
         SpVoice speech = new SpVoice();
@@ -37,7 +37,7 @@ namespace Read4Me
         bool mAllowVisible;     // ContextMenu's Show command used
         bool mAllowClose;       // ContextMenu's Exit command used
         
-        public Form1()
+        public Read4MeForm()
         {
             InitializeComponent();
 
@@ -119,9 +119,9 @@ namespace Read4Me
             string voice;
             char key;
             int lang_num = 0;
-            /*
+            
             try
-            {*/
+            {
                 XmlReader reader = XmlReader.Create(Path.GetDirectoryName(Application.ExecutablePath) + "\\Read4Me.ini");
                 while (reader.Read())
                 {
@@ -174,12 +174,11 @@ namespace Read4Me
                     }
                 }
                 reader.Close();
-                /*
             }
             catch
             {
                 sWorkingStatus.Text = "No settings file found!";
-            }*/
+            }
         }
 
         private void SetViewSettings(string type, bool ctrl, bool winkey, bool alt, char key, string langid, string voice, int lang_num)

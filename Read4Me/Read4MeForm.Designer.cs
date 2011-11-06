@@ -1,6 +1,6 @@
 namespace Read4Me
 {
-    partial class Form1
+    partial class Read4MeForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace Read4Me
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Read4MeForm));
             this.tbspeech = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSpeak = new System.Windows.Forms.Button();
@@ -1178,7 +1178,7 @@ namespace Read4Me
             this.cbLangid6.Size = new System.Drawing.Size(87, 21);
             this.cbLangid6.TabIndex = 26;
             // 
-            // Form1
+            // Read4MeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -1188,7 +1188,7 @@ namespace Read4Me
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Form1";
+            this.Name = "Read4MeForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Read4Me";
             ((System.ComponentModel.ISupportInitialize)(this.tbarRate)).EndInit();
