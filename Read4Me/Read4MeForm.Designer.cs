@@ -70,6 +70,7 @@ namespace Read4Me
             this.tabControlMain = new System.Windows.Forms.TabControl();
             this.tpConv = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.bApplyBatch = new System.Windows.Forms.Button();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
@@ -155,7 +156,7 @@ namespace Read4Me
             this.lHK3 = new System.Windows.Forms.Label();
             this.lHK1 = new System.Windows.Forms.Label();
             this.lHK2 = new System.Windows.Forms.Label();
-            this.bApplyBatch = new System.Windows.Forms.Button();
+            this.lLink = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.tbarRate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trbVolume)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -354,7 +355,7 @@ namespace Read4Me
             // 
             this.sStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sWorkingStatus});
-            this.sStrip.Location = new System.Drawing.Point(0, 383);
+            this.sStrip.Location = new System.Drawing.Point(0, 404);
             this.sStrip.Name = "sStrip";
             this.sStrip.Size = new System.Drawing.Size(703, 22);
             this.sStrip.TabIndex = 19;
@@ -552,6 +553,16 @@ namespace Read4Me
             this.groupBox1.TabIndex = 48;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Convert txt to mp3";
+            // 
+            // bApplyBatch
+            // 
+            this.bApplyBatch.Location = new System.Drawing.Point(238, 168);
+            this.bApplyBatch.Name = "bApplyBatch";
+            this.bApplyBatch.Size = new System.Drawing.Size(92, 23);
+            this.bApplyBatch.TabIndex = 55;
+            this.bApplyBatch.Text = "Save Settings";
+            this.bApplyBatch.UseVisualStyleBackColor = true;
+            this.bApplyBatch.Click += new System.EventHandler(this.bApplyBatch_Click);
             // 
             // label20
             // 
@@ -1432,23 +1443,25 @@ namespace Read4Me
             this.lHK2.TabIndex = 1;
             this.lHK2.Text = "Previous sentence";
             // 
-            // bApplyBatch
+            // lLink
             // 
-            this.bApplyBatch.Location = new System.Drawing.Point(238, 168);
-            this.bApplyBatch.Name = "bApplyBatch";
-            this.bApplyBatch.Size = new System.Drawing.Size(92, 23);
-            this.bApplyBatch.TabIndex = 55;
-            this.bApplyBatch.Text = "Save Settings";
-            this.bApplyBatch.UseVisualStyleBackColor = true;
-            this.bApplyBatch.Click += new System.EventHandler(this.bApplyBatch_Click);
+            this.lLink.AutoSize = true;
+            this.lLink.Location = new System.Drawing.Point(502, 370);
+            this.lLink.Name = "lLink";
+            this.lLink.Size = new System.Drawing.Size(189, 13);
+            this.lLink.TabIndex = 50;
+            this.lLink.TabStop = true;
+            this.lLink.Text = "http://sourceforge.net/p/read4mecbr/";
+            this.lLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lLink_LinkClicked);
             // 
             // Read4MeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(703, 405);
-            this.Controls.Add(this.tabControlMain);
+            this.ClientSize = new System.Drawing.Size(703, 426);
             this.Controls.Add(this.sStrip);
+            this.Controls.Add(this.tabControlMain);
+            this.Controls.Add(this.lLink);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -1604,6 +1617,7 @@ namespace Read4Me
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Button bApplyBatch;
+        private System.Windows.Forms.LinkLabel lLink;
     }
 }
 

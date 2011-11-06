@@ -27,7 +27,8 @@ namespace Read4Me
         public Read4MeForm()
         {
             InitializeComponent();
-            
+            lLink.Links.Add(0, lLink.Text.Length - 1, lLink.Text);
+                        
             foreach (ISpeechObjectToken Token in speech.GetVoices(string.Empty, string.Empty))
             {
                 // Populate the ComboBox Entries ..
@@ -52,6 +53,11 @@ namespace Read4Me
             speech.Rate = 10;
             speech.Volume = 0;
             speech.Speak("<lang langid=\"402\">а</lang>", SpeechVoiceSpeakFlags.SVSFlagsAsync | SpeechVoiceSpeakFlags.SVSFIsXML | SpeechVoiceSpeakFlags.SVSFPurgeBeforeSpeak);
+        }
+
+        private void lLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(e.Link.LinkData.ToString());
         }
     }
 }
