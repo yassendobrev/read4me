@@ -325,7 +325,7 @@ namespace Read4Me
             // 
             this.mynotifyicon.ContextMenuStrip = this.contextMenuStrip1;
             this.mynotifyicon.Icon = ((System.Drawing.Icon)(resources.GetObject("mynotifyicon.Icon")));
-            this.mynotifyicon.Text = "TTS";
+            this.mynotifyicon.Text = "Read4Me";
             this.mynotifyicon.Visible = true;
             this.mynotifyicon.MouseClick += new System.Windows.Forms.MouseEventHandler(this.mynotifyicon_MouseClick);
             // 
@@ -1463,6 +1463,7 @@ namespace Read4Me
             this.Controls.Add(this.tabControlMain);
             this.Controls.Add(this.lLink);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Read4MeForm";
