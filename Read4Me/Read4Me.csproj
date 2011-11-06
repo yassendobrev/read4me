@@ -86,11 +86,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Read4MeForm.BatchConvert.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Read4MeForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Read4MeForm.Designer.cs">
       <DependentUpon>Read4MeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Read4MeForm.ManageSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Read4MeForm.ReadClipboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Read4MeForm.ReadTextbox.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Read4MeForm.WinBehaviour.cs">
       <SubType>Form</SubType>
