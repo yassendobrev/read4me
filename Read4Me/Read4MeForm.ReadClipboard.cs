@@ -33,7 +33,7 @@ namespace Read4Me
             SpObjectToken voice_sp = speech.GetVoices("Name=" + voice, "Language=" + langid).Item(0);
             paused = false;
             toRead = Clipboard.GetText();
-            toRead.Replace("\r\n", "<lang langid=\"409\"><silence msec=\"50\" /></lang>"); // new line -> pause for 50ms
+            toRead.Replace("\r\n", "<lang langid=\"" + langid + "\"><silence msec=\"50\" /></lang>"); // new line -> pause for 50ms
             toRead = "<lang langid=\"" + langid + "\"><pitch middle='0'>" + toRead + "</pitch></lang>";
             speech.Rate = srate;
             speech.Volume = volume;

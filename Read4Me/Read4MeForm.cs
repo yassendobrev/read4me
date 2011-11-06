@@ -19,7 +19,6 @@ namespace Read4Me
         // declare writes & reader and folder
         StreamReader file_reader;
         StreamWriter file_writer;
-        string folder_for_batch;
 
         // show/hide main window
         bool mAllowVisible;     // ContextMenu's Show command used
@@ -33,6 +32,7 @@ namespace Read4Me
             {
                 // Populate the ComboBox Entries ..
                 cmbVoices.Items.Add(Token.GetDescription(49));
+                cbVoiceBatch.Items.Add(Token.GetDescription(49));
                 cbLang1.Items.Add(Token.GetDescription(49));
                 cbLang2.Items.Add(Token.GetDescription(49));
                 cbLang3.Items.Add(Token.GetDescription(49));

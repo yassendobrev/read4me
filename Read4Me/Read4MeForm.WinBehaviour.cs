@@ -45,12 +45,6 @@ namespace Read4Me
             }
         }
 
-        // Close form
-        private void bExit_Click(object sender, EventArgs e)
-        {
-            CloseForm();
-        }
-
         // Hide form when ESC key pressed
         protected override bool ProcessCmdKey(ref System.Windows.Forms.Message msg, System.Windows.Forms.Keys keyData)
         {

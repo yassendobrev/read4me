@@ -144,6 +144,17 @@ namespace Read4Me
                                 lang_num++;
                                 break;
 
+                            case "batch_settings":
+                                type = reader["type"];
+                                lang = reader["lang"];
+                                langid = (string)langids[lang];
+                                voice = reader["voice"];
+                                srate = Int16.Parse(reader["srate"]);
+                                volume = Int16.Parse(reader["volume"]);
+                                SetViewSettings(type, false, false, false, '\0', lang, voice, 0, srate, volume);
+                                lang_num++;
+                                break;
+
                             default:
                                 break;
                         }
@@ -198,6 +209,13 @@ namespace Read4Me
                     comboboxes_lang[lang_num].SelectedIndex = cbLangid1.FindStringExact(lang);
                     comboboxes_srate[lang_num].SelectedIndex = cbSRate1.FindStringExact(srate.ToString());
                     comboboxes_volume[lang_num].SelectedIndex = cbVolume1.FindStringExact(volume.ToString());
+                    break;
+
+                case "batch_settings":
+                    cbVoiceBatch.SelectedIndex = cbVoiceBatch.FindStringExact(voice);
+                    cbLanguageBatch.SelectedIndex = cbLanguageBatch.FindStringExact(lang);
+                    cbRateBatch.SelectedIndex = cbRateBatch.FindStringExact(srate.ToString());
+                    cbVolumeBatch.SelectedIndex = cbVolumeBatch.FindStringExact(volume.ToString());
                     break;
 
                 default:
@@ -267,7 +285,12 @@ namespace Read4Me
             hotkeys.Clear();
         }
 
-        private void WriteSettings(object sender, EventArgs e)
+        private void bApplyClick(object sender, EventArgs e)
+        {
+            WriteSettings();
+        }
+
+        private void WriteSettings()
         {
             file_writer = new StreamWriter(Path.GetDirectoryName(Application.ExecutablePath) + "\\Read4Me.ini", false, Encoding.UTF8);
             file_writer.Write("<?xml version=\"1.0\" encoding=\"utf-8\" ?>\r\n");
@@ -283,6 +306,7 @@ namespace Read4Me
                     file_writer.Write("    <hotkey_speech type=\"speech\" ctrl=\"" + ((checkboxes_ctrl_lang[i].Checked == true) ? "1" : "0") + "\" winkey=\"" + ((checkboxes_winkey_lang[i].Checked == true) ? "1" : "0") + "\" alt=\"" + ((checkboxes_alt_lang[i].Checked == true) ? "1" : "0") + "\" key=\"" + textboxes_lang[i].Text + "\" lang=\"" + comboboxes_lang[i].SelectedItem + "\" voice=\"" + comboboxes_voice[i].SelectedItem + "\" srate=\"" + comboboxes_srate[i].SelectedItem + "\" volume=\"" + comboboxes_volume[i].SelectedItem + "\"></hotkey_speech>\r\n");
                 }
             }
+            file_writer.Write("    <batch_settings type=\"batch_settings\" lang=\"" + cbLanguageBatch.SelectedItem + "\" voice=\"" + cbVoiceBatch.SelectedItem + "\" srate=\"" + cbRateBatch.SelectedItem + "\" volume=\"" + cbVolumeBatch.SelectedItem + "\"></batch_settings>\r\n");
             file_writer.Write("</settings>\r\n");
             file_writer.Close();
             UnregisterHotkeys();
@@ -440,6 +464,8 @@ namespace Read4Me
                 foreach (DictionaryEntry entry in langids)
                 {
                     comboboxes_lang[i].Items.Add(entry.Key);
+                    if (i == 0)
+                        cbLanguageBatch.Items.Add(entry.Key);
                 }
             }
 
@@ -448,6 +474,8 @@ namespace Read4Me
                 for (int j = -10; j <= 10; j++)
                 {
                     comboboxes_srate[i].Items.Add(j.ToString());
+                    if (i == 0)
+                        cbRateBatch.Items.Add(j.ToString());
                 }
             }
 
@@ -456,6 +484,8 @@ namespace Read4Me
                 for (int j = 0; j <= 100; j++)
                 {
                     comboboxes_volume[i].Items.Add(j.ToString());
+                    if (i == 0)
+                        cbVolumeBatch.Items.Add(j.ToString());
                 }
             }
         }

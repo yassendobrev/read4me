@@ -49,8 +49,6 @@ namespace Read4Me
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.showStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bBrowse = new System.Windows.Forms.Button();
-            this.bBatch = new System.Windows.Forms.Button();
             this.sStrip = new System.Windows.Forms.StatusStrip();
             this.sWorkingStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.tbAlbum = new System.Windows.Forms.TextBox();
@@ -69,9 +67,17 @@ namespace Read4Me
             this.bGo = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.tbYear = new System.Windows.Forms.TextBox();
-            this.bExit = new System.Windows.Forms.Button();
             this.tabControlMain = new System.Windows.Forms.TabControl();
             this.tpConv = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.cbVoiceBatch = new System.Windows.Forms.ComboBox();
+            this.cbVolumeBatch = new System.Windows.Forms.ComboBox();
+            this.cbRateBatch = new System.Windows.Forms.ComboBox();
+            this.cbLanguageBatch = new System.Windows.Forms.ComboBox();
             this.tpSpeak = new System.Windows.Forms.TabPage();
             this.tbSettings = new System.Windows.Forms.TabPage();
             this.Apply = new System.Windows.Forms.Button();
@@ -79,14 +85,24 @@ namespace Read4Me
             this.cbLang6 = new System.Windows.Forms.ComboBox();
             this.cbLang5 = new System.Windows.Forms.ComboBox();
             this.cbLang4 = new System.Windows.Forms.ComboBox();
+            this.cbVolume6 = new System.Windows.Forms.ComboBox();
             this.cbSRate6 = new System.Windows.Forms.ComboBox();
+            this.cbVolume5 = new System.Windows.Forms.ComboBox();
             this.cbSRate5 = new System.Windows.Forms.ComboBox();
+            this.cbVolume4 = new System.Windows.Forms.ComboBox();
             this.cbSRate4 = new System.Windows.Forms.ComboBox();
+            this.cbVolume3 = new System.Windows.Forms.ComboBox();
             this.cbSRate3 = new System.Windows.Forms.ComboBox();
+            this.cbVolume2 = new System.Windows.Forms.ComboBox();
             this.cbSRate2 = new System.Windows.Forms.ComboBox();
+            this.cbVolume1 = new System.Windows.Forms.ComboBox();
             this.cbSRate1 = new System.Windows.Forms.ComboBox();
             this.cbLangid6 = new System.Windows.Forms.ComboBox();
             this.cbLangid5 = new System.Windows.Forms.ComboBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.cbLangid4 = new System.Windows.Forms.ComboBox();
             this.cbLangid3 = new System.Windows.Forms.ComboBox();
             this.cbLangid2 = new System.Windows.Forms.ComboBox();
@@ -139,18 +155,14 @@ namespace Read4Me
             this.lHK3 = new System.Windows.Forms.Label();
             this.lHK1 = new System.Windows.Forms.Label();
             this.lHK2 = new System.Windows.Forms.Label();
-            this.cbVolume1 = new System.Windows.Forms.ComboBox();
-            this.cbVolume2 = new System.Windows.Forms.ComboBox();
-            this.cbVolume3 = new System.Windows.Forms.ComboBox();
-            this.cbVolume4 = new System.Windows.Forms.ComboBox();
-            this.cbVolume5 = new System.Windows.Forms.ComboBox();
-            this.cbVolume6 = new System.Windows.Forms.ComboBox();
+            this.bApplyBatch = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tbarRate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trbVolume)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.sStrip.SuspendLayout();
             this.tabControlMain.SuspendLayout();
             this.tpConv.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.tpSpeak.SuspendLayout();
             this.tbSettings.SuspendLayout();
             this.gbVoices.SuspendLayout();
@@ -251,9 +263,9 @@ namespace Read4Me
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(305, 9);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(90, 13);
+            this.label5.Size = new System.Drawing.Size(83, 13);
             this.label5.TabIndex = 29;
-            this.label5.Text = "Select Person:";
+            this.label5.Text = "Select Voice:";
             // 
             // btnPause
             // 
@@ -338,33 +350,13 @@ namespace Read4Me
             this.exitStripMenuItem.Text = "Exit";
             this.exitStripMenuItem.Click += new System.EventHandler(this.exitStripMenuItem_Click);
             // 
-            // bBrowse
-            // 
-            this.bBrowse.Location = new System.Drawing.Point(405, 97);
-            this.bBrowse.Name = "bBrowse";
-            this.bBrowse.Size = new System.Drawing.Size(75, 23);
-            this.bBrowse.TabIndex = 10;
-            this.bBrowse.Text = "Browse";
-            this.bBrowse.UseVisualStyleBackColor = true;
-            this.bBrowse.Click += new System.EventHandler(this.bBrowse_Click);
-            // 
-            // bBatch
-            // 
-            this.bBatch.Location = new System.Drawing.Point(405, 123);
-            this.bBatch.Name = "bBatch";
-            this.bBatch.Size = new System.Drawing.Size(75, 23);
-            this.bBatch.TabIndex = 11;
-            this.bBatch.Text = "Batch";
-            this.bBatch.UseVisualStyleBackColor = true;
-            this.bBatch.Click += new System.EventHandler(this.bBatch_Click);
-            // 
             // sStrip
             // 
             this.sStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sWorkingStatus});
-            this.sStrip.Location = new System.Drawing.Point(0, 251);
+            this.sStrip.Location = new System.Drawing.Point(0, 383);
             this.sStrip.Name = "sStrip";
-            this.sStrip.Size = new System.Drawing.Size(699, 22);
+            this.sStrip.Size = new System.Drawing.Size(703, 22);
             this.sStrip.TabIndex = 19;
             // 
             // sWorkingStatus
@@ -374,14 +366,14 @@ namespace Read4Me
             // 
             // tbAlbum
             // 
-            this.tbAlbum.Location = new System.Drawing.Point(53, 109);
+            this.tbAlbum.Location = new System.Drawing.Point(210, 45);
             this.tbAlbum.Name = "tbAlbum";
             this.tbAlbum.Size = new System.Drawing.Size(100, 20);
             this.tbAlbum.TabIndex = 4;
             // 
             // tbArtist
             // 
-            this.tbArtist.Location = new System.Drawing.Point(53, 135);
+            this.tbArtist.Location = new System.Drawing.Point(210, 71);
             this.tbArtist.Name = "tbArtist";
             this.tbArtist.Size = new System.Drawing.Size(100, 20);
             this.tbArtist.TabIndex = 5;
@@ -389,7 +381,7 @@ namespace Read4Me
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 86);
+            this.label9.Location = new System.Drawing.Point(8, 100);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(63, 13);
             this.label9.TabIndex = 43;
@@ -397,7 +389,7 @@ namespace Read4Me
             // 
             // tbEmptyLines
             // 
-            this.tbEmptyLines.Location = new System.Drawing.Point(75, 83);
+            this.tbEmptyLines.Location = new System.Drawing.Point(77, 97);
             this.tbEmptyLines.Name = "tbEmptyLines";
             this.tbEmptyLines.Size = new System.Drawing.Size(26, 20);
             this.tbEmptyLines.TabIndex = 3;
@@ -406,7 +398,7 @@ namespace Read4Me
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(6, 60);
+            this.label10.Location = new System.Drawing.Point(8, 74);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(32, 13);
             this.label10.TabIndex = 42;
@@ -415,7 +407,7 @@ namespace Read4Me
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(6, 34);
+            this.label11.Location = new System.Drawing.Point(8, 48);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(41, 13);
             this.label11.TabIndex = 41;
@@ -423,14 +415,14 @@ namespace Read4Me
             // 
             // tbAfter
             // 
-            this.tbAfter.Location = new System.Drawing.Point(53, 57);
+            this.tbAfter.Location = new System.Drawing.Point(55, 71);
             this.tbAfter.Name = "tbAfter";
             this.tbAfter.Size = new System.Drawing.Size(100, 20);
             this.tbAfter.TabIndex = 2;
             // 
             // tbBefore
             // 
-            this.tbBefore.Location = new System.Drawing.Point(53, 31);
+            this.tbBefore.Location = new System.Drawing.Point(55, 45);
             this.tbBefore.Name = "tbBefore";
             this.tbBefore.Size = new System.Drawing.Size(100, 20);
             this.tbBefore.TabIndex = 1;
@@ -438,7 +430,7 @@ namespace Read4Me
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(6, 112);
+            this.label12.Location = new System.Drawing.Point(163, 48);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(39, 13);
             this.label12.TabIndex = 44;
@@ -447,7 +439,7 @@ namespace Read4Me
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(6, 138);
+            this.label13.Location = new System.Drawing.Point(163, 74);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(33, 13);
             this.label13.TabIndex = 45;
@@ -456,7 +448,7 @@ namespace Read4Me
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(6, 8);
+            this.label14.Location = new System.Drawing.Point(8, 22);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(80, 13);
             this.label14.TabIndex = 40;
@@ -464,15 +456,14 @@ namespace Read4Me
             // 
             // tbSource
             // 
-            this.tbSource.Location = new System.Drawing.Point(92, 5);
+            this.tbSource.Location = new System.Drawing.Point(94, 19);
             this.tbSource.Name = "tbSource";
             this.tbSource.Size = new System.Drawing.Size(195, 20);
             this.tbSource.TabIndex = 8;
-            this.tbSource.Text = "C:\\Users\\yassendobrev\\Desktop";
             // 
             // bSource
             // 
-            this.bSource.Location = new System.Drawing.Point(293, 3);
+            this.bSource.Location = new System.Drawing.Point(295, 17);
             this.bSource.Name = "bSource";
             this.bSource.Size = new System.Drawing.Size(85, 23);
             this.bSource.TabIndex = 0;
@@ -482,18 +473,18 @@ namespace Read4Me
             // 
             // bGo
             // 
-            this.bGo.Location = new System.Drawing.Point(293, 28);
+            this.bGo.Location = new System.Drawing.Point(336, 168);
             this.bGo.Name = "bGo";
-            this.bGo.Size = new System.Drawing.Size(85, 23);
+            this.bGo.Size = new System.Drawing.Size(113, 23);
             this.bGo.TabIndex = 7;
-            this.bGo.Text = "Go!";
+            this.bGo.Text = "Start batch";
             this.bGo.UseVisualStyleBackColor = true;
             this.bGo.Click += new System.EventHandler(this.bGo_Click);
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(6, 164);
+            this.label15.Location = new System.Drawing.Point(163, 100);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(32, 13);
             this.label15.TabIndex = 46;
@@ -501,20 +492,10 @@ namespace Read4Me
             // 
             // tbYear
             // 
-            this.tbYear.Location = new System.Drawing.Point(53, 161);
+            this.tbYear.Location = new System.Drawing.Point(210, 97);
             this.tbYear.Name = "tbYear";
             this.tbYear.Size = new System.Drawing.Size(100, 20);
             this.tbYear.TabIndex = 6;
-            // 
-            // bExit
-            // 
-            this.bExit.Location = new System.Drawing.Point(405, 152);
-            this.bExit.Name = "bExit";
-            this.bExit.Size = new System.Drawing.Size(75, 23);
-            this.bExit.TabIndex = 47;
-            this.bExit.Text = "Exit";
-            this.bExit.UseVisualStyleBackColor = true;
-            this.bExit.Click += new System.EventHandler(this.bExit_Click);
             // 
             // tabControlMain
             // 
@@ -524,37 +505,125 @@ namespace Read4Me
             this.tabControlMain.Location = new System.Drawing.Point(12, 12);
             this.tabControlMain.Name = "tabControlMain";
             this.tabControlMain.SelectedIndex = 0;
-            this.tabControlMain.Size = new System.Drawing.Size(681, 227);
+            this.tabControlMain.Size = new System.Drawing.Size(679, 355);
             this.tabControlMain.TabIndex = 48;
             // 
             // tpConv
             // 
-            this.tpConv.Controls.Add(this.label14);
-            this.tpConv.Controls.Add(this.bBatch);
-            this.tpConv.Controls.Add(this.bExit);
-            this.tpConv.Controls.Add(this.bBrowse);
-            this.tpConv.Controls.Add(this.label15);
-            this.tpConv.Controls.Add(this.tbAlbum);
-            this.tpConv.Controls.Add(this.tbYear);
-            this.tpConv.Controls.Add(this.tbArtist);
-            this.tpConv.Controls.Add(this.bGo);
-            this.tpConv.Controls.Add(this.tbBefore);
-            this.tpConv.Controls.Add(this.bSource);
-            this.tpConv.Controls.Add(this.tbAfter);
-            this.tpConv.Controls.Add(this.label11);
-            this.tpConv.Controls.Add(this.tbSource);
-            this.tpConv.Controls.Add(this.label10);
-            this.tpConv.Controls.Add(this.label13);
-            this.tpConv.Controls.Add(this.tbEmptyLines);
-            this.tpConv.Controls.Add(this.label12);
-            this.tpConv.Controls.Add(this.label9);
+            this.tpConv.Controls.Add(this.groupBox1);
             this.tpConv.Location = new System.Drawing.Point(4, 22);
             this.tpConv.Name = "tpConv";
             this.tpConv.Padding = new System.Windows.Forms.Padding(3);
-            this.tpConv.Size = new System.Drawing.Size(548, 201);
+            this.tpConv.Size = new System.Drawing.Size(671, 329);
             this.tpConv.TabIndex = 0;
             this.tpConv.Text = "Convert to mp3";
             this.tpConv.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.bApplyBatch);
+            this.groupBox1.Controls.Add(this.label20);
+            this.groupBox1.Controls.Add(this.label21);
+            this.groupBox1.Controls.Add(this.label22);
+            this.groupBox1.Controls.Add(this.label23);
+            this.groupBox1.Controls.Add(this.cbVoiceBatch);
+            this.groupBox1.Controls.Add(this.cbVolumeBatch);
+            this.groupBox1.Controls.Add(this.cbRateBatch);
+            this.groupBox1.Controls.Add(this.cbLanguageBatch);
+            this.groupBox1.Controls.Add(this.tbSource);
+            this.groupBox1.Controls.Add(this.label14);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.label12);
+            this.groupBox1.Controls.Add(this.tbEmptyLines);
+            this.groupBox1.Controls.Add(this.label13);
+            this.groupBox1.Controls.Add(this.label15);
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.tbAlbum);
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.tbYear);
+            this.groupBox1.Controls.Add(this.tbAfter);
+            this.groupBox1.Controls.Add(this.tbArtist);
+            this.groupBox1.Controls.Add(this.bSource);
+            this.groupBox1.Controls.Add(this.bGo);
+            this.groupBox1.Controls.Add(this.tbBefore);
+            this.groupBox1.Location = new System.Drawing.Point(6, 15);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(552, 206);
+            this.groupBox1.TabIndex = 48;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Convert txt to mp3";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(402, 125);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(42, 13);
+            this.label20.TabIndex = 53;
+            this.label20.Text = "Volume";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(352, 125);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(30, 13);
+            this.label21.TabIndex = 54;
+            this.label21.Text = "Rate";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(215, 125);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(55, 13);
+            this.label22.TabIndex = 51;
+            this.label22.Text = "Language";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(8, 125);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(34, 13);
+            this.label23.TabIndex = 52;
+            this.label23.Text = "Voice";
+            // 
+            // cbVoiceBatch
+            // 
+            this.cbVoiceBatch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbVoiceBatch.FormattingEnabled = true;
+            this.cbVoiceBatch.Location = new System.Drawing.Point(11, 141);
+            this.cbVoiceBatch.Name = "cbVoiceBatch";
+            this.cbVoiceBatch.Size = new System.Drawing.Size(201, 21);
+            this.cbVoiceBatch.TabIndex = 49;
+            // 
+            // cbVolumeBatch
+            // 
+            this.cbVolumeBatch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbVolumeBatch.FormattingEnabled = true;
+            this.cbVolumeBatch.Location = new System.Drawing.Point(405, 141);
+            this.cbVolumeBatch.Name = "cbVolumeBatch";
+            this.cbVolumeBatch.Size = new System.Drawing.Size(44, 21);
+            this.cbVolumeBatch.TabIndex = 50;
+            // 
+            // cbRateBatch
+            // 
+            this.cbRateBatch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbRateBatch.FormattingEnabled = true;
+            this.cbRateBatch.Location = new System.Drawing.Point(355, 141);
+            this.cbRateBatch.Name = "cbRateBatch";
+            this.cbRateBatch.Size = new System.Drawing.Size(44, 21);
+            this.cbRateBatch.TabIndex = 47;
+            // 
+            // cbLanguageBatch
+            // 
+            this.cbLanguageBatch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbLanguageBatch.FormattingEnabled = true;
+            this.cbLanguageBatch.Location = new System.Drawing.Point(218, 141);
+            this.cbLanguageBatch.Name = "cbLanguageBatch";
+            this.cbLanguageBatch.Size = new System.Drawing.Size(131, 21);
+            this.cbLanguageBatch.TabIndex = 48;
             // 
             // tpSpeak
             // 
@@ -576,7 +645,7 @@ namespace Read4Me
             this.tpSpeak.Location = new System.Drawing.Point(4, 22);
             this.tpSpeak.Name = "tpSpeak";
             this.tpSpeak.Padding = new System.Windows.Forms.Padding(3);
-            this.tpSpeak.Size = new System.Drawing.Size(620, 201);
+            this.tpSpeak.Size = new System.Drawing.Size(671, 329);
             this.tpSpeak.TabIndex = 1;
             this.tpSpeak.Text = "Speak Text";
             this.tpSpeak.UseVisualStyleBackColor = true;
@@ -590,20 +659,20 @@ namespace Read4Me
             this.tbSettings.Controls.Add(this.gbGeneral);
             this.tbSettings.Location = new System.Drawing.Point(4, 22);
             this.tbSettings.Name = "tbSettings";
-            this.tbSettings.Size = new System.Drawing.Size(673, 201);
+            this.tbSettings.Size = new System.Drawing.Size(671, 329);
             this.tbSettings.TabIndex = 2;
             this.tbSettings.Text = "Settings";
             this.tbSettings.UseVisualStyleBackColor = true;
             // 
             // Apply
             // 
-            this.Apply.Location = new System.Drawing.Point(541, 289);
+            this.Apply.Location = new System.Drawing.Point(541, 300);
             this.Apply.Name = "Apply";
             this.Apply.Size = new System.Drawing.Size(94, 23);
             this.Apply.TabIndex = 6;
             this.Apply.Text = "Apply";
             this.Apply.UseVisualStyleBackColor = true;
-            this.Apply.Click += new System.EventHandler(this.WriteSettings);
+            this.Apply.Click += new System.EventHandler(this.bApplyClick);
             // 
             // gbVoices
             // 
@@ -624,6 +693,10 @@ namespace Read4Me
             this.gbVoices.Controls.Add(this.cbSRate1);
             this.gbVoices.Controls.Add(this.cbLangid6);
             this.gbVoices.Controls.Add(this.cbLangid5);
+            this.gbVoices.Controls.Add(this.label19);
+            this.gbVoices.Controls.Add(this.label18);
+            this.gbVoices.Controls.Add(this.label17);
+            this.gbVoices.Controls.Add(this.label16);
             this.gbVoices.Controls.Add(this.cbLangid4);
             this.gbVoices.Controls.Add(this.cbLangid3);
             this.gbVoices.Controls.Add(this.cbLangid2);
@@ -657,7 +730,7 @@ namespace Read4Me
             this.gbVoices.Controls.Add(this.lAltlang1);
             this.gbVoices.Location = new System.Drawing.Point(3, 121);
             this.gbVoices.Name = "gbVoices";
-            this.gbVoices.Size = new System.Drawing.Size(645, 162);
+            this.gbVoices.Size = new System.Drawing.Size(645, 173);
             this.gbVoices.TabIndex = 5;
             this.gbVoices.TabStop = false;
             this.gbVoices.Text = "Speech voices hotkeys";
@@ -666,7 +739,7 @@ namespace Read4Me
             // 
             this.cbLang6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLang6.FormattingEnabled = true;
-            this.cbLang6.Location = new System.Drawing.Point(194, 130);
+            this.cbLang6.Location = new System.Drawing.Point(194, 143);
             this.cbLang6.Name = "cbLang6";
             this.cbLang6.Size = new System.Drawing.Size(201, 21);
             this.cbLang6.TabIndex = 26;
@@ -675,7 +748,7 @@ namespace Read4Me
             // 
             this.cbLang5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLang5.FormattingEnabled = true;
-            this.cbLang5.Location = new System.Drawing.Point(194, 107);
+            this.cbLang5.Location = new System.Drawing.Point(194, 120);
             this.cbLang5.Name = "cbLang5";
             this.cbLang5.Size = new System.Drawing.Size(201, 21);
             this.cbLang5.TabIndex = 26;
@@ -684,61 +757,115 @@ namespace Read4Me
             // 
             this.cbLang4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLang4.FormattingEnabled = true;
-            this.cbLang4.Location = new System.Drawing.Point(194, 84);
+            this.cbLang4.Location = new System.Drawing.Point(194, 97);
             this.cbLang4.Name = "cbLang4";
             this.cbLang4.Size = new System.Drawing.Size(201, 21);
             this.cbLang4.TabIndex = 26;
+            // 
+            // cbVolume6
+            // 
+            this.cbVolume6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbVolume6.FormattingEnabled = true;
+            this.cbVolume6.Location = new System.Drawing.Point(588, 143);
+            this.cbVolume6.Name = "cbVolume6";
+            this.cbVolume6.Size = new System.Drawing.Size(44, 21);
+            this.cbVolume6.TabIndex = 26;
             // 
             // cbSRate6
             // 
             this.cbSRate6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSRate6.FormattingEnabled = true;
-            this.cbSRate6.Location = new System.Drawing.Point(538, 130);
+            this.cbSRate6.Location = new System.Drawing.Point(538, 143);
             this.cbSRate6.Name = "cbSRate6";
             this.cbSRate6.Size = new System.Drawing.Size(44, 21);
             this.cbSRate6.TabIndex = 26;
+            // 
+            // cbVolume5
+            // 
+            this.cbVolume5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbVolume5.FormattingEnabled = true;
+            this.cbVolume5.Location = new System.Drawing.Point(588, 120);
+            this.cbVolume5.Name = "cbVolume5";
+            this.cbVolume5.Size = new System.Drawing.Size(44, 21);
+            this.cbVolume5.TabIndex = 26;
             // 
             // cbSRate5
             // 
             this.cbSRate5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSRate5.FormattingEnabled = true;
-            this.cbSRate5.Location = new System.Drawing.Point(538, 107);
+            this.cbSRate5.Location = new System.Drawing.Point(538, 120);
             this.cbSRate5.Name = "cbSRate5";
             this.cbSRate5.Size = new System.Drawing.Size(44, 21);
             this.cbSRate5.TabIndex = 26;
+            // 
+            // cbVolume4
+            // 
+            this.cbVolume4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbVolume4.FormattingEnabled = true;
+            this.cbVolume4.Location = new System.Drawing.Point(588, 97);
+            this.cbVolume4.Name = "cbVolume4";
+            this.cbVolume4.Size = new System.Drawing.Size(44, 21);
+            this.cbVolume4.TabIndex = 26;
             // 
             // cbSRate4
             // 
             this.cbSRate4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSRate4.FormattingEnabled = true;
-            this.cbSRate4.Location = new System.Drawing.Point(538, 84);
+            this.cbSRate4.Location = new System.Drawing.Point(538, 97);
             this.cbSRate4.Name = "cbSRate4";
             this.cbSRate4.Size = new System.Drawing.Size(44, 21);
             this.cbSRate4.TabIndex = 26;
+            // 
+            // cbVolume3
+            // 
+            this.cbVolume3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbVolume3.FormattingEnabled = true;
+            this.cbVolume3.Location = new System.Drawing.Point(588, 74);
+            this.cbVolume3.Name = "cbVolume3";
+            this.cbVolume3.Size = new System.Drawing.Size(44, 21);
+            this.cbVolume3.TabIndex = 26;
             // 
             // cbSRate3
             // 
             this.cbSRate3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSRate3.FormattingEnabled = true;
-            this.cbSRate3.Location = new System.Drawing.Point(538, 61);
+            this.cbSRate3.Location = new System.Drawing.Point(538, 74);
             this.cbSRate3.Name = "cbSRate3";
             this.cbSRate3.Size = new System.Drawing.Size(44, 21);
             this.cbSRate3.TabIndex = 26;
+            // 
+            // cbVolume2
+            // 
+            this.cbVolume2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbVolume2.FormattingEnabled = true;
+            this.cbVolume2.Location = new System.Drawing.Point(588, 51);
+            this.cbVolume2.Name = "cbVolume2";
+            this.cbVolume2.Size = new System.Drawing.Size(44, 21);
+            this.cbVolume2.TabIndex = 26;
             // 
             // cbSRate2
             // 
             this.cbSRate2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSRate2.FormattingEnabled = true;
-            this.cbSRate2.Location = new System.Drawing.Point(538, 38);
+            this.cbSRate2.Location = new System.Drawing.Point(538, 51);
             this.cbSRate2.Name = "cbSRate2";
             this.cbSRate2.Size = new System.Drawing.Size(44, 21);
             this.cbSRate2.TabIndex = 26;
+            // 
+            // cbVolume1
+            // 
+            this.cbVolume1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbVolume1.FormattingEnabled = true;
+            this.cbVolume1.Location = new System.Drawing.Point(588, 28);
+            this.cbVolume1.Name = "cbVolume1";
+            this.cbVolume1.Size = new System.Drawing.Size(44, 21);
+            this.cbVolume1.TabIndex = 26;
             // 
             // cbSRate1
             // 
             this.cbSRate1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSRate1.FormattingEnabled = true;
-            this.cbSRate1.Location = new System.Drawing.Point(538, 15);
+            this.cbSRate1.Location = new System.Drawing.Point(538, 28);
             this.cbSRate1.Name = "cbSRate1";
             this.cbSRate1.Size = new System.Drawing.Size(44, 21);
             this.cbSRate1.TabIndex = 26;
@@ -747,7 +874,7 @@ namespace Read4Me
             // 
             this.cbLangid6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLangid6.FormattingEnabled = true;
-            this.cbLangid6.Location = new System.Drawing.Point(401, 130);
+            this.cbLangid6.Location = new System.Drawing.Point(401, 143);
             this.cbLangid6.Name = "cbLangid6";
             this.cbLangid6.Size = new System.Drawing.Size(131, 21);
             this.cbLangid6.TabIndex = 26;
@@ -756,16 +883,52 @@ namespace Read4Me
             // 
             this.cbLangid5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLangid5.FormattingEnabled = true;
-            this.cbLangid5.Location = new System.Drawing.Point(401, 107);
+            this.cbLangid5.Location = new System.Drawing.Point(401, 120);
             this.cbLangid5.Name = "cbLangid5";
             this.cbLangid5.Size = new System.Drawing.Size(131, 21);
             this.cbLangid5.TabIndex = 26;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(585, 13);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(42, 13);
+            this.label19.TabIndex = 1;
+            this.label19.Text = "Volume";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(535, 13);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(30, 13);
+            this.label18.TabIndex = 1;
+            this.label18.Text = "Rate";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(398, 13);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(55, 13);
+            this.label17.TabIndex = 1;
+            this.label17.Text = "Language";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(191, 13);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(34, 13);
+            this.label16.TabIndex = 1;
+            this.label16.Text = "Voice";
             // 
             // cbLangid4
             // 
             this.cbLangid4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLangid4.FormattingEnabled = true;
-            this.cbLangid4.Location = new System.Drawing.Point(401, 84);
+            this.cbLangid4.Location = new System.Drawing.Point(401, 97);
             this.cbLangid4.Name = "cbLangid4";
             this.cbLangid4.Size = new System.Drawing.Size(131, 21);
             this.cbLangid4.TabIndex = 26;
@@ -774,7 +937,7 @@ namespace Read4Me
             // 
             this.cbLangid3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLangid3.FormattingEnabled = true;
-            this.cbLangid3.Location = new System.Drawing.Point(401, 62);
+            this.cbLangid3.Location = new System.Drawing.Point(401, 75);
             this.cbLangid3.Name = "cbLangid3";
             this.cbLangid3.Size = new System.Drawing.Size(131, 21);
             this.cbLangid3.TabIndex = 26;
@@ -783,7 +946,7 @@ namespace Read4Me
             // 
             this.cbLangid2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLangid2.FormattingEnabled = true;
-            this.cbLangid2.Location = new System.Drawing.Point(401, 38);
+            this.cbLangid2.Location = new System.Drawing.Point(401, 51);
             this.cbLangid2.Name = "cbLangid2";
             this.cbLangid2.Size = new System.Drawing.Size(131, 21);
             this.cbLangid2.TabIndex = 26;
@@ -792,7 +955,7 @@ namespace Read4Me
             // 
             this.cbLangid1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLangid1.FormattingEnabled = true;
-            this.cbLangid1.Location = new System.Drawing.Point(401, 15);
+            this.cbLangid1.Location = new System.Drawing.Point(401, 28);
             this.cbLangid1.Name = "cbLangid1";
             this.cbLangid1.Size = new System.Drawing.Size(131, 21);
             this.cbLangid1.TabIndex = 26;
@@ -801,7 +964,7 @@ namespace Read4Me
             // 
             this.cbLang3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLang3.FormattingEnabled = true;
-            this.cbLang3.Location = new System.Drawing.Point(194, 62);
+            this.cbLang3.Location = new System.Drawing.Point(194, 75);
             this.cbLang3.Name = "cbLang3";
             this.cbLang3.Size = new System.Drawing.Size(201, 21);
             this.cbLang3.TabIndex = 26;
@@ -810,7 +973,7 @@ namespace Read4Me
             // 
             this.cbLang2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLang2.FormattingEnabled = true;
-            this.cbLang2.Location = new System.Drawing.Point(194, 39);
+            this.cbLang2.Location = new System.Drawing.Point(194, 52);
             this.cbLang2.Name = "cbLang2";
             this.cbLang2.Size = new System.Drawing.Size(201, 21);
             this.cbLang2.TabIndex = 26;
@@ -819,7 +982,7 @@ namespace Read4Me
             // 
             this.cbLang1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLang1.FormattingEnabled = true;
-            this.cbLang1.Location = new System.Drawing.Point(194, 16);
+            this.cbLang1.Location = new System.Drawing.Point(194, 29);
             this.cbLang1.Name = "cbLang1";
             this.cbLang1.Size = new System.Drawing.Size(201, 21);
             this.cbLang1.TabIndex = 26;
@@ -827,7 +990,7 @@ namespace Read4Me
             // lCtrllang1
             // 
             this.lCtrllang1.AutoSize = true;
-            this.lCtrllang1.Location = new System.Drawing.Point(6, 19);
+            this.lCtrllang1.Location = new System.Drawing.Point(6, 32);
             this.lCtrllang1.Name = "lCtrllang1";
             this.lCtrllang1.Size = new System.Drawing.Size(41, 17);
             this.lCtrllang1.TabIndex = 10;
@@ -836,7 +999,7 @@ namespace Read4Me
             // 
             // tbHKlang6
             // 
-            this.tbHKlang6.Location = new System.Drawing.Point(166, 131);
+            this.tbHKlang6.Location = new System.Drawing.Point(166, 144);
             this.tbHKlang6.MaxLength = 1;
             this.tbHKlang6.Name = "tbHKlang6";
             this.tbHKlang6.Size = new System.Drawing.Size(19, 20);
@@ -844,7 +1007,7 @@ namespace Read4Me
             // 
             // tbHKlang5
             // 
-            this.tbHKlang5.Location = new System.Drawing.Point(166, 108);
+            this.tbHKlang5.Location = new System.Drawing.Point(166, 121);
             this.tbHKlang5.MaxLength = 1;
             this.tbHKlang5.Name = "tbHKlang5";
             this.tbHKlang5.Size = new System.Drawing.Size(19, 20);
@@ -852,7 +1015,7 @@ namespace Read4Me
             // 
             // tbHKlang4
             // 
-            this.tbHKlang4.Location = new System.Drawing.Point(166, 85);
+            this.tbHKlang4.Location = new System.Drawing.Point(166, 98);
             this.tbHKlang4.MaxLength = 1;
             this.tbHKlang4.Name = "tbHKlang4";
             this.tbHKlang4.Size = new System.Drawing.Size(19, 20);
@@ -861,7 +1024,7 @@ namespace Read4Me
             // lCtrllang2
             // 
             this.lCtrllang2.AutoSize = true;
-            this.lCtrllang2.Location = new System.Drawing.Point(6, 42);
+            this.lCtrllang2.Location = new System.Drawing.Point(6, 55);
             this.lCtrllang2.Name = "lCtrllang2";
             this.lCtrllang2.Size = new System.Drawing.Size(41, 17);
             this.lCtrllang2.TabIndex = 9;
@@ -870,7 +1033,7 @@ namespace Read4Me
             // 
             // tbHKlang3
             // 
-            this.tbHKlang3.Location = new System.Drawing.Point(166, 62);
+            this.tbHKlang3.Location = new System.Drawing.Point(166, 75);
             this.tbHKlang3.MaxLength = 1;
             this.tbHKlang3.Name = "tbHKlang3";
             this.tbHKlang3.Size = new System.Drawing.Size(19, 20);
@@ -879,7 +1042,7 @@ namespace Read4Me
             // lCtrllang3
             // 
             this.lCtrllang3.AutoSize = true;
-            this.lCtrllang3.Location = new System.Drawing.Point(6, 65);
+            this.lCtrllang3.Location = new System.Drawing.Point(6, 78);
             this.lCtrllang3.Name = "lCtrllang3";
             this.lCtrllang3.Size = new System.Drawing.Size(41, 17);
             this.lCtrllang3.TabIndex = 11;
@@ -888,7 +1051,7 @@ namespace Read4Me
             // 
             // tbHKlang2
             // 
-            this.tbHKlang2.Location = new System.Drawing.Point(166, 39);
+            this.tbHKlang2.Location = new System.Drawing.Point(166, 52);
             this.tbHKlang2.MaxLength = 1;
             this.tbHKlang2.Name = "tbHKlang2";
             this.tbHKlang2.Size = new System.Drawing.Size(19, 20);
@@ -897,7 +1060,7 @@ namespace Read4Me
             // lCtrllang6
             // 
             this.lCtrllang6.AutoSize = true;
-            this.lCtrllang6.Location = new System.Drawing.Point(6, 134);
+            this.lCtrllang6.Location = new System.Drawing.Point(6, 147);
             this.lCtrllang6.Name = "lCtrllang6";
             this.lCtrllang6.Size = new System.Drawing.Size(41, 17);
             this.lCtrllang6.TabIndex = 4;
@@ -907,7 +1070,7 @@ namespace Read4Me
             // lCtrllang5
             // 
             this.lCtrllang5.AutoSize = true;
-            this.lCtrllang5.Location = new System.Drawing.Point(6, 111);
+            this.lCtrllang5.Location = new System.Drawing.Point(6, 124);
             this.lCtrllang5.Name = "lCtrllang5";
             this.lCtrllang5.Size = new System.Drawing.Size(41, 17);
             this.lCtrllang5.TabIndex = 4;
@@ -917,7 +1080,7 @@ namespace Read4Me
             // lCtrllang4
             // 
             this.lCtrllang4.AutoSize = true;
-            this.lCtrllang4.Location = new System.Drawing.Point(6, 88);
+            this.lCtrllang4.Location = new System.Drawing.Point(6, 101);
             this.lCtrllang4.Name = "lCtrllang4";
             this.lCtrllang4.Size = new System.Drawing.Size(41, 17);
             this.lCtrllang4.TabIndex = 4;
@@ -926,7 +1089,7 @@ namespace Read4Me
             // 
             // tbHKlang1
             // 
-            this.tbHKlang1.Location = new System.Drawing.Point(166, 16);
+            this.tbHKlang1.Location = new System.Drawing.Point(166, 29);
             this.tbHKlang1.MaxLength = 1;
             this.tbHKlang1.Name = "tbHKlang1";
             this.tbHKlang1.Size = new System.Drawing.Size(19, 20);
@@ -935,7 +1098,7 @@ namespace Read4Me
             // lWinKeylang2
             // 
             this.lWinKeylang2.AutoSize = true;
-            this.lWinKeylang2.Location = new System.Drawing.Point(53, 42);
+            this.lWinKeylang2.Location = new System.Drawing.Point(53, 55);
             this.lWinKeylang2.Name = "lWinKeylang2";
             this.lWinKeylang2.Size = new System.Drawing.Size(63, 17);
             this.lWinKeylang2.TabIndex = 8;
@@ -945,7 +1108,7 @@ namespace Read4Me
             // lAltlang6
             // 
             this.lAltlang6.AutoSize = true;
-            this.lAltlang6.Location = new System.Drawing.Point(122, 134);
+            this.lAltlang6.Location = new System.Drawing.Point(122, 147);
             this.lAltlang6.Name = "lAltlang6";
             this.lAltlang6.Size = new System.Drawing.Size(38, 17);
             this.lAltlang6.TabIndex = 17;
@@ -955,7 +1118,7 @@ namespace Read4Me
             // lAltlang5
             // 
             this.lAltlang5.AutoSize = true;
-            this.lAltlang5.Location = new System.Drawing.Point(122, 111);
+            this.lAltlang5.Location = new System.Drawing.Point(122, 124);
             this.lAltlang5.Name = "lAltlang5";
             this.lAltlang5.Size = new System.Drawing.Size(38, 17);
             this.lAltlang5.TabIndex = 17;
@@ -965,7 +1128,7 @@ namespace Read4Me
             // lAltlang4
             // 
             this.lAltlang4.AutoSize = true;
-            this.lAltlang4.Location = new System.Drawing.Point(122, 88);
+            this.lAltlang4.Location = new System.Drawing.Point(122, 101);
             this.lAltlang4.Name = "lAltlang4";
             this.lAltlang4.Size = new System.Drawing.Size(38, 17);
             this.lAltlang4.TabIndex = 17;
@@ -975,7 +1138,7 @@ namespace Read4Me
             // lWinKeylang1
             // 
             this.lWinKeylang1.AutoSize = true;
-            this.lWinKeylang1.Location = new System.Drawing.Point(53, 19);
+            this.lWinKeylang1.Location = new System.Drawing.Point(53, 32);
             this.lWinKeylang1.Name = "lWinKeylang1";
             this.lWinKeylang1.Size = new System.Drawing.Size(63, 17);
             this.lWinKeylang1.TabIndex = 5;
@@ -985,7 +1148,7 @@ namespace Read4Me
             // lAltlang3
             // 
             this.lAltlang3.AutoSize = true;
-            this.lAltlang3.Location = new System.Drawing.Point(122, 65);
+            this.lAltlang3.Location = new System.Drawing.Point(122, 78);
             this.lAltlang3.Name = "lAltlang3";
             this.lAltlang3.Size = new System.Drawing.Size(38, 17);
             this.lAltlang3.TabIndex = 19;
@@ -995,7 +1158,7 @@ namespace Read4Me
             // lWinKeylang3
             // 
             this.lWinKeylang3.AutoSize = true;
-            this.lWinKeylang3.Location = new System.Drawing.Point(53, 65);
+            this.lWinKeylang3.Location = new System.Drawing.Point(53, 78);
             this.lWinKeylang3.Name = "lWinKeylang3";
             this.lWinKeylang3.Size = new System.Drawing.Size(63, 17);
             this.lWinKeylang3.TabIndex = 7;
@@ -1005,7 +1168,7 @@ namespace Read4Me
             // lWinKeylang6
             // 
             this.lWinKeylang6.AutoSize = true;
-            this.lWinKeylang6.Location = new System.Drawing.Point(53, 134);
+            this.lWinKeylang6.Location = new System.Drawing.Point(53, 147);
             this.lWinKeylang6.Name = "lWinKeylang6";
             this.lWinKeylang6.Size = new System.Drawing.Size(63, 17);
             this.lWinKeylang6.TabIndex = 6;
@@ -1015,7 +1178,7 @@ namespace Read4Me
             // lAltlang2
             // 
             this.lAltlang2.AutoSize = true;
-            this.lAltlang2.Location = new System.Drawing.Point(122, 42);
+            this.lAltlang2.Location = new System.Drawing.Point(122, 55);
             this.lAltlang2.Name = "lAltlang2";
             this.lAltlang2.Size = new System.Drawing.Size(38, 17);
             this.lAltlang2.TabIndex = 18;
@@ -1025,7 +1188,7 @@ namespace Read4Me
             // lWinKeylang5
             // 
             this.lWinKeylang5.AutoSize = true;
-            this.lWinKeylang5.Location = new System.Drawing.Point(53, 111);
+            this.lWinKeylang5.Location = new System.Drawing.Point(53, 124);
             this.lWinKeylang5.Name = "lWinKeylang5";
             this.lWinKeylang5.Size = new System.Drawing.Size(63, 17);
             this.lWinKeylang5.TabIndex = 6;
@@ -1035,7 +1198,7 @@ namespace Read4Me
             // lWinKeylang4
             // 
             this.lWinKeylang4.AutoSize = true;
-            this.lWinKeylang4.Location = new System.Drawing.Point(53, 88);
+            this.lWinKeylang4.Location = new System.Drawing.Point(53, 101);
             this.lWinKeylang4.Name = "lWinKeylang4";
             this.lWinKeylang4.Size = new System.Drawing.Size(63, 17);
             this.lWinKeylang4.TabIndex = 6;
@@ -1045,7 +1208,7 @@ namespace Read4Me
             // lAltlang1
             // 
             this.lAltlang1.AutoSize = true;
-            this.lAltlang1.Location = new System.Drawing.Point(122, 19);
+            this.lAltlang1.Location = new System.Drawing.Point(122, 32);
             this.lAltlang1.Name = "lAltlang1";
             this.lAltlang1.Size = new System.Drawing.Size(38, 17);
             this.lAltlang1.TabIndex = 16;
@@ -1076,7 +1239,7 @@ namespace Read4Me
             this.gbGeneral.Controls.Add(this.lHK2);
             this.gbGeneral.Location = new System.Drawing.Point(3, 3);
             this.gbGeneral.Name = "gbGeneral";
-            this.gbGeneral.Size = new System.Drawing.Size(424, 112);
+            this.gbGeneral.Size = new System.Drawing.Size(314, 112);
             this.gbGeneral.TabIndex = 4;
             this.gbGeneral.TabStop = false;
             this.gbGeneral.Text = "General hotkeys";
@@ -1269,65 +1432,21 @@ namespace Read4Me
             this.lHK2.TabIndex = 1;
             this.lHK2.Text = "Previous sentence";
             // 
-            // cbVolume1
+            // bApplyBatch
             // 
-            this.cbVolume1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbVolume1.FormattingEnabled = true;
-            this.cbVolume1.Location = new System.Drawing.Point(588, 15);
-            this.cbVolume1.Name = "cbVolume1";
-            this.cbVolume1.Size = new System.Drawing.Size(44, 21);
-            this.cbVolume1.TabIndex = 26;
-            // 
-            // cbVolume2
-            // 
-            this.cbVolume2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbVolume2.FormattingEnabled = true;
-            this.cbVolume2.Location = new System.Drawing.Point(588, 38);
-            this.cbVolume2.Name = "cbVolume2";
-            this.cbVolume2.Size = new System.Drawing.Size(44, 21);
-            this.cbVolume2.TabIndex = 26;
-            // 
-            // cbVolume3
-            // 
-            this.cbVolume3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbVolume3.FormattingEnabled = true;
-            this.cbVolume3.Location = new System.Drawing.Point(588, 61);
-            this.cbVolume3.Name = "cbVolume3";
-            this.cbVolume3.Size = new System.Drawing.Size(44, 21);
-            this.cbVolume3.TabIndex = 26;
-            // 
-            // cbVolume4
-            // 
-            this.cbVolume4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbVolume4.FormattingEnabled = true;
-            this.cbVolume4.Location = new System.Drawing.Point(588, 84);
-            this.cbVolume4.Name = "cbVolume4";
-            this.cbVolume4.Size = new System.Drawing.Size(44, 21);
-            this.cbVolume4.TabIndex = 26;
-            // 
-            // cbVolume5
-            // 
-            this.cbVolume5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbVolume5.FormattingEnabled = true;
-            this.cbVolume5.Location = new System.Drawing.Point(588, 107);
-            this.cbVolume5.Name = "cbVolume5";
-            this.cbVolume5.Size = new System.Drawing.Size(44, 21);
-            this.cbVolume5.TabIndex = 26;
-            // 
-            // cbVolume6
-            // 
-            this.cbVolume6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbVolume6.FormattingEnabled = true;
-            this.cbVolume6.Location = new System.Drawing.Point(588, 130);
-            this.cbVolume6.Name = "cbVolume6";
-            this.cbVolume6.Size = new System.Drawing.Size(44, 21);
-            this.cbVolume6.TabIndex = 26;
+            this.bApplyBatch.Location = new System.Drawing.Point(238, 168);
+            this.bApplyBatch.Name = "bApplyBatch";
+            this.bApplyBatch.Size = new System.Drawing.Size(92, 23);
+            this.bApplyBatch.TabIndex = 55;
+            this.bApplyBatch.Text = "Save Settings";
+            this.bApplyBatch.UseVisualStyleBackColor = true;
+            this.bApplyBatch.Click += new System.EventHandler(this.bApplyBatch_Click);
             // 
             // Read4MeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(699, 273);
+            this.ClientSize = new System.Drawing.Size(703, 405);
             this.Controls.Add(this.tabControlMain);
             this.Controls.Add(this.sStrip);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -1343,7 +1462,8 @@ namespace Read4Me
             this.sStrip.PerformLayout();
             this.tabControlMain.ResumeLayout(false);
             this.tpConv.ResumeLayout(false);
-            this.tpConv.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.tpSpeak.ResumeLayout(false);
             this.tpSpeak.PerformLayout();
             this.tbSettings.ResumeLayout(false);
@@ -1377,8 +1497,6 @@ namespace Read4Me
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem showStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitStripMenuItem;
-        private System.Windows.Forms.Button bBrowse;
-        private System.Windows.Forms.Button bBatch;
         private System.Windows.Forms.StatusStrip sStrip;
         private System.Windows.Forms.ToolStripStatusLabel sWorkingStatus;
         private System.Windows.Forms.TextBox tbAlbum;
@@ -1397,7 +1515,6 @@ namespace Read4Me
         private System.Windows.Forms.Button bGo;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox tbYear;
-        private System.Windows.Forms.Button bExit;
         private System.Windows.Forms.TabControl tabControlMain;
         private System.Windows.Forms.TabPage tpConv;
         private System.Windows.Forms.TabPage tpSpeak;
@@ -1473,6 +1590,20 @@ namespace Read4Me
         private System.Windows.Forms.ComboBox cbVolume3;
         private System.Windows.Forms.ComboBox cbVolume2;
         private System.Windows.Forms.ComboBox cbVolume1;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ComboBox cbVoiceBatch;
+        private System.Windows.Forms.ComboBox cbVolumeBatch;
+        private System.Windows.Forms.ComboBox cbRateBatch;
+        private System.Windows.Forms.ComboBox cbLanguageBatch;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Button bApplyBatch;
     }
 }
 
