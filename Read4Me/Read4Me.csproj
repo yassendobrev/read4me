@@ -113,6 +113,7 @@
     <Compile Include="Hotkey.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings.cs" />
     <EmbeddedResource Include="Read4MeForm.resx">
       <SubType>Designer</SubType>
       <DependentUpon>Read4MeForm.cs</DependentUpon>

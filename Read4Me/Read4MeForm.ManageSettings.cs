@@ -265,6 +265,12 @@ namespace Read4Me
             }
             hotkeys[current_hotkey].Pressed += delegate { todo_action(); };
 
+            if (current_hotkey == 0)
+            {
+                Properties.Settings.Default.open_hide_hotkey = hotkeys[current_hotkey];
+                Properties.Settings.Default.Save();
+            }
+
             if (!hotkeys[current_hotkey].GetCanRegister(this))
             {
                 return false;
@@ -292,7 +298,14 @@ namespace Read4Me
 
         private void WriteSettings()
         {
-            file_writer = new StreamWriter(Path.GetDirectoryName(Application.ExecutablePath) + "\\Read4Me.ini", false, Encoding.UTF8);
+            try
+            {
+                file_writer = new StreamWriter(Path.GetDirectoryName(Application.ExecutablePath) + "\\Read4Me.ini", false, Encoding.UTF8);
+            }
+            catch
+            {
+                return;
+            }
             file_writer.Write("<?xml version=\"1.0\" encoding=\"utf-8\" ?>\r\n");
             file_writer.Write("<settings>\r\n");
             file_writer.Write("    <hotkey_general type=\"show_hide\" ctrl=\"" + ((lCtrl0.Checked == true) ? "1" : "0") + "\" winkey=\"" + ((lWinKey0.Checked == true) ? "1" : "0") + "\" alt=\"" + ((lAlt0.Checked == true) ? "1" : "0") + "\" key=\"" + tbHK0.Text + "\"></hotkey_general>\r\n");

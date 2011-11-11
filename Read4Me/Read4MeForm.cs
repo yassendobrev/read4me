@@ -23,10 +23,11 @@ namespace Read4Me
         // show/hide main window
         bool mAllowVisible;     // ContextMenu's Show command used
         bool mAllowClose;       // ContextMenu's Exit command used
-        
+
         public Read4MeForm()
         {
             InitializeComponent();
+            
             lLink.Links.Add(0, lLink.Text.Length - 1, lLink.Text);
                         
             foreach (ISpeechObjectToken Token in speech.GetVoices(string.Empty, string.Empty))
@@ -45,7 +46,7 @@ namespace Read4Me
             tbarRate.Value = speechRate;
             trbVolume.Value = volume_global;
 
-            // RegisterHotkeys();
+            // restore user settings
             init_lists();
             ReadSettings();
 
