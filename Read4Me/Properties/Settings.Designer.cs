@@ -25,12 +25,56 @@ namespace Read4Me.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::Read4Me.Hotkey open_hide_hotkey {
+        public global::Read4Me.Hotkey open_hide_hk {
             get {
-                return ((global::Read4Me.Hotkey)(this["open_hide_hotkey"]));
+                return ((global::Read4Me.Hotkey)(this["open_hide_hk"]));
             }
             set {
-                this["open_hide_hotkey"] = value;
+                this["open_hide_hk"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::Read4Me.Hotkey pause_resume_hk {
+            get {
+                return ((global::Read4Me.Hotkey)(this["pause_resume_hk"]));
+            }
+            set {
+                this["pause_resume_hk"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::Read4Me.Hotkey previous_sentence_hk {
+            get {
+                return ((global::Read4Me.Hotkey)(this["previous_sentence_hk"]));
+            }
+            set {
+                this["previous_sentence_hk"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::Read4Me.Hotkey next_sentence_hk {
+            get {
+                return ((global::Read4Me.Hotkey)(this["next_sentence_hk"]));
+            }
+            set {
+                this["next_sentence_hk"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::Read4Me.SpeekLangHotkey speek_lang_hk {
+            get {
+                return ((global::Read4Me.SpeekLangHotkey)(this["speek_lang_hk"]));
+            }
+            set {
+                this["speek_lang_hk"] = value;
             }
         }
     }

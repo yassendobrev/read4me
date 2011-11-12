@@ -2,7 +2,19 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Read4Me.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="open_hide_hotkey" Type="Read4Me.Hotkey" Scope="User">
+    <Setting Name="open_hide_hk" Type="Read4Me.Hotkey" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="pause_resume_hk" Type="Read4Me.Hotkey" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="previous_sentence_hk" Type="Read4Me.Hotkey" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="next_sentence_hk" Type="Read4Me.Hotkey" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="speek_lang_hk" Type="Read4Me.SpeekLangHotkey" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
   </Settings>

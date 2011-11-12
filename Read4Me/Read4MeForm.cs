@@ -48,7 +48,9 @@ namespace Read4Me
 
             // restore user settings
             init_lists();
-            ReadSettings();
+
+            // ReadSettings();
+            ReadSettings_x();
 
             // advertisment spoken at first call, speak it at volume 0
             speech.Rate = 10;

@@ -8,8 +8,32 @@ using System.Xml;
 
 namespace Read4Me
 {
+    public class SpeekLangHotkey
+    {
+        public Hotkey[] hotkey;
+        public string[] voice;
+        public string[] language;
+        public string[] rate;
+        public string[] volume;
+
+        public SpeekLangHotkey(int num_speek_lang_hk)
+        {
+            hotkey = new Hotkey[num_speek_lang_hk];
+            for (int i = 0; i < hotkey.Length; i++)
+            {
+                hotkey[i] = new Hotkey();
+            }
+            voice = new string[num_speek_lang_hk];
+            language = new string[num_speek_lang_hk];
+            rate = new string[num_speek_lang_hk];
+            volume = new string[num_speek_lang_hk];
+        }
+    }
+
     partial class Read4MeForm
     {
+        int num_speek_lang_hk = 6;
+
         List<ComboBox> comboboxes_voice = new List<ComboBox>();
         List<ComboBox> comboboxes_lang = new List<ComboBox>();
         List<ComboBox> comboboxes_srate = new List<ComboBox>();
@@ -77,6 +101,174 @@ namespace Read4Me
             comboboxes_volume.Add(cbVolume6);
 
             InitComboboxes();
+        }
+
+        List<Hotkey> hotkeys = new List<Hotkey>();
+        List<Keys> keycodes = new List<Keys>();
+        List<Action> actions = new List<Action>();
+        private void ReadSettings_x()
+        {
+            string KeyCode;
+            int current_hotkey;
+            try
+            {
+                lCtrl0.Checked = Properties.Settings.Default.open_hide_hk.Control;
+                lWinKey0.Checked = Properties.Settings.Default.open_hide_hk.Windows;
+                lAlt0.Checked = Properties.Settings.Default.open_hide_hk.Alt;
+                KeyCode = Properties.Settings.Default.open_hide_hk.KeyCode.ToString();
+                KeyCode = (KeyCode == "None") ? "" : KeyCode;
+                tbHK0.Text = KeyCode;
+
+                hotkeys.Add(Properties.Settings.Default.open_hide_hk);
+                current_hotkey = hotkeys.Count - 1;
+                hotkeys[current_hotkey].Pressed += delegate { ToggleForm(); };
+            }
+            catch
+            {
+            }
+
+            try
+            {
+                lCtrl1.Checked = Properties.Settings.Default.pause_resume_hk.Control;
+                lWinKey1.Checked = Properties.Settings.Default.pause_resume_hk.Windows;
+                lAlt1.Checked = Properties.Settings.Default.pause_resume_hk.Alt;
+                KeyCode = Properties.Settings.Default.pause_resume_hk.KeyCode.ToString();
+                KeyCode = (KeyCode == "None") ? "" : KeyCode;
+                tbHK1.Text = KeyCode;
+
+                hotkeys.Add(Properties.Settings.Default.pause_resume_hk);
+                current_hotkey = hotkeys.Count - 1;
+                hotkeys[current_hotkey].Pressed += delegate { SpeechStop(); };
+            }
+            catch
+            {
+            }
+
+            try
+            {
+                lCtrl2.Checked = Properties.Settings.Default.previous_sentence_hk.Control;
+                lWinKey2.Checked = Properties.Settings.Default.previous_sentence_hk.Windows;
+                lAlt2.Checked = Properties.Settings.Default.previous_sentence_hk.Alt;
+                KeyCode = Properties.Settings.Default.previous_sentence_hk.KeyCode.ToString();
+                KeyCode = (KeyCode == "None") ? "" : KeyCode;
+                tbHK2.Text = KeyCode;
+
+                hotkeys.Add(Properties.Settings.Default.previous_sentence_hk);
+                current_hotkey = hotkeys.Count - 1;
+                hotkeys[current_hotkey].Pressed += delegate { SpeechSkip(-1); };
+            }
+            catch
+            {
+            }
+
+            try
+            {
+                lCtrl3.Checked = Properties.Settings.Default.next_sentence_hk.Control;
+                lWinKey3.Checked = Properties.Settings.Default.next_sentence_hk.Windows;
+                lAlt3.Checked = Properties.Settings.Default.next_sentence_hk.Alt;
+                KeyCode = Properties.Settings.Default.next_sentence_hk.KeyCode.ToString();
+                KeyCode = (KeyCode == "None") ? "" : KeyCode;
+                tbHK3.Text = KeyCode;
+
+                hotkeys.Add(Properties.Settings.Default.next_sentence_hk);
+                current_hotkey = hotkeys.Count - 1;
+                hotkeys[current_hotkey].Pressed += delegate { SpeechSkip(1); };
+            }
+            catch
+            {
+            }
+
+            for (int i = 0; i < num_speek_lang_hk; i++)
+            {
+                int field_num = i;
+
+                // MessageBox.Show(Properties.Settings.Default.speek_lang_hk.voice[0]);
+
+                try
+                {
+                    if (Properties.Settings.Default.speek_lang_hk.voice[i] != "" && Properties.Settings.Default.speek_lang_hk.language[i] != "" && Properties.Settings.Default.speek_lang_hk.rate[i] != "" && Properties.Settings.Default.speek_lang_hk.volume[i] != "")
+                    {
+                        MessageBox.Show(i.ToString());
+                        checkboxes_ctrl_lang[i].Checked = Properties.Settings.Default.speek_lang_hk.hotkey[i].Control;
+                        checkboxes_winkey_lang[i].Checked = Properties.Settings.Default.speek_lang_hk.hotkey[i].Windows;
+                        checkboxes_alt_lang[i].Checked = Properties.Settings.Default.speek_lang_hk.hotkey[i].Alt;
+                        KeyCode = Properties.Settings.Default.speek_lang_hk.hotkey[i].KeyCode.ToString();
+                        KeyCode = (KeyCode == "None") ? "" : KeyCode;
+                        textboxes_lang[i].Text = KeyCode;
+
+                        comboboxes_voice[i].SelectedIndex = cbLang1.FindStringExact(Properties.Settings.Default.speek_lang_hk.voice[i]);
+                        comboboxes_lang[i].SelectedIndex = cbLangid1.FindStringExact(Properties.Settings.Default.speek_lang_hk.language[i]);
+                        comboboxes_srate[i].SelectedIndex = cbSRate1.FindStringExact(Properties.Settings.Default.speek_lang_hk.rate[i]);
+                        comboboxes_volume[i].SelectedIndex = cbVolume1.FindStringExact(Properties.Settings.Default.speek_lang_hk.volume[i]);
+
+                        hotkeys.Add(Properties.Settings.Default.speek_lang_hk.hotkey[i]);
+                        current_hotkey = hotkeys.Count - 1;
+                        hotkeys[current_hotkey].Pressed += delegate { ReadClipboard((string)langids[Properties.Settings.Default.speek_lang_hk.language[field_num]], Properties.Settings.Default.speek_lang_hk.voice[field_num], Int16.Parse(Properties.Settings.Default.speek_lang_hk.rate[field_num]), Int16.Parse(Properties.Settings.Default.speek_lang_hk.volume[field_num])); ; };
+                    }
+                }
+                catch
+                {
+                }
+            }
+            
+            for (current_hotkey = 0; current_hotkey < hotkeys.Count; current_hotkey++)
+            {
+                if (hotkeys[current_hotkey].GetCanRegister(this))
+                {
+                    hotkeys[current_hotkey].Register(this);
+                }
+            }
+        }
+
+        private void WriteSettings_x()
+        {
+            Keys KeyCode;
+            Properties.Settings.Default.open_hide_hk = new Hotkey();
+            Properties.Settings.Default.open_hide_hk.Control = lCtrl0.Checked;
+            Properties.Settings.Default.open_hide_hk.Windows = lWinKey0.Checked;
+            Properties.Settings.Default.open_hide_hk.Alt = lAlt0.Checked;
+            KeyCode = (tbHK0.Text != "") ? (Keys)(byte)char.ToUpper(tbHK0.Text[0]) : (Keys)(byte)('\0');
+            Properties.Settings.Default.open_hide_hk.KeyCode = KeyCode;
+
+            Properties.Settings.Default.pause_resume_hk = new Hotkey();
+            Properties.Settings.Default.pause_resume_hk.Control = lCtrl1.Checked;
+            Properties.Settings.Default.pause_resume_hk.Windows = lWinKey1.Checked;
+            Properties.Settings.Default.pause_resume_hk.Alt = lAlt1.Checked;
+            KeyCode = (tbHK1.Text != "") ? (Keys)(byte)char.ToUpper(tbHK1.Text[0]) : (Keys)(byte)('\0');
+            Properties.Settings.Default.pause_resume_hk.KeyCode = KeyCode;
+
+            Properties.Settings.Default.previous_sentence_hk = new Hotkey();
+            Properties.Settings.Default.previous_sentence_hk.Control = lCtrl2.Checked;
+            Properties.Settings.Default.previous_sentence_hk.Windows = lWinKey2.Checked;
+            Properties.Settings.Default.previous_sentence_hk.Alt = lAlt2.Checked;
+            KeyCode = (tbHK2.Text != "") ? (Keys)(byte)char.ToUpper(tbHK2.Text[0]) : (Keys)(byte)('\0');
+            Properties.Settings.Default.previous_sentence_hk.KeyCode = KeyCode;
+
+            Properties.Settings.Default.next_sentence_hk = new Hotkey();
+            Properties.Settings.Default.next_sentence_hk.Control = lCtrl3.Checked;
+            Properties.Settings.Default.next_sentence_hk.Windows = lWinKey3.Checked;
+            Properties.Settings.Default.next_sentence_hk.Alt = lAlt3.Checked;
+            KeyCode = (tbHK3.Text != "") ? (Keys)(byte)char.ToUpper(tbHK3.Text[0]) : (Keys)(byte)('\0');
+            Properties.Settings.Default.next_sentence_hk.KeyCode = KeyCode;
+
+            Properties.Settings.Default.speek_lang_hk = new SpeekLangHotkey(num_speek_lang_hk);
+            for (int i = 0; i < comboboxes_voice.Count; i++)
+            {
+                Properties.Settings.Default.speek_lang_hk.hotkey[i].Control = checkboxes_ctrl_lang[i].Checked;
+                Properties.Settings.Default.speek_lang_hk.hotkey[i].Windows = checkboxes_winkey_lang[i].Checked;
+                Properties.Settings.Default.speek_lang_hk.hotkey[i].Alt = checkboxes_alt_lang[i].Checked;
+                KeyCode = (textboxes_lang[i].Text != "") ? (Keys)(byte)char.ToUpper(textboxes_lang[i].Text[0]) : (Keys)(byte)('\0');
+                Properties.Settings.Default.speek_lang_hk.hotkey[i].KeyCode = KeyCode;
+
+                Properties.Settings.Default.speek_lang_hk.voice[i] = (comboboxes_voice[i].SelectedIndex > -1) ? comboboxes_voice[i].SelectedItem.ToString() : "";
+                Properties.Settings.Default.speek_lang_hk.language[i] = (comboboxes_lang[i].SelectedIndex > -1) ? comboboxes_lang[i].SelectedItem.ToString() : "";
+                Properties.Settings.Default.speek_lang_hk.rate[i] = (comboboxes_srate[i].SelectedIndex > -1) ? comboboxes_srate[i].SelectedItem.ToString() : "";
+                Properties.Settings.Default.speek_lang_hk.volume[i] = (comboboxes_volume[i].SelectedIndex > -1) ? comboboxes_volume[i].SelectedItem.ToString() : "";
+            }
+
+            Properties.Settings.Default.Save();
+            UnregisterHotkeys();
+            ReadSettings_x();
         }
 
         private void ReadSettings()
@@ -223,9 +415,7 @@ namespace Read4Me
             }
         }
 
-        List<Hotkey> hotkeys = new List<Hotkey>();
-        List<Keys> keycodes = new List<Keys>();
-        List<Action> actions = new List<Action>();
+
         private bool RegisterHotkey(string type, bool ctrl, bool winkey, bool alt, char key, string langid, string voice, int srate, int volume)
         {
             // register hotkeys
@@ -265,12 +455,6 @@ namespace Read4Me
             }
             hotkeys[current_hotkey].Pressed += delegate { todo_action(); };
 
-            if (current_hotkey == 0)
-            {
-                Properties.Settings.Default.open_hide_hotkey = hotkeys[current_hotkey];
-                Properties.Settings.Default.Save();
-            }
-
             if (!hotkeys[current_hotkey].GetCanRegister(this))
             {
                 return false;
@@ -286,14 +470,24 @@ namespace Read4Me
         {
             for (int i = 0; i < hotkeys.Count; i++)
             {
-                hotkeys[i].Unregister();
+                if (hotkeys[i].Registered)
+                {
+                    try
+                    {
+                        hotkeys[i].Unregister();
+                    }
+                    catch
+                    {
+                    }
+                }
             }
             hotkeys.Clear();
         }
 
         private void bApplyClick(object sender, EventArgs e)
         {
-            WriteSettings();
+            // WriteSettings();
+            WriteSettings_x();
         }
 
         private void WriteSettings()
