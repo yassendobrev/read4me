@@ -92,10 +92,11 @@ namespace Read4Me
             int lang_num = 0;
             int srate = 0;
             int volume = 0;
+            XmlReader reader;
 
-            try
+            if (File.Exists(Path.GetDirectoryName(Application.ExecutablePath) + "\\Read4Me.ini"))
             {
-                XmlReader reader = XmlReader.Create(Path.GetDirectoryName(Application.ExecutablePath) + "\\Read4Me.ini");
+                reader = XmlReader.Create(Path.GetDirectoryName(Application.ExecutablePath) + "\\Read4Me.ini");
                 while (reader.Read())
                 {
                     // Only detect start elements.
@@ -137,8 +138,22 @@ namespace Read4Me
                                 lang = reader["lang"];
                                 langid = (string)langids[lang];
                                 voice = reader["voice"];
-                                srate = Int16.Parse(reader["srate"]);
-                                volume = Int16.Parse(reader["volume"]);
+                                if (reader["srate"] != "")
+                                {
+                                    srate = Int16.Parse(reader["srate"]);
+                                }
+                                else
+                                {
+                                    srate = int.MinValue;
+                                }
+                                if (reader["volume"] != "")
+                                {
+                                    volume = Int16.Parse(reader["volume"]);
+                                }
+                                else
+                                {
+                                    volume = int.MinValue;
+                                }
                                 SetViewSettings(type, ctrl, winkey, alt, key, lang, voice, lang_num, srate, volume);
                                 RegisterHotkey(type, ctrl, winkey, alt, key, langid, voice, srate, volume);
                                 lang_num++;
@@ -149,8 +164,22 @@ namespace Read4Me
                                 lang = reader["lang"];
                                 langid = (string)langids[lang];
                                 voice = reader["voice"];
-                                srate = Int16.Parse(reader["srate"]);
-                                volume = Int16.Parse(reader["volume"]);
+                                if (reader["srate"] != "")
+                                {
+                                    srate = Int16.Parse(reader["srate"]);
+                                }
+                                else
+                                {
+                                    srate = int.MinValue;
+                                }
+                                if (reader["volume"] != "")
+                                {
+                                    volume = Int16.Parse(reader["volume"]);
+                                }
+                                else
+                                {
+                                    volume = int.MinValue;
+                                }
                                 SetViewSettings(type, false, false, false, '\0', lang, voice, 0, srate, volume);
                                 lang_num++;
                                 break;
@@ -162,7 +191,7 @@ namespace Read4Me
                 }
                 reader.Close();
             }
-            catch
+            else
             {
                 sWorkingStatus.Text = "No settings file found!";
             }
@@ -265,12 +294,6 @@ namespace Read4Me
             }
             hotkeys[current_hotkey].Pressed += delegate { todo_action(); };
 
-            if (current_hotkey == 0)
-            {
-                Properties.Settings.Default.open_hide_hotkey = hotkeys[current_hotkey];
-                Properties.Settings.Default.Save();
-            }
-
             if (!hotkeys[current_hotkey].GetCanRegister(this))
             {
                 return false;
@@ -286,7 +309,10 @@ namespace Read4Me
         {
             for (int i = 0; i < hotkeys.Count; i++)
             {
-                hotkeys[i].Unregister();
+                if (hotkeys[i].Registered)
+                {
+                    hotkeys[i].Unregister();
+                }
             }
             hotkeys.Clear();
         }
@@ -314,10 +340,10 @@ namespace Read4Me
             file_writer.Write("    <hotkey_general type=\"next_sentence\" ctrl=\"" + ((lCtrl3.Checked == true) ? "1" : "0") + "\" winkey=\"" + ((lWinKey3.Checked == true) ? "1" : "0") + "\" alt=\"" + ((lAlt3.Checked == true) ? "1" : "0") + "\" key=\"" + tbHK3.Text + "\"></hotkey_general>\r\n");
             for (int i = 0; i < comboboxes_voice.Count; i++)
             {
-                if ((textboxes_lang[i].Text != "") && ((string)comboboxes_lang[i].SelectedItem != "" && ((string)comboboxes_voice[i].SelectedItem != "")))
-                {
+                // if ((textboxes_lang[i].Text != "") && ((string)comboboxes_lang[i].SelectedItem != "" && ((string)comboboxes_voice[i].SelectedItem != "")))
+                // {
                     file_writer.Write("    <hotkey_speech type=\"speech\" ctrl=\"" + ((checkboxes_ctrl_lang[i].Checked == true) ? "1" : "0") + "\" winkey=\"" + ((checkboxes_winkey_lang[i].Checked == true) ? "1" : "0") + "\" alt=\"" + ((checkboxes_alt_lang[i].Checked == true) ? "1" : "0") + "\" key=\"" + textboxes_lang[i].Text + "\" lang=\"" + comboboxes_lang[i].SelectedItem + "\" voice=\"" + comboboxes_voice[i].SelectedItem + "\" srate=\"" + comboboxes_srate[i].SelectedItem + "\" volume=\"" + comboboxes_volume[i].SelectedItem + "\"></hotkey_speech>\r\n");
-                }
+                // }
             }
             file_writer.Write("    <batch_settings type=\"batch_settings\" lang=\"" + cbLanguageBatch.SelectedItem + "\" voice=\"" + cbVoiceBatch.SelectedItem + "\" srate=\"" + cbRateBatch.SelectedItem + "\" volume=\"" + cbVolumeBatch.SelectedItem + "\"></batch_settings>\r\n");
             file_writer.Write("</settings>\r\n");

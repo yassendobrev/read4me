@@ -156,7 +156,9 @@ namespace Read4Me
             this.lHK3 = new System.Windows.Forms.Label();
             this.lHK1 = new System.Windows.Forms.Label();
             this.lHK2 = new System.Windows.Forms.Label();
+            this.tnAbout = new System.Windows.Forms.TabPage();
             this.lLink = new System.Windows.Forms.LinkLabel();
+            this.lLinkDiscussion = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.tbarRate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trbVolume)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -168,6 +170,7 @@ namespace Read4Me
             this.tbSettings.SuspendLayout();
             this.gbVoices.SuspendLayout();
             this.gbGeneral.SuspendLayout();
+            this.tnAbout.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbspeech
@@ -355,9 +358,9 @@ namespace Read4Me
             // 
             this.sStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sWorkingStatus});
-            this.sStrip.Location = new System.Drawing.Point(0, 404);
+            this.sStrip.Location = new System.Drawing.Point(0, 394);
             this.sStrip.Name = "sStrip";
-            this.sStrip.Size = new System.Drawing.Size(703, 22);
+            this.sStrip.Size = new System.Drawing.Size(700, 22);
             this.sStrip.TabIndex = 19;
             // 
             // sWorkingStatus
@@ -503,6 +506,7 @@ namespace Read4Me
             this.tabControlMain.Controls.Add(this.tpConv);
             this.tabControlMain.Controls.Add(this.tpSpeak);
             this.tabControlMain.Controls.Add(this.tbSettings);
+            this.tabControlMain.Controls.Add(this.tnAbout);
             this.tabControlMain.Location = new System.Drawing.Point(12, 12);
             this.tabControlMain.Name = "tabControlMain";
             this.tabControlMain.SelectedIndex = 0;
@@ -1443,32 +1447,52 @@ namespace Read4Me
             this.lHK2.TabIndex = 1;
             this.lHK2.Text = "Previous sentence";
             // 
+            // tnAbout
+            // 
+            this.tnAbout.Controls.Add(this.lLinkDiscussion);
+            this.tnAbout.Controls.Add(this.lLink);
+            this.tnAbout.Location = new System.Drawing.Point(4, 22);
+            this.tnAbout.Name = "tnAbout";
+            this.tnAbout.Size = new System.Drawing.Size(671, 329);
+            this.tnAbout.TabIndex = 3;
+            this.tnAbout.Text = "About";
+            this.tnAbout.UseVisualStyleBackColor = true;
+            // 
             // lLink
             // 
             this.lLink.AutoSize = true;
-            this.lLink.Location = new System.Drawing.Point(502, 370);
+            this.lLink.Location = new System.Drawing.Point(30, 27);
             this.lLink.Name = "lLink";
             this.lLink.Size = new System.Drawing.Size(189, 13);
-            this.lLink.TabIndex = 50;
+            this.lLink.TabIndex = 51;
             this.lLink.TabStop = true;
             this.lLink.Text = "http://sourceforge.net/p/read4mecbr/";
-            this.lLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lLink_LinkClicked);
+            // 
+            // lLinkDiscussion
+            // 
+            this.lLinkDiscussion.AutoSize = true;
+            this.lLinkDiscussion.Location = new System.Drawing.Point(30, 49);
+            this.lLinkDiscussion.Name = "lLinkDiscussion";
+            this.lLinkDiscussion.Size = new System.Drawing.Size(248, 13);
+            this.lLinkDiscussion.TabIndex = 52;
+            this.lLinkDiscussion.TabStop = true;
+            this.lLinkDiscussion.Text = "https://sourceforge.net/p/read4mecbr/discussion/";
+            this.lLinkDiscussion.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lLinkDiscussion_LinkClicked);
             // 
             // Read4MeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(703, 426);
+            this.ClientSize = new System.Drawing.Size(700, 416);
             this.Controls.Add(this.sStrip);
             this.Controls.Add(this.tabControlMain);
-            this.Controls.Add(this.lLink);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Read4MeForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.Text = "Read4Me";
+            this.Text = "Read4Me 0.2";
             ((System.ComponentModel.ISupportInitialize)(this.tbarRate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trbVolume)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
@@ -1485,6 +1509,8 @@ namespace Read4Me
             this.gbVoices.PerformLayout();
             this.gbGeneral.ResumeLayout(false);
             this.gbGeneral.PerformLayout();
+            this.tnAbout.ResumeLayout(false);
+            this.tnAbout.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1618,7 +1644,9 @@ namespace Read4Me
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Button bApplyBatch;
+        private System.Windows.Forms.TabPage tnAbout;
         private System.Windows.Forms.LinkLabel lLink;
+        private System.Windows.Forms.LinkLabel lLinkDiscussion;
     }
 }
 

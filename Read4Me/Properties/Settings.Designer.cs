@@ -22,16 +22,5 @@ namespace Read4Me.Properties {
                 return defaultInstance;
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::Read4Me.Hotkey open_hide_hotkey {
-            get {
-                return ((global::Read4Me.Hotkey)(this["open_hide_hotkey"]));
-            }
-            set {
-                this["open_hide_hotkey"] = value;
-            }
-        }
     }
 }
