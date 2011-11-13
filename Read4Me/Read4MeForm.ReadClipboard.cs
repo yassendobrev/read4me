@@ -1,5 +1,6 @@
 ﻿using System.Windows.Forms;
 using SpeechLib;
+using System.IO;
 
 namespace Read4Me
 {
@@ -33,7 +34,16 @@ namespace Read4Me
             SpObjectToken voice_sp = speech.GetVoices("Name=" + voice, "Language=" + langid).Item(0);
             paused = false;
             toRead = Clipboard.GetText();
-            toRead.Replace("\r\n", "<lang langid=\"" + langid + "\"><silence msec=\"50\" /></lang>"); // new line -> pause for 50ms
+            if (cbSilence.Checked)
+            {
+                // ad 50ms silence on new line
+                toRead = toRead.Replace("\r\n", "<lang langid=\"409\"><silence msec=\"50\" /></lang>"); // new line -> pause for 50ms
+            }
+            else
+            {
+                // no silence on new line
+                toRead = toRead.Replace("\r\n", "");
+            }
             toRead = "<lang langid=\"" + langid + "\"><pitch middle='0'>" + toRead + "</pitch></lang>";
             speech.Rate = srate;
             speech.Volume = volume;

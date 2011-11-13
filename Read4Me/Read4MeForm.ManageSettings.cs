@@ -85,6 +85,7 @@ namespace Read4Me
             bool ctrl;
             bool winkey;
             bool alt;
+            bool silence;
             string lang;
             string langid;
             string voice;
@@ -118,7 +119,7 @@ namespace Read4Me
                                 {
                                     key = '\0';
                                 }
-                                SetViewSettings(type, ctrl, winkey, alt, key, "", "", 0, 0, 0);
+                                SetViewSettings(type, ctrl, winkey, alt, key, "", "", 0, 0, 0, false);
                                 RegisterHotkey(type, ctrl, winkey, alt, key, "", "", 0, 0);
                                 break;
 
@@ -154,7 +155,7 @@ namespace Read4Me
                                 {
                                     volume = int.MinValue;
                                 }
-                                SetViewSettings(type, ctrl, winkey, alt, key, lang, voice, lang_num, srate, volume);
+                                SetViewSettings(type, ctrl, winkey, alt, key, lang, voice, lang_num, srate, volume, false);
                                 RegisterHotkey(type, ctrl, winkey, alt, key, langid, voice, srate, volume);
                                 lang_num++;
                                 break;
@@ -180,8 +181,14 @@ namespace Read4Me
                                 {
                                     volume = int.MinValue;
                                 }
-                                SetViewSettings(type, false, false, false, '\0', lang, voice, 0, srate, volume);
+                                SetViewSettings(type, false, false, false, '\0', lang, voice, 0, srate, volume, false);
                                 lang_num++;
+                                break;
+
+                            case "other_settings":
+                                type = reader["type"];
+                                silence = (reader["silence"] == "1") ? true : false;
+                                SetViewSettings(type, false, false, false, '\0', "", "", 0, 0, 0, silence);
                                 break;
 
                             default:
@@ -197,7 +204,7 @@ namespace Read4Me
             }
         }
 
-        private void SetViewSettings(string type, bool ctrl, bool winkey, bool alt, char key, string lang, string voice, int lang_num, int srate, int volume)
+        private void SetViewSettings(string type, bool ctrl, bool winkey, bool alt, char key, string lang, string voice, int lang_num, int srate, int volume, bool silence)
         {
             switch (type)
             {
@@ -245,6 +252,10 @@ namespace Read4Me
                     cbLanguageBatch.SelectedIndex = cbLanguageBatch.FindStringExact(lang);
                     cbRateBatch.SelectedIndex = cbRateBatch.FindStringExact(srate.ToString());
                     cbVolumeBatch.SelectedIndex = cbVolumeBatch.FindStringExact(volume.ToString());
+                    break;
+
+                case "other_settings":
+                    cbSilence.Checked = silence;
                     break;
 
                 default:
@@ -346,6 +357,7 @@ namespace Read4Me
                 // }
             }
             file_writer.Write("    <batch_settings type=\"batch_settings\" lang=\"" + cbLanguageBatch.SelectedItem + "\" voice=\"" + cbVoiceBatch.SelectedItem + "\" srate=\"" + cbRateBatch.SelectedItem + "\" volume=\"" + cbVolumeBatch.SelectedItem + "\"></batch_settings>\r\n");
+            file_writer.Write("    <other_settings type=\"other_settings\" silence=\"" + ((cbSilence.Checked == true) ? "1" : "0") + "\"></other_settings>\r\n");
             file_writer.Write("</settings>\r\n");
             file_writer.Close();
             UnregisterHotkeys();

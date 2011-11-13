@@ -157,8 +157,10 @@ namespace Read4Me
             this.lHK1 = new System.Windows.Forms.Label();
             this.lHK2 = new System.Windows.Forms.Label();
             this.tnAbout = new System.Windows.Forms.TabPage();
-            this.lLink = new System.Windows.Forms.LinkLabel();
             this.lLinkDiscussion = new System.Windows.Forms.LinkLabel();
+            this.lLink = new System.Windows.Forms.LinkLabel();
+            this.gbOther = new System.Windows.Forms.GroupBox();
+            this.cbSilence = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.tbarRate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trbVolume)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -171,6 +173,7 @@ namespace Read4Me
             this.gbVoices.SuspendLayout();
             this.gbGeneral.SuspendLayout();
             this.tnAbout.SuspendLayout();
+            this.gbOther.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbspeech
@@ -669,6 +672,7 @@ namespace Read4Me
             // 
             this.tbSettings.AutoScroll = true;
             this.tbSettings.AutoScrollMargin = new System.Drawing.Size(5, 5);
+            this.tbSettings.Controls.Add(this.gbOther);
             this.tbSettings.Controls.Add(this.Apply);
             this.tbSettings.Controls.Add(this.gbVoices);
             this.tbSettings.Controls.Add(this.gbGeneral);
@@ -1458,16 +1462,6 @@ namespace Read4Me
             this.tnAbout.Text = "About";
             this.tnAbout.UseVisualStyleBackColor = true;
             // 
-            // lLink
-            // 
-            this.lLink.AutoSize = true;
-            this.lLink.Location = new System.Drawing.Point(30, 27);
-            this.lLink.Name = "lLink";
-            this.lLink.Size = new System.Drawing.Size(189, 13);
-            this.lLink.TabIndex = 51;
-            this.lLink.TabStop = true;
-            this.lLink.Text = "http://sourceforge.net/p/read4mecbr/";
-            // 
             // lLinkDiscussion
             // 
             this.lLinkDiscussion.AutoSize = true;
@@ -1478,6 +1472,36 @@ namespace Read4Me
             this.lLinkDiscussion.TabStop = true;
             this.lLinkDiscussion.Text = "https://sourceforge.net/p/read4mecbr/discussion/";
             this.lLinkDiscussion.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lLinkDiscussion_LinkClicked);
+            // 
+            // lLink
+            // 
+            this.lLink.AutoSize = true;
+            this.lLink.Location = new System.Drawing.Point(30, 27);
+            this.lLink.Name = "lLink";
+            this.lLink.Size = new System.Drawing.Size(189, 13);
+            this.lLink.TabIndex = 51;
+            this.lLink.TabStop = true;
+            this.lLink.Text = "http://sourceforge.net/p/read4mecbr/";
+            // 
+            // gbOther
+            // 
+            this.gbOther.Controls.Add(this.cbSilence);
+            this.gbOther.Location = new System.Drawing.Point(324, 4);
+            this.gbOther.Name = "gbOther";
+            this.gbOther.Size = new System.Drawing.Size(324, 111);
+            this.gbOther.TabIndex = 7;
+            this.gbOther.TabStop = false;
+            this.gbOther.Text = "Other settings";
+            // 
+            // cbSilence
+            // 
+            this.cbSilence.AutoSize = true;
+            this.cbSilence.Location = new System.Drawing.Point(6, 19);
+            this.cbSilence.Name = "cbSilence";
+            this.cbSilence.Size = new System.Drawing.Size(144, 17);
+            this.cbSilence.TabIndex = 4;
+            this.cbSilence.Text = "50ms silence on new line";
+            this.cbSilence.UseVisualStyleBackColor = true;
             // 
             // Read4MeForm
             // 
@@ -1511,6 +1535,8 @@ namespace Read4Me
             this.gbGeneral.PerformLayout();
             this.tnAbout.ResumeLayout(false);
             this.tnAbout.PerformLayout();
+            this.gbOther.ResumeLayout(false);
+            this.gbOther.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1647,6 +1673,8 @@ namespace Read4Me
         private System.Windows.Forms.TabPage tnAbout;
         private System.Windows.Forms.LinkLabel lLink;
         private System.Windows.Forms.LinkLabel lLinkDiscussion;
+        private System.Windows.Forms.GroupBox gbOther;
+        private System.Windows.Forms.CheckBox cbSilence;
     }
 }
 
