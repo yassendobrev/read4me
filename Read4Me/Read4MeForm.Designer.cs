@@ -81,6 +81,8 @@ namespace Read4Me
             this.cbLanguageBatch = new System.Windows.Forms.ComboBox();
             this.tpSpeak = new System.Windows.Forms.TabPage();
             this.tbSettings = new System.Windows.Forms.TabPage();
+            this.gbOther = new System.Windows.Forms.GroupBox();
+            this.cbSilence = new System.Windows.Forms.CheckBox();
             this.Apply = new System.Windows.Forms.Button();
             this.gbVoices = new System.Windows.Forms.GroupBox();
             this.cbLang6 = new System.Windows.Forms.ComboBox();
@@ -159,8 +161,7 @@ namespace Read4Me
             this.tnAbout = new System.Windows.Forms.TabPage();
             this.lLinkDiscussion = new System.Windows.Forms.LinkLabel();
             this.lLink = new System.Windows.Forms.LinkLabel();
-            this.gbOther = new System.Windows.Forms.GroupBox();
-            this.cbSilence = new System.Windows.Forms.CheckBox();
+            this.label24 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.tbarRate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trbVolume)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -170,10 +171,10 @@ namespace Read4Me
             this.groupBox1.SuspendLayout();
             this.tpSpeak.SuspendLayout();
             this.tbSettings.SuspendLayout();
+            this.gbOther.SuspendLayout();
             this.gbVoices.SuspendLayout();
             this.gbGeneral.SuspendLayout();
             this.tnAbout.SuspendLayout();
-            this.gbOther.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbspeech
@@ -682,6 +683,26 @@ namespace Read4Me
             this.tbSettings.TabIndex = 2;
             this.tbSettings.Text = "Settings";
             this.tbSettings.UseVisualStyleBackColor = true;
+            // 
+            // gbOther
+            // 
+            this.gbOther.Controls.Add(this.cbSilence);
+            this.gbOther.Location = new System.Drawing.Point(324, 4);
+            this.gbOther.Name = "gbOther";
+            this.gbOther.Size = new System.Drawing.Size(324, 111);
+            this.gbOther.TabIndex = 7;
+            this.gbOther.TabStop = false;
+            this.gbOther.Text = "Other settings";
+            // 
+            // cbSilence
+            // 
+            this.cbSilence.AutoSize = true;
+            this.cbSilence.Location = new System.Drawing.Point(6, 19);
+            this.cbSilence.Name = "cbSilence";
+            this.cbSilence.Size = new System.Drawing.Size(144, 17);
+            this.cbSilence.TabIndex = 4;
+            this.cbSilence.Text = "50ms silence on new line";
+            this.cbSilence.UseVisualStyleBackColor = true;
             // 
             // Apply
             // 
@@ -1453,6 +1474,7 @@ namespace Read4Me
             // 
             // tnAbout
             // 
+            this.tnAbout.Controls.Add(this.label24);
             this.tnAbout.Controls.Add(this.lLinkDiscussion);
             this.tnAbout.Controls.Add(this.lLink);
             this.tnAbout.Location = new System.Drawing.Point(4, 22);
@@ -1465,7 +1487,7 @@ namespace Read4Me
             // lLinkDiscussion
             // 
             this.lLinkDiscussion.AutoSize = true;
-            this.lLinkDiscussion.Location = new System.Drawing.Point(30, 49);
+            this.lLinkDiscussion.Location = new System.Drawing.Point(191, 80);
             this.lLinkDiscussion.Name = "lLinkDiscussion";
             this.lLinkDiscussion.Size = new System.Drawing.Size(248, 13);
             this.lLinkDiscussion.TabIndex = 52;
@@ -1483,25 +1505,14 @@ namespace Read4Me
             this.lLink.TabStop = true;
             this.lLink.Text = "http://sourceforge.net/p/read4mecbr/";
             // 
-            // gbOther
+            // label24
             // 
-            this.gbOther.Controls.Add(this.cbSilence);
-            this.gbOther.Location = new System.Drawing.Point(324, 4);
-            this.gbOther.Name = "gbOther";
-            this.gbOther.Size = new System.Drawing.Size(324, 111);
-            this.gbOther.TabIndex = 7;
-            this.gbOther.TabStop = false;
-            this.gbOther.Text = "Other settings";
-            // 
-            // cbSilence
-            // 
-            this.cbSilence.AutoSize = true;
-            this.cbSilence.Location = new System.Drawing.Point(6, 19);
-            this.cbSilence.Name = "cbSilence";
-            this.cbSilence.Size = new System.Drawing.Size(144, 17);
-            this.cbSilence.TabIndex = 4;
-            this.cbSilence.Text = "50ms silence on new line";
-            this.cbSilence.UseVisualStyleBackColor = true;
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(30, 80);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(164, 13);
+            this.label24.TabIndex = 53;
+            this.label24.Text = "Bug reports and feature requests:";
             // 
             // Read4MeForm
             // 
@@ -1516,7 +1527,7 @@ namespace Read4Me
             this.MinimizeBox = false;
             this.Name = "Read4MeForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.Text = "Read4Me 0.2";
+            this.Text = "Read4Me 0.3";
             ((System.ComponentModel.ISupportInitialize)(this.tbarRate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trbVolume)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
@@ -1529,14 +1540,14 @@ namespace Read4Me
             this.tpSpeak.ResumeLayout(false);
             this.tpSpeak.PerformLayout();
             this.tbSettings.ResumeLayout(false);
+            this.gbOther.ResumeLayout(false);
+            this.gbOther.PerformLayout();
             this.gbVoices.ResumeLayout(false);
             this.gbVoices.PerformLayout();
             this.gbGeneral.ResumeLayout(false);
             this.gbGeneral.PerformLayout();
             this.tnAbout.ResumeLayout(false);
             this.tnAbout.PerformLayout();
-            this.gbOther.ResumeLayout(false);
-            this.gbOther.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1675,6 +1686,7 @@ namespace Read4Me
         private System.Windows.Forms.LinkLabel lLinkDiscussion;
         private System.Windows.Forms.GroupBox gbOther;
         private System.Windows.Forms.CheckBox cbSilence;
+        private System.Windows.Forms.Label label24;
     }
 }
 
