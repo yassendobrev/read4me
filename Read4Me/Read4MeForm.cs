@@ -13,8 +13,9 @@ namespace Read4Me
         int speechRate = 4; // Ranges from -10 to 10 
         int volume_global = 80; // Range from 0 to 100.
         bool paused = false;
-        // Hashtable langids = new Hashtable();
+        
         SortedList langids = new SortedList();
+        SortedList ligatures = new SortedList();
         
         // declare writes & reader and folder
         StreamReader file_reader;
@@ -46,6 +47,9 @@ namespace Read4Me
             cmbVoices.SelectedIndex = 0; // Select the first Index of the comboBox 
             tbarRate.Value = speechRate;
             trbVolume.Value = volume_global;
+
+            // init ligatures list
+            InitLigatures();
 
             // restore user settings
             init_lists();
