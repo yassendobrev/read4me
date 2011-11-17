@@ -159,9 +159,10 @@ namespace Read4Me
             this.lHK1 = new System.Windows.Forms.Label();
             this.lHK2 = new System.Windows.Forms.Label();
             this.tnAbout = new System.Windows.Forms.TabPage();
+            this.label24 = new System.Windows.Forms.Label();
             this.lLinkDiscussion = new System.Windows.Forms.LinkLabel();
             this.lLink = new System.Windows.Forms.LinkLabel();
-            this.label24 = new System.Windows.Forms.Label();
+            this.cbSilenceBatch = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.tbarRate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trbVolume)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -530,6 +531,7 @@ namespace Read4Me
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cbSilenceBatch);
             this.groupBox1.Controls.Add(this.bApplyBatch);
             this.groupBox1.Controls.Add(this.label20);
             this.groupBox1.Controls.Add(this.label21);
@@ -557,7 +559,7 @@ namespace Read4Me
             this.groupBox1.Controls.Add(this.tbBefore);
             this.groupBox1.Location = new System.Drawing.Point(6, 15);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(552, 206);
+            this.groupBox1.Size = new System.Drawing.Size(601, 206);
             this.groupBox1.TabIndex = 48;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Convert txt to mp3";
@@ -1484,6 +1486,15 @@ namespace Read4Me
             this.tnAbout.Text = "About";
             this.tnAbout.UseVisualStyleBackColor = true;
             // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(30, 80);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(164, 13);
+            this.label24.TabIndex = 53;
+            this.label24.Text = "Bug reports and feature requests:";
+            // 
             // lLinkDiscussion
             // 
             this.lLinkDiscussion.AutoSize = true;
@@ -1505,14 +1516,15 @@ namespace Read4Me
             this.lLink.TabStop = true;
             this.lLink.Text = "http://sourceforge.net/p/read4mecbr/";
             // 
-            // label24
+            // cbSilenceBatch
             // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(30, 80);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(164, 13);
-            this.label24.TabIndex = 53;
-            this.label24.Text = "Bug reports and feature requests:";
+            this.cbSilenceBatch.AutoSize = true;
+            this.cbSilenceBatch.Location = new System.Drawing.Point(455, 141);
+            this.cbSilenceBatch.Name = "cbSilenceBatch";
+            this.cbSilenceBatch.Size = new System.Drawing.Size(144, 17);
+            this.cbSilenceBatch.TabIndex = 56;
+            this.cbSilenceBatch.Text = "50ms silence on new line";
+            this.cbSilenceBatch.UseVisualStyleBackColor = true;
             // 
             // Read4MeForm
             // 
@@ -1687,6 +1699,7 @@ namespace Read4Me
         private System.Windows.Forms.GroupBox gbOther;
         private System.Windows.Forms.CheckBox cbSilence;
         private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.CheckBox cbSilenceBatch;
     }
 }
 

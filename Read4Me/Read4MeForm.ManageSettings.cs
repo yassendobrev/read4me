@@ -86,6 +86,7 @@ namespace Read4Me
             bool winkey;
             bool alt;
             bool silence;
+            bool silence_batch;
             string lang;
             string langid;
             string voice;
@@ -119,7 +120,7 @@ namespace Read4Me
                                 {
                                     key = '\0';
                                 }
-                                SetViewSettings(type, ctrl, winkey, alt, key, "", "", 0, 0, 0, false);
+                                SetViewSettings(type, ctrl, winkey, alt, key, "", "", 0, 0, 0, false, false);
                                 RegisterHotkey(type, ctrl, winkey, alt, key, "", "", 0, 0);
                                 break;
 
@@ -155,7 +156,7 @@ namespace Read4Me
                                 {
                                     volume = int.MinValue;
                                 }
-                                SetViewSettings(type, ctrl, winkey, alt, key, lang, voice, lang_num, srate, volume, false);
+                                SetViewSettings(type, ctrl, winkey, alt, key, lang, voice, lang_num, srate, volume, false, false);
                                 RegisterHotkey(type, ctrl, winkey, alt, key, langid, voice, srate, volume);
                                 lang_num++;
                                 break;
@@ -165,6 +166,7 @@ namespace Read4Me
                                 lang = reader["lang"];
                                 langid = (string)langids[lang];
                                 voice = reader["voice"];
+                                silence_batch = (reader["silence"] == "1") ? true : false;
                                 if (reader["srate"] != "")
                                 {
                                     srate = Int16.Parse(reader["srate"]);
@@ -181,14 +183,14 @@ namespace Read4Me
                                 {
                                     volume = int.MinValue;
                                 }
-                                SetViewSettings(type, false, false, false, '\0', lang, voice, 0, srate, volume, false);
+                                SetViewSettings(type, false, false, false, '\0', lang, voice, 0, srate, volume, false, silence_batch);
                                 lang_num++;
                                 break;
 
                             case "other_settings":
                                 type = reader["type"];
                                 silence = (reader["silence"] == "1") ? true : false;
-                                SetViewSettings(type, false, false, false, '\0', "", "", 0, 0, 0, silence);
+                                SetViewSettings(type, false, false, false, '\0', "", "", 0, 0, 0, silence, false);
                                 break;
 
                             default:
@@ -204,7 +206,7 @@ namespace Read4Me
             }
         }
 
-        private void SetViewSettings(string type, bool ctrl, bool winkey, bool alt, char key, string lang, string voice, int lang_num, int srate, int volume, bool silence)
+        private void SetViewSettings(string type, bool ctrl, bool winkey, bool alt, char key, string lang, string voice, int lang_num, int srate, int volume, bool silence, bool silence_batch)
         {
             switch (type)
             {
@@ -212,35 +214,70 @@ namespace Read4Me
                     lCtrl0.Checked = ctrl;
                     lWinKey0.Checked = winkey;
                     lAlt0.Checked = alt;
-                    tbHK0.Text = key.ToString();
+                    if (key == '\0')
+                    {
+                        tbHK0.Text = "";
+                    }
+                    else
+                    {
+                        tbHK0.Text = key.ToString();
+                    }
                     break;
 
                 case "pause_resume":
                     lCtrl1.Checked = ctrl;
                     lWinKey1.Checked = winkey;
                     lAlt1.Checked = alt;
-                    tbHK1.Text = key.ToString();
+                    if (key == '\0')
+                    {
+                        tbHK1.Text = "";
+                    }
+                    else
+                    {
+                        tbHK1.Text = key.ToString();
+                    }
                     break;
 
                 case "previous_sentence":
                     lCtrl2.Checked = ctrl;
                     lWinKey2.Checked = winkey;
                     lAlt2.Checked = alt;
-                    tbHK2.Text = key.ToString();
+                    if (key == '\0')
+                    {
+                        tbHK2.Text = "";
+                    }
+                    else
+                    {
+                        tbHK2.Text = key.ToString();
+                    }
                     break;
 
                 case "next_sentence":
                     lCtrl3.Checked = ctrl;
                     lWinKey3.Checked = winkey;
                     lAlt3.Checked = alt;
-                    tbHK3.Text = key.ToString();
+                    if (key == '\0')
+                    {
+                        tbHK3.Text = "";
+                    }
+                    else
+                    {
+                        tbHK3.Text = key.ToString();
+                    }
                     break;
 
                 case "speech":
                     checkboxes_ctrl_lang[lang_num].Checked = ctrl;
                     checkboxes_winkey_lang[lang_num].Checked = winkey;
                     checkboxes_alt_lang[lang_num].Checked = alt;
-                    textboxes_lang[lang_num].Text = key.ToString();
+                    if (key == '\0')
+                    {
+                        textboxes_lang[lang_num].Text = "";
+                    }
+                    else
+                    {
+                        textboxes_lang[lang_num].Text = key.ToString();
+                    }
                     comboboxes_voice[lang_num].SelectedIndex = cbLang1.FindStringExact(voice);
                     comboboxes_lang[lang_num].SelectedIndex = cbLangid1.FindStringExact(lang);
                     comboboxes_srate[lang_num].SelectedIndex = cbSRate1.FindStringExact(srate.ToString());
@@ -252,6 +289,7 @@ namespace Read4Me
                     cbLanguageBatch.SelectedIndex = cbLanguageBatch.FindStringExact(lang);
                     cbRateBatch.SelectedIndex = cbRateBatch.FindStringExact(srate.ToString());
                     cbVolumeBatch.SelectedIndex = cbVolumeBatch.FindStringExact(volume.ToString());
+                    cbSilenceBatch.Checked = silence_batch;
                     break;
 
                 case "other_settings":
@@ -345,19 +383,19 @@ namespace Read4Me
             }
             file_writer.Write("<?xml version=\"1.0\" encoding=\"utf-8\" ?>\r\n");
             file_writer.Write("<settings>\r\n");
-            file_writer.Write("    <hotkey_general type=\"show_hide\" ctrl=\"" + ((lCtrl0.Checked == true) ? "1" : "0") + "\" winkey=\"" + ((lWinKey0.Checked == true) ? "1" : "0") + "\" alt=\"" + ((lAlt0.Checked == true) ? "1" : "0") + "\" key=\"" + tbHK0.Text + "\"></hotkey_general>\r\n");
-            file_writer.Write("    <hotkey_general type=\"pause_resume\" ctrl=\"" + ((lCtrl1.Checked == true) ? "1" : "0") + "\" winkey=\"" + ((lWinKey1.Checked == true) ? "1" : "0") + "\" alt=\"" + ((lAlt1.Checked == true) ? "1" : "0") + "\" key=\"" + tbHK1.Text + "\"></hotkey_general>\r\n");
-            file_writer.Write("    <hotkey_general type=\"previous_sentence\" ctrl=\"" + ((lCtrl2.Checked == true) ? "1" : "0") + "\" winkey=\"" + ((lWinKey2.Checked == true) ? "1" : "0") + "\" alt=\"" + ((lAlt2.Checked == true) ? "1" : "0") + "\" key=\"" + tbHK2.Text + "\"></hotkey_general>\r\n");
-            file_writer.Write("    <hotkey_general type=\"next_sentence\" ctrl=\"" + ((lCtrl3.Checked == true) ? "1" : "0") + "\" winkey=\"" + ((lWinKey3.Checked == true) ? "1" : "0") + "\" alt=\"" + ((lAlt3.Checked == true) ? "1" : "0") + "\" key=\"" + tbHK3.Text + "\"></hotkey_general>\r\n");
+            file_writer.Write("    <hotkey_general type=\"show_hide\" ctrl=\"" + (lCtrl0.Checked ? "1" : "0") + "\" winkey=\"" + (lWinKey0.Checked ? "1" : "0") + "\" alt=\"" + (lAlt0.Checked ? "1" : "0") + "\" key=\"" + tbHK0.Text + "\"></hotkey_general>\r\n");
+            file_writer.Write("    <hotkey_general type=\"pause_resume\" ctrl=\"" + (lCtrl1.Checked ? "1" : "0") + "\" winkey=\"" + (lWinKey1.Checked ? "1" : "0") + "\" alt=\"" + (lAlt1.Checked ? "1" : "0") + "\" key=\"" + tbHK1.Text + "\"></hotkey_general>\r\n");
+            file_writer.Write("    <hotkey_general type=\"previous_sentence\" ctrl=\"" + (lCtrl2.Checked ? "1" : "0") + "\" winkey=\"" + (lWinKey2.Checked ? "1" : "0") + "\" alt=\"" + (lAlt2.Checked ? "1" : "0") + "\" key=\"" + tbHK2.Text + "\"></hotkey_general>\r\n");
+            file_writer.Write("    <hotkey_general type=\"next_sentence\" ctrl=\"" + (lCtrl3.Checked ? "1" : "0") + "\" winkey=\"" + (lWinKey3.Checked ? "1" : "0") + "\" alt=\"" + (lAlt3.Checked ? "1" : "0") + "\" key=\"" + tbHK3.Text + "\"></hotkey_general>\r\n");
             for (int i = 0; i < comboboxes_voice.Count; i++)
             {
                 // if ((textboxes_lang[i].Text != "") && ((string)comboboxes_lang[i].SelectedItem != "" && ((string)comboboxes_voice[i].SelectedItem != "")))
                 // {
-                    file_writer.Write("    <hotkey_speech type=\"speech\" ctrl=\"" + ((checkboxes_ctrl_lang[i].Checked == true) ? "1" : "0") + "\" winkey=\"" + ((checkboxes_winkey_lang[i].Checked == true) ? "1" : "0") + "\" alt=\"" + ((checkboxes_alt_lang[i].Checked == true) ? "1" : "0") + "\" key=\"" + textboxes_lang[i].Text + "\" lang=\"" + comboboxes_lang[i].SelectedItem + "\" voice=\"" + comboboxes_voice[i].SelectedItem + "\" srate=\"" + comboboxes_srate[i].SelectedItem + "\" volume=\"" + comboboxes_volume[i].SelectedItem + "\"></hotkey_speech>\r\n");
+                    file_writer.Write("    <hotkey_speech type=\"speech\" ctrl=\"" + (checkboxes_ctrl_lang[i].Checked ? "1" : "0") + "\" winkey=\"" + (checkboxes_winkey_lang[i].Checked ? "1" : "0") + "\" alt=\"" + (checkboxes_alt_lang[i].Checked ? "1" : "0") + "\" key=\"" + textboxes_lang[i].Text + "\" lang=\"" + comboboxes_lang[i].SelectedItem + "\" voice=\"" + comboboxes_voice[i].SelectedItem + "\" srate=\"" + comboboxes_srate[i].SelectedItem + "\" volume=\"" + comboboxes_volume[i].SelectedItem + "\"></hotkey_speech>\r\n");
                 // }
             }
-            file_writer.Write("    <batch_settings type=\"batch_settings\" lang=\"" + cbLanguageBatch.SelectedItem + "\" voice=\"" + cbVoiceBatch.SelectedItem + "\" srate=\"" + cbRateBatch.SelectedItem + "\" volume=\"" + cbVolumeBatch.SelectedItem + "\"></batch_settings>\r\n");
-            file_writer.Write("    <other_settings type=\"other_settings\" silence=\"" + ((cbSilence.Checked == true) ? "1" : "0") + "\"></other_settings>\r\n");
+            file_writer.Write("    <batch_settings type=\"batch_settings\" lang=\"" + cbLanguageBatch.SelectedItem + "\" voice=\"" + cbVoiceBatch.SelectedItem + "\" srate=\"" + cbRateBatch.SelectedItem + "\" volume=\"" + cbVolumeBatch.SelectedItem + "\" silence=\"" + (cbSilenceBatch.Checked ? "1" : "0") + "\"></batch_settings>\r\n");
+            file_writer.Write("    <other_settings type=\"other_settings\" silence=\"" + (cbSilence.Checked ? "1" : "0") + "\"></other_settings>\r\n");
             file_writer.Write("</settings>\r\n");
             file_writer.Close();
             UnregisterHotkeys();

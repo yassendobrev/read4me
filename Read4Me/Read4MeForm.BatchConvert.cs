@@ -110,7 +110,7 @@ namespace Read4Me
                     if (Regex.IsMatch(line, "^" + Regex.Escape(tbBefore.Text) + "[IVX0-9]+" + Regex.Escape(tbAfter.Text) + "$", RegexOptions.IgnoreCase) || start_new_file)
                     {
                         start_new_file = false;
-                        file_writer.Write("<lang langid=\"" + LangID + "\"><silence msec=\"200\" /></lang>"); // longer pause at the end of chapter
+                        file_writer.Write("<lang langid=\"409\"><silence msec=\"200\" /></lang>"); // longer pause at the end of chapter
                         file_writer.Write("</lang>");
                         file_writer.Close();
                         // filename = Regex.Replace(line, @"[\D]", "");
@@ -119,12 +119,15 @@ namespace Read4Me
 
                         file_writer.Write("<lang langid=\"" + LangID + "\">");
                         file_writer.Write(line);
-                        file_writer.Write("<lang langid=\"" + LangID + "\"><silence msec=\"200\" /></lang>"); // longer pause after announcing a chapter
+                        file_writer.Write("<lang langid=\"409\"><silence msec=\"200\" /></lang>"); // longer pause after announcing a chapter
                     }
                     else
                     {
                         file_writer.Write(line);
-                        file_writer.Write("<lang langid=\"" + LangID + "\"><silence msec=\"50\" /></lang>");
+                        if (cbSilenceBatch.Checked)
+                        {
+                            file_writer.Write("<lang langid=\"409\"><silence msec=\"50\" /></lang>");
+                        }
                     }
                 }
                 else
