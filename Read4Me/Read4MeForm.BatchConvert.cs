@@ -79,8 +79,10 @@ namespace Read4Me
             {
                 line = file_reader.ReadLine().Replace("\t", "");
                 line = line.Replace(" ", " "); // replace Non-breaking space 0xA0 with normal space 0x20
-                line = line.Replace("]", "");
-                line = line.Replace("[", "");
+                line = line.Replace("]", ")");
+                line = line.Replace("[", "(");
+                line = line.Replace(">", ")");
+                line = line.Replace("<", "(");
 
                 // SLOWER RATE WHEN words surrounded with _words_ -> emphasize!
                 // use <rate absspeed="-7"/>
@@ -250,6 +252,7 @@ namespace Read4Me
             id3v2.TrackNumber = track;
             id3v2.Save(mp3path);
             /*
+             * http://stackoverflow.com/questions/82319/how-can-i-determine-the-length-of-a-wav-file-in-c
             MediaPlayer mPlayer = new MediaPlayer();
             mPlayer.Open(new Uri(mp3path));
             // mPlayer.Play();
