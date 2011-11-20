@@ -9,6 +9,7 @@ using System.Text.RegularExpressions;
 using Yeti.MMedia;
 using Yeti.MMedia.Mp3;
 using WaveLib;
+using System.Windows.Media;
 
 namespace Read4Me
 {
@@ -248,6 +249,18 @@ namespace Read4Me
             id3v2.Artist = artist;
             id3v2.TrackNumber = track;
             id3v2.Save(mp3path);
+            /*
+            MediaPlayer mPlayer = new MediaPlayer();
+            mPlayer.Open(new Uri(mp3path));
+            // mPlayer.Play();
+            string a = mPlayer.Source.ToString();
+            MessageBox.Show(a);
+            if (mPlayer.NaturalDuration.HasTimeSpan)
+            {
+                MessageBox.Show(mPlayer.NaturalDuration.TimeSpan.ToString());
+            }
+            mPlayer.Close();
+            */
         }
 
         private void bApplyBatch_Click(object sender, System.EventArgs e)
