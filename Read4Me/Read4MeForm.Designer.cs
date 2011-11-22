@@ -70,15 +70,18 @@ namespace Read4Me
             this.tabControlMain = new System.Windows.Forms.TabControl();
             this.tpConv = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbID3 = new System.Windows.Forms.GroupBox();
+            this.gbConvSettings = new System.Windows.Forms.GroupBox();
+            this.cbRateBatch = new System.Windows.Forms.ComboBox();
+            this.cbSilenceBatch = new System.Windows.Forms.CheckBox();
             this.bApplyBatch = new System.Windows.Forms.Button();
+            this.cbLanguageBatch = new System.Windows.Forms.ComboBox();
             this.label20 = new System.Windows.Forms.Label();
+            this.cbVolumeBatch = new System.Windows.Forms.ComboBox();
             this.label21 = new System.Windows.Forms.Label();
+            this.cbVoiceBatch = new System.Windows.Forms.ComboBox();
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-            this.cbVoiceBatch = new System.Windows.Forms.ComboBox();
-            this.cbVolumeBatch = new System.Windows.Forms.ComboBox();
-            this.cbRateBatch = new System.Windows.Forms.ComboBox();
-            this.cbLanguageBatch = new System.Windows.Forms.ComboBox();
             this.tpSpeak = new System.Windows.Forms.TabPage();
             this.tbSettings = new System.Windows.Forms.TabPage();
             this.gbOther = new System.Windows.Forms.GroupBox();
@@ -162,7 +165,7 @@ namespace Read4Me
             this.label24 = new System.Windows.Forms.Label();
             this.lLinkDiscussion = new System.Windows.Forms.LinkLabel();
             this.lLink = new System.Windows.Forms.LinkLabel();
-            this.cbSilenceBatch = new System.Windows.Forms.CheckBox();
+            this.gbFileBreakRules = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.tbarRate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trbVolume)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -170,27 +173,30 @@ namespace Read4Me
             this.tabControlMain.SuspendLayout();
             this.tpConv.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.gbID3.SuspendLayout();
+            this.gbConvSettings.SuspendLayout();
             this.tpSpeak.SuspendLayout();
             this.tbSettings.SuspendLayout();
             this.gbOther.SuspendLayout();
             this.gbVoices.SuspendLayout();
             this.gbGeneral.SuspendLayout();
             this.tnAbout.SuspendLayout();
+            this.gbFileBreakRules.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbspeech
             // 
-            this.tbspeech.Location = new System.Drawing.Point(16, 25);
+            this.tbspeech.Location = new System.Drawing.Point(6, 25);
             this.tbspeech.Multiline = true;
             this.tbspeech.Name = "tbspeech";
-            this.tbspeech.Size = new System.Drawing.Size(213, 104);
+            this.tbspeech.Size = new System.Drawing.Size(375, 298);
             this.tbspeech.TabIndex = 20;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(9, 9);
+            this.label1.Location = new System.Drawing.Point(-1, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(224, 13);
             this.label1.TabIndex = 27;
@@ -198,7 +204,7 @@ namespace Read4Me
             // 
             // btnSpeak
             // 
-            this.btnSpeak.Location = new System.Drawing.Point(93, 145);
+            this.btnSpeak.Location = new System.Drawing.Point(391, 57);
             this.btnSpeak.Name = "btnSpeak";
             this.btnSpeak.Size = new System.Drawing.Size(75, 23);
             this.btnSpeak.TabIndex = 22;
@@ -208,7 +214,7 @@ namespace Read4Me
             // 
             // btnToWAV
             // 
-            this.btnToWAV.Location = new System.Drawing.Point(12, 145);
+            this.btnToWAV.Location = new System.Drawing.Point(391, 115);
             this.btnToWAV.Name = "btnToWAV";
             this.btnToWAV.Size = new System.Drawing.Size(75, 23);
             this.btnToWAV.TabIndex = 21;
@@ -220,9 +226,9 @@ namespace Read4Me
             // 
             this.cmbVoices.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbVoices.FormattingEnabled = true;
-            this.cmbVoices.Location = new System.Drawing.Point(308, 28);
+            this.cmbVoices.Location = new System.Drawing.Point(391, 25);
             this.cmbVoices.Name = "cmbVoices";
-            this.cmbVoices.Size = new System.Drawing.Size(121, 21);
+            this.cmbVoices.Size = new System.Drawing.Size(247, 21);
             this.cmbVoices.TabIndex = 25;
             this.cmbVoices.SelectedIndexChanged += new System.EventHandler(this.cmbVoices_SelectedIndexChanged);
             // 
@@ -230,7 +236,7 @@ namespace Read4Me
             // 
             this.tbarRate.BackColor = System.Drawing.Color.White;
             this.tbarRate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.tbarRate.Location = new System.Drawing.Point(257, 25);
+            this.tbarRate.Location = new System.Drawing.Point(593, 72);
             this.tbarRate.Minimum = -10;
             this.tbarRate.Name = "tbarRate";
             this.tbarRate.Orientation = System.Windows.Forms.Orientation.Vertical;
@@ -241,7 +247,7 @@ namespace Read4Me
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(232, 28);
+            this.label2.Location = new System.Drawing.Point(565, 78);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(22, 13);
             this.label2.TabIndex = 6;
@@ -250,7 +256,7 @@ namespace Read4Me
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(232, 116);
+            this.label3.Location = new System.Drawing.Point(562, 153);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(25, 13);
             this.label3.TabIndex = 7;
@@ -260,7 +266,7 @@ namespace Read4Me
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(257, 9);
+            this.label4.Location = new System.Drawing.Point(565, 56);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(38, 13);
             this.label4.TabIndex = 28;
@@ -270,7 +276,7 @@ namespace Read4Me
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(305, 9);
+            this.label5.Location = new System.Drawing.Point(388, 9);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(83, 13);
             this.label5.TabIndex = 29;
@@ -278,7 +284,7 @@ namespace Read4Me
             // 
             // btnPause
             // 
-            this.btnPause.Location = new System.Drawing.Point(174, 145);
+            this.btnPause.Location = new System.Drawing.Point(391, 86);
             this.btnPause.Name = "btnPause";
             this.btnPause.Size = new System.Drawing.Size(75, 23);
             this.btnPause.TabIndex = 23;
@@ -291,7 +297,7 @@ namespace Read4Me
             this.trbVolume.BackColor = System.Drawing.Color.White;
             this.trbVolume.Cursor = System.Windows.Forms.Cursors.Hand;
             this.trbVolume.LargeChange = 20;
-            this.trbVolume.Location = new System.Drawing.Point(450, 25);
+            this.trbVolume.Location = new System.Drawing.Point(511, 72);
             this.trbVolume.Maximum = 100;
             this.trbVolume.Name = "trbVolume";
             this.trbVolume.Orientation = System.Windows.Forms.Orientation.Vertical;
@@ -304,7 +310,7 @@ namespace Read4Me
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(473, 25);
+            this.label6.Location = new System.Drawing.Point(477, 72);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(28, 13);
             this.label6.TabIndex = 13;
@@ -313,7 +319,7 @@ namespace Read4Me
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(484, 106);
+            this.label7.Location = new System.Drawing.Point(492, 154);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(13, 13);
             this.label7.TabIndex = 14;
@@ -323,7 +329,7 @@ namespace Read4Me
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(447, 9);
+            this.label8.Location = new System.Drawing.Point(499, 56);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(52, 13);
             this.label8.TabIndex = 30;
@@ -375,39 +381,39 @@ namespace Read4Me
             // 
             // tbAlbum
             // 
-            this.tbAlbum.Location = new System.Drawing.Point(210, 45);
+            this.tbAlbum.Location = new System.Drawing.Point(46, 19);
             this.tbAlbum.Name = "tbAlbum";
-            this.tbAlbum.Size = new System.Drawing.Size(100, 20);
+            this.tbAlbum.Size = new System.Drawing.Size(149, 20);
             this.tbAlbum.TabIndex = 4;
             // 
             // tbArtist
             // 
-            this.tbArtist.Location = new System.Drawing.Point(210, 71);
+            this.tbArtist.Location = new System.Drawing.Point(46, 45);
             this.tbArtist.Name = "tbArtist";
-            this.tbArtist.Size = new System.Drawing.Size(100, 20);
+            this.tbArtist.Size = new System.Drawing.Size(149, 20);
             this.tbArtist.TabIndex = 5;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(8, 100);
+            this.label9.Location = new System.Drawing.Point(8, 74);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(63, 13);
+            this.label9.Size = new System.Drawing.Size(124, 13);
             this.label9.TabIndex = 43;
-            this.label9.Text = "Empty lines:";
+            this.label9.Text = "Empty lines for file break:";
             // 
             // tbEmptyLines
             // 
-            this.tbEmptyLines.Location = new System.Drawing.Point(77, 97);
+            this.tbEmptyLines.Location = new System.Drawing.Point(134, 71);
             this.tbEmptyLines.Name = "tbEmptyLines";
-            this.tbEmptyLines.Size = new System.Drawing.Size(26, 20);
+            this.tbEmptyLines.Size = new System.Drawing.Size(21, 20);
             this.tbEmptyLines.TabIndex = 3;
             this.tbEmptyLines.Text = "2";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(8, 74);
+            this.label10.Location = new System.Drawing.Point(8, 48);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(32, 13);
             this.label10.TabIndex = 42;
@@ -416,7 +422,7 @@ namespace Read4Me
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(8, 48);
+            this.label11.Location = new System.Drawing.Point(8, 22);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(41, 13);
             this.label11.TabIndex = 41;
@@ -424,14 +430,14 @@ namespace Read4Me
             // 
             // tbAfter
             // 
-            this.tbAfter.Location = new System.Drawing.Point(55, 71);
+            this.tbAfter.Location = new System.Drawing.Point(55, 45);
             this.tbAfter.Name = "tbAfter";
             this.tbAfter.Size = new System.Drawing.Size(100, 20);
             this.tbAfter.TabIndex = 2;
             // 
             // tbBefore
             // 
-            this.tbBefore.Location = new System.Drawing.Point(55, 45);
+            this.tbBefore.Location = new System.Drawing.Point(55, 19);
             this.tbBefore.Name = "tbBefore";
             this.tbBefore.Size = new System.Drawing.Size(100, 20);
             this.tbBefore.TabIndex = 1;
@@ -439,7 +445,7 @@ namespace Read4Me
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(163, 48);
+            this.label12.Location = new System.Drawing.Point(7, 22);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(39, 13);
             this.label12.TabIndex = 44;
@@ -448,7 +454,7 @@ namespace Read4Me
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(163, 74);
+            this.label13.Location = new System.Drawing.Point(7, 48);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(33, 13);
             this.label13.TabIndex = 45;
@@ -482,7 +488,7 @@ namespace Read4Me
             // 
             // bGo
             // 
-            this.bGo.Location = new System.Drawing.Point(336, 168);
+            this.bGo.Location = new System.Drawing.Point(267, 154);
             this.bGo.Name = "bGo";
             this.bGo.Size = new System.Drawing.Size(113, 23);
             this.bGo.TabIndex = 7;
@@ -493,7 +499,7 @@ namespace Read4Me
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(163, 100);
+            this.label15.Location = new System.Drawing.Point(7, 74);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(32, 13);
             this.label15.TabIndex = 46;
@@ -501,9 +507,9 @@ namespace Read4Me
             // 
             // tbYear
             // 
-            this.tbYear.Location = new System.Drawing.Point(210, 97);
+            this.tbYear.Location = new System.Drawing.Point(45, 71);
             this.tbYear.Name = "tbYear";
-            this.tbYear.Size = new System.Drawing.Size(100, 20);
+            this.tbYear.Size = new System.Drawing.Size(150, 20);
             this.tbYear.TabIndex = 6;
             // 
             // tabControlMain
@@ -521,6 +527,7 @@ namespace Read4Me
             // tpConv
             // 
             this.tpConv.Controls.Add(this.groupBox1);
+            this.tpConv.Controls.Add(this.gbConvSettings);
             this.tpConv.Location = new System.Drawing.Point(4, 22);
             this.tpConv.Name = "tpConv";
             this.tpConv.Padding = new System.Windows.Forms.Padding(3);
@@ -531,42 +538,75 @@ namespace Read4Me
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.cbSilenceBatch);
-            this.groupBox1.Controls.Add(this.bApplyBatch);
-            this.groupBox1.Controls.Add(this.label20);
-            this.groupBox1.Controls.Add(this.label21);
-            this.groupBox1.Controls.Add(this.label22);
-            this.groupBox1.Controls.Add(this.label23);
-            this.groupBox1.Controls.Add(this.cbVoiceBatch);
-            this.groupBox1.Controls.Add(this.cbVolumeBatch);
-            this.groupBox1.Controls.Add(this.cbRateBatch);
-            this.groupBox1.Controls.Add(this.cbLanguageBatch);
+            this.groupBox1.Controls.Add(this.gbFileBreakRules);
+            this.groupBox1.Controls.Add(this.gbID3);
+            this.groupBox1.Controls.Add(this.bGo);
             this.groupBox1.Controls.Add(this.tbSource);
             this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.tbEmptyLines);
-            this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Controls.Add(this.label15);
-            this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.tbAlbum);
-            this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.tbYear);
-            this.groupBox1.Controls.Add(this.tbAfter);
-            this.groupBox1.Controls.Add(this.tbArtist);
             this.groupBox1.Controls.Add(this.bSource);
-            this.groupBox1.Controls.Add(this.bGo);
-            this.groupBox1.Controls.Add(this.tbBefore);
             this.groupBox1.Location = new System.Drawing.Point(6, 15);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(601, 206);
+            this.groupBox1.Size = new System.Drawing.Size(386, 184);
             this.groupBox1.TabIndex = 48;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Convert txt to mp3";
+            this.groupBox1.Text = "Convert text to mp3";
+            // 
+            // gbID3
+            // 
+            this.gbID3.Controls.Add(this.tbAlbum);
+            this.gbID3.Controls.Add(this.tbArtist);
+            this.gbID3.Controls.Add(this.tbYear);
+            this.gbID3.Controls.Add(this.label15);
+            this.gbID3.Controls.Add(this.label13);
+            this.gbID3.Controls.Add(this.label12);
+            this.gbID3.Location = new System.Drawing.Point(179, 48);
+            this.gbID3.Name = "gbID3";
+            this.gbID3.Size = new System.Drawing.Size(201, 100);
+            this.gbID3.TabIndex = 58;
+            this.gbID3.TabStop = false;
+            this.gbID3.Text = "ID3 data";
+            // 
+            // gbConvSettings
+            // 
+            this.gbConvSettings.Controls.Add(this.cbRateBatch);
+            this.gbConvSettings.Controls.Add(this.cbSilenceBatch);
+            this.gbConvSettings.Controls.Add(this.bApplyBatch);
+            this.gbConvSettings.Controls.Add(this.cbLanguageBatch);
+            this.gbConvSettings.Controls.Add(this.label20);
+            this.gbConvSettings.Controls.Add(this.cbVolumeBatch);
+            this.gbConvSettings.Controls.Add(this.label21);
+            this.gbConvSettings.Controls.Add(this.cbVoiceBatch);
+            this.gbConvSettings.Controls.Add(this.label22);
+            this.gbConvSettings.Controls.Add(this.label23);
+            this.gbConvSettings.Location = new System.Drawing.Point(6, 205);
+            this.gbConvSettings.Name = "gbConvSettings";
+            this.gbConvSettings.Size = new System.Drawing.Size(462, 99);
+            this.gbConvSettings.TabIndex = 57;
+            this.gbConvSettings.TabStop = false;
+            this.gbConvSettings.Text = "Text to mp3 conversion settings";
+            // 
+            // cbRateBatch
+            // 
+            this.cbRateBatch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbRateBatch.FormattingEnabled = true;
+            this.cbRateBatch.Location = new System.Drawing.Point(356, 39);
+            this.cbRateBatch.Name = "cbRateBatch";
+            this.cbRateBatch.Size = new System.Drawing.Size(44, 21);
+            this.cbRateBatch.TabIndex = 47;
+            // 
+            // cbSilenceBatch
+            // 
+            this.cbSilenceBatch.AutoSize = true;
+            this.cbSilenceBatch.Location = new System.Drawing.Point(209, 70);
+            this.cbSilenceBatch.Name = "cbSilenceBatch";
+            this.cbSilenceBatch.Size = new System.Drawing.Size(144, 17);
+            this.cbSilenceBatch.TabIndex = 56;
+            this.cbSilenceBatch.Text = "50ms silence on new line";
+            this.cbSilenceBatch.UseVisualStyleBackColor = true;
             // 
             // bApplyBatch
             // 
-            this.bApplyBatch.Location = new System.Drawing.Point(238, 168);
+            this.bApplyBatch.Location = new System.Drawing.Point(359, 66);
             this.bApplyBatch.Name = "bApplyBatch";
             this.bApplyBatch.Size = new System.Drawing.Size(92, 23);
             this.bApplyBatch.TabIndex = 55;
@@ -574,28 +614,55 @@ namespace Read4Me
             this.bApplyBatch.UseVisualStyleBackColor = true;
             this.bApplyBatch.Click += new System.EventHandler(this.bApplyBatch_Click);
             // 
+            // cbLanguageBatch
+            // 
+            this.cbLanguageBatch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbLanguageBatch.FormattingEnabled = true;
+            this.cbLanguageBatch.Location = new System.Drawing.Point(219, 39);
+            this.cbLanguageBatch.Name = "cbLanguageBatch";
+            this.cbLanguageBatch.Size = new System.Drawing.Size(131, 21);
+            this.cbLanguageBatch.TabIndex = 48;
+            // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(402, 125);
+            this.label20.Location = new System.Drawing.Point(408, 23);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(42, 13);
             this.label20.TabIndex = 53;
             this.label20.Text = "Volume";
             // 
+            // cbVolumeBatch
+            // 
+            this.cbVolumeBatch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbVolumeBatch.FormattingEnabled = true;
+            this.cbVolumeBatch.Location = new System.Drawing.Point(406, 39);
+            this.cbVolumeBatch.Name = "cbVolumeBatch";
+            this.cbVolumeBatch.Size = new System.Drawing.Size(44, 21);
+            this.cbVolumeBatch.TabIndex = 50;
+            // 
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(352, 125);
+            this.label21.Location = new System.Drawing.Point(356, 23);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(30, 13);
             this.label21.TabIndex = 54;
             this.label21.Text = "Rate";
             // 
+            // cbVoiceBatch
+            // 
+            this.cbVoiceBatch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbVoiceBatch.FormattingEnabled = true;
+            this.cbVoiceBatch.Location = new System.Drawing.Point(12, 39);
+            this.cbVoiceBatch.Name = "cbVoiceBatch";
+            this.cbVoiceBatch.Size = new System.Drawing.Size(201, 21);
+            this.cbVoiceBatch.TabIndex = 49;
+            // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(215, 125);
+            this.label22.Location = new System.Drawing.Point(216, 23);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(55, 13);
             this.label22.TabIndex = 51;
@@ -604,47 +671,11 @@ namespace Read4Me
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(8, 125);
+            this.label23.Location = new System.Drawing.Point(9, 23);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(34, 13);
             this.label23.TabIndex = 52;
             this.label23.Text = "Voice";
-            // 
-            // cbVoiceBatch
-            // 
-            this.cbVoiceBatch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbVoiceBatch.FormattingEnabled = true;
-            this.cbVoiceBatch.Location = new System.Drawing.Point(11, 141);
-            this.cbVoiceBatch.Name = "cbVoiceBatch";
-            this.cbVoiceBatch.Size = new System.Drawing.Size(201, 21);
-            this.cbVoiceBatch.TabIndex = 49;
-            // 
-            // cbVolumeBatch
-            // 
-            this.cbVolumeBatch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbVolumeBatch.FormattingEnabled = true;
-            this.cbVolumeBatch.Location = new System.Drawing.Point(405, 141);
-            this.cbVolumeBatch.Name = "cbVolumeBatch";
-            this.cbVolumeBatch.Size = new System.Drawing.Size(44, 21);
-            this.cbVolumeBatch.TabIndex = 50;
-            // 
-            // cbRateBatch
-            // 
-            this.cbRateBatch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbRateBatch.FormattingEnabled = true;
-            this.cbRateBatch.Location = new System.Drawing.Point(355, 141);
-            this.cbRateBatch.Name = "cbRateBatch";
-            this.cbRateBatch.Size = new System.Drawing.Size(44, 21);
-            this.cbRateBatch.TabIndex = 47;
-            // 
-            // cbLanguageBatch
-            // 
-            this.cbLanguageBatch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbLanguageBatch.FormattingEnabled = true;
-            this.cbLanguageBatch.Location = new System.Drawing.Point(218, 141);
-            this.cbLanguageBatch.Name = "cbLanguageBatch";
-            this.cbLanguageBatch.Size = new System.Drawing.Size(131, 21);
-            this.cbLanguageBatch.TabIndex = 48;
             // 
             // tpSpeak
             // 
@@ -1516,15 +1547,20 @@ namespace Read4Me
             this.lLink.TabStop = true;
             this.lLink.Text = "http://sourceforge.net/p/read4mecbr/";
             // 
-            // cbSilenceBatch
+            // gbFileBreakRules
             // 
-            this.cbSilenceBatch.AutoSize = true;
-            this.cbSilenceBatch.Location = new System.Drawing.Point(455, 141);
-            this.cbSilenceBatch.Name = "cbSilenceBatch";
-            this.cbSilenceBatch.Size = new System.Drawing.Size(144, 17);
-            this.cbSilenceBatch.TabIndex = 56;
-            this.cbSilenceBatch.Text = "50ms silence on new line";
-            this.cbSilenceBatch.UseVisualStyleBackColor = true;
+            this.gbFileBreakRules.Controls.Add(this.tbBefore);
+            this.gbFileBreakRules.Controls.Add(this.tbAfter);
+            this.gbFileBreakRules.Controls.Add(this.label11);
+            this.gbFileBreakRules.Controls.Add(this.label10);
+            this.gbFileBreakRules.Controls.Add(this.tbEmptyLines);
+            this.gbFileBreakRules.Controls.Add(this.label9);
+            this.gbFileBreakRules.Location = new System.Drawing.Point(11, 48);
+            this.gbFileBreakRules.Name = "gbFileBreakRules";
+            this.gbFileBreakRules.Size = new System.Drawing.Size(162, 100);
+            this.gbFileBreakRules.TabIndex = 59;
+            this.gbFileBreakRules.TabStop = false;
+            this.gbFileBreakRules.Text = "File break rules";
             // 
             // Read4MeForm
             // 
@@ -1549,6 +1585,10 @@ namespace Read4Me
             this.tpConv.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.gbID3.ResumeLayout(false);
+            this.gbID3.PerformLayout();
+            this.gbConvSettings.ResumeLayout(false);
+            this.gbConvSettings.PerformLayout();
             this.tpSpeak.ResumeLayout(false);
             this.tpSpeak.PerformLayout();
             this.tbSettings.ResumeLayout(false);
@@ -1560,6 +1600,8 @@ namespace Read4Me
             this.gbGeneral.PerformLayout();
             this.tnAbout.ResumeLayout(false);
             this.tnAbout.PerformLayout();
+            this.gbFileBreakRules.ResumeLayout(false);
+            this.gbFileBreakRules.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1700,6 +1742,9 @@ namespace Read4Me
         private System.Windows.Forms.CheckBox cbSilence;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.CheckBox cbSilenceBatch;
+        private System.Windows.Forms.GroupBox gbConvSettings;
+        private System.Windows.Forms.GroupBox gbID3;
+        private System.Windows.Forms.GroupBox gbFileBreakRules;
     }
 }
 

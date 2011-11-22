@@ -79,10 +79,12 @@ namespace Read4Me
             {
                 line = file_reader.ReadLine().Replace("\t", "");
                 line = line.Replace(" ", " "); // replace Non-breaking space 0xA0 with normal space 0x20
-                line = line.Replace("]", ")");
                 line = line.Replace("[", "(");
-                line = line.Replace(">", ")");
+                line = line.Replace("]", ")");
                 line = line.Replace("<", "(");
+                line = line.Replace(">", ")");
+                line = line.Replace("«", "(");
+                line = line.Replace("»", ")");
 
                 // SLOWER RATE WHEN words surrounded with _words_ -> emphasize!
                 // use <rate absspeed="-7"/>
@@ -107,7 +109,7 @@ namespace Read4Me
                     line = line + "<rate absspeed=\"0\"/>"; // make sure normal rate continues
                 }
 
-                if (line != "" && line != "Kodirane UTF-8")
+                if (line != "")
                 {
                     empty_lines = 0;
                     if (Regex.IsMatch(line, "^" + Regex.Escape(tbBefore.Text) + "[IVX0-9]+" + Regex.Escape(tbAfter.Text) + "$", RegexOptions.IgnoreCase) || start_new_file)
