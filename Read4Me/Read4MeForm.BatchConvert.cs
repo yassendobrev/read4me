@@ -133,6 +133,10 @@ namespace Read4Me
                         {
                             file_writer.Write("<lang langid=\"409\"><silence msec=\"50\" /></lang>");
                         }
+                        else
+                        {
+                            file_writer.Write(" ");
+                        }
                     }
                 }
                 else
