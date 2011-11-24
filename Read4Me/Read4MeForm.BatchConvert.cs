@@ -56,24 +56,20 @@ namespace Read4Me
             outdir = tbSource.Text.Substring(0, tbSource.Text.LastIndexOf("\\") + 1);
 
             // check if old directories exist and delete them
-            if (Directory.Exists(outdir + "xml"))
+            if (Directory.Exists(outdir + "temp"))
             {
-                Directory.Delete(outdir + "xml", true);
+                Directory.Delete(outdir + "temp", true);
             }
-            if (Directory.Exists(outdir + "mp3"))
-            {
-                Directory.Delete(outdir + "mp3", true);
-            }
-            
+                        
             try
             {
-                Directory.CreateDirectory(outdir + "xml");
+                Directory.CreateDirectory(outdir + "temp");
             }
             catch
             {
             }
 
-            file_writer = new StreamWriter(outdir + "xml\\" + filename.ToString("00") + ".xml", false, Encoding.UTF8);
+            file_writer = new StreamWriter(outdir + "temp\\" + filename.ToString("00") + ".xml", false, Encoding.UTF8);
             file_writer.Write("<lang langid=\"" + LangID + "\">");
             while (!file_reader.EndOfStream)
             {
@@ -120,7 +116,7 @@ namespace Read4Me
                         file_writer.Close();
                         // filename = Regex.Replace(line, @"[\D]", "");
                         filename++;
-                        file_writer = new StreamWriter(outdir + "xml\\" + filename.ToString("00") + ".xml", false, Encoding.UTF8);
+                        file_writer = new StreamWriter(outdir + "temp\\" + filename.ToString("00") + ".xml", false, Encoding.UTF8);
 
                         file_writer.Write("<lang langid=\"" + LangID + "\">");
                         file_writer.Write(line);
@@ -156,7 +152,7 @@ namespace Read4Me
             });
 
             // batch convert xml to mp3
-            BatchConvert(outdir + "xml", SpeechRate, SpeechVolume, SpeechVoice);
+            BatchConvert(outdir + "temp", SpeechRate, SpeechVolume, SpeechVoice);
         }
 
         private void BatchConvert(string folder, int SpeechRate, int SpeechVolume, SpObjectToken SpeechVoice)
@@ -176,7 +172,6 @@ namespace Read4Me
             try
             {
                 fileEntries = Directory.GetFiles(folder, "*.xml");
-                Directory.CreateDirectory(folder.Replace("xml", "mp3"));
             }
             catch
             {
@@ -196,17 +191,16 @@ namespace Read4Me
                 SpeakText(FileName, SpeechRate, SpeechVolume, SpeechVoice);
 
                 // prepare id3 tags
-                title = FileName.Replace(folder + "\\", "").Replace(".xml", "");
-                track = FileName.Replace(folder + "\\", "").Replace(".xml", ""); // files are numbered 1..n
+                title = FileName.Replace(folder + "\\", "");
+                track = FileName.Replace(folder + "\\", ""); // files are numbered 1..n
 
                 // convert .wav to .mp3
                 wav2mp3(FileName, title, artist, year + " " + album, track);
-                File.Delete(FileName.Replace(".xml", ".wav"));
+                File.Delete(FileName.Replace(".xml", ".wav")); // delete .wav file
+                File.Delete(FileName); // delete .xml file
                 Application.DoEvents();
             }
-            Directory.Move(folder.Replace("xml", "mp3"), folder.Replace("xml", artist + " - " + year + " " + album));
-            Directory.Delete(folder);
-
+            Directory.Move(folder, folder.Replace("temp", artist + " - " + year + " " + album));
             MessageBox.Show("All done!");
         }
 
@@ -235,7 +229,7 @@ namespace Read4Me
         {
             string pworkingDir = Path.GetDirectoryName(Application.ExecutablePath);
             string wavpath = FileName.Replace(".xml", ".wav");
-            string mp3path = FileName.Replace("xml", "mp3");
+            string mp3path = FileName.Replace(".xml", ".mp3");
             int read = 0;
 
             WaveStream InStr = new WaveStream(wavpath);
