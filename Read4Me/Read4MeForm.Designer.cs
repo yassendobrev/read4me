@@ -30,59 +30,17 @@ namespace Read4Me
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Read4MeForm));
-            this.tbspeech = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnSpeak = new System.Windows.Forms.Button();
-            this.btnToWAV = new System.Windows.Forms.Button();
-            this.cmbVoices = new System.Windows.Forms.ComboBox();
-            this.tbarRate = new System.Windows.Forms.TrackBar();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.btnPause = new System.Windows.Forms.Button();
-            this.trbVolume = new System.Windows.Forms.TrackBar();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.mynotifyicon = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.showStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sStrip = new System.Windows.Forms.StatusStrip();
             this.sWorkingStatus = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tbAlbum = new System.Windows.Forms.TextBox();
-            this.tbArtist = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.tbEmptyLines = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.tbAfter = new System.Windows.Forms.TextBox();
-            this.tbBefore = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.tbSource = new System.Windows.Forms.TextBox();
-            this.bSource = new System.Windows.Forms.Button();
-            this.bGo = new System.Windows.Forms.Button();
-            this.label15 = new System.Windows.Forms.Label();
-            this.tbYear = new System.Windows.Forms.TextBox();
-            this.tabControlMain = new System.Windows.Forms.TabControl();
-            this.tpConv = new System.Windows.Forms.TabPage();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.gbID3 = new System.Windows.Forms.GroupBox();
-            this.gbConvSettings = new System.Windows.Forms.GroupBox();
-            this.cbRateBatch = new System.Windows.Forms.ComboBox();
-            this.cbSilenceBatch = new System.Windows.Forms.CheckBox();
-            this.bApplyBatch = new System.Windows.Forms.Button();
-            this.cbLanguageBatch = new System.Windows.Forms.ComboBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.cbVolumeBatch = new System.Windows.Forms.ComboBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.cbVoiceBatch = new System.Windows.Forms.ComboBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.tpSpeak = new System.Windows.Forms.TabPage();
+            this.mMainMenuStrip = new System.Windows.Forms.MenuStrip();
+            this.miFile = new System.Windows.Forms.ToolStripMenuItem();
+            this.miExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.miHelp = new System.Windows.Forms.ToolStripMenuItem();
+            this.miAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.tbSettings = new System.Windows.Forms.TabPage();
             this.gbOther = new System.Windows.Forms.GroupBox();
             this.cbSilence = new System.Windows.Forms.CheckBox();
@@ -161,179 +119,71 @@ namespace Read4Me
             this.lHK3 = new System.Windows.Forms.Label();
             this.lHK1 = new System.Windows.Forms.Label();
             this.lHK2 = new System.Windows.Forms.Label();
-            this.tnAbout = new System.Windows.Forms.TabPage();
-            this.label24 = new System.Windows.Forms.Label();
-            this.lLinkDiscussion = new System.Windows.Forms.LinkLabel();
-            this.lLink = new System.Windows.Forms.LinkLabel();
+            this.tpSpeak = new System.Windows.Forms.TabPage();
+            this.tbspeech = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnSpeak = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.btnToWAV = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cmbVoices = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tbarRate = new System.Windows.Forms.TrackBar();
+            this.trbVolume = new System.Windows.Forms.TrackBar();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnPause = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tpConv = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.gbFileBreakRules = new System.Windows.Forms.GroupBox();
-            ((System.ComponentModel.ISupportInitialize)(this.tbarRate)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trbVolume)).BeginInit();
+            this.tbBefore = new System.Windows.Forms.TextBox();
+            this.tbAfter = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.tbEmptyLines = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.gbID3 = new System.Windows.Forms.GroupBox();
+            this.tbAlbum = new System.Windows.Forms.TextBox();
+            this.tbArtist = new System.Windows.Forms.TextBox();
+            this.tbYear = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.bGo = new System.Windows.Forms.Button();
+            this.tbSource = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.bSource = new System.Windows.Forms.Button();
+            this.gbConvSettings = new System.Windows.Forms.GroupBox();
+            this.cbRateBatch = new System.Windows.Forms.ComboBox();
+            this.cbSilenceBatch = new System.Windows.Forms.CheckBox();
+            this.bApplyBatch = new System.Windows.Forms.Button();
+            this.cbLanguageBatch = new System.Windows.Forms.ComboBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.cbVolumeBatch = new System.Windows.Forms.ComboBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.cbVoiceBatch = new System.Windows.Forms.ComboBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.tabControlMain = new System.Windows.Forms.TabControl();
             this.contextMenuStrip1.SuspendLayout();
             this.sStrip.SuspendLayout();
-            this.tabControlMain.SuspendLayout();
-            this.tpConv.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.gbID3.SuspendLayout();
-            this.gbConvSettings.SuspendLayout();
-            this.tpSpeak.SuspendLayout();
+            this.mMainMenuStrip.SuspendLayout();
             this.tbSettings.SuspendLayout();
             this.gbOther.SuspendLayout();
             this.gbVoices.SuspendLayout();
             this.gbGeneral.SuspendLayout();
-            this.tnAbout.SuspendLayout();
+            this.tpSpeak.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbarRate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trbVolume)).BeginInit();
+            this.tpConv.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.gbFileBreakRules.SuspendLayout();
+            this.gbID3.SuspendLayout();
+            this.gbConvSettings.SuspendLayout();
+            this.tabControlMain.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // tbspeech
-            // 
-            this.tbspeech.Location = new System.Drawing.Point(6, 25);
-            this.tbspeech.Multiline = true;
-            this.tbspeech.Name = "tbspeech";
-            this.tbspeech.Size = new System.Drawing.Size(375, 298);
-            this.tbspeech.TabIndex = 20;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(-1, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(224, 13);
-            this.label1.TabIndex = 27;
-            this.label1.Text = "Please Enter the text below to speak! ";
-            // 
-            // btnSpeak
-            // 
-            this.btnSpeak.Location = new System.Drawing.Point(391, 57);
-            this.btnSpeak.Name = "btnSpeak";
-            this.btnSpeak.Size = new System.Drawing.Size(75, 23);
-            this.btnSpeak.TabIndex = 22;
-            this.btnSpeak.Text = "Speak";
-            this.btnSpeak.UseVisualStyleBackColor = true;
-            this.btnSpeak.Click += new System.EventHandler(this.btnSpeak_Click);
-            // 
-            // btnToWAV
-            // 
-            this.btnToWAV.Location = new System.Drawing.Point(391, 115);
-            this.btnToWAV.Name = "btnToWAV";
-            this.btnToWAV.Size = new System.Drawing.Size(75, 23);
-            this.btnToWAV.TabIndex = 21;
-            this.btnToWAV.Text = "To Wav";
-            this.btnToWAV.UseVisualStyleBackColor = true;
-            this.btnToWAV.Click += new System.EventHandler(this.btnToWAV_Click);
-            // 
-            // cmbVoices
-            // 
-            this.cmbVoices.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbVoices.FormattingEnabled = true;
-            this.cmbVoices.Location = new System.Drawing.Point(391, 25);
-            this.cmbVoices.Name = "cmbVoices";
-            this.cmbVoices.Size = new System.Drawing.Size(247, 21);
-            this.cmbVoices.TabIndex = 25;
-            this.cmbVoices.SelectedIndexChanged += new System.EventHandler(this.cmbVoices_SelectedIndexChanged);
-            // 
-            // tbarRate
-            // 
-            this.tbarRate.BackColor = System.Drawing.Color.White;
-            this.tbarRate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.tbarRate.Location = new System.Drawing.Point(593, 72);
-            this.tbarRate.Minimum = -10;
-            this.tbarRate.Name = "tbarRate";
-            this.tbarRate.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.tbarRate.Size = new System.Drawing.Size(45, 104);
-            this.tbarRate.TabIndex = 24;
-            this.tbarRate.Scroll += new System.EventHandler(this.tbarRate_Scroll);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(565, 78);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(22, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = " 10";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(562, 153);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(25, 13);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "- 10";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(565, 56);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(38, 13);
-            this.label4.TabIndex = 28;
-            this.label4.Text = "Rate:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(388, 9);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(83, 13);
-            this.label5.TabIndex = 29;
-            this.label5.Text = "Select Voice:";
-            // 
-            // btnPause
-            // 
-            this.btnPause.Location = new System.Drawing.Point(391, 86);
-            this.btnPause.Name = "btnPause";
-            this.btnPause.Size = new System.Drawing.Size(75, 23);
-            this.btnPause.TabIndex = 23;
-            this.btnPause.Text = "Pause";
-            this.btnPause.UseVisualStyleBackColor = true;
-            this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
-            // 
-            // trbVolume
-            // 
-            this.trbVolume.BackColor = System.Drawing.Color.White;
-            this.trbVolume.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.trbVolume.LargeChange = 20;
-            this.trbVolume.Location = new System.Drawing.Point(511, 72);
-            this.trbVolume.Maximum = 100;
-            this.trbVolume.Name = "trbVolume";
-            this.trbVolume.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.trbVolume.Size = new System.Drawing.Size(45, 104);
-            this.trbVolume.SmallChange = 10;
-            this.trbVolume.TabIndex = 26;
-            this.trbVolume.TickFrequency = 5;
-            this.trbVolume.Scroll += new System.EventHandler(this.trbVolume_Scroll);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(477, 72);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(28, 13);
-            this.label6.TabIndex = 13;
-            this.label6.Text = " 100";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(492, 154);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(13, 13);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "0";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(499, 56);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(52, 13);
-            this.label8.TabIndex = 30;
-            this.label8.Text = "Volume:";
             // 
             // mynotifyicon
             // 
@@ -379,328 +229,46 @@ namespace Read4Me
             this.sWorkingStatus.Name = "sWorkingStatus";
             this.sWorkingStatus.Size = new System.Drawing.Size(0, 17);
             // 
-            // tbAlbum
+            // mMainMenuStrip
             // 
-            this.tbAlbum.Location = new System.Drawing.Point(46, 19);
-            this.tbAlbum.Name = "tbAlbum";
-            this.tbAlbum.Size = new System.Drawing.Size(149, 20);
-            this.tbAlbum.TabIndex = 4;
+            this.mMainMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.miFile,
+            this.miHelp});
+            this.mMainMenuStrip.Location = new System.Drawing.Point(0, 0);
+            this.mMainMenuStrip.Name = "mMainMenuStrip";
+            this.mMainMenuStrip.Size = new System.Drawing.Size(700, 24);
+            this.mMainMenuStrip.TabIndex = 49;
+            this.mMainMenuStrip.Text = "Main Menu";
             // 
-            // tbArtist
+            // miFile
             // 
-            this.tbArtist.Location = new System.Drawing.Point(46, 45);
-            this.tbArtist.Name = "tbArtist";
-            this.tbArtist.Size = new System.Drawing.Size(149, 20);
-            this.tbArtist.TabIndex = 5;
+            this.miFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.miExit});
+            this.miFile.Name = "miFile";
+            this.miFile.Size = new System.Drawing.Size(37, 20);
+            this.miFile.Text = "File";
             // 
-            // label9
+            // miExit
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(8, 74);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(124, 13);
-            this.label9.TabIndex = 43;
-            this.label9.Text = "Empty lines for file break:";
+            this.miExit.Name = "miExit";
+            this.miExit.Size = new System.Drawing.Size(92, 22);
+            this.miExit.Text = "Exit";
+            this.miExit.Click += new System.EventHandler(this.miExit_Click);
             // 
-            // tbEmptyLines
+            // miHelp
             // 
-            this.tbEmptyLines.Location = new System.Drawing.Point(134, 71);
-            this.tbEmptyLines.Name = "tbEmptyLines";
-            this.tbEmptyLines.Size = new System.Drawing.Size(21, 20);
-            this.tbEmptyLines.TabIndex = 3;
-            this.tbEmptyLines.Text = "2";
+            this.miHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.miAbout});
+            this.miHelp.Name = "miHelp";
+            this.miHelp.Size = new System.Drawing.Size(44, 20);
+            this.miHelp.Text = "Help";
             // 
-            // label10
+            // miAbout
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(8, 48);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(32, 13);
-            this.label10.TabIndex = 42;
-            this.label10.Text = "After:";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(8, 22);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(41, 13);
-            this.label11.TabIndex = 41;
-            this.label11.Text = "Before:";
-            // 
-            // tbAfter
-            // 
-            this.tbAfter.Location = new System.Drawing.Point(55, 45);
-            this.tbAfter.Name = "tbAfter";
-            this.tbAfter.Size = new System.Drawing.Size(100, 20);
-            this.tbAfter.TabIndex = 2;
-            // 
-            // tbBefore
-            // 
-            this.tbBefore.Location = new System.Drawing.Point(55, 19);
-            this.tbBefore.Name = "tbBefore";
-            this.tbBefore.Size = new System.Drawing.Size(100, 20);
-            this.tbBefore.TabIndex = 1;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(7, 22);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(39, 13);
-            this.label12.TabIndex = 44;
-            this.label12.Text = "Album:";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(7, 48);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(33, 13);
-            this.label13.TabIndex = 45;
-            this.label13.Text = "Artist:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(8, 22);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(80, 13);
-            this.label14.TabIndex = 40;
-            this.label14.Text = "Source File (txt)";
-            // 
-            // tbSource
-            // 
-            this.tbSource.Location = new System.Drawing.Point(94, 19);
-            this.tbSource.Name = "tbSource";
-            this.tbSource.Size = new System.Drawing.Size(195, 20);
-            this.tbSource.TabIndex = 8;
-            // 
-            // bSource
-            // 
-            this.bSource.Location = new System.Drawing.Point(295, 17);
-            this.bSource.Name = "bSource";
-            this.bSource.Size = new System.Drawing.Size(85, 23);
-            this.bSource.TabIndex = 0;
-            this.bSource.Text = "Browse";
-            this.bSource.UseVisualStyleBackColor = true;
-            this.bSource.Click += new System.EventHandler(this.bSource_Click);
-            // 
-            // bGo
-            // 
-            this.bGo.Location = new System.Drawing.Point(267, 154);
-            this.bGo.Name = "bGo";
-            this.bGo.Size = new System.Drawing.Size(113, 23);
-            this.bGo.TabIndex = 7;
-            this.bGo.Text = "Start batch";
-            this.bGo.UseVisualStyleBackColor = true;
-            this.bGo.Click += new System.EventHandler(this.bGo_Click);
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(7, 74);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(32, 13);
-            this.label15.TabIndex = 46;
-            this.label15.Text = "Year:";
-            // 
-            // tbYear
-            // 
-            this.tbYear.Location = new System.Drawing.Point(45, 71);
-            this.tbYear.Name = "tbYear";
-            this.tbYear.Size = new System.Drawing.Size(150, 20);
-            this.tbYear.TabIndex = 6;
-            // 
-            // tabControlMain
-            // 
-            this.tabControlMain.Controls.Add(this.tpConv);
-            this.tabControlMain.Controls.Add(this.tpSpeak);
-            this.tabControlMain.Controls.Add(this.tbSettings);
-            this.tabControlMain.Controls.Add(this.tnAbout);
-            this.tabControlMain.Location = new System.Drawing.Point(12, 12);
-            this.tabControlMain.Name = "tabControlMain";
-            this.tabControlMain.SelectedIndex = 0;
-            this.tabControlMain.Size = new System.Drawing.Size(679, 355);
-            this.tabControlMain.TabIndex = 48;
-            // 
-            // tpConv
-            // 
-            this.tpConv.Controls.Add(this.groupBox1);
-            this.tpConv.Controls.Add(this.gbConvSettings);
-            this.tpConv.Location = new System.Drawing.Point(4, 22);
-            this.tpConv.Name = "tpConv";
-            this.tpConv.Padding = new System.Windows.Forms.Padding(3);
-            this.tpConv.Size = new System.Drawing.Size(671, 329);
-            this.tpConv.TabIndex = 0;
-            this.tpConv.Text = "Convert to mp3";
-            this.tpConv.UseVisualStyleBackColor = true;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.gbFileBreakRules);
-            this.groupBox1.Controls.Add(this.gbID3);
-            this.groupBox1.Controls.Add(this.bGo);
-            this.groupBox1.Controls.Add(this.tbSource);
-            this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Controls.Add(this.bSource);
-            this.groupBox1.Location = new System.Drawing.Point(6, 15);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(386, 184);
-            this.groupBox1.TabIndex = 48;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Convert text to mp3";
-            // 
-            // gbID3
-            // 
-            this.gbID3.Controls.Add(this.tbAlbum);
-            this.gbID3.Controls.Add(this.tbArtist);
-            this.gbID3.Controls.Add(this.tbYear);
-            this.gbID3.Controls.Add(this.label15);
-            this.gbID3.Controls.Add(this.label13);
-            this.gbID3.Controls.Add(this.label12);
-            this.gbID3.Location = new System.Drawing.Point(179, 48);
-            this.gbID3.Name = "gbID3";
-            this.gbID3.Size = new System.Drawing.Size(201, 100);
-            this.gbID3.TabIndex = 58;
-            this.gbID3.TabStop = false;
-            this.gbID3.Text = "ID3 data";
-            // 
-            // gbConvSettings
-            // 
-            this.gbConvSettings.Controls.Add(this.cbRateBatch);
-            this.gbConvSettings.Controls.Add(this.cbSilenceBatch);
-            this.gbConvSettings.Controls.Add(this.bApplyBatch);
-            this.gbConvSettings.Controls.Add(this.cbLanguageBatch);
-            this.gbConvSettings.Controls.Add(this.label20);
-            this.gbConvSettings.Controls.Add(this.cbVolumeBatch);
-            this.gbConvSettings.Controls.Add(this.label21);
-            this.gbConvSettings.Controls.Add(this.cbVoiceBatch);
-            this.gbConvSettings.Controls.Add(this.label22);
-            this.gbConvSettings.Controls.Add(this.label23);
-            this.gbConvSettings.Location = new System.Drawing.Point(6, 205);
-            this.gbConvSettings.Name = "gbConvSettings";
-            this.gbConvSettings.Size = new System.Drawing.Size(462, 99);
-            this.gbConvSettings.TabIndex = 57;
-            this.gbConvSettings.TabStop = false;
-            this.gbConvSettings.Text = "Text to mp3 conversion settings";
-            // 
-            // cbRateBatch
-            // 
-            this.cbRateBatch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbRateBatch.FormattingEnabled = true;
-            this.cbRateBatch.Location = new System.Drawing.Point(356, 39);
-            this.cbRateBatch.Name = "cbRateBatch";
-            this.cbRateBatch.Size = new System.Drawing.Size(44, 21);
-            this.cbRateBatch.TabIndex = 47;
-            // 
-            // cbSilenceBatch
-            // 
-            this.cbSilenceBatch.AutoSize = true;
-            this.cbSilenceBatch.Location = new System.Drawing.Point(209, 70);
-            this.cbSilenceBatch.Name = "cbSilenceBatch";
-            this.cbSilenceBatch.Size = new System.Drawing.Size(144, 17);
-            this.cbSilenceBatch.TabIndex = 56;
-            this.cbSilenceBatch.Text = "50ms silence on new line";
-            this.cbSilenceBatch.UseVisualStyleBackColor = true;
-            // 
-            // bApplyBatch
-            // 
-            this.bApplyBatch.Location = new System.Drawing.Point(359, 66);
-            this.bApplyBatch.Name = "bApplyBatch";
-            this.bApplyBatch.Size = new System.Drawing.Size(92, 23);
-            this.bApplyBatch.TabIndex = 55;
-            this.bApplyBatch.Text = "Save Settings";
-            this.bApplyBatch.UseVisualStyleBackColor = true;
-            this.bApplyBatch.Click += new System.EventHandler(this.bApplyBatch_Click);
-            // 
-            // cbLanguageBatch
-            // 
-            this.cbLanguageBatch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbLanguageBatch.FormattingEnabled = true;
-            this.cbLanguageBatch.Location = new System.Drawing.Point(219, 39);
-            this.cbLanguageBatch.Name = "cbLanguageBatch";
-            this.cbLanguageBatch.Size = new System.Drawing.Size(131, 21);
-            this.cbLanguageBatch.TabIndex = 48;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(408, 23);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(42, 13);
-            this.label20.TabIndex = 53;
-            this.label20.Text = "Volume";
-            // 
-            // cbVolumeBatch
-            // 
-            this.cbVolumeBatch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbVolumeBatch.FormattingEnabled = true;
-            this.cbVolumeBatch.Location = new System.Drawing.Point(406, 39);
-            this.cbVolumeBatch.Name = "cbVolumeBatch";
-            this.cbVolumeBatch.Size = new System.Drawing.Size(44, 21);
-            this.cbVolumeBatch.TabIndex = 50;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(356, 23);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(30, 13);
-            this.label21.TabIndex = 54;
-            this.label21.Text = "Rate";
-            // 
-            // cbVoiceBatch
-            // 
-            this.cbVoiceBatch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbVoiceBatch.FormattingEnabled = true;
-            this.cbVoiceBatch.Location = new System.Drawing.Point(12, 39);
-            this.cbVoiceBatch.Name = "cbVoiceBatch";
-            this.cbVoiceBatch.Size = new System.Drawing.Size(201, 21);
-            this.cbVoiceBatch.TabIndex = 49;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(216, 23);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(55, 13);
-            this.label22.TabIndex = 51;
-            this.label22.Text = "Language";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(9, 23);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(34, 13);
-            this.label23.TabIndex = 52;
-            this.label23.Text = "Voice";
-            // 
-            // tpSpeak
-            // 
-            this.tpSpeak.Controls.Add(this.tbspeech);
-            this.tpSpeak.Controls.Add(this.label1);
-            this.tpSpeak.Controls.Add(this.btnSpeak);
-            this.tpSpeak.Controls.Add(this.label8);
-            this.tpSpeak.Controls.Add(this.btnToWAV);
-            this.tpSpeak.Controls.Add(this.label7);
-            this.tpSpeak.Controls.Add(this.cmbVoices);
-            this.tpSpeak.Controls.Add(this.label6);
-            this.tpSpeak.Controls.Add(this.tbarRate);
-            this.tpSpeak.Controls.Add(this.trbVolume);
-            this.tpSpeak.Controls.Add(this.label2);
-            this.tpSpeak.Controls.Add(this.btnPause);
-            this.tpSpeak.Controls.Add(this.label3);
-            this.tpSpeak.Controls.Add(this.label5);
-            this.tpSpeak.Controls.Add(this.label4);
-            this.tpSpeak.Location = new System.Drawing.Point(4, 22);
-            this.tpSpeak.Name = "tpSpeak";
-            this.tpSpeak.Padding = new System.Windows.Forms.Padding(3);
-            this.tpSpeak.Size = new System.Drawing.Size(671, 329);
-            this.tpSpeak.TabIndex = 1;
-            this.tpSpeak.Text = "Speak Text";
-            this.tpSpeak.UseVisualStyleBackColor = true;
+            this.miAbout.Name = "miAbout";
+            this.miAbout.Size = new System.Drawing.Size(107, 22);
+            this.miAbout.Text = "About";
+            this.miAbout.Click += new System.EventHandler(this.miAbout_Click);
             // 
             // tbSettings
             // 
@@ -1505,47 +1073,208 @@ namespace Read4Me
             this.lHK2.TabIndex = 1;
             this.lHK2.Text = "Previous sentence";
             // 
-            // tnAbout
+            // tpSpeak
             // 
-            this.tnAbout.Controls.Add(this.label24);
-            this.tnAbout.Controls.Add(this.lLinkDiscussion);
-            this.tnAbout.Controls.Add(this.lLink);
-            this.tnAbout.Location = new System.Drawing.Point(4, 22);
-            this.tnAbout.Name = "tnAbout";
-            this.tnAbout.Size = new System.Drawing.Size(671, 329);
-            this.tnAbout.TabIndex = 3;
-            this.tnAbout.Text = "About";
-            this.tnAbout.UseVisualStyleBackColor = true;
+            this.tpSpeak.Controls.Add(this.tbspeech);
+            this.tpSpeak.Controls.Add(this.label1);
+            this.tpSpeak.Controls.Add(this.btnSpeak);
+            this.tpSpeak.Controls.Add(this.label8);
+            this.tpSpeak.Controls.Add(this.btnToWAV);
+            this.tpSpeak.Controls.Add(this.label7);
+            this.tpSpeak.Controls.Add(this.cmbVoices);
+            this.tpSpeak.Controls.Add(this.label6);
+            this.tpSpeak.Controls.Add(this.tbarRate);
+            this.tpSpeak.Controls.Add(this.trbVolume);
+            this.tpSpeak.Controls.Add(this.label2);
+            this.tpSpeak.Controls.Add(this.btnPause);
+            this.tpSpeak.Controls.Add(this.label3);
+            this.tpSpeak.Controls.Add(this.label5);
+            this.tpSpeak.Controls.Add(this.label4);
+            this.tpSpeak.Location = new System.Drawing.Point(4, 22);
+            this.tpSpeak.Name = "tpSpeak";
+            this.tpSpeak.Padding = new System.Windows.Forms.Padding(3);
+            this.tpSpeak.Size = new System.Drawing.Size(671, 329);
+            this.tpSpeak.TabIndex = 1;
+            this.tpSpeak.Text = "Speak Text";
+            this.tpSpeak.UseVisualStyleBackColor = true;
             // 
-            // label24
+            // tbspeech
             // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(30, 80);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(164, 13);
-            this.label24.TabIndex = 53;
-            this.label24.Text = "Bug reports and feature requests:";
+            this.tbspeech.Location = new System.Drawing.Point(6, 25);
+            this.tbspeech.Multiline = true;
+            this.tbspeech.Name = "tbspeech";
+            this.tbspeech.Size = new System.Drawing.Size(375, 298);
+            this.tbspeech.TabIndex = 20;
             // 
-            // lLinkDiscussion
+            // label1
             // 
-            this.lLinkDiscussion.AutoSize = true;
-            this.lLinkDiscussion.Location = new System.Drawing.Point(191, 80);
-            this.lLinkDiscussion.Name = "lLinkDiscussion";
-            this.lLinkDiscussion.Size = new System.Drawing.Size(248, 13);
-            this.lLinkDiscussion.TabIndex = 52;
-            this.lLinkDiscussion.TabStop = true;
-            this.lLinkDiscussion.Text = "https://sourceforge.net/p/read4mecbr/discussion/";
-            this.lLinkDiscussion.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lLinkDiscussion_LinkClicked);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(-1, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(224, 13);
+            this.label1.TabIndex = 27;
+            this.label1.Text = "Please Enter the text below to speak! ";
             // 
-            // lLink
+            // btnSpeak
             // 
-            this.lLink.AutoSize = true;
-            this.lLink.Location = new System.Drawing.Point(30, 27);
-            this.lLink.Name = "lLink";
-            this.lLink.Size = new System.Drawing.Size(189, 13);
-            this.lLink.TabIndex = 51;
-            this.lLink.TabStop = true;
-            this.lLink.Text = "http://sourceforge.net/p/read4mecbr/";
+            this.btnSpeak.Location = new System.Drawing.Point(391, 57);
+            this.btnSpeak.Name = "btnSpeak";
+            this.btnSpeak.Size = new System.Drawing.Size(75, 23);
+            this.btnSpeak.TabIndex = 22;
+            this.btnSpeak.Text = "Speak";
+            this.btnSpeak.UseVisualStyleBackColor = true;
+            this.btnSpeak.Click += new System.EventHandler(this.btnSpeak_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(499, 56);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(52, 13);
+            this.label8.TabIndex = 30;
+            this.label8.Text = "Volume:";
+            // 
+            // btnToWAV
+            // 
+            this.btnToWAV.Location = new System.Drawing.Point(391, 115);
+            this.btnToWAV.Name = "btnToWAV";
+            this.btnToWAV.Size = new System.Drawing.Size(75, 23);
+            this.btnToWAV.TabIndex = 21;
+            this.btnToWAV.Text = "To Wav";
+            this.btnToWAV.UseVisualStyleBackColor = true;
+            this.btnToWAV.Click += new System.EventHandler(this.btnToWAV_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(492, 154);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(13, 13);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "0";
+            // 
+            // cmbVoices
+            // 
+            this.cmbVoices.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbVoices.FormattingEnabled = true;
+            this.cmbVoices.Location = new System.Drawing.Point(391, 25);
+            this.cmbVoices.Name = "cmbVoices";
+            this.cmbVoices.Size = new System.Drawing.Size(247, 21);
+            this.cmbVoices.TabIndex = 25;
+            this.cmbVoices.SelectedIndexChanged += new System.EventHandler(this.cmbVoices_SelectedIndexChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(477, 72);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(28, 13);
+            this.label6.TabIndex = 13;
+            this.label6.Text = " 100";
+            // 
+            // tbarRate
+            // 
+            this.tbarRate.BackColor = System.Drawing.Color.White;
+            this.tbarRate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.tbarRate.Location = new System.Drawing.Point(593, 72);
+            this.tbarRate.Minimum = -10;
+            this.tbarRate.Name = "tbarRate";
+            this.tbarRate.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.tbarRate.Size = new System.Drawing.Size(45, 104);
+            this.tbarRate.TabIndex = 24;
+            this.tbarRate.Scroll += new System.EventHandler(this.tbarRate_Scroll);
+            // 
+            // trbVolume
+            // 
+            this.trbVolume.BackColor = System.Drawing.Color.White;
+            this.trbVolume.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.trbVolume.LargeChange = 20;
+            this.trbVolume.Location = new System.Drawing.Point(511, 72);
+            this.trbVolume.Maximum = 100;
+            this.trbVolume.Name = "trbVolume";
+            this.trbVolume.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.trbVolume.Size = new System.Drawing.Size(45, 104);
+            this.trbVolume.SmallChange = 10;
+            this.trbVolume.TabIndex = 26;
+            this.trbVolume.TickFrequency = 5;
+            this.trbVolume.Scroll += new System.EventHandler(this.trbVolume_Scroll);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(565, 78);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(22, 13);
+            this.label2.TabIndex = 6;
+            this.label2.Text = " 10";
+            // 
+            // btnPause
+            // 
+            this.btnPause.Location = new System.Drawing.Point(391, 86);
+            this.btnPause.Name = "btnPause";
+            this.btnPause.Size = new System.Drawing.Size(75, 23);
+            this.btnPause.TabIndex = 23;
+            this.btnPause.Text = "Pause";
+            this.btnPause.UseVisualStyleBackColor = true;
+            this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(562, 153);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(25, 13);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "- 10";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(388, 9);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(83, 13);
+            this.label5.TabIndex = 29;
+            this.label5.Text = "Select Voice:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(565, 56);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(38, 13);
+            this.label4.TabIndex = 28;
+            this.label4.Text = "Rate:";
+            // 
+            // tpConv
+            // 
+            this.tpConv.Controls.Add(this.groupBox1);
+            this.tpConv.Controls.Add(this.gbConvSettings);
+            this.tpConv.Location = new System.Drawing.Point(4, 22);
+            this.tpConv.Name = "tpConv";
+            this.tpConv.Padding = new System.Windows.Forms.Padding(3);
+            this.tpConv.Size = new System.Drawing.Size(671, 329);
+            this.tpConv.TabIndex = 0;
+            this.tpConv.Text = "Convert to mp3";
+            this.tpConv.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.gbFileBreakRules);
+            this.groupBox1.Controls.Add(this.gbID3);
+            this.groupBox1.Controls.Add(this.bGo);
+            this.groupBox1.Controls.Add(this.tbSource);
+            this.groupBox1.Controls.Add(this.label14);
+            this.groupBox1.Controls.Add(this.bSource);
+            this.groupBox1.Location = new System.Drawing.Point(6, 15);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(386, 184);
+            this.groupBox1.TabIndex = 48;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Convert text to mp3";
             // 
             // gbFileBreakRules
             // 
@@ -1562,12 +1291,283 @@ namespace Read4Me
             this.gbFileBreakRules.TabStop = false;
             this.gbFileBreakRules.Text = "File break rules";
             // 
+            // tbBefore
+            // 
+            this.tbBefore.Location = new System.Drawing.Point(55, 19);
+            this.tbBefore.Name = "tbBefore";
+            this.tbBefore.Size = new System.Drawing.Size(100, 20);
+            this.tbBefore.TabIndex = 1;
+            // 
+            // tbAfter
+            // 
+            this.tbAfter.Location = new System.Drawing.Point(55, 45);
+            this.tbAfter.Name = "tbAfter";
+            this.tbAfter.Size = new System.Drawing.Size(100, 20);
+            this.tbAfter.TabIndex = 2;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(8, 22);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(41, 13);
+            this.label11.TabIndex = 41;
+            this.label11.Text = "Before:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(8, 48);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(32, 13);
+            this.label10.TabIndex = 42;
+            this.label10.Text = "After:";
+            // 
+            // tbEmptyLines
+            // 
+            this.tbEmptyLines.Location = new System.Drawing.Point(134, 71);
+            this.tbEmptyLines.Name = "tbEmptyLines";
+            this.tbEmptyLines.Size = new System.Drawing.Size(21, 20);
+            this.tbEmptyLines.TabIndex = 3;
+            this.tbEmptyLines.Text = "2";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(8, 74);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(124, 13);
+            this.label9.TabIndex = 43;
+            this.label9.Text = "Empty lines for file break:";
+            // 
+            // gbID3
+            // 
+            this.gbID3.Controls.Add(this.tbAlbum);
+            this.gbID3.Controls.Add(this.tbArtist);
+            this.gbID3.Controls.Add(this.tbYear);
+            this.gbID3.Controls.Add(this.label15);
+            this.gbID3.Controls.Add(this.label13);
+            this.gbID3.Controls.Add(this.label12);
+            this.gbID3.Location = new System.Drawing.Point(179, 48);
+            this.gbID3.Name = "gbID3";
+            this.gbID3.Size = new System.Drawing.Size(201, 100);
+            this.gbID3.TabIndex = 58;
+            this.gbID3.TabStop = false;
+            this.gbID3.Text = "ID3 data";
+            // 
+            // tbAlbum
+            // 
+            this.tbAlbum.Location = new System.Drawing.Point(46, 19);
+            this.tbAlbum.Name = "tbAlbum";
+            this.tbAlbum.Size = new System.Drawing.Size(149, 20);
+            this.tbAlbum.TabIndex = 4;
+            // 
+            // tbArtist
+            // 
+            this.tbArtist.Location = new System.Drawing.Point(46, 45);
+            this.tbArtist.Name = "tbArtist";
+            this.tbArtist.Size = new System.Drawing.Size(149, 20);
+            this.tbArtist.TabIndex = 5;
+            // 
+            // tbYear
+            // 
+            this.tbYear.Location = new System.Drawing.Point(45, 71);
+            this.tbYear.Name = "tbYear";
+            this.tbYear.Size = new System.Drawing.Size(150, 20);
+            this.tbYear.TabIndex = 6;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(7, 74);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(32, 13);
+            this.label15.TabIndex = 46;
+            this.label15.Text = "Year:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(7, 48);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(33, 13);
+            this.label13.TabIndex = 45;
+            this.label13.Text = "Artist:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(7, 22);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(39, 13);
+            this.label12.TabIndex = 44;
+            this.label12.Text = "Album:";
+            // 
+            // bGo
+            // 
+            this.bGo.Location = new System.Drawing.Point(267, 154);
+            this.bGo.Name = "bGo";
+            this.bGo.Size = new System.Drawing.Size(113, 23);
+            this.bGo.TabIndex = 7;
+            this.bGo.Text = "Start batch";
+            this.bGo.UseVisualStyleBackColor = true;
+            this.bGo.Click += new System.EventHandler(this.bGo_Click);
+            // 
+            // tbSource
+            // 
+            this.tbSource.Location = new System.Drawing.Point(94, 19);
+            this.tbSource.Name = "tbSource";
+            this.tbSource.Size = new System.Drawing.Size(195, 20);
+            this.tbSource.TabIndex = 8;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(8, 22);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(80, 13);
+            this.label14.TabIndex = 40;
+            this.label14.Text = "Source File (txt)";
+            // 
+            // bSource
+            // 
+            this.bSource.Location = new System.Drawing.Point(295, 17);
+            this.bSource.Name = "bSource";
+            this.bSource.Size = new System.Drawing.Size(85, 23);
+            this.bSource.TabIndex = 0;
+            this.bSource.Text = "Browse";
+            this.bSource.UseVisualStyleBackColor = true;
+            this.bSource.Click += new System.EventHandler(this.bSource_Click);
+            // 
+            // gbConvSettings
+            // 
+            this.gbConvSettings.Controls.Add(this.cbRateBatch);
+            this.gbConvSettings.Controls.Add(this.cbSilenceBatch);
+            this.gbConvSettings.Controls.Add(this.bApplyBatch);
+            this.gbConvSettings.Controls.Add(this.cbLanguageBatch);
+            this.gbConvSettings.Controls.Add(this.label20);
+            this.gbConvSettings.Controls.Add(this.cbVolumeBatch);
+            this.gbConvSettings.Controls.Add(this.label21);
+            this.gbConvSettings.Controls.Add(this.cbVoiceBatch);
+            this.gbConvSettings.Controls.Add(this.label22);
+            this.gbConvSettings.Controls.Add(this.label23);
+            this.gbConvSettings.Location = new System.Drawing.Point(6, 205);
+            this.gbConvSettings.Name = "gbConvSettings";
+            this.gbConvSettings.Size = new System.Drawing.Size(462, 99);
+            this.gbConvSettings.TabIndex = 57;
+            this.gbConvSettings.TabStop = false;
+            this.gbConvSettings.Text = "Text to mp3 conversion settings";
+            // 
+            // cbRateBatch
+            // 
+            this.cbRateBatch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbRateBatch.FormattingEnabled = true;
+            this.cbRateBatch.Location = new System.Drawing.Point(356, 39);
+            this.cbRateBatch.Name = "cbRateBatch";
+            this.cbRateBatch.Size = new System.Drawing.Size(44, 21);
+            this.cbRateBatch.TabIndex = 47;
+            // 
+            // cbSilenceBatch
+            // 
+            this.cbSilenceBatch.AutoSize = true;
+            this.cbSilenceBatch.Location = new System.Drawing.Point(209, 70);
+            this.cbSilenceBatch.Name = "cbSilenceBatch";
+            this.cbSilenceBatch.Size = new System.Drawing.Size(144, 17);
+            this.cbSilenceBatch.TabIndex = 56;
+            this.cbSilenceBatch.Text = "50ms silence on new line";
+            this.cbSilenceBatch.UseVisualStyleBackColor = true;
+            // 
+            // bApplyBatch
+            // 
+            this.bApplyBatch.Location = new System.Drawing.Point(359, 66);
+            this.bApplyBatch.Name = "bApplyBatch";
+            this.bApplyBatch.Size = new System.Drawing.Size(92, 23);
+            this.bApplyBatch.TabIndex = 55;
+            this.bApplyBatch.Text = "Save Settings";
+            this.bApplyBatch.UseVisualStyleBackColor = true;
+            this.bApplyBatch.Click += new System.EventHandler(this.bApplyBatch_Click);
+            // 
+            // cbLanguageBatch
+            // 
+            this.cbLanguageBatch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbLanguageBatch.FormattingEnabled = true;
+            this.cbLanguageBatch.Location = new System.Drawing.Point(219, 39);
+            this.cbLanguageBatch.Name = "cbLanguageBatch";
+            this.cbLanguageBatch.Size = new System.Drawing.Size(131, 21);
+            this.cbLanguageBatch.TabIndex = 48;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(408, 23);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(42, 13);
+            this.label20.TabIndex = 53;
+            this.label20.Text = "Volume";
+            // 
+            // cbVolumeBatch
+            // 
+            this.cbVolumeBatch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbVolumeBatch.FormattingEnabled = true;
+            this.cbVolumeBatch.Location = new System.Drawing.Point(406, 39);
+            this.cbVolumeBatch.Name = "cbVolumeBatch";
+            this.cbVolumeBatch.Size = new System.Drawing.Size(44, 21);
+            this.cbVolumeBatch.TabIndex = 50;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(356, 23);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(30, 13);
+            this.label21.TabIndex = 54;
+            this.label21.Text = "Rate";
+            // 
+            // cbVoiceBatch
+            // 
+            this.cbVoiceBatch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbVoiceBatch.FormattingEnabled = true;
+            this.cbVoiceBatch.Location = new System.Drawing.Point(12, 39);
+            this.cbVoiceBatch.Name = "cbVoiceBatch";
+            this.cbVoiceBatch.Size = new System.Drawing.Size(201, 21);
+            this.cbVoiceBatch.TabIndex = 49;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(216, 23);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(55, 13);
+            this.label22.TabIndex = 51;
+            this.label22.Text = "Language";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(9, 23);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(34, 13);
+            this.label23.TabIndex = 52;
+            this.label23.Text = "Voice";
+            // 
+            // tabControlMain
+            // 
+            this.tabControlMain.Controls.Add(this.tpConv);
+            this.tabControlMain.Controls.Add(this.tpSpeak);
+            this.tabControlMain.Controls.Add(this.tbSettings);
+            this.tabControlMain.Location = new System.Drawing.Point(9, 27);
+            this.tabControlMain.Name = "tabControlMain";
+            this.tabControlMain.SelectedIndex = 0;
+            this.tabControlMain.Size = new System.Drawing.Size(679, 355);
+            this.tabControlMain.TabIndex = 48;
+            // 
             // Read4MeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(700, 416);
             this.Controls.Add(this.sStrip);
+            this.Controls.Add(this.mMainMenuStrip);
             this.Controls.Add(this.tabControlMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1575,22 +1575,12 @@ namespace Read4Me
             this.MinimizeBox = false;
             this.Name = "Read4MeForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.Text = "Read4Me 0.3";
-            ((System.ComponentModel.ISupportInitialize)(this.tbarRate)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trbVolume)).EndInit();
+            this.Text = "Read4Me Clipboard Reader and Text to mp3 Converter v0.3";
             this.contextMenuStrip1.ResumeLayout(false);
             this.sStrip.ResumeLayout(false);
             this.sStrip.PerformLayout();
-            this.tabControlMain.ResumeLayout(false);
-            this.tpConv.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.gbID3.ResumeLayout(false);
-            this.gbID3.PerformLayout();
-            this.gbConvSettings.ResumeLayout(false);
-            this.gbConvSettings.PerformLayout();
-            this.tpSpeak.ResumeLayout(false);
-            this.tpSpeak.PerformLayout();
+            this.mMainMenuStrip.ResumeLayout(false);
+            this.mMainMenuStrip.PerformLayout();
             this.tbSettings.ResumeLayout(false);
             this.gbOther.ResumeLayout(false);
             this.gbOther.PerformLayout();
@@ -1598,10 +1588,20 @@ namespace Read4Me
             this.gbVoices.PerformLayout();
             this.gbGeneral.ResumeLayout(false);
             this.gbGeneral.PerformLayout();
-            this.tnAbout.ResumeLayout(false);
-            this.tnAbout.PerformLayout();
+            this.tpSpeak.ResumeLayout(false);
+            this.tpSpeak.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbarRate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trbVolume)).EndInit();
+            this.tpConv.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.gbFileBreakRules.ResumeLayout(false);
             this.gbFileBreakRules.PerformLayout();
+            this.gbID3.ResumeLayout(false);
+            this.gbID3.PerformLayout();
+            this.gbConvSettings.ResumeLayout(false);
+            this.gbConvSettings.PerformLayout();
+            this.tabControlMain.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1609,142 +1609,143 @@ namespace Read4Me
 
         #endregion
 
-        private System.Windows.Forms.TextBox tbspeech;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnSpeak;
-        private System.Windows.Forms.Button btnToWAV;
-        private System.Windows.Forms.ComboBox cmbVoices;
-        private System.Windows.Forms.TrackBar tbarRate;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btnPause;
-        private System.Windows.Forms.TrackBar trbVolume;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.NotifyIcon mynotifyicon;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem showStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitStripMenuItem;
         private System.Windows.Forms.StatusStrip sStrip;
         private System.Windows.Forms.ToolStripStatusLabel sWorkingStatus;
-        private System.Windows.Forms.TextBox tbAlbum;
-        private System.Windows.Forms.TextBox tbArtist;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox tbEmptyLines;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox tbAfter;
-        private System.Windows.Forms.TextBox tbBefore;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox tbSource;
-        private System.Windows.Forms.Button bSource;
-        private System.Windows.Forms.Button bGo;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox tbYear;
-        private System.Windows.Forms.TabControl tabControlMain;
-        private System.Windows.Forms.TabPage tpConv;
-        private System.Windows.Forms.TabPage tpSpeak;
+        private System.Windows.Forms.MenuStrip mMainMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem miFile;
+        private System.Windows.Forms.ToolStripMenuItem miExit;
+        private System.Windows.Forms.ToolStripMenuItem miHelp;
+        private System.Windows.Forms.ToolStripMenuItem miAbout;
         private System.Windows.Forms.TabPage tbSettings;
-        private System.Windows.Forms.Label lHK0;
-        private System.Windows.Forms.CheckBox lWinKey1;
-        private System.Windows.Forms.CheckBox lCtrl3;
-        private System.Windows.Forms.CheckBox lCtrl2;
-        private System.Windows.Forms.CheckBox lCtrl1;
-        private System.Windows.Forms.CheckBox lWinKey3;
-        private System.Windows.Forms.CheckBox lWinKey2;
-        private System.Windows.Forms.CheckBox lWinKey0;
-        private System.Windows.Forms.CheckBox lCtrl0;
-        private System.Windows.Forms.CheckBox lAlt0;
-        private System.Windows.Forms.CheckBox lAlt3;
-        private System.Windows.Forms.CheckBox lAlt2;
-        private System.Windows.Forms.CheckBox lAlt1;
-        private System.Windows.Forms.TextBox tbHK0;
-        private System.Windows.Forms.TextBox tbHK3;
-        private System.Windows.Forms.TextBox tbHK2;
-        private System.Windows.Forms.TextBox tbHK1;
-        private System.Windows.Forms.Label lHK1;
-        private System.Windows.Forms.Label lHK2;
-        private System.Windows.Forms.Label lHK3;
-        private System.Windows.Forms.GroupBox gbGeneral;
+        private System.Windows.Forms.GroupBox gbOther;
+        private System.Windows.Forms.CheckBox cbSilence;
+        private System.Windows.Forms.Button Apply;
         private System.Windows.Forms.GroupBox gbVoices;
+        private System.Windows.Forms.ComboBox cbLang6;
+        private System.Windows.Forms.ComboBox cbLang5;
+        private System.Windows.Forms.ComboBox cbLang4;
+        private System.Windows.Forms.ComboBox cbVolume6;
+        private System.Windows.Forms.ComboBox cbSRate6;
+        private System.Windows.Forms.ComboBox cbVolume5;
+        private System.Windows.Forms.ComboBox cbSRate5;
+        private System.Windows.Forms.ComboBox cbVolume4;
+        private System.Windows.Forms.ComboBox cbSRate4;
+        private System.Windows.Forms.ComboBox cbVolume3;
+        private System.Windows.Forms.ComboBox cbSRate3;
+        private System.Windows.Forms.ComboBox cbVolume2;
+        private System.Windows.Forms.ComboBox cbSRate2;
+        private System.Windows.Forms.ComboBox cbVolume1;
+        private System.Windows.Forms.ComboBox cbSRate1;
+        private System.Windows.Forms.ComboBox cbLangid6;
+        private System.Windows.Forms.ComboBox cbLangid5;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.ComboBox cbLangid4;
+        private System.Windows.Forms.ComboBox cbLangid3;
+        private System.Windows.Forms.ComboBox cbLangid2;
+        private System.Windows.Forms.ComboBox cbLangid1;
+        private System.Windows.Forms.ComboBox cbLang3;
+        private System.Windows.Forms.ComboBox cbLang2;
+        private System.Windows.Forms.ComboBox cbLang1;
         private System.Windows.Forms.CheckBox lCtrllang1;
+        private System.Windows.Forms.TextBox tbHKlang6;
+        private System.Windows.Forms.TextBox tbHKlang5;
         private System.Windows.Forms.TextBox tbHKlang4;
         private System.Windows.Forms.CheckBox lCtrllang2;
         private System.Windows.Forms.TextBox tbHKlang3;
         private System.Windows.Forms.CheckBox lCtrllang3;
         private System.Windows.Forms.TextBox tbHKlang2;
+        private System.Windows.Forms.CheckBox lCtrllang6;
+        private System.Windows.Forms.CheckBox lCtrllang5;
         private System.Windows.Forms.CheckBox lCtrllang4;
         private System.Windows.Forms.TextBox tbHKlang1;
         private System.Windows.Forms.CheckBox lWinKeylang2;
+        private System.Windows.Forms.CheckBox lAltlang6;
+        private System.Windows.Forms.CheckBox lAltlang5;
         private System.Windows.Forms.CheckBox lAltlang4;
         private System.Windows.Forms.CheckBox lWinKeylang1;
         private System.Windows.Forms.CheckBox lAltlang3;
         private System.Windows.Forms.CheckBox lWinKeylang3;
+        private System.Windows.Forms.CheckBox lWinKeylang6;
         private System.Windows.Forms.CheckBox lAltlang2;
+        private System.Windows.Forms.CheckBox lWinKeylang5;
         private System.Windows.Forms.CheckBox lWinKeylang4;
         private System.Windows.Forms.CheckBox lAltlang1;
-        private System.Windows.Forms.TextBox tbHKlang6;
-        private System.Windows.Forms.TextBox tbHKlang5;
-        private System.Windows.Forms.CheckBox lCtrllang6;
-        private System.Windows.Forms.CheckBox lCtrllang5;
-        private System.Windows.Forms.CheckBox lAltlang6;
-        private System.Windows.Forms.CheckBox lAltlang5;
-        private System.Windows.Forms.CheckBox lWinKeylang6;
-        private System.Windows.Forms.CheckBox lWinKeylang5;
-        private System.Windows.Forms.ComboBox cbLang6;
-        private System.Windows.Forms.ComboBox cbLang5;
-        private System.Windows.Forms.ComboBox cbLang4;
-        private System.Windows.Forms.ComboBox cbLang3;
-        private System.Windows.Forms.ComboBox cbLang2;
-        private System.Windows.Forms.ComboBox cbLang1;
-        private System.Windows.Forms.Button Apply;
-        private System.Windows.Forms.ComboBox cbLangid1;
-        private System.Windows.Forms.ComboBox cbLangid6;
-        private System.Windows.Forms.ComboBox cbLangid5;
-        private System.Windows.Forms.ComboBox cbLangid4;
-        private System.Windows.Forms.ComboBox cbLangid3;
-        private System.Windows.Forms.ComboBox cbLangid2;
-        private System.Windows.Forms.ComboBox cbSRate6;
-        private System.Windows.Forms.ComboBox cbSRate5;
-        private System.Windows.Forms.ComboBox cbSRate4;
-        private System.Windows.Forms.ComboBox cbSRate3;
-        private System.Windows.Forms.ComboBox cbSRate2;
-        private System.Windows.Forms.ComboBox cbSRate1;
-        private System.Windows.Forms.ComboBox cbVolume6;
-        private System.Windows.Forms.ComboBox cbVolume5;
-        private System.Windows.Forms.ComboBox cbVolume4;
-        private System.Windows.Forms.ComboBox cbVolume3;
-        private System.Windows.Forms.ComboBox cbVolume2;
-        private System.Windows.Forms.ComboBox cbVolume1;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.GroupBox gbGeneral;
+        private System.Windows.Forms.CheckBox lCtrl0;
+        private System.Windows.Forms.TextBox tbHK3;
+        private System.Windows.Forms.CheckBox lCtrl1;
+        private System.Windows.Forms.TextBox tbHK2;
+        private System.Windows.Forms.CheckBox lCtrl2;
+        private System.Windows.Forms.TextBox tbHK1;
+        private System.Windows.Forms.CheckBox lCtrl3;
+        private System.Windows.Forms.TextBox tbHK0;
+        private System.Windows.Forms.CheckBox lWinKey1;
+        private System.Windows.Forms.CheckBox lAlt3;
+        private System.Windows.Forms.CheckBox lWinKey0;
+        private System.Windows.Forms.CheckBox lAlt2;
+        private System.Windows.Forms.CheckBox lWinKey2;
+        private System.Windows.Forms.CheckBox lAlt1;
+        private System.Windows.Forms.CheckBox lWinKey3;
+        private System.Windows.Forms.CheckBox lAlt0;
+        private System.Windows.Forms.Label lHK0;
+        private System.Windows.Forms.Label lHK3;
+        private System.Windows.Forms.Label lHK1;
+        private System.Windows.Forms.Label lHK2;
+        private System.Windows.Forms.TabPage tpSpeak;
+        private System.Windows.Forms.TextBox tbspeech;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnSpeak;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnToWAV;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cmbVoices;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TrackBar tbarRate;
+        private System.Windows.Forms.TrackBar trbVolume;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnPause;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TabPage tpConv;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox cbVoiceBatch;
-        private System.Windows.Forms.ComboBox cbVolumeBatch;
+        private System.Windows.Forms.GroupBox gbFileBreakRules;
+        private System.Windows.Forms.TextBox tbBefore;
+        private System.Windows.Forms.TextBox tbAfter;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox tbEmptyLines;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.GroupBox gbID3;
+        private System.Windows.Forms.TextBox tbAlbum;
+        private System.Windows.Forms.TextBox tbArtist;
+        private System.Windows.Forms.TextBox tbYear;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button bGo;
+        private System.Windows.Forms.TextBox tbSource;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Button bSource;
+        private System.Windows.Forms.GroupBox gbConvSettings;
         private System.Windows.Forms.ComboBox cbRateBatch;
+        private System.Windows.Forms.CheckBox cbSilenceBatch;
+        private System.Windows.Forms.Button bApplyBatch;
         private System.Windows.Forms.ComboBox cbLanguageBatch;
         private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.ComboBox cbVolumeBatch;
         private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.ComboBox cbVoiceBatch;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Button bApplyBatch;
-        private System.Windows.Forms.TabPage tnAbout;
-        private System.Windows.Forms.LinkLabel lLink;
-        private System.Windows.Forms.LinkLabel lLinkDiscussion;
-        private System.Windows.Forms.GroupBox gbOther;
-        private System.Windows.Forms.CheckBox cbSilence;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.CheckBox cbSilenceBatch;
-        private System.Windows.Forms.GroupBox gbConvSettings;
-        private System.Windows.Forms.GroupBox gbID3;
-        private System.Windows.Forms.GroupBox gbFileBreakRules;
+        private System.Windows.Forms.TabControl tabControlMain;
     }
 }
 

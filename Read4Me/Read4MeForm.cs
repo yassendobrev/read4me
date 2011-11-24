@@ -29,9 +29,6 @@ namespace Read4Me
         {
             InitializeComponent();
             
-            lLink.Links.Add(0, lLink.Text.Length - 1, lLink.Text);
-            lLinkDiscussion.Links.Add(0, lLinkDiscussion.Text.Length - 1, lLinkDiscussion.Text);
-                        
             foreach (ISpeechObjectToken Token in speech.GetVoices(string.Empty, string.Empty))
             {
                 // Populate the ComboBox Entries ..
@@ -61,14 +58,21 @@ namespace Read4Me
             speech.Speak("<lang langid=\"402\">а</lang>", SpeechVoiceSpeakFlags.SVSFlagsAsync | SpeechVoiceSpeakFlags.SVSFIsXML | SpeechVoiceSpeakFlags.SVSFPurgeBeforeSpeak);
         }
 
-        private void lLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void miAbout_Click(object sender, System.EventArgs e)
         {
-            System.Diagnostics.Process.Start(e.Link.LinkData.ToString());
-        }
+            AboutDialog testDialog = new AboutDialog();
 
-        private void lLinkDiscussion_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            System.Diagnostics.Process.Start(e.Link.LinkData.ToString());
+            // Show testDialog as a modal dialog and determine if DialogResult = OK.
+            if (testDialog.ShowDialog(this) == DialogResult.OK)
+            {
+                // Read the contents of testDialog's TextBox.
+                //this.txtResult.Text = testDialog.TextBox1.Text;
+            }
+            else
+            {
+                //this.txtResult.Text = "Cancelled";
+            }
+            testDialog.Dispose();
         }
     }
 }

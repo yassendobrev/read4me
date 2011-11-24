@@ -91,6 +91,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Read4MeForm.BatchConvert.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +119,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
+    <EmbeddedResource Include="AboutDialog.resx">
+      <DependentUpon>AboutDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Read4MeForm.resx">
       <SubType>Designer</SubType>
       <DependentUpon>Read4MeForm.cs</DependentUpon>

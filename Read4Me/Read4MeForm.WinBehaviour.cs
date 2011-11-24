@@ -89,5 +89,10 @@ namespace Read4Me
             mAllowClose = true;
             Close();
         }
+
+        private void miExit_Click(object sender, System.EventArgs e)
+        {
+            CloseForm();
+        }
     }
 }
