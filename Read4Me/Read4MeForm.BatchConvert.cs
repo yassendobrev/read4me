@@ -205,6 +205,7 @@ namespace Read4Me
                 Application.DoEvents();
             }
             Directory.Move(folder.Replace("xml", "mp3"), folder.Replace("xml", artist + " - " + year + " " + album));
+            Directory.Delete(folder);
 
             MessageBox.Show("All done!");
         }
