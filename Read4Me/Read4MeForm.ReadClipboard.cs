@@ -44,7 +44,7 @@ namespace Read4Me
             else
             {
                 // no silence on new line
-                toRead = toRead.Replace("\r\n", "");
+                toRead = toRead.Replace("\r\n", " ");
             }
 
             foreach (DictionaryEntry entry in ligatures)

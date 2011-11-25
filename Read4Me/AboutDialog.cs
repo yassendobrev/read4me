@@ -15,6 +15,7 @@ namespace Read4Me
         private GroupBox gbDisclaimer;
         private Label lDisclaimer;
         private LinkLabel linkHotkey;
+        private LinkLabel linkSAPI;
         private Button bOK;
     
         public AboutDialog()
@@ -26,6 +27,7 @@ namespace Read4Me
             linkMP3Compressor.Links.Add(0, linkMP3Compressor.Text.Length, linkMP3Compressor.Text);
             linkLAME.Links.Add(0, linkLAME.Text.Length, linkLAME.Text);
             linkHotkey.Links.Add(0, linkHotkey.Text.Length, linkHotkey.Text);
+            linkSAPI.Links.Add(0, linkSAPI.Text.Length, linkSAPI.Text);
         }
 
         // Hide form when ESC key pressed
@@ -52,6 +54,7 @@ namespace Read4Me
             this.lLinkIDSharp = new System.Windows.Forms.LinkLabel();
             this.gbDisclaimer = new System.Windows.Forms.GroupBox();
             this.lDisclaimer = new System.Windows.Forms.Label();
+            this.linkSAPI = new System.Windows.Forms.LinkLabel();
             this.gbAbout.SuspendLayout();
             this.gbThanks.SuspendLayout();
             this.gbDisclaimer.SuspendLayout();
@@ -59,7 +62,7 @@ namespace Read4Me
             // 
             // bOK
             // 
-            this.bOK.Location = new System.Drawing.Point(149, 273);
+            this.bOK.Location = new System.Drawing.Point(149, 282);
             this.bOK.Name = "bOK";
             this.bOK.Size = new System.Drawing.Size(75, 23);
             this.bOK.TabIndex = 0;
@@ -94,7 +97,7 @@ namespace Read4Me
             this.gbAbout.Controls.Add(this.lLinkDiscussion);
             this.gbAbout.Location = new System.Drawing.Point(12, 12);
             this.gbAbout.Name = "gbAbout";
-            this.gbAbout.Size = new System.Drawing.Size(350, 104);
+            this.gbAbout.Size = new System.Drawing.Size(361, 104);
             this.gbAbout.TabIndex = 56;
             this.gbAbout.TabStop = false;
             this.gbAbout.Text = "About";
@@ -111,13 +114,14 @@ namespace Read4Me
             // 
             // gbThanks
             // 
+            this.gbThanks.Controls.Add(this.linkSAPI);
             this.gbThanks.Controls.Add(this.linkHotkey);
             this.gbThanks.Controls.Add(this.linkMP3Compressor);
             this.gbThanks.Controls.Add(this.linkLAME);
             this.gbThanks.Controls.Add(this.lLinkIDSharp);
             this.gbThanks.Location = new System.Drawing.Point(12, 185);
             this.gbThanks.Name = "gbThanks";
-            this.gbThanks.Size = new System.Drawing.Size(350, 82);
+            this.gbThanks.Size = new System.Drawing.Size(361, 91);
             this.gbThanks.TabIndex = 57;
             this.gbThanks.TabStop = false;
             this.gbThanks.Text = "Credits";
@@ -171,7 +175,7 @@ namespace Read4Me
             this.gbDisclaimer.Controls.Add(this.lDisclaimer);
             this.gbDisclaimer.Location = new System.Drawing.Point(12, 122);
             this.gbDisclaimer.Name = "gbDisclaimer";
-            this.gbDisclaimer.Size = new System.Drawing.Size(350, 57);
+            this.gbDisclaimer.Size = new System.Drawing.Size(361, 57);
             this.gbDisclaimer.TabIndex = 58;
             this.gbDisclaimer.TabStop = false;
             this.gbDisclaimer.Text = "Disclaimer";
@@ -185,9 +189,20 @@ namespace Read4Me
             this.lDisclaimer.TabIndex = 0;
             this.lDisclaimer.Text = "The author shall NOT be held responsible\nfor any illegal use of this program.";
             // 
+            // linkSAPI
+            // 
+            this.linkSAPI.AutoSize = true;
+            this.linkSAPI.Location = new System.Drawing.Point(6, 68);
+            this.linkSAPI.Name = "linkSAPI";
+            this.linkSAPI.Size = new System.Drawing.Size(350, 13);
+            this.linkSAPI.TabIndex = 58;
+            this.linkSAPI.TabStop = true;
+            this.linkSAPI.Text = "http://www.codeproject.com/KB/audio-video/TTSFeaturesOfSAPI.aspx";
+            this.linkSAPI.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkSAPI_LinkClicked);
+            // 
             // AboutDialog
             // 
-            this.ClientSize = new System.Drawing.Size(374, 300);
+            this.ClientSize = new System.Drawing.Size(387, 312);
             this.Controls.Add(this.gbDisclaimer);
             this.Controls.Add(this.gbThanks);
             this.Controls.Add(this.gbAbout);
@@ -229,6 +244,11 @@ namespace Read4Me
         }
 
         private void linkHotkey_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(e.Link.LinkData.ToString());
+        }
+
+        private void linkSAPI_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start(e.Link.LinkData.ToString());
         }

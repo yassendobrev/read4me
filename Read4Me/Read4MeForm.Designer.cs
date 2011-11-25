@@ -374,7 +374,7 @@ namespace Read4Me
             this.gbVoices.Size = new System.Drawing.Size(645, 173);
             this.gbVoices.TabIndex = 5;
             this.gbVoices.TabStop = false;
-            this.gbVoices.Text = "Speech voices hotkeys";
+            this.gbVoices.Text = "Read clipboard hotkeys";
             // 
             // cbLang6
             // 
@@ -1271,7 +1271,7 @@ namespace Read4Me
             this.groupBox1.Controls.Add(this.bSource);
             this.groupBox1.Location = new System.Drawing.Point(6, 15);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(386, 184);
+            this.groupBox1.Size = new System.Drawing.Size(462, 184);
             this.groupBox1.TabIndex = 48;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Convert text to mp3";
@@ -1284,9 +1284,9 @@ namespace Read4Me
             this.gbFileBreakRules.Controls.Add(this.label10);
             this.gbFileBreakRules.Controls.Add(this.tbEmptyLines);
             this.gbFileBreakRules.Controls.Add(this.label9);
-            this.gbFileBreakRules.Location = new System.Drawing.Point(11, 48);
+            this.gbFileBreakRules.Location = new System.Drawing.Point(11, 46);
             this.gbFileBreakRules.Name = "gbFileBreakRules";
-            this.gbFileBreakRules.Size = new System.Drawing.Size(162, 100);
+            this.gbFileBreakRules.Size = new System.Drawing.Size(169, 100);
             this.gbFileBreakRules.TabIndex = 59;
             this.gbFileBreakRules.TabStop = false;
             this.gbFileBreakRules.Text = "File break rules";
@@ -1329,7 +1329,6 @@ namespace Read4Me
             this.tbEmptyLines.Name = "tbEmptyLines";
             this.tbEmptyLines.Size = new System.Drawing.Size(21, 20);
             this.tbEmptyLines.TabIndex = 3;
-            this.tbEmptyLines.Text = "2";
             // 
             // label9
             // 
@@ -1348,32 +1347,32 @@ namespace Read4Me
             this.gbID3.Controls.Add(this.label15);
             this.gbID3.Controls.Add(this.label13);
             this.gbID3.Controls.Add(this.label12);
-            this.gbID3.Location = new System.Drawing.Point(179, 48);
+            this.gbID3.Location = new System.Drawing.Point(187, 46);
             this.gbID3.Name = "gbID3";
-            this.gbID3.Size = new System.Drawing.Size(201, 100);
+            this.gbID3.Size = new System.Drawing.Size(269, 100);
             this.gbID3.TabIndex = 58;
             this.gbID3.TabStop = false;
-            this.gbID3.Text = "ID3 data";
+            this.gbID3.Text = "mp3 ID3 data";
             // 
             // tbAlbum
             // 
             this.tbAlbum.Location = new System.Drawing.Point(46, 19);
             this.tbAlbum.Name = "tbAlbum";
-            this.tbAlbum.Size = new System.Drawing.Size(149, 20);
+            this.tbAlbum.Size = new System.Drawing.Size(217, 20);
             this.tbAlbum.TabIndex = 4;
             // 
             // tbArtist
             // 
             this.tbArtist.Location = new System.Drawing.Point(46, 45);
             this.tbArtist.Name = "tbArtist";
-            this.tbArtist.Size = new System.Drawing.Size(149, 20);
+            this.tbArtist.Size = new System.Drawing.Size(217, 20);
             this.tbArtist.TabIndex = 5;
             // 
             // tbYear
             // 
             this.tbYear.Location = new System.Drawing.Point(45, 71);
             this.tbYear.Name = "tbYear";
-            this.tbYear.Size = new System.Drawing.Size(150, 20);
+            this.tbYear.Size = new System.Drawing.Size(39, 20);
             this.tbYear.TabIndex = 6;
             // 
             // label15
@@ -1405,11 +1404,11 @@ namespace Read4Me
             // 
             // bGo
             // 
-            this.bGo.Location = new System.Drawing.Point(267, 154);
+            this.bGo.Location = new System.Drawing.Point(233, 152);
             this.bGo.Name = "bGo";
-            this.bGo.Size = new System.Drawing.Size(113, 23);
+            this.bGo.Size = new System.Drawing.Size(155, 23);
             this.bGo.TabIndex = 7;
-            this.bGo.Text = "Start batch";
+            this.bGo.Text = "Start text to mp3 conversion";
             this.bGo.UseVisualStyleBackColor = true;
             this.bGo.Click += new System.EventHandler(this.bGo_Click);
             // 
@@ -1417,7 +1416,7 @@ namespace Read4Me
             // 
             this.tbSource.Location = new System.Drawing.Point(94, 19);
             this.tbSource.Name = "tbSource";
-            this.tbSource.Size = new System.Drawing.Size(195, 20);
+            this.tbSource.Size = new System.Drawing.Size(271, 20);
             this.tbSource.TabIndex = 8;
             // 
             // label14
@@ -1431,7 +1430,7 @@ namespace Read4Me
             // 
             // bSource
             // 
-            this.bSource.Location = new System.Drawing.Point(295, 17);
+            this.bSource.Location = new System.Drawing.Point(371, 17);
             this.bSource.Name = "bSource";
             this.bSource.Size = new System.Drawing.Size(85, 23);
             this.bSource.TabIndex = 0;
