@@ -152,6 +152,15 @@
   <metadata name="mMainMenuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>481, 17</value>
   </metadata>
+  <data name="lVoicesDescribe.Text" xml:space="preserve">
+    <value>The program uses the TTS (Text To Speech) voices installed on your computer.
+By default there is at least 1 pre-installed TTS voice in MS Windows.
+
+You can download free TTS voices for many languages here:
+
+Furthermore, there are many commercial high quality TTS voices,
+that you can buy on web.</value>
+  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAJSEQAAEABAAEBAAAFgAAACgAAAAlAAAAQgAAAAEABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA

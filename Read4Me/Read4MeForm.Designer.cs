@@ -167,6 +167,9 @@ namespace Read4Me
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.tabControlMain = new System.Windows.Forms.TabControl();
+            this.tbGetVoices = new System.Windows.Forms.TabPage();
+            this.lLinkEspeak = new System.Windows.Forms.LinkLabel();
+            this.lVoicesDescribe = new System.Windows.Forms.Label();
             this.contextMenuStrip1.SuspendLayout();
             this.sStrip.SuspendLayout();
             this.mMainMenuStrip.SuspendLayout();
@@ -183,6 +186,7 @@ namespace Read4Me
             this.gbID3.SuspendLayout();
             this.gbConvSettings.SuspendLayout();
             this.tabControlMain.SuspendLayout();
+            this.tbGetVoices.SuspendLayout();
             this.SuspendLayout();
             // 
             // mynotifyicon
@@ -1554,11 +1558,43 @@ namespace Read4Me
             this.tabControlMain.Controls.Add(this.tpConv);
             this.tabControlMain.Controls.Add(this.tpSpeak);
             this.tabControlMain.Controls.Add(this.tbSettings);
+            this.tabControlMain.Controls.Add(this.tbGetVoices);
             this.tabControlMain.Location = new System.Drawing.Point(9, 27);
             this.tabControlMain.Name = "tabControlMain";
             this.tabControlMain.SelectedIndex = 0;
             this.tabControlMain.Size = new System.Drawing.Size(679, 355);
             this.tabControlMain.TabIndex = 48;
+            // 
+            // tbGetVoices
+            // 
+            this.tbGetVoices.Controls.Add(this.lLinkEspeak);
+            this.tbGetVoices.Controls.Add(this.lVoicesDescribe);
+            this.tbGetVoices.Location = new System.Drawing.Point(4, 22);
+            this.tbGetVoices.Name = "tbGetVoices";
+            this.tbGetVoices.Size = new System.Drawing.Size(671, 329);
+            this.tbGetVoices.TabIndex = 3;
+            this.tbGetVoices.Text = "Get Voices";
+            this.tbGetVoices.UseVisualStyleBackColor = true;
+            // 
+            // lLinkEspeak
+            // 
+            this.lLinkEspeak.AutoSize = true;
+            this.lLinkEspeak.Location = new System.Drawing.Point(308, 56);
+            this.lLinkEspeak.Name = "lLinkEspeak";
+            this.lLinkEspeak.Size = new System.Drawing.Size(155, 13);
+            this.lLinkEspeak.TabIndex = 55;
+            this.lLinkEspeak.TabStop = true;
+            this.lLinkEspeak.Text = "http://espeak.sourceforge.net/";
+            this.lLinkEspeak.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lLinkEspeak_LinkClicked);
+            // 
+            // lVoicesDescribe
+            // 
+            this.lVoicesDescribe.AutoSize = true;
+            this.lVoicesDescribe.Location = new System.Drawing.Point(15, 17);
+            this.lVoicesDescribe.Name = "lVoicesDescribe";
+            this.lVoicesDescribe.Size = new System.Drawing.Size(383, 91);
+            this.lVoicesDescribe.TabIndex = 56;
+            this.lVoicesDescribe.Text = resources.GetString("lVoicesDescribe.Text");
             // 
             // Read4MeForm
             // 
@@ -1601,6 +1637,8 @@ namespace Read4Me
             this.gbConvSettings.ResumeLayout(false);
             this.gbConvSettings.PerformLayout();
             this.tabControlMain.ResumeLayout(false);
+            this.tbGetVoices.ResumeLayout(false);
+            this.tbGetVoices.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1745,6 +1783,9 @@ namespace Read4Me
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.TabControl tabControlMain;
+        private System.Windows.Forms.TabPage tbGetVoices;
+        private System.Windows.Forms.LinkLabel lLinkEspeak;
+        private System.Windows.Forms.Label lVoicesDescribe;
     }
 }
 

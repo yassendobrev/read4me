@@ -28,6 +28,8 @@ namespace Read4Me
         public Read4MeForm()
         {
             InitializeComponent();
+
+            lLinkEspeak.Links.Add(0, lLinkEspeak.Text.Length, lLinkEspeak.Text);
             
             foreach (ISpeechObjectToken Token in speech.GetVoices(string.Empty, string.Empty))
             {
@@ -73,6 +75,11 @@ namespace Read4Me
                 //this.txtResult.Text = "Cancelled";
             }
             testDialog.Dispose();
+        }
+
+        private void lLinkEspeak_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(e.Link.LinkData.ToString());
         }
     }
 }
