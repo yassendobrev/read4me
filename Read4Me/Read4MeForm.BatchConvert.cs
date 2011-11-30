@@ -35,13 +35,36 @@ namespace Read4Me
             int empty_lines = 0;
             bool start_new_file = false;
             string[] line_parts;
+            int empty_lines_num;
+            int SpeechRate;
+            int SpeechVolume;
+            string LangID;
+            SpObjectToken SpeechVoice;
+            string FilePath;
 
-            int SpeechRate = Int16.Parse(cbRateBatch.SelectedItem.ToString());
-            int SpeechVolume = Int16.Parse(cbVolumeBatch.SelectedItem.ToString());
-            string LangID = (string)langids[cbLanguageBatch.SelectedItem.ToString()];
-            SpObjectToken SpeechVoice = speech.GetVoices(string.Empty, string.Empty).Item(cbVoiceBatch.SelectedIndex);
-            string FilePath = tbSource.Text;
-            
+            try
+            {
+                SpeechRate = Int16.Parse(cbRateBatch.SelectedItem.ToString());
+                SpeechVolume = Int16.Parse(cbVolumeBatch.SelectedItem.ToString());
+                LangID = (string)langids[cbLanguageBatch.SelectedItem.ToString()];
+                SpeechVoice = speech.GetVoices(string.Empty, string.Empty).Item(cbVoiceBatch.SelectedIndex);
+                FilePath = tbSource.Text;
+            }
+            catch
+            {
+                MessageBox.Show("Error setting voice.");
+                return;
+            }
+
+            try
+            {
+                empty_lines_num = Int32.Parse(tbEmptyLines.Text);
+            }
+            catch
+            {
+                empty_lines_num = 999;
+            }
+
             try
             {
                 file_reader = new StreamReader(FilePath, Encoding.UTF8);
@@ -58,18 +81,37 @@ namespace Read4Me
             // check if old directories exist and delete them
             if (Directory.Exists(outdir + "temp"))
             {
-                Directory.Delete(outdir + "temp", true);
+                try
+                {
+                    Directory.Delete(outdir + "temp", true);
+                }
+                catch
+                {
+                    MessageBox.Show("\"temp\" directory exists and could not be deleted.");
+                    return;
+                }
             }
-                        
+
             try
             {
                 Directory.CreateDirectory(outdir + "temp");
             }
             catch
             {
+                MessageBox.Show("\"temp\" directory could not be created.");
+                return;
             }
 
-            file_writer = new StreamWriter(outdir + "temp\\" + filename.ToString("00") + ".xml", false, Encoding.UTF8);
+            try
+            {
+                file_writer = new StreamWriter(outdir + "temp\\" + filename.ToString("00") + ".xml", false, Encoding.UTF8);
+            }
+            catch
+            {
+                MessageBox.Show("Could not open .xml file for writing.");
+                return;
+            }
+
             file_writer.Write("<lang langid=\"" + LangID + "\">");
             while (!file_reader.EndOfStream)
             {
@@ -92,7 +134,7 @@ namespace Read4Me
                     {
                         if (i % 2 == 0)
                         {
-                            line = line + line_parts[i] + "<rate absspeed=\"-7\"/>";
+                            line = line + line_parts[i] + "<rate absspeed=\"-5\"/>";
                         }
                         else
                         {
@@ -114,9 +156,17 @@ namespace Read4Me
                         file_writer.Write("<lang langid=\"409\"><silence msec=\"200\" /></lang>"); // longer pause at the end of chapter
                         file_writer.Write("</lang>");
                         file_writer.Close();
-                        // filename = Regex.Replace(line, @"[\D]", "");
                         filename++;
-                        file_writer = new StreamWriter(outdir + "temp\\" + filename.ToString("00") + ".xml", false, Encoding.UTF8);
+
+                        try
+                        {
+                            file_writer = new StreamWriter(outdir + "temp\\" + filename.ToString("00") + ".xml", false, Encoding.UTF8);
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Could not open .xml file for writing.");
+                            return;
+                        }
 
                         file_writer.Write("<lang langid=\"" + LangID + "\">");
                         file_writer.Write(line);
@@ -138,7 +188,7 @@ namespace Read4Me
                 else
                 {
                     empty_lines++;
-                    if (empty_lines >= Int32.Parse(tbEmptyLines.Text))
+                    if (empty_lines >= empty_lines_num)
                     {
                         start_new_file = true;
                     }
@@ -202,6 +252,10 @@ namespace Read4Me
             }
             Directory.Move(folder, folder.Replace("temp", artist + " - " + year + " " + album));
             MessageBox.Show("All done!");
+            this.Invoke((MethodInvoker)delegate
+            {
+                sWorkingStatus.Text = "";
+            });
         }
 
         public void SpeakText(string file, int SpeechRate, int SpeechVolume, SpObjectToken SpeechVoice)

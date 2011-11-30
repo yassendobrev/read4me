@@ -1604,6 +1604,7 @@ namespace Read4Me
             this.Controls.Add(this.sStrip);
             this.Controls.Add(this.mMainMenuStrip);
             this.Controls.Add(this.tabControlMain);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;

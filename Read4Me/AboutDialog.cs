@@ -42,19 +42,20 @@ namespace Read4Me
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AboutDialog));
             this.bOK = new System.Windows.Forms.Button();
             this.label24 = new System.Windows.Forms.Label();
             this.lLinkDiscussion = new System.Windows.Forms.LinkLabel();
             this.gbAbout = new System.Windows.Forms.GroupBox();
             this.lAbout1 = new System.Windows.Forms.Label();
             this.gbThanks = new System.Windows.Forms.GroupBox();
+            this.linkSAPI = new System.Windows.Forms.LinkLabel();
             this.linkHotkey = new System.Windows.Forms.LinkLabel();
             this.linkMP3Compressor = new System.Windows.Forms.LinkLabel();
             this.linkLAME = new System.Windows.Forms.LinkLabel();
             this.lLinkIDSharp = new System.Windows.Forms.LinkLabel();
             this.gbDisclaimer = new System.Windows.Forms.GroupBox();
             this.lDisclaimer = new System.Windows.Forms.Label();
-            this.linkSAPI = new System.Windows.Forms.LinkLabel();
             this.gbAbout.SuspendLayout();
             this.gbThanks.SuspendLayout();
             this.gbDisclaimer.SuspendLayout();
@@ -124,7 +125,18 @@ namespace Read4Me
             this.gbThanks.Size = new System.Drawing.Size(361, 91);
             this.gbThanks.TabIndex = 57;
             this.gbThanks.TabStop = false;
-            this.gbThanks.Text = "Credits";
+            this.gbThanks.Text = "Third-party software used";
+            // 
+            // linkSAPI
+            // 
+            this.linkSAPI.AutoSize = true;
+            this.linkSAPI.Location = new System.Drawing.Point(6, 68);
+            this.linkSAPI.Name = "linkSAPI";
+            this.linkSAPI.Size = new System.Drawing.Size(350, 13);
+            this.linkSAPI.TabIndex = 58;
+            this.linkSAPI.TabStop = true;
+            this.linkSAPI.Text = "http://www.codeproject.com/KB/audio-video/TTSFeaturesOfSAPI.aspx";
+            this.linkSAPI.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkSAPI_LinkClicked);
             // 
             // linkHotkey
             // 
@@ -189,17 +201,6 @@ namespace Read4Me
             this.lDisclaimer.TabIndex = 0;
             this.lDisclaimer.Text = "The author shall NOT be held responsible\nfor any illegal use of this program.";
             // 
-            // linkSAPI
-            // 
-            this.linkSAPI.AutoSize = true;
-            this.linkSAPI.Location = new System.Drawing.Point(6, 68);
-            this.linkSAPI.Name = "linkSAPI";
-            this.linkSAPI.Size = new System.Drawing.Size(350, 13);
-            this.linkSAPI.TabIndex = 58;
-            this.linkSAPI.TabStop = true;
-            this.linkSAPI.Text = "http://www.codeproject.com/KB/audio-video/TTSFeaturesOfSAPI.aspx";
-            this.linkSAPI.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkSAPI_LinkClicked);
-            // 
             // AboutDialog
             // 
             this.ClientSize = new System.Drawing.Size(387, 312);
@@ -207,7 +208,13 @@ namespace Read4Me
             this.Controls.Add(this.gbThanks);
             this.Controls.Add(this.gbAbout);
             this.Controls.Add(this.bOK);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "AboutDialog";
+            this.ShowInTaskbar = false;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.Text = "About";
             this.gbAbout.ResumeLayout(false);
             this.gbAbout.PerformLayout();
             this.gbThanks.ResumeLayout(false);

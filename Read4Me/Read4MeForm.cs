@@ -54,7 +54,7 @@ namespace Read4Me
             init_lists();
             ReadSettings();
 
-            // advertisment spoken at first call, speak it at volume 0
+            // init TTS
             speech.Rate = 10;
             speech.Volume = 0;
             speech.Speak("<lang langid=\"402\">а</lang>", SpeechVoiceSpeakFlags.SVSFlagsAsync | SpeechVoiceSpeakFlags.SVSFIsXML | SpeechVoiceSpeakFlags.SVSFPurgeBeforeSpeak);
