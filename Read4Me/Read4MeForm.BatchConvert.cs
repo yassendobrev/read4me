@@ -242,7 +242,8 @@ namespace Read4Me
 
                 // prepare id3 tags
                 title = FileName.Replace(folder + "\\", "");
-                track = FileName.Replace(folder + "\\", ""); // files are numbered 1..n
+                title = title.Replace(".xml", "");
+                track = title; // files are numbered 1..n
 
                 // convert .wav to .mp3
                 wav2mp3(FileName, title, artist, year + " " + album, track);
@@ -250,7 +251,25 @@ namespace Read4Me
                 File.Delete(FileName); // delete .xml file
                 Application.DoEvents();
             }
-            Directory.Move(folder, folder.Replace("temp", artist + " - " + year + " " + album));
+            if (Directory.Exists(folder.Replace("temp", artist + " - " + year + " " + album)))
+            {
+                try
+                {
+                    Directory.Delete(folder.Replace("temp", artist + " - " + year + " " + album));
+                }
+                catch
+                {
+                    MessageBox.Show("Could not delete old files directory.");
+                }
+            }
+            try
+            {
+                Directory.Move(folder, folder.Replace("temp", artist + " - " + year + " " + album));
+            }
+            catch
+            {
+                MessageBox.Show("Could not rename temp directory. Output files are in directory \"temp\".");
+            }
             MessageBox.Show("All done!");
             this.Invoke((MethodInvoker)delegate
             {
