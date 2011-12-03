@@ -8,9 +8,6 @@ namespace Read4Me
 {
     public partial class Read4MeForm : Form
     {
-        // program version
-        string version = "0.3.1";
-
         // some required members 
         SpVoice speech = new SpVoice();
         int speechRate = 4; // Ranges from -10 to 10 
@@ -65,26 +62,14 @@ namespace Read4Me
 
         private void miAbout_Click(object sender, System.EventArgs e)
         {
-            AboutDialog testDialog = new AboutDialog();
-
-            // Show testDialog as a modal dialog and determine if DialogResult = OK.
-            if (testDialog.ShowDialog(this) == DialogResult.OK)
-            {
-                // Read the contents of testDialog's TextBox.
-                //this.txtResult.Text = testDialog.TextBox1.Text;
-            }
-            else
-            {
-                //this.txtResult.Text = "Cancelled";
-            }
-            testDialog.Dispose();
+            AboutDialog dialog = new AboutDialog();
+            dialog.ShowDialog(this);
+            dialog.Dispose();
         }
 
         private void lLinkEspeak_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start(e.Link.LinkData.ToString());
         }
-
-
     }
 }
