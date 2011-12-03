@@ -136,12 +136,6 @@ namespace Read4Me
             this.tpConv = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.gbFileBreakRules = new System.Windows.Forms.GroupBox();
-            this.tbBefore = new System.Windows.Forms.TextBox();
-            this.tbAfter = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.tbEmptyLines = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.gbID3 = new System.Windows.Forms.GroupBox();
             this.tbAlbum = new System.Windows.Forms.TextBox();
             this.tbArtist = new System.Windows.Forms.TextBox();
@@ -167,6 +161,7 @@ namespace Read4Me
             this.tbGetVoices = new System.Windows.Forms.TabPage();
             this.lLinkEspeak = new System.Windows.Forms.LinkLabel();
             this.lVoicesDescribe = new System.Windows.Forms.Label();
+            this.cbBreakFiles = new System.Windows.Forms.CheckBox();
             this.contextMenuStrip1.SuspendLayout();
             this.sStrip.SuspendLayout();
             this.mMainMenuStrip.SuspendLayout();
@@ -1257,66 +1252,13 @@ namespace Read4Me
             // 
             // gbFileBreakRules
             // 
-            this.gbFileBreakRules.Controls.Add(this.tbBefore);
-            this.gbFileBreakRules.Controls.Add(this.tbAfter);
-            this.gbFileBreakRules.Controls.Add(this.label11);
-            this.gbFileBreakRules.Controls.Add(this.label10);
-            this.gbFileBreakRules.Controls.Add(this.tbEmptyLines);
-            this.gbFileBreakRules.Controls.Add(this.label9);
+            this.gbFileBreakRules.Controls.Add(this.cbBreakFiles);
             this.gbFileBreakRules.Location = new System.Drawing.Point(11, 46);
             this.gbFileBreakRules.Name = "gbFileBreakRules";
-            this.gbFileBreakRules.Size = new System.Drawing.Size(169, 100);
+            this.gbFileBreakRules.Size = new System.Drawing.Size(170, 61);
             this.gbFileBreakRules.TabIndex = 59;
             this.gbFileBreakRules.TabStop = false;
             this.gbFileBreakRules.Text = "File break rules";
-            // 
-            // tbBefore
-            // 
-            this.tbBefore.Location = new System.Drawing.Point(55, 19);
-            this.tbBefore.Name = "tbBefore";
-            this.tbBefore.Size = new System.Drawing.Size(100, 20);
-            this.tbBefore.TabIndex = 1;
-            // 
-            // tbAfter
-            // 
-            this.tbAfter.Location = new System.Drawing.Point(55, 45);
-            this.tbAfter.Name = "tbAfter";
-            this.tbAfter.Size = new System.Drawing.Size(100, 20);
-            this.tbAfter.TabIndex = 2;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(8, 22);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(41, 13);
-            this.label11.TabIndex = 41;
-            this.label11.Text = "Before:";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(8, 48);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(32, 13);
-            this.label10.TabIndex = 42;
-            this.label10.Text = "After:";
-            // 
-            // tbEmptyLines
-            // 
-            this.tbEmptyLines.Location = new System.Drawing.Point(134, 71);
-            this.tbEmptyLines.Name = "tbEmptyLines";
-            this.tbEmptyLines.Size = new System.Drawing.Size(21, 20);
-            this.tbEmptyLines.TabIndex = 3;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(8, 74);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(124, 13);
-            this.label9.TabIndex = 43;
-            this.label9.Text = "Empty lines for file break:";
             // 
             // gbID3
             // 
@@ -1560,6 +1502,18 @@ namespace Read4Me
             this.lVoicesDescribe.TabIndex = 56;
             this.lVoicesDescribe.Text = resources.GetString("lVoicesDescribe.Text");
             // 
+            // cbBreakFiles
+            // 
+            this.cbBreakFiles.AutoSize = true;
+            this.cbBreakFiles.Checked = true;
+            this.cbBreakFiles.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbBreakFiles.Location = new System.Drawing.Point(7, 17);
+            this.cbBreakFiles.Name = "cbBreakFiles";
+            this.cbBreakFiles.Size = new System.Drawing.Size(128, 30);
+            this.cbBreakFiles.TabIndex = 44;
+            this.cbBreakFiles.Text = "Break file into multiple\r\nfiles on empty line";
+            this.cbBreakFiles.UseVisualStyleBackColor = true;
+            // 
             // Read4MeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1715,12 +1669,6 @@ namespace Read4Me
         private System.Windows.Forms.TabPage tpConv;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox gbFileBreakRules;
-        private System.Windows.Forms.TextBox tbBefore;
-        private System.Windows.Forms.TextBox tbAfter;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox tbEmptyLines;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.GroupBox gbID3;
         private System.Windows.Forms.TextBox tbAlbum;
         private System.Windows.Forms.TextBox tbArtist;
@@ -1746,6 +1694,7 @@ namespace Read4Me
         private System.Windows.Forms.TabPage tbGetVoices;
         private System.Windows.Forms.LinkLabel lLinkEspeak;
         private System.Windows.Forms.Label lVoicesDescribe;
+        private System.Windows.Forms.CheckBox cbBreakFiles;
     }
 }
 

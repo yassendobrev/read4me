@@ -35,7 +35,6 @@ namespace Read4Me
             int empty_lines = 0;
             bool start_new_file = false;
             string[] line_parts;
-            int empty_lines_num;
             int SpeechRate;
             int SpeechVolume;
             string LangID;
@@ -54,15 +53,6 @@ namespace Read4Me
             {
                 MessageBox.Show("Error setting voice.");
                 return;
-            }
-
-            try
-            {
-                empty_lines_num = Int32.Parse(tbEmptyLines.Text);
-            }
-            catch
-            {
-                empty_lines_num = 999;
             }
 
             try
@@ -150,7 +140,7 @@ namespace Read4Me
                 if (line != "")
                 {
                     empty_lines = 0;
-                    if (Regex.IsMatch(line, "^" + Regex.Escape(tbBefore.Text) + "[IVX0-9]+" + Regex.Escape(tbAfter.Text) + "$", RegexOptions.IgnoreCase) || start_new_file)
+                    if (start_new_file)
                     {
                         start_new_file = false;
                         file_writer.Write("<lang langid=\"409\"><silence msec=\"200\" /></lang>"); // longer pause at the end of chapter
@@ -170,7 +160,7 @@ namespace Read4Me
 
                         file_writer.Write("<lang langid=\"" + LangID + "\">");
                         file_writer.Write(line);
-                        file_writer.Write("<lang langid=\"409\"><silence msec=\"200\" /></lang>"); // longer pause after announcing a chapter
+                        file_writer.Write(" ");
                     }
                     else
                     {
@@ -181,7 +171,7 @@ namespace Read4Me
                 else
                 {
                     empty_lines++;
-                    if (empty_lines >= empty_lines_num)
+                    if (empty_lines >= 1 || cbBreakFiles.Checked)
                     {
                         start_new_file = true;
                     }
