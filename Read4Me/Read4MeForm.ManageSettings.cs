@@ -85,8 +85,6 @@ namespace Read4Me
             bool ctrl;
             bool winkey;
             bool alt;
-            bool silence;
-            bool silence_batch;
             string lang;
             string langid;
             string voice;
@@ -166,7 +164,6 @@ namespace Read4Me
                                 lang = reader["lang"];
                                 langid = (string)langids[lang];
                                 voice = reader["voice"];
-                                silence_batch = (reader["silence"] == "1") ? true : false;
                                 if (reader["srate"] != "")
                                 {
                                     srate = Int16.Parse(reader["srate"]);
@@ -183,14 +180,13 @@ namespace Read4Me
                                 {
                                     volume = int.MinValue;
                                 }
-                                SetViewSettings(type, false, false, false, '\0', lang, voice, 0, srate, volume, false, silence_batch);
+                                SetViewSettings(type, false, false, false, '\0', lang, voice, 0, srate, volume, false, false);
                                 lang_num++;
                                 break;
 
                             case "other_settings":
                                 type = reader["type"];
-                                silence = (reader["silence"] == "1") ? true : false;
-                                SetViewSettings(type, false, false, false, '\0', "", "", 0, 0, 0, silence, false);
+                                SetViewSettings(type, false, false, false, '\0', "", "", 0, 0, 0, false, false);
                                 break;
 
                             default:
@@ -289,11 +285,9 @@ namespace Read4Me
                     cbLanguageBatch.SelectedIndex = cbLanguageBatch.FindStringExact(lang);
                     cbRateBatch.SelectedIndex = cbRateBatch.FindStringExact(srate.ToString());
                     cbVolumeBatch.SelectedIndex = cbVolumeBatch.FindStringExact(volume.ToString());
-                    cbSilenceBatch.Checked = silence_batch;
                     break;
 
                 case "other_settings":
-                    cbSilence.Checked = silence;
                     break;
 
                 default:
@@ -394,8 +388,7 @@ namespace Read4Me
                     file_writer.Write("    <hotkey_speech type=\"speech\" ctrl=\"" + (checkboxes_ctrl_lang[i].Checked ? "1" : "0") + "\" winkey=\"" + (checkboxes_winkey_lang[i].Checked ? "1" : "0") + "\" alt=\"" + (checkboxes_alt_lang[i].Checked ? "1" : "0") + "\" key=\"" + textboxes_lang[i].Text + "\" lang=\"" + comboboxes_lang[i].SelectedItem + "\" voice=\"" + comboboxes_voice[i].SelectedItem + "\" srate=\"" + comboboxes_srate[i].SelectedItem + "\" volume=\"" + comboboxes_volume[i].SelectedItem + "\"></hotkey_speech>\r\n");
                 // }
             }
-            file_writer.Write("    <batch_settings type=\"batch_settings\" lang=\"" + cbLanguageBatch.SelectedItem + "\" voice=\"" + cbVoiceBatch.SelectedItem + "\" srate=\"" + cbRateBatch.SelectedItem + "\" volume=\"" + cbVolumeBatch.SelectedItem + "\" silence=\"" + (cbSilenceBatch.Checked ? "1" : "0") + "\"></batch_settings>\r\n");
-            file_writer.Write("    <other_settings type=\"other_settings\" silence=\"" + (cbSilence.Checked ? "1" : "0") + "\"></other_settings>\r\n");
+            file_writer.Write("    <batch_settings type=\"batch_settings\" lang=\"" + cbLanguageBatch.SelectedItem + "\" voice=\"" + cbVoiceBatch.SelectedItem + "\" srate=\"" + cbRateBatch.SelectedItem + "\" volume=\"" + cbVolumeBatch.SelectedItem + "\"></batch_settings>\r\n");
             file_writer.Write("</settings>\r\n");
             file_writer.Close();
             UnregisterHotkeys();

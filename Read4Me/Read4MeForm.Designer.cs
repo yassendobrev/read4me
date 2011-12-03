@@ -42,8 +42,6 @@ namespace Read4Me
             this.miHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.miAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.tbSettings = new System.Windows.Forms.TabPage();
-            this.gbOther = new System.Windows.Forms.GroupBox();
-            this.cbSilence = new System.Windows.Forms.CheckBox();
             this.Apply = new System.Windows.Forms.Button();
             this.gbVoices = new System.Windows.Forms.GroupBox();
             this.cbLang6 = new System.Windows.Forms.ComboBox();
@@ -157,7 +155,6 @@ namespace Read4Me
             this.bSource = new System.Windows.Forms.Button();
             this.gbConvSettings = new System.Windows.Forms.GroupBox();
             this.cbRateBatch = new System.Windows.Forms.ComboBox();
-            this.cbSilenceBatch = new System.Windows.Forms.CheckBox();
             this.bApplyBatch = new System.Windows.Forms.Button();
             this.cbLanguageBatch = new System.Windows.Forms.ComboBox();
             this.label20 = new System.Windows.Forms.Label();
@@ -174,7 +171,6 @@ namespace Read4Me
             this.sStrip.SuspendLayout();
             this.mMainMenuStrip.SuspendLayout();
             this.tbSettings.SuspendLayout();
-            this.gbOther.SuspendLayout();
             this.gbVoices.SuspendLayout();
             this.gbGeneral.SuspendLayout();
             this.tpSpeak.SuspendLayout();
@@ -278,7 +274,6 @@ namespace Read4Me
             // 
             this.tbSettings.AutoScroll = true;
             this.tbSettings.AutoScrollMargin = new System.Drawing.Size(5, 5);
-            this.tbSettings.Controls.Add(this.gbOther);
             this.tbSettings.Controls.Add(this.Apply);
             this.tbSettings.Controls.Add(this.gbVoices);
             this.tbSettings.Controls.Add(this.gbGeneral);
@@ -288,26 +283,6 @@ namespace Read4Me
             this.tbSettings.TabIndex = 2;
             this.tbSettings.Text = "Settings";
             this.tbSettings.UseVisualStyleBackColor = true;
-            // 
-            // gbOther
-            // 
-            this.gbOther.Controls.Add(this.cbSilence);
-            this.gbOther.Location = new System.Drawing.Point(324, 4);
-            this.gbOther.Name = "gbOther";
-            this.gbOther.Size = new System.Drawing.Size(324, 111);
-            this.gbOther.TabIndex = 7;
-            this.gbOther.TabStop = false;
-            this.gbOther.Text = "Other settings";
-            // 
-            // cbSilence
-            // 
-            this.cbSilence.AutoSize = true;
-            this.cbSilence.Location = new System.Drawing.Point(6, 19);
-            this.cbSilence.Name = "cbSilence";
-            this.cbSilence.Size = new System.Drawing.Size(144, 17);
-            this.cbSilence.TabIndex = 4;
-            this.cbSilence.Text = "50ms silence on new line";
-            this.cbSilence.UseVisualStyleBackColor = true;
             // 
             // Apply
             // 
@@ -1445,7 +1420,6 @@ namespace Read4Me
             // gbConvSettings
             // 
             this.gbConvSettings.Controls.Add(this.cbRateBatch);
-            this.gbConvSettings.Controls.Add(this.cbSilenceBatch);
             this.gbConvSettings.Controls.Add(this.bApplyBatch);
             this.gbConvSettings.Controls.Add(this.cbLanguageBatch);
             this.gbConvSettings.Controls.Add(this.label20);
@@ -1469,16 +1443,6 @@ namespace Read4Me
             this.cbRateBatch.Name = "cbRateBatch";
             this.cbRateBatch.Size = new System.Drawing.Size(44, 21);
             this.cbRateBatch.TabIndex = 47;
-            // 
-            // cbSilenceBatch
-            // 
-            this.cbSilenceBatch.AutoSize = true;
-            this.cbSilenceBatch.Location = new System.Drawing.Point(209, 70);
-            this.cbSilenceBatch.Name = "cbSilenceBatch";
-            this.cbSilenceBatch.Size = new System.Drawing.Size(144, 17);
-            this.cbSilenceBatch.TabIndex = 56;
-            this.cbSilenceBatch.Text = "50ms silence on new line";
-            this.cbSilenceBatch.UseVisualStyleBackColor = true;
             // 
             // bApplyBatch
             // 
@@ -1618,8 +1582,6 @@ namespace Read4Me
             this.mMainMenuStrip.ResumeLayout(false);
             this.mMainMenuStrip.PerformLayout();
             this.tbSettings.ResumeLayout(false);
-            this.gbOther.ResumeLayout(false);
-            this.gbOther.PerformLayout();
             this.gbVoices.ResumeLayout(false);
             this.gbVoices.PerformLayout();
             this.gbGeneral.ResumeLayout(false);
@@ -1659,8 +1621,6 @@ namespace Read4Me
         private System.Windows.Forms.ToolStripMenuItem miHelp;
         private System.Windows.Forms.ToolStripMenuItem miAbout;
         private System.Windows.Forms.TabPage tbSettings;
-        private System.Windows.Forms.GroupBox gbOther;
-        private System.Windows.Forms.CheckBox cbSilence;
         private System.Windows.Forms.Button Apply;
         private System.Windows.Forms.GroupBox gbVoices;
         private System.Windows.Forms.ComboBox cbLang6;
@@ -1774,7 +1734,6 @@ namespace Read4Me
         private System.Windows.Forms.Button bSource;
         private System.Windows.Forms.GroupBox gbConvSettings;
         private System.Windows.Forms.ComboBox cbRateBatch;
-        private System.Windows.Forms.CheckBox cbSilenceBatch;
         private System.Windows.Forms.Button bApplyBatch;
         private System.Windows.Forms.ComboBox cbLanguageBatch;
         private System.Windows.Forms.Label label20;
