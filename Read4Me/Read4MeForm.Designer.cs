@@ -136,6 +136,7 @@ namespace Read4Me
             this.tpConv = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.gbFileBreakRules = new System.Windows.Forms.GroupBox();
+            this.cbBreakFiles = new System.Windows.Forms.CheckBox();
             this.gbID3 = new System.Windows.Forms.GroupBox();
             this.tbAlbum = new System.Windows.Forms.TextBox();
             this.tbArtist = new System.Windows.Forms.TextBox();
@@ -161,7 +162,7 @@ namespace Read4Me
             this.tbGetVoices = new System.Windows.Forms.TabPage();
             this.lLinkEspeak = new System.Windows.Forms.LinkLabel();
             this.lVoicesDescribe = new System.Windows.Forms.Label();
-            this.cbBreakFiles = new System.Windows.Forms.CheckBox();
+            this.checkForUpdateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.sStrip.SuspendLayout();
             this.mMainMenuStrip.SuspendLayout();
@@ -253,6 +254,7 @@ namespace Read4Me
             // miHelp
             // 
             this.miHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.checkForUpdateToolStripMenuItem,
             this.miAbout});
             this.miHelp.Name = "miHelp";
             this.miHelp.Size = new System.Drawing.Size(44, 20);
@@ -261,7 +263,7 @@ namespace Read4Me
             // miAbout
             // 
             this.miAbout.Name = "miAbout";
-            this.miAbout.Size = new System.Drawing.Size(107, 22);
+            this.miAbout.Size = new System.Drawing.Size(166, 22);
             this.miAbout.Text = "About";
             this.miAbout.Click += new System.EventHandler(this.miAbout_Click);
             // 
@@ -1260,6 +1262,18 @@ namespace Read4Me
             this.gbFileBreakRules.TabStop = false;
             this.gbFileBreakRules.Text = "File break rules";
             // 
+            // cbBreakFiles
+            // 
+            this.cbBreakFiles.AutoSize = true;
+            this.cbBreakFiles.Checked = true;
+            this.cbBreakFiles.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbBreakFiles.Location = new System.Drawing.Point(7, 17);
+            this.cbBreakFiles.Name = "cbBreakFiles";
+            this.cbBreakFiles.Size = new System.Drawing.Size(128, 30);
+            this.cbBreakFiles.TabIndex = 44;
+            this.cbBreakFiles.Text = "Break file into multiple\r\nfiles on empty line";
+            this.cbBreakFiles.UseVisualStyleBackColor = true;
+            // 
             // gbID3
             // 
             this.gbID3.Controls.Add(this.tbAlbum);
@@ -1502,17 +1516,12 @@ namespace Read4Me
             this.lVoicesDescribe.TabIndex = 56;
             this.lVoicesDescribe.Text = resources.GetString("lVoicesDescribe.Text");
             // 
-            // cbBreakFiles
+            // checkForUpdateToolStripMenuItem
             // 
-            this.cbBreakFiles.AutoSize = true;
-            this.cbBreakFiles.Checked = true;
-            this.cbBreakFiles.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbBreakFiles.Location = new System.Drawing.Point(7, 17);
-            this.cbBreakFiles.Name = "cbBreakFiles";
-            this.cbBreakFiles.Size = new System.Drawing.Size(128, 30);
-            this.cbBreakFiles.TabIndex = 44;
-            this.cbBreakFiles.Text = "Break file into multiple\r\nfiles on empty line";
-            this.cbBreakFiles.UseVisualStyleBackColor = true;
+            this.checkForUpdateToolStripMenuItem.Name = "checkForUpdateToolStripMenuItem";
+            this.checkForUpdateToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.checkForUpdateToolStripMenuItem.Text = "Check for Update";
+            this.checkForUpdateToolStripMenuItem.Click += new System.EventHandler(this.checkForUpdateToolStripMenuItem_Click);
             // 
             // Read4MeForm
             // 
@@ -1695,6 +1704,7 @@ namespace Read4Me
         private System.Windows.Forms.LinkLabel lLinkEspeak;
         private System.Windows.Forms.Label lVoicesDescribe;
         private System.Windows.Forms.CheckBox cbBreakFiles;
+        private System.Windows.Forms.ToolStripMenuItem checkForUpdateToolStripMenuItem;
     }
 }
 

@@ -238,7 +238,7 @@ namespace Read4Me
             {
                 try
                 {
-                    Directory.Delete(folder.Replace("temp", artist + " - " + year + " " + album));
+                    Directory.Delete(folder.Replace("temp", artist + " - " + year + " " + album), true);
                 }
                 catch
                 {
