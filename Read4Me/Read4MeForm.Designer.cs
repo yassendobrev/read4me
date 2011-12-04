@@ -1538,7 +1538,7 @@ namespace Read4Me
             this.MinimizeBox = false;
             this.Name = "Read4MeForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.Text = "Read4Me Clipboard Reader and Text to mp3 Converter v0.3";
+            this.Text = "Read4Me Clipboard Reader and Text to mp3 Converter v" + local_version;
             this.contextMenuStrip1.ResumeLayout(false);
             this.sStrip.ResumeLayout(false);
             this.sStrip.PerformLayout();

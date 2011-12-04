@@ -17,9 +17,12 @@ namespace Read4Me
         private LinkLabel linkHotkey;
         private LinkLabel linkSAPI;
         private Button bOK;
+
+        string local_version;
     
-        public AboutDialog()
+        public AboutDialog(string version)
         {
+            local_version = version;
             InitializeComponent();
 
             lLinkDiscussion.Links.Add(0, lLinkDiscussion.Text.Length, lLinkDiscussion.Text);
@@ -110,7 +113,7 @@ namespace Read4Me
             this.lAbout1.Name = "lAbout1";
             this.lAbout1.Size = new System.Drawing.Size(292, 39);
             this.lAbout1.TabIndex = 56;
-            this.lAbout1.Text = "Read4Me Clipboard Reader and Text to mp3 Converter v0.3\n(c) 2011-2012 Yassen Dobr" +
+            this.lAbout1.Text = "Read4Me Clipboard Reader and Text to mp3 Converter v" + local_version + "\n(c) 2011-2012 Yassen Dobr" +
                 "ev\nLicensed under GNU GPLv3 or later";
             // 
             // gbThanks

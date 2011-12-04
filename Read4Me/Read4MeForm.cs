@@ -13,6 +13,9 @@ namespace Read4Me
         int speechRate = 4; // Ranges from -10 to 10 
         int volume_global = 80; // Range from 0 to 100.
         bool paused = false;
+
+        // program version
+        string local_version = "0.3.1";
         
         SortedList langids = new SortedList();
         SortedList ligatures = new SortedList();
@@ -62,7 +65,7 @@ namespace Read4Me
 
         private void miAbout_Click(object sender, System.EventArgs e)
         {
-            AboutDialog dialog = new AboutDialog();
+            AboutDialog dialog = new AboutDialog(local_version);
             dialog.ShowDialog(this);
             dialog.Dispose();
         }
