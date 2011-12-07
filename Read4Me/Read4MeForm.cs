@@ -31,6 +31,7 @@ namespace Read4Me
         public Read4MeForm()
         {
             InitializeComponent();
+            this.Text = this.Text + local_version;
 
             lLinkEspeak.Links.Add(0, lLinkEspeak.Text.Length, lLinkEspeak.Text);
             
