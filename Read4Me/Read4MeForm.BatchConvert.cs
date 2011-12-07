@@ -29,17 +29,14 @@ namespace Read4Me
 
         private void bGo_Click(object sender, EventArgs e)
         {
-            string outdir;
-            int filename = 1;
-            string line;
-            int empty_lines = 0;
-            bool start_new_file = false;
-            string[] line_parts;
             int SpeechRate;
             int SpeechVolume;
             string LangID;
             SpObjectToken SpeechVoice;
             string FilePath;
+            string artist;
+            string album;
+            string year;
 
             try
             {
@@ -55,6 +52,25 @@ namespace Read4Me
                 return;
             }
 
+            // get data for id3 tags
+            artist = tbArtist.Text;
+            year = tbYear.Text;
+            album = tbAlbum.Text;
+
+            // Thread oThread = new Thread(new ParameterizedThreadStart(doConvert));
+            Thread oThread = new Thread(() => this.doConvert(SpeechRate, SpeechVolume, LangID, SpeechVoice, FilePath, artist, album, year));
+            oThread.Start();
+        }
+
+        private void doConvert(int SpeechRate, int SpeechVolume, string LangID, SpObjectToken SpeechVoice, string FilePath, string artist, string album, string year)
+        {
+            string outdir;
+            int filename = 1;
+            string line;
+            int empty_lines = 0;
+            bool start_new_file = false;
+            string[] line_parts;
+
             try
             {
                 file_reader = new StreamReader(FilePath, Encoding.UTF8);
@@ -67,34 +83,34 @@ namespace Read4Me
 
             // get the directory of the file
             outdir = tbSource.Text.Substring(0, tbSource.Text.LastIndexOf("\\") + 1);
-
+            
             // check if old directories exist and delete them
-            if (Directory.Exists(outdir + "temp"))
+            if (Directory.Exists(outdir + artist + " - " + year + " " + album))
             {
                 try
                 {
-                    Directory.Delete(outdir + "temp", true);
+                    Directory.Delete(outdir + artist + " - " + year + " " + album, true);
                 }
                 catch
                 {
-                    MessageBox.Show("\"temp\" directory exists and could not be deleted.");
+                    MessageBox.Show("Output directory exists and could not be deleted.");
                     return;
                 }
             }
 
             try
             {
-                Directory.CreateDirectory(outdir + "temp");
+                Directory.CreateDirectory(outdir + artist + " - " + year + " " + album);
             }
             catch
             {
-                MessageBox.Show("\"temp\" directory could not be created.");
+                MessageBox.Show("Output directory " + outdir + artist + " - " + year + " " + album + " could not be created.");
                 return;
             }
 
             try
             {
-                file_writer = new StreamWriter(outdir + "temp\\" + filename.ToString("00") + ".xml", false, Encoding.UTF8);
+                file_writer = new StreamWriter(outdir + artist + " - " + year + " " + album + "\\" + filename.ToString("00") + ".xml", false, Encoding.UTF8);
             }
             catch
             {
@@ -150,7 +166,7 @@ namespace Read4Me
 
                         try
                         {
-                            file_writer = new StreamWriter(outdir + "temp\\" + filename.ToString("00") + ".xml", false, Encoding.UTF8);
+                            file_writer = new StreamWriter(outdir + artist + " - " + year + " " + album + "\\" + filename.ToString("000") + ".xml", false, Encoding.UTF8);
                         }
                         catch
                         {
@@ -185,17 +201,14 @@ namespace Read4Me
             });
 
             // batch convert xml to mp3
-            BatchConvert(outdir + "temp", SpeechRate, SpeechVolume, SpeechVoice);
+            BatchConvert(outdir + artist + " - " + year + " " + album, SpeechRate, SpeechVolume, SpeechVoice, artist, album, year);
         }
 
-        private void BatchConvert(string folder, int SpeechRate, int SpeechVolume, SpObjectToken SpeechVoice)
+        private void BatchConvert(string folder, int SpeechRate, int SpeechVolume, SpObjectToken SpeechVoice, string artist, string album, string year)
         {
             string[] fileEntries;
             string title;
-            string artist;
-            string album;
             string track;
-            string year;
 
             // get data for id3 tags
             year = tbYear.Text;
@@ -234,25 +247,7 @@ namespace Read4Me
                 File.Delete(FileName); // delete .xml file
                 Application.DoEvents();
             }
-            if (Directory.Exists(folder.Replace("temp", artist + " - " + year + " " + album)))
-            {
-                try
-                {
-                    Directory.Delete(folder.Replace("temp", artist + " - " + year + " " + album), true);
-                }
-                catch
-                {
-                    MessageBox.Show("Could not delete old files directory.");
-                }
-            }
-            try
-            {
-                Directory.Move(folder, folder.Replace("temp", artist + " - " + year + " " + album));
-            }
-            catch
-            {
-                MessageBox.Show("Could not rename temp directory. Output files are in directory \"temp\".");
-            }
+
             MessageBox.Show("All done!");
             this.Invoke((MethodInvoker)delegate
             {
