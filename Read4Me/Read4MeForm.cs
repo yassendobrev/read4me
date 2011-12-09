@@ -15,7 +15,7 @@ namespace Read4Me
         bool paused = false;
 
         // program version
-        string local_version = "0.3.2";
+        string local_version = "0.3.3";
         
         SortedList langids = new SortedList();
         SortedList ligatures = new SortedList();

@@ -57,6 +57,15 @@ namespace Read4Me
             year = tbYear.Text;
             album = tbAlbum.Text;
 
+            if (artist == "")
+            {
+                artist = "Incognito";
+            }
+            if (album == "")
+            {
+                album = "Unnamed";
+            }
+
             // Thread oThread = new Thread(new ParameterizedThreadStart(doConvert));
             Thread oThread = new Thread(() => this.doConvert(SpeechRate, SpeechVolume, LangID, SpeechVoice, FilePath, artist, album, year));
             oThread.Start();
@@ -70,6 +79,7 @@ namespace Read4Me
             int empty_lines = 0;
             bool start_new_file = false;
             string[] line_parts;
+            string artist_year_album;
 
             try
             {
@@ -83,13 +93,27 @@ namespace Read4Me
 
             // get the directory of the file
             outdir = tbSource.Text.Substring(0, tbSource.Text.LastIndexOf("\\") + 1);
+            artist_year_album = artist + " - " + year + " " + album;
+
+            // a file name can't contain any of the following characters
+            artist_year_album = artist_year_album.Replace("\\", "");
+            artist_year_album = artist_year_album.Replace("/", "");
+            artist_year_album = artist_year_album.Replace(":", "");
+            artist_year_album = artist_year_album.Replace("*", "");
+            artist_year_album = artist_year_album.Replace("?", "");
+            artist_year_album = artist_year_album.Replace("\"", "");
+            artist_year_album = artist_year_album.Replace("<", "");
+            artist_year_album = artist_year_album.Replace(">", "");
+            artist_year_album = artist_year_album.Replace("|", "");
+
+            outdir = outdir + artist_year_album;
             
             // check if old directories exist and delete them
-            if (Directory.Exists(outdir + artist + " - " + year + " " + album))
+            if (Directory.Exists(outdir))
             {
                 try
                 {
-                    Directory.Delete(outdir + artist + " - " + year + " " + album, true);
+                    Directory.Delete(outdir, true);
                 }
                 catch
                 {
@@ -100,17 +124,17 @@ namespace Read4Me
 
             try
             {
-                Directory.CreateDirectory(outdir + artist + " - " + year + " " + album);
+                Directory.CreateDirectory(outdir);
             }
             catch
             {
-                MessageBox.Show("Output directory " + outdir + artist + " - " + year + " " + album + " could not be created.");
+                MessageBox.Show("Output directory " + outdir + " could not be created.");
                 return;
             }
 
             try
             {
-                file_writer = new StreamWriter(outdir + artist + " - " + year + " " + album + "\\" + filename.ToString("000") + ".xml", false, Encoding.UTF8);
+                file_writer = new StreamWriter(outdir + "\\" + filename.ToString("000") + ".xml", false, Encoding.UTF8);
             }
             catch
             {
@@ -166,7 +190,7 @@ namespace Read4Me
 
                         try
                         {
-                            file_writer = new StreamWriter(outdir + artist + " - " + year + " " + album + "\\" + filename.ToString("000") + ".xml", false, Encoding.UTF8);
+                            file_writer = new StreamWriter(outdir + "\\" + filename.ToString("000") + ".xml", false, Encoding.UTF8);
                         }
                         catch
                         {
@@ -201,7 +225,7 @@ namespace Read4Me
             });
 
             // batch convert xml to mp3
-            BatchConvert(outdir + artist + " - " + year + " " + album, SpeechRate, SpeechVolume, SpeechVoice, artist, album, year);
+            BatchConvert(outdir, SpeechRate, SpeechVolume, SpeechVoice, artist, album, year);
         }
 
         private void BatchConvert(string folder, int SpeechRate, int SpeechVolume, SpObjectToken SpeechVoice, string artist, string album, string year)
@@ -209,11 +233,7 @@ namespace Read4Me
             string[] fileEntries;
             string title;
             string track;
-
-            // get data for id3 tags
-            year = tbYear.Text;
-            artist = tbArtist.Text;
-            album = tbAlbum.Text;
+            int summed_secs = 0;
 
             try
             {
@@ -242,7 +262,7 @@ namespace Read4Me
                 track = title; // files are numbered 1..n
 
                 // convert .wav to .mp3
-                wav2mp3(FileName, title, artist, year + " " + album, track);
+                summed_secs = wav2mp3(FileName, title, artist, year + " " + album, track, summed_secs);
                 File.Delete(FileName.Replace(".xml", ".wav")); // delete .wav file
                 File.Delete(FileName); // delete .xml file
                 Application.DoEvents();
@@ -276,14 +296,27 @@ namespace Read4Me
             reader.Close();
         }
 
-        public void wav2mp3(string FileName, string title, string artist, string album, string track)
+        public int wav2mp3(string FileName, string title, string artist, string album, string track, int summed_secs)
         {
             string pworkingDir = Path.GetDirectoryName(Application.ExecutablePath);
             string wavpath = FileName.Replace(".xml", ".wav");
             string mp3path = FileName.Replace(".xml", ".mp3");
             int read = 0;
+            int current_secs;
+            int summed_secs_new;
 
             WaveStream InStr = new WaveStream(wavpath);
+
+            // calculate the length of the wav file in seconds
+            //  http://stackoverflow.com/questions/82319/how-can-i-determine-the-length-of-a-wav-file-in-c
+            current_secs = (int)(InStr.Length * 8 / (InStr.Format.nSamplesPerSec * InStr.Format.nChannels * InStr.Format.wBitsPerSample));
+            summed_secs_new = summed_secs + current_secs;
+
+            // add the summed length to the title of the mp3
+            TimeSpan t = TimeSpan.FromSeconds(summed_secs_new);
+            string position_secs = string.Format("{0:D2}h:{1:D2}m:{2:D2}s", t.Hours, t.Minutes, t.Seconds);
+            title = title + " " + position_secs;
+
             Yeti.Lame.BE_CONFIG cfg = new Yeti.Lame.BE_CONFIG(InStr.Format, 64); // 64kbps
             Mp3Writer writer = new Mp3Writer(new FileStream(mp3path, FileMode.Create), InStr.Format, cfg);
             byte[] buff = new byte[writer.OptimalBufferSize];
@@ -303,19 +336,8 @@ namespace Read4Me
             id3v2.Artist = artist;
             id3v2.TrackNumber = track;
             id3v2.Save(mp3path);
-            /*
-             * http://stackoverflow.com/questions/82319/how-can-i-determine-the-length-of-a-wav-file-in-c
-            MediaPlayer mPlayer = new MediaPlayer();
-            mPlayer.Open(new Uri(mp3path));
-            // mPlayer.Play();
-            string a = mPlayer.Source.ToString();
-            MessageBox.Show(a);
-            if (mPlayer.NaturalDuration.HasTimeSpan)
-            {
-                MessageBox.Show(mPlayer.NaturalDuration.TimeSpan.ToString());
-            }
-            mPlayer.Close();
-            */
+
+            return summed_secs_new;
         }
 
         private void bApplyBatch_Click(object sender, System.EventArgs e)
