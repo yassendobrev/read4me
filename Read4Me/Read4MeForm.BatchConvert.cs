@@ -110,7 +110,7 @@ namespace Read4Me
 
             try
             {
-                file_writer = new StreamWriter(outdir + artist + " - " + year + " " + album + "\\" + filename.ToString("00") + ".xml", false, Encoding.UTF8);
+                file_writer = new StreamWriter(outdir + artist + " - " + year + " " + album + "\\" + filename.ToString("000") + ".xml", false, Encoding.UTF8);
             }
             catch
             {
