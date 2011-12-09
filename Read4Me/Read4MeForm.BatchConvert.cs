@@ -247,11 +247,11 @@ namespace Read4Me
 
             foreach (string FileName in fileEntries)
             {
-                Application.DoEvents();
                 this.Invoke((MethodInvoker)delegate
                 {
                     sWorkingStatus.Text = "Working on " + FileName;
                 });
+                Application.DoEvents();
 
                 // convert xml to wav
                 SpeakText(FileName, SpeechRate, SpeechVolume, SpeechVoice);
@@ -268,11 +268,11 @@ namespace Read4Me
                 Application.DoEvents();
             }
 
-            MessageBox.Show("All done!");
             this.Invoke((MethodInvoker)delegate
             {
                 sWorkingStatus.Text = "";
             });
+            MessageBox.Show("All done!");
         }
 
         public void SpeakText(string file, int SpeechRate, int SpeechVolume, SpObjectToken SpeechVoice)
