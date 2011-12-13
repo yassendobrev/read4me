@@ -15,6 +15,8 @@ namespace Read4Me
 {
     partial class Read4MeForm
     {
+        Thread oThread;
+
         private void bSource_Click(object sender, EventArgs e)
         {
             OpenFileDialog sourceDialog = new OpenFileDialog();
@@ -29,6 +31,19 @@ namespace Read4Me
 
         private void bGo_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (oThread.IsAlive)
+                {
+                    MessageBox.Show("Current conversion still running. Please wait.");
+                    return;
+                }
+            }
+            catch
+            {
+                // thread not initialized
+            }
+
             int SpeechRate;
             int SpeechVolume;
             string LangID;
@@ -67,7 +82,7 @@ namespace Read4Me
             }
 
             // Thread oThread = new Thread(new ParameterizedThreadStart(doConvert));
-            Thread oThread = new Thread(() => this.doConvert(SpeechRate, SpeechVolume, LangID, SpeechVoice, FilePath, artist, album, year));
+            oThread = new Thread(() => this.doConvert(SpeechRate, SpeechVolume, LangID, SpeechVoice, FilePath, artist, album, year));
             oThread.Start();
         }
 
@@ -194,7 +209,7 @@ namespace Read4Me
                         }
                         catch
                         {
-                            MessageBox.Show("Could not open .xml file for writing.");
+                            MessageBox.Show("Could not open .xml file for writing during xml conversion.");
                             return;
                         }
 
@@ -245,12 +260,15 @@ namespace Read4Me
                 return;
             }
 
+            int i = 1;
             foreach (string FileName in fileEntries)
             {
+                Application.DoEvents();
                 this.Invoke((MethodInvoker)delegate
                 {
-                    sWorkingStatus.Text = "Working on " + FileName;
+                    sWorkingStatus.Text = "Working on file " + i.ToString() + " from " + fileEntries.Length.ToString();
                 });
+                i++;
                 Application.DoEvents();
 
                 // convert xml to wav
@@ -265,12 +283,11 @@ namespace Read4Me
                 summed_secs = wav2mp3(FileName, title, artist, year + " " + album, track, summed_secs);
                 File.Delete(FileName.Replace(".xml", ".wav")); // delete .wav file
                 File.Delete(FileName); // delete .xml file
-                Application.DoEvents();
             }
 
             this.Invoke((MethodInvoker)delegate
             {
-                sWorkingStatus.Text = "";
+                sWorkingStatus.Text = "Conversion finished";
             });
             MessageBox.Show("All done!");
         }
