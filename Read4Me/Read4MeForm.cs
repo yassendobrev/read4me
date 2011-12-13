@@ -36,6 +36,15 @@ namespace Read4Me
             this.Text = this.Text + local_version;
 
             lLinkEspeak.Links.Add(0, lLinkEspeak.Text.Length, lLinkEspeak.Text);
+
+            // http://www.jonasjohn.de/snippets/csharp/drag-and-drop-example.htm
+            // Enable drag and drop for this form
+            // (this can also be applied to any controls)
+            this.AllowDrop = true;
+
+            // Add event handlers for the drag & drop functionality
+            this.DragEnter += new DragEventHandler(Form_DragEnter);
+            this.DragDrop += new DragEventHandler(Form_DragDrop);
             
             foreach (ISpeechObjectToken Token in speech_Convert.GetVoices(string.Empty, string.Empty))
             {
