@@ -43,7 +43,7 @@ namespace Read4Me
                 SpeechRate = Int16.Parse(cbRateBatch.SelectedItem.ToString());
                 SpeechVolume = Int16.Parse(cbVolumeBatch.SelectedItem.ToString());
                 LangID = (string)langids[cbLanguageBatch.SelectedItem.ToString()];
-                SpeechVoice = speech.GetVoices(string.Empty, string.Empty).Item(cbVoiceBatch.SelectedIndex);
+                SpeechVoice = speech_Convert.GetVoices(string.Empty, string.Empty).Item(cbVoiceBatch.SelectedIndex);
                 FilePath = tbSource.Text;
             }
             catch
@@ -285,13 +285,13 @@ namespace Read4Me
             SpeechStreamFileMode SpFileMode = SpeechStreamFileMode.SSFMCreateForWrite;
             SpFileStream SpFileStream = new SpFileStream();
             SpFileStream.Open(file.Replace(".xml", ".wav"), SpFileMode, false);
-            speech.AudioOutputStream = SpFileStream;
-            speech.Rate = SpeechRate;
-            speech.Volume = SpeechVolume;
-            speech.Voice = SpeechVoice;
+            speech_Convert.AudioOutputStream = SpFileStream;
+            speech_Convert.Rate = SpeechRate;
+            speech_Convert.Volume = SpeechVolume;
+            speech_Convert.Voice = SpeechVoice;
             // speech.Speak(FileName, SpeechVoiceSpeakFlags.SVSFIsFilename); // not working properly
-            speech.Speak(toSpeak, SpeechVoiceSpeakFlags.SVSFlagsAsync | SpeechVoiceSpeakFlags.SVSFIsXML);
-            speech.WaitUntilDone(Timeout.Infinite);
+            speech_Convert.Speak(toSpeak, SpeechVoiceSpeakFlags.SVSFlagsAsync | SpeechVoiceSpeakFlags.SVSFIsXML);
+            speech_Convert.WaitUntilDone(Timeout.Infinite);
             SpFileStream.Close();
             reader.Close();
         }

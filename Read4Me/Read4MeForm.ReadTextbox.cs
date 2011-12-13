@@ -11,48 +11,20 @@ namespace Read4Me
         {
             if (paused)
             {
-                speech.Resume();
+                speech_cpRead.Resume();
                 paused = false;
             }
             else
             {
-                speech.Rate = speechRate;
-                speech.Volume = volume_global;
-                speech.Speak(tbspeech.Text, SpeechVoiceSpeakFlags.SVSFlagsAsync | SpeechVoiceSpeakFlags.SVSFIsXML);
-            }
-        }
-
-        private void btnToWAV_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                SaveFileDialog sfd = new SaveFileDialog();
-                sfd.Filter = "All files (*.*)|*.*|wav files (*.wav)|*.wav";
-                sfd.Title = "Save to a wave file";
-                sfd.FilterIndex = 2;
-                sfd.RestoreDirectory = true;
-                if (sfd.ShowDialog() == DialogResult.OK)
-                {
-                    SpeechStreamFileMode SpFileMode = SpeechStreamFileMode.SSFMCreateForWrite;
-                    SpFileStream SpFileStream = new SpFileStream();
-                    SpFileStream.Open(sfd.FileName, SpFileMode, false);
-                    speech.AudioOutputStream = SpFileStream;
-                    speech.Rate = speechRate;
-                    speech.Volume = volume_global;
-                    speech.Speak(tbspeech.Text, SpeechVoiceSpeakFlags.SVSFlagsAsync | SpeechVoiceSpeakFlags.SVSFIsXML);
-                    speech.WaitUntilDone(Timeout.Infinite);
-                    SpFileStream.Close();
-                }
-            }
-            catch
-            {
-                MessageBox.Show("There is some error in converting to Wav file.");
+                speech_cpRead.Rate = speechRate;
+                speech_cpRead.Volume = volume_global;
+                speech_cpRead.Speak(tbspeech.Text, SpeechVoiceSpeakFlags.SVSFlagsAsync | SpeechVoiceSpeakFlags.SVSFIsXML);
             }
         }
 
         private void cmbVoices_SelectedIndexChanged(object sender, EventArgs e)
         {
-            speech.Voice = speech.GetVoices(string.Empty, string.Empty).Item(cmbVoices.SelectedIndex);
+            speech_cpRead.Voice = speech_cpRead.GetVoices(string.Empty, string.Empty).Item(cmbVoices.SelectedIndex);
         }
 
         private void tbarRate_Scroll(object sender, EventArgs e)
@@ -62,7 +34,7 @@ namespace Read4Me
 
         private void btnPause_Click(object sender, EventArgs e)
         {
-            speech.Pause();
+            speech_cpRead.Pause();
             paused = true;
         }
 

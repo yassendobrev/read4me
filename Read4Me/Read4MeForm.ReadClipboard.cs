@@ -10,21 +10,21 @@ namespace Read4Me
     {
         private void SpeechSkip(int items)
         {
-            speech.Skip("Sentence", items);
+            speech_cpRead.Skip("Sentence", items);
         }
 
         private void SpeechStop()
         {
-            if (speech.Status.RunningState == SpeechRunState.SRSEIsSpeaking)
+            if (speech_cpRead.Status.RunningState == SpeechRunState.SRSEIsSpeaking)
             {
-                speech.Pause();
+                speech_cpRead.Pause();
                 paused = true;
             }
             else
             {
                 if (paused == true)
                 {
-                    speech.Resume();
+                    speech_cpRead.Resume();
                     paused = false;
                 }
             }
@@ -33,7 +33,7 @@ namespace Read4Me
         private void ReadClipboard(string langid, string voice, int srate, int volume)
         {
             string toRead;
-            SpObjectToken voice_sp = speech.GetVoices("Name=" + voice, "Language=" + langid).Item(0);
+            SpObjectToken voice_sp = speech_cpRead.GetVoices("Name=" + voice, "Language=" + langid).Item(0);
             paused = false;
             toRead = Clipboard.GetText();
 
@@ -46,11 +46,11 @@ namespace Read4Me
             }
 
             toRead = "<lang langid=\"" + langid + "\"><pitch middle='0'>" + toRead + "</pitch></lang>";
-            speech.Rate = srate;
-            speech.Volume = volume;
-            speech.Voice = voice_sp;
-            speech.Resume();
-            speech.Speak(toRead, SpeechVoiceSpeakFlags.SVSFlagsAsync | SpeechVoiceSpeakFlags.SVSFIsXML | SpeechVoiceSpeakFlags.SVSFPurgeBeforeSpeak);
+            speech_cpRead.Rate = srate;
+            speech_cpRead.Volume = volume;
+            speech_cpRead.Voice = voice_sp;
+            speech_cpRead.Resume();
+            speech_cpRead.Speak(toRead, SpeechVoiceSpeakFlags.SVSFlagsAsync | SpeechVoiceSpeakFlags.SVSFIsXML | SpeechVoiceSpeakFlags.SVSFPurgeBeforeSpeak);
         }
 
         private void InitLigatures()

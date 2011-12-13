@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateDialog));
             this.lLinkDownload = new System.Windows.Forms.LinkLabel();
             this.lPlsDwn = new System.Windows.Forms.Label();
             this.bOK = new System.Windows.Forms.Button();
@@ -36,7 +37,7 @@
             // lLinkDownload
             // 
             this.lLinkDownload.AutoSize = true;
-            this.lLinkDownload.Location = new System.Drawing.Point(12, 40);
+            this.lLinkDownload.Location = new System.Drawing.Point(12, 37);
             this.lLinkDownload.Name = "lLinkDownload";
             this.lLinkDownload.Size = new System.Drawing.Size(381, 13);
             this.lLinkDownload.TabIndex = 55;
@@ -47,7 +48,7 @@
             // lPlsDwn
             // 
             this.lPlsDwn.AutoSize = true;
-            this.lPlsDwn.Location = new System.Drawing.Point(12, 27);
+            this.lPlsDwn.Location = new System.Drawing.Point(12, 24);
             this.lPlsDwn.Name = "lPlsDwn";
             this.lPlsDwn.Size = new System.Drawing.Size(241, 13);
             this.lPlsDwn.TabIndex = 56;
@@ -71,7 +72,11 @@
             this.Controls.Add(this.bOK);
             this.Controls.Add(this.lPlsDwn);
             this.Controls.Add(this.lLinkDownload);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "UpdateDialog";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Update available";
             this.ResumeLayout(false);
             this.PerformLayout();

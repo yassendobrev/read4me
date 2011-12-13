@@ -40,6 +40,7 @@ namespace Read4Me
             this.miFile = new System.Windows.Forms.ToolStripMenuItem();
             this.miExit = new System.Windows.Forms.ToolStripMenuItem();
             this.miHelp = new System.Windows.Forms.ToolStripMenuItem();
+            this.checkForUpdateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.miAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.tbSettings = new System.Windows.Forms.TabPage();
             this.Apply = new System.Windows.Forms.Button();
@@ -122,7 +123,6 @@ namespace Read4Me
             this.label1 = new System.Windows.Forms.Label();
             this.btnSpeak = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
-            this.btnToWAV = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.cmbVoices = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -162,7 +162,7 @@ namespace Read4Me
             this.tbGetVoices = new System.Windows.Forms.TabPage();
             this.lLinkEspeak = new System.Windows.Forms.LinkLabel();
             this.lVoicesDescribe = new System.Windows.Forms.Label();
-            this.checkForUpdateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.whatsNewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.sStrip.SuspendLayout();
             this.mMainMenuStrip.SuspendLayout();
@@ -255,10 +255,18 @@ namespace Read4Me
             // 
             this.miHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.checkForUpdateToolStripMenuItem,
+            this.whatsNewToolStripMenuItem,
             this.miAbout});
             this.miHelp.Name = "miHelp";
             this.miHelp.Size = new System.Drawing.Size(44, 20);
             this.miHelp.Text = "Help";
+            // 
+            // checkForUpdateToolStripMenuItem
+            // 
+            this.checkForUpdateToolStripMenuItem.Name = "checkForUpdateToolStripMenuItem";
+            this.checkForUpdateToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.checkForUpdateToolStripMenuItem.Text = "Check for update";
+            this.checkForUpdateToolStripMenuItem.Click += new System.EventHandler(this.checkForUpdateToolStripMenuItem_Click);
             // 
             // miAbout
             // 
@@ -1055,7 +1063,6 @@ namespace Read4Me
             this.tpSpeak.Controls.Add(this.label1);
             this.tpSpeak.Controls.Add(this.btnSpeak);
             this.tpSpeak.Controls.Add(this.label8);
-            this.tpSpeak.Controls.Add(this.btnToWAV);
             this.tpSpeak.Controls.Add(this.label7);
             this.tpSpeak.Controls.Add(this.cmbVoices);
             this.tpSpeak.Controls.Add(this.label6);
@@ -1111,16 +1118,6 @@ namespace Read4Me
             this.label8.Size = new System.Drawing.Size(52, 13);
             this.label8.TabIndex = 30;
             this.label8.Text = "Volume:";
-            // 
-            // btnToWAV
-            // 
-            this.btnToWAV.Location = new System.Drawing.Point(391, 115);
-            this.btnToWAV.Name = "btnToWAV";
-            this.btnToWAV.Size = new System.Drawing.Size(75, 23);
-            this.btnToWAV.TabIndex = 21;
-            this.btnToWAV.Text = "To Wav";
-            this.btnToWAV.UseVisualStyleBackColor = true;
-            this.btnToWAV.Click += new System.EventHandler(this.btnToWAV_Click);
             // 
             // label7
             // 
@@ -1516,12 +1513,12 @@ namespace Read4Me
             this.lVoicesDescribe.TabIndex = 56;
             this.lVoicesDescribe.Text = resources.GetString("lVoicesDescribe.Text");
             // 
-            // checkForUpdateToolStripMenuItem
+            // whatsNewToolStripMenuItem
             // 
-            this.checkForUpdateToolStripMenuItem.Name = "checkForUpdateToolStripMenuItem";
-            this.checkForUpdateToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
-            this.checkForUpdateToolStripMenuItem.Text = "Check for Update";
-            this.checkForUpdateToolStripMenuItem.Click += new System.EventHandler(this.checkForUpdateToolStripMenuItem_Click);
+            this.whatsNewToolStripMenuItem.Name = "whatsNewToolStripMenuItem";
+            this.whatsNewToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.whatsNewToolStripMenuItem.Text = "What\'s new";
+            this.whatsNewToolStripMenuItem.Click += new System.EventHandler(this.whatsNewToolStripMenuItem_Click);
             // 
             // Read4MeForm
             // 
@@ -1664,7 +1661,6 @@ namespace Read4Me
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSpeak;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button btnToWAV;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cmbVoices;
         private System.Windows.Forms.Label label6;
@@ -1705,6 +1701,7 @@ namespace Read4Me
         private System.Windows.Forms.Label lVoicesDescribe;
         private System.Windows.Forms.CheckBox cbBreakFiles;
         private System.Windows.Forms.ToolStripMenuItem checkForUpdateToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem whatsNewToolStripMenuItem;
     }
 }
 
