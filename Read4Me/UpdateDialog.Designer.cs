@@ -56,6 +56,7 @@
             // 
             // bOK
             // 
+            this.bOK.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.bOK.Location = new System.Drawing.Point(162, 66);
             this.bOK.Name = "bOK";
             this.bOK.Size = new System.Drawing.Size(75, 23);
@@ -68,14 +69,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.bOK;
             this.ClientSize = new System.Drawing.Size(396, 101);
             this.Controls.Add(this.bOK);
             this.Controls.Add(this.lPlsDwn);
             this.Controls.Add(this.lLinkDownload);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "UpdateDialog";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Update available";
             this.ResumeLayout(false);

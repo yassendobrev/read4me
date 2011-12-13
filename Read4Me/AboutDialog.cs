@@ -24,6 +24,8 @@ namespace Read4Me
         {
             local_version = version;
             InitializeComponent();
+            lAbout1.Text = "Read4Me Clipboard Reader and Text to mp3 Converter v" + local_version + "\n(c) 2011-2012 Yassen Dobr" +
+                "ev\nLicensed under GNU GPLv3 or later";
 
             lLinkDiscussion.Links.Add(0, lLinkDiscussion.Text.Length, lLinkDiscussion.Text);
             lLinkIDSharp.Links.Add(0, lLinkIDSharp.Text.Length, lLinkIDSharp.Text);
@@ -66,6 +68,7 @@ namespace Read4Me
             // 
             // bOK
             // 
+            this.bOK.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.bOK.Location = new System.Drawing.Point(149, 282);
             this.bOK.Name = "bOK";
             this.bOK.Size = new System.Drawing.Size(75, 23);
@@ -111,10 +114,8 @@ namespace Read4Me
             this.lAbout1.AutoSize = true;
             this.lAbout1.Location = new System.Drawing.Point(9, 16);
             this.lAbout1.Name = "lAbout1";
-            this.lAbout1.Size = new System.Drawing.Size(292, 39);
+            this.lAbout1.Size = new System.Drawing.Size(0, 13);
             this.lAbout1.TabIndex = 56;
-            this.lAbout1.Text = "Read4Me Clipboard Reader and Text to mp3 Converter v" + local_version + "\n(c) 2011-2012 Yassen Dobr" +
-                "ev\nLicensed under GNU GPLv3 or later";
             // 
             // gbThanks
             // 
@@ -206,17 +207,20 @@ namespace Read4Me
             // 
             // AboutDialog
             // 
+            this.CancelButton = this.bOK;
             this.ClientSize = new System.Drawing.Size(387, 312);
             this.Controls.Add(this.gbDisclaimer);
             this.Controls.Add(this.gbThanks);
             this.Controls.Add(this.gbAbout);
             this.Controls.Add(this.bOK);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AboutDialog";
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "About";
             this.gbAbout.ResumeLayout(false);
             this.gbAbout.PerformLayout();
