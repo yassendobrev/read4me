@@ -162,12 +162,21 @@ namespace Read4Me
             {
                 line = file_reader.ReadLine().Replace("\t", "");
                 line = line.Replace(" ", " "); // replace Non-breaking space 0xA0 with normal space 0x20
+
+                /*
                 line = line.Replace("[", "(");
                 line = line.Replace("]", ")");
                 line = line.Replace("<", "(");
                 line = line.Replace(">", ")");
                 line = line.Replace("«", "(");
                 line = line.Replace("»", ")");
+                */
+                line = line.Replace("[", " ");
+                line = line.Replace("]", " ");
+                line = line.Replace("<", " ");
+                line = line.Replace(">", " ");
+                line = line.Replace("«", " ");
+                line = line.Replace("»", " ");
 
                 // SLOWER RATE WHEN words surrounded with _words_ -> emphasize!
                 // use <rate absspeed="-7"/>
