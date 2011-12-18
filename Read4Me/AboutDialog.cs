@@ -17,6 +17,8 @@ namespace Read4Me
         private LinkLabel linkHotkey;
         private LinkLabel linkSAPI;
         private Button bOK;
+        private Button bDonate;
+        private GroupBox groupBox1;
 
         string local_version;
     
@@ -61,15 +63,18 @@ namespace Read4Me
             this.lLinkIDSharp = new System.Windows.Forms.LinkLabel();
             this.gbDisclaimer = new System.Windows.Forms.GroupBox();
             this.lDisclaimer = new System.Windows.Forms.Label();
+            this.bDonate = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.gbAbout.SuspendLayout();
             this.gbThanks.SuspendLayout();
             this.gbDisclaimer.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // bOK
             // 
             this.bOK.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.bOK.Location = new System.Drawing.Point(149, 282);
+            this.bOK.Location = new System.Drawing.Point(161, 353);
             this.bOK.Name = "bOK";
             this.bOK.Size = new System.Drawing.Size(75, 23);
             this.bOK.TabIndex = 0;
@@ -205,10 +210,31 @@ namespace Read4Me
             this.lDisclaimer.TabIndex = 0;
             this.lDisclaimer.Text = "The author shall NOT be held responsible\nfor any illegal use of this program.";
             // 
+            // bDonate
+            // 
+            this.bDonate.Image = ((System.Drawing.Image)(resources.GetObject("bDonate.Image")));
+            this.bDonate.Location = new System.Drawing.Point(136, 19);
+            this.bDonate.Name = "bDonate";
+            this.bDonate.Size = new System.Drawing.Size(97, 36);
+            this.bDonate.TabIndex = 59;
+            this.bDonate.UseVisualStyleBackColor = true;
+            this.bDonate.Click += new System.EventHandler(this.bDonate_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.bDonate);
+            this.groupBox1.Location = new System.Drawing.Point(14, 282);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(361, 65);
+            this.groupBox1.TabIndex = 59;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Support the development of Read4Me TTS Clipboard Reader";
+            // 
             // AboutDialog
             // 
             this.CancelButton = this.bOK;
-            this.ClientSize = new System.Drawing.Size(387, 312);
+            this.ClientSize = new System.Drawing.Size(387, 387);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gbDisclaimer);
             this.Controls.Add(this.gbThanks);
             this.Controls.Add(this.gbAbout);
@@ -228,6 +254,7 @@ namespace Read4Me
             this.gbThanks.PerformLayout();
             this.gbDisclaimer.ResumeLayout(false);
             this.gbDisclaimer.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -265,6 +292,20 @@ namespace Read4Me
         private void linkSAPI_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start(e.Link.LinkData.ToString());
+        }
+
+        private void bDonate_Click(object sender, System.EventArgs e)
+        {
+            // http://www.gorancic.com/blog/net/c-paypal-donate-button
+            string url = "";
+
+            string button_ID = "DL7L79SGNURAL";
+
+            url += "https://www.paypal.com/cgi-bin/webscr" +
+                "?cmd=" + "_s-xclick" +
+                "&hosted_button_id=" + button_ID;
+
+            System.Diagnostics.Process.Start(url);
         }
     }
 }
