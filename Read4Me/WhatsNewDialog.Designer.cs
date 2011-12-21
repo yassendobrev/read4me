@@ -39,9 +39,10 @@
             this.lPlsDwn.AutoSize = true;
             this.lPlsDwn.Location = new System.Drawing.Point(15, 26);
             this.lPlsDwn.Name = "lPlsDwn";
-            this.lPlsDwn.Size = new System.Drawing.Size(336, 78);
+            this.lPlsDwn.Size = new System.Drawing.Size(362, 26);
             this.lPlsDwn.TabIndex = 56;
-            this.lPlsDwn.Text = resources.GetString("lPlsDwn.Text");
+            this.lPlsDwn.Text = "- Text to mp3 conversion not working under Windows XP bug fixed.\r\n- Added option " +
+                "to slow down speech when text surrounded by underscores.";
             // 
             // bOK
             // 

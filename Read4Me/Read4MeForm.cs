@@ -9,7 +9,6 @@ namespace Read4Me
     public partial class Read4MeForm : Form
     {
         // some required members 
-        SpVoice speech_Convert = new SpVoice();
         SpVoice speech_cpRead = new SpVoice();
 
         int speechRate = 4; // Ranges from -10 to 10 
@@ -17,7 +16,7 @@ namespace Read4Me
         bool paused = false;
 
         // program version
-        string local_version = "0.3.4";
+        string local_version = "0.3.5";
         
         SortedList langids = new SortedList();
         SortedList ligatures = new SortedList();
@@ -45,8 +44,8 @@ namespace Read4Me
             // Add event handlers for the drag & drop functionality
             this.DragEnter += new DragEventHandler(Form_DragEnter);
             this.DragDrop += new DragEventHandler(Form_DragDrop);
-            
-            foreach (ISpeechObjectToken Token in speech_Convert.GetVoices(string.Empty, string.Empty))
+
+            foreach (ISpeechObjectToken Token in speech_cpRead.GetVoices(string.Empty, string.Empty))
             {
                 // Populate the ComboBox Entries ..
                 cmbVoices.Items.Add(Token.GetDescription(49));
@@ -70,10 +69,6 @@ namespace Read4Me
             ReadSettings();
 
             // init TTS
-            speech_Convert.Rate = 10;
-            speech_Convert.Volume = 0;
-            speech_Convert.Speak("<lang langid=\"402\">а</lang>", SpeechVoiceSpeakFlags.SVSFlagsAsync | SpeechVoiceSpeakFlags.SVSFIsXML | SpeechVoiceSpeakFlags.SVSFPurgeBeforeSpeak);
-
             speech_cpRead.Rate = 10;
             speech_cpRead.Volume = 0;
             speech_cpRead.Speak("<lang langid=\"402\">а</lang>", SpeechVoiceSpeakFlags.SVSFlagsAsync | SpeechVoiceSpeakFlags.SVSFIsXML | SpeechVoiceSpeakFlags.SVSFPurgeBeforeSpeak);

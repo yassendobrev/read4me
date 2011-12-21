@@ -163,6 +163,7 @@ namespace Read4Me
             this.tbGetVoices = new System.Windows.Forms.TabPage();
             this.lLinkEspeak = new System.Windows.Forms.LinkLabel();
             this.lVoicesDescribe = new System.Windows.Forms.Label();
+            this.cbSlowRate = new System.Windows.Forms.CheckBox();
             this.contextMenuStrip1.SuspendLayout();
             this.sStrip.SuspendLayout();
             this.mMainMenuStrip.SuspendLayout();
@@ -1258,13 +1259,14 @@ namespace Read4Me
             // 
             // gbFileBreakRules
             // 
+            this.gbFileBreakRules.Controls.Add(this.cbSlowRate);
             this.gbFileBreakRules.Controls.Add(this.cbBreakFiles);
             this.gbFileBreakRules.Location = new System.Drawing.Point(11, 46);
             this.gbFileBreakRules.Name = "gbFileBreakRules";
-            this.gbFileBreakRules.Size = new System.Drawing.Size(170, 61);
+            this.gbFileBreakRules.Size = new System.Drawing.Size(170, 100);
             this.gbFileBreakRules.TabIndex = 59;
             this.gbFileBreakRules.TabStop = false;
-            this.gbFileBreakRules.Text = "File break rules";
+            this.gbFileBreakRules.Text = "Text manupulation";
             // 
             // cbBreakFiles
             // 
@@ -1520,6 +1522,16 @@ namespace Read4Me
             this.lVoicesDescribe.TabIndex = 56;
             this.lVoicesDescribe.Text = resources.GetString("lVoicesDescribe.Text");
             // 
+            // cbSlowRate
+            // 
+            this.cbSlowRate.AutoSize = true;
+            this.cbSlowRate.Location = new System.Drawing.Point(7, 53);
+            this.cbSlowRate.Name = "cbSlowRate";
+            this.cbSlowRate.Size = new System.Drawing.Size(154, 30);
+            this.cbSlowRate.TabIndex = 45;
+            this.cbSlowRate.Text = "Slower rate when text\r\nsurrounded by underscores";
+            this.cbSlowRate.UseVisualStyleBackColor = true;
+            // 
             // Read4MeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1702,6 +1714,7 @@ namespace Read4Me
         private System.Windows.Forms.CheckBox cbBreakFiles;
         private System.Windows.Forms.ToolStripMenuItem checkForUpdateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem whatsNewToolStripMenuItem;
+        private System.Windows.Forms.CheckBox cbSlowRate;
     }
 }
 

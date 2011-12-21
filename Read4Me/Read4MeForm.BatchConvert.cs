@@ -58,7 +58,7 @@ namespace Read4Me
                 SpeechRate = Int16.Parse(cbRateBatch.SelectedItem.ToString());
                 SpeechVolume = Int16.Parse(cbVolumeBatch.SelectedItem.ToString());
                 LangID = (string)langids[cbLanguageBatch.SelectedItem.ToString()];
-                SpeechVoice = speech_Convert.GetVoices(string.Empty, string.Empty).Item(cbVoiceBatch.SelectedIndex);
+                SpeechVoice = speech_cpRead.GetVoices(string.Empty, string.Empty).Item(cbVoiceBatch.SelectedIndex);
                 FilePath = tbSource.Text;
             }
             catch
@@ -180,25 +180,28 @@ namespace Read4Me
 
                 // SLOWER RATE WHEN words surrounded with _words_ -> emphasize!
                 // use <rate absspeed="-7"/>
-                line_parts = line.Split('_');
-                if (line_parts.Length > 1)
+                if (cbSlowRate.Checked)
                 {
-                    line = "";
-                    for (int i = 0; i < line_parts.Length - 1; i++)
+                    line_parts = line.Split('_');
+                    if (line_parts.Length > 1)
                     {
-                        if (i % 2 == 0)
+                        line = "";
+                        for (int i = 0; i < line_parts.Length - 1; i++)
                         {
-                            line = line + line_parts[i] + "<rate absspeed=\"-5\"/>";
+                            if (i % 2 == 0)
+                            {
+                                line = line + line_parts[i] + "<rate absspeed=\"-5\"/>";
+                            }
+                            else
+                            {
+                                // line = line + line_parts[i] + "<rate absspeed=\"" + speechRate.ToString() + "\"/>"; --> too fast???
+                                line = line + line_parts[i] + "<rate absspeed=\"0\"/>";
+                            }
                         }
-                        else
-                        {
-                            // line = line + line_parts[i] + "<rate absspeed=\"" + speechRate.ToString() + "\"/>"; --> too fast???
-                            line = line + line_parts[i] + "<rate absspeed=\"0\"/>";
-                        }
+                        line = line + line_parts[line_parts.Length - 1]; // add last part
+                        // line = line + "<rate absspeed=\"" + speechRate + "\"/>"; // make sure normal rate continues --> too fast???
+                        line = line + "<rate absspeed=\"0\"/>"; // make sure normal rate continues
                     }
-                    line = line + line_parts[line_parts.Length - 1]; // add last part
-                    // line = line + "<rate absspeed=\"" + speechRate + "\"/>"; // make sure normal rate continues --> too fast???
-                    line = line + "<rate absspeed=\"0\"/>"; // make sure normal rate continues
                 }
 
                 if (line != "")
@@ -305,16 +308,22 @@ namespace Read4Me
         {
             StreamReader reader;
             string toSpeak;
+            SpVoice speech_Convert = new SpVoice();
+
+            // init TTS
+            speech_Convert.Rate = 10;
+            speech_Convert.Volume = 0;
+            speech_Convert.Speak("<lang langid=\"402\">а</lang>", SpeechVoiceSpeakFlags.SVSFlagsAsync | SpeechVoiceSpeakFlags.SVSFIsXML | SpeechVoiceSpeakFlags.SVSFPurgeBeforeSpeak);
 
             reader = new StreamReader(file, Encoding.UTF8);
             toSpeak = reader.ReadToEnd();
             SpeechStreamFileMode SpFileMode = SpeechStreamFileMode.SSFMCreateForWrite;
             SpFileStream SpFileStream = new SpFileStream();
             SpFileStream.Open(file.Replace(".xml", ".wav"), SpFileMode, false);
-            speech_Convert.AudioOutputStream = SpFileStream;
             speech_Convert.Rate = SpeechRate;
             speech_Convert.Volume = SpeechVolume;
             speech_Convert.Voice = SpeechVoice;
+            speech_Convert.AudioOutputStream = SpFileStream;
             // speech.Speak(FileName, SpeechVoiceSpeakFlags.SVSFIsFilename); // not working properly
             speech_Convert.Speak(toSpeak, SpeechVoiceSpeakFlags.SVSFlagsAsync | SpeechVoiceSpeakFlags.SVSFIsXML);
             speech_Convert.WaitUntilDone(Timeout.Infinite);
