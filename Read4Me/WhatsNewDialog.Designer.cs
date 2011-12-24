@@ -39,10 +39,11 @@
             this.lPlsDwn.AutoSize = true;
             this.lPlsDwn.Location = new System.Drawing.Point(15, 26);
             this.lPlsDwn.Name = "lPlsDwn";
-            this.lPlsDwn.Size = new System.Drawing.Size(239, 26);
+            this.lPlsDwn.Size = new System.Drawing.Size(316, 39);
             this.lPlsDwn.TabIndex = 56;
             this.lPlsDwn.Text = "- Gray out button during conversion.\r\n- Option to split file if all letters in a " +
-                "line are capital.";
+                "line are capital.\r\n- Windows XP not shutting down while program running bug fixe" +
+                "d.";
             // 
             // bOK
             // 

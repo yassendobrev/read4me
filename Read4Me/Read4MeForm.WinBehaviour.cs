@@ -5,6 +5,21 @@ namespace Read4Me
 {
     partial class Read4MeForm
     {
+
+        // http://social.msdn.microsoft.com/Forums/en/csharpgeneral/thread/e85c9461-394f-4391-903e-8ea1bd243075
+        // shutting down does not work in XP without this code
+        private const int WM_QUERYENDSESSION = 0x0011;
+        internal static bool shuttingDown;
+        protected override void WndProc( ref Message m )
+        {
+            if (m.Msg == WM_QUERYENDSESSION)
+            {
+                // You're shutting down
+                mAllowClose = true;
+            }
+            base.WndProc(ref m);
+        }
+
         // Minimize app to tray
         // http://stackoverflow.com/questions/1730731/how-to-start-winform-app-minimized-to-tray
         protected override void SetVisibleCore(bool value)
