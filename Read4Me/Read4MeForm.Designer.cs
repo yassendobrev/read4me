@@ -137,6 +137,7 @@ namespace Read4Me
             this.tpConv = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.gbFileBreakRules = new System.Windows.Forms.GroupBox();
+            this.cbSlowRate = new System.Windows.Forms.CheckBox();
             this.cbBreakFiles = new System.Windows.Forms.CheckBox();
             this.gbID3 = new System.Windows.Forms.GroupBox();
             this.tbAlbum = new System.Windows.Forms.TextBox();
@@ -163,7 +164,7 @@ namespace Read4Me
             this.tbGetVoices = new System.Windows.Forms.TabPage();
             this.lLinkEspeak = new System.Windows.Forms.LinkLabel();
             this.lVoicesDescribe = new System.Windows.Forms.Label();
-            this.cbSlowRate = new System.Windows.Forms.CheckBox();
+            this.cbCaptialLetters = new System.Windows.Forms.CheckBox();
             this.contextMenuStrip1.SuspendLayout();
             this.sStrip.SuspendLayout();
             this.mMainMenuStrip.SuspendLayout();
@@ -1259,14 +1260,25 @@ namespace Read4Me
             // 
             // gbFileBreakRules
             // 
+            this.gbFileBreakRules.Controls.Add(this.cbCaptialLetters);
             this.gbFileBreakRules.Controls.Add(this.cbSlowRate);
             this.gbFileBreakRules.Controls.Add(this.cbBreakFiles);
             this.gbFileBreakRules.Location = new System.Drawing.Point(11, 46);
             this.gbFileBreakRules.Name = "gbFileBreakRules";
-            this.gbFileBreakRules.Size = new System.Drawing.Size(170, 100);
+            this.gbFileBreakRules.Size = new System.Drawing.Size(170, 129);
             this.gbFileBreakRules.TabIndex = 59;
             this.gbFileBreakRules.TabStop = false;
             this.gbFileBreakRules.Text = "Text manupulation";
+            // 
+            // cbSlowRate
+            // 
+            this.cbSlowRate.AutoSize = true;
+            this.cbSlowRate.Location = new System.Drawing.Point(7, 89);
+            this.cbSlowRate.Name = "cbSlowRate";
+            this.cbSlowRate.Size = new System.Drawing.Size(154, 30);
+            this.cbSlowRate.TabIndex = 45;
+            this.cbSlowRate.Text = "Slower rate when text\r\nsurrounded by underscores";
+            this.cbSlowRate.UseVisualStyleBackColor = true;
             // 
             // cbBreakFiles
             // 
@@ -1275,9 +1287,9 @@ namespace Read4Me
             this.cbBreakFiles.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbBreakFiles.Location = new System.Drawing.Point(7, 17);
             this.cbBreakFiles.Name = "cbBreakFiles";
-            this.cbBreakFiles.Size = new System.Drawing.Size(128, 30);
+            this.cbBreakFiles.Size = new System.Drawing.Size(120, 30);
             this.cbBreakFiles.TabIndex = 44;
-            this.cbBreakFiles.Text = "Break file into multiple\r\nfiles on empty line";
+            this.cbBreakFiles.Text = "Split file into multiple\r\nfiles on empty line";
             this.cbBreakFiles.UseVisualStyleBackColor = true;
             // 
             // gbID3
@@ -1522,15 +1534,15 @@ namespace Read4Me
             this.lVoicesDescribe.TabIndex = 56;
             this.lVoicesDescribe.Text = resources.GetString("lVoicesDescribe.Text");
             // 
-            // cbSlowRate
+            // cbCaptialLetters
             // 
-            this.cbSlowRate.AutoSize = true;
-            this.cbSlowRate.Location = new System.Drawing.Point(7, 53);
-            this.cbSlowRate.Name = "cbSlowRate";
-            this.cbSlowRate.Size = new System.Drawing.Size(154, 30);
-            this.cbSlowRate.TabIndex = 45;
-            this.cbSlowRate.Text = "Slower rate when text\r\nsurrounded by underscores";
-            this.cbSlowRate.UseVisualStyleBackColor = true;
+            this.cbCaptialLetters.AutoSize = true;
+            this.cbCaptialLetters.Location = new System.Drawing.Point(7, 53);
+            this.cbCaptialLetters.Name = "cbCaptialLetters";
+            this.cbCaptialLetters.Size = new System.Drawing.Size(124, 30);
+            this.cbCaptialLetters.TabIndex = 46;
+            this.cbCaptialLetters.Text = "Split file on all capital\r\nletters line";
+            this.cbCaptialLetters.UseVisualStyleBackColor = true;
             // 
             // Read4MeForm
             // 
@@ -1715,6 +1727,7 @@ namespace Read4Me
         private System.Windows.Forms.ToolStripMenuItem checkForUpdateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem whatsNewToolStripMenuItem;
         private System.Windows.Forms.CheckBox cbSlowRate;
+        private System.Windows.Forms.CheckBox cbCaptialLetters;
     }
 }
 
