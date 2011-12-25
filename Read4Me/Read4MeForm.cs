@@ -20,10 +20,6 @@ namespace Read4Me
         
         SortedList langids = new SortedList();
         SortedList ligatures = new SortedList();
-        
-        // declare writes & reader and folder
-        StreamReader file_reader;
-        StreamWriter file_writer;
 
         // show/hide main window
         bool mAllowVisible;     // ContextMenu's Show command used

@@ -137,6 +137,7 @@ namespace Read4Me
             this.tpConv = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.gbFileBreakRules = new System.Windows.Forms.GroupBox();
+            this.cbCaptialLetters = new System.Windows.Forms.CheckBox();
             this.cbSlowRate = new System.Windows.Forms.CheckBox();
             this.cbBreakFiles = new System.Windows.Forms.CheckBox();
             this.gbID3 = new System.Windows.Forms.GroupBox();
@@ -164,7 +165,6 @@ namespace Read4Me
             this.tbGetVoices = new System.Windows.Forms.TabPage();
             this.lLinkEspeak = new System.Windows.Forms.LinkLabel();
             this.lVoicesDescribe = new System.Windows.Forms.Label();
-            this.cbCaptialLetters = new System.Windows.Forms.CheckBox();
             this.contextMenuStrip1.SuspendLayout();
             this.sStrip.SuspendLayout();
             this.mMainMenuStrip.SuspendLayout();
@@ -1270,6 +1270,16 @@ namespace Read4Me
             this.gbFileBreakRules.TabStop = false;
             this.gbFileBreakRules.Text = "Text manupulation";
             // 
+            // cbCaptialLetters
+            // 
+            this.cbCaptialLetters.AutoSize = true;
+            this.cbCaptialLetters.Location = new System.Drawing.Point(7, 53);
+            this.cbCaptialLetters.Name = "cbCaptialLetters";
+            this.cbCaptialLetters.Size = new System.Drawing.Size(124, 30);
+            this.cbCaptialLetters.TabIndex = 46;
+            this.cbCaptialLetters.Text = "Split file on all capital\r\nletters line";
+            this.cbCaptialLetters.UseVisualStyleBackColor = true;
+            // 
             // cbSlowRate
             // 
             this.cbSlowRate.AutoSize = true;
@@ -1534,16 +1544,6 @@ namespace Read4Me
             this.lVoicesDescribe.TabIndex = 56;
             this.lVoicesDescribe.Text = resources.GetString("lVoicesDescribe.Text");
             // 
-            // cbCaptialLetters
-            // 
-            this.cbCaptialLetters.AutoSize = true;
-            this.cbCaptialLetters.Location = new System.Drawing.Point(7, 53);
-            this.cbCaptialLetters.Name = "cbCaptialLetters";
-            this.cbCaptialLetters.Size = new System.Drawing.Size(124, 30);
-            this.cbCaptialLetters.TabIndex = 46;
-            this.cbCaptialLetters.Text = "Split file on all capital\r\nletters line";
-            this.cbCaptialLetters.UseVisualStyleBackColor = true;
-            // 
             // Read4MeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1552,7 +1552,6 @@ namespace Read4Me
             this.Controls.Add(this.sStrip);
             this.Controls.Add(this.mMainMenuStrip);
             this.Controls.Add(this.tabControlMain);
-            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;

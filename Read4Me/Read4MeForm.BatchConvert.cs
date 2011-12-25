@@ -96,6 +96,13 @@ namespace Read4Me
             bool start_new_file = false;
             string[] line_parts;
             string artist_year_album;
+            StreamWriter file_writer;
+            StreamReader file_reader;
+
+            this.Invoke((MethodInvoker)delegate
+            {
+                sWorkingStatus.Text = "Starting conversion.";
+            });
 
             try
             {
@@ -227,6 +234,7 @@ namespace Read4Me
                         file_writer.Write("<lang langid=\"409\"><silence msec=\"200\" /></lang>"); // longer pause at the end of chapter
                         file_writer.Write("</lang>");
                         file_writer.Close();
+                        file_writer.Dispose();
                         filename++;
 
                         try
@@ -263,7 +271,10 @@ namespace Read4Me
                 }
             }
             file_reader.Close();
+            file_reader.Dispose();
             file_writer.Close();
+            file_writer.Dispose();
+
             this.Invoke((MethodInvoker)delegate
             {
                 sWorkingStatus.Text = "Done with txt2xml!";

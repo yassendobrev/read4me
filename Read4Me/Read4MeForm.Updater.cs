@@ -14,7 +14,6 @@ namespace Read4Me
         {
             string current_version;
 
-            WebClient webClient = new WebClient();
             string version_txt_path = Environment.CurrentDirectory + "\\current_version.txt";
             if (File.Exists(version_txt_path))
             {
@@ -27,13 +26,14 @@ namespace Read4Me
                 }
             }
 
-            StreamReader file_reader;
             try
             {
+                WebClient webClient = new WebClient();
                 webClient.DownloadFile("http://sourceforge.net/p/read4mecbr/code/ci/master/tree/current_version.txt?format=raw", version_txt_path);
+                webClient.Dispose();
                 try
                 {
-                    file_reader = new StreamReader(version_txt_path, Encoding.UTF8);
+                    StreamReader file_reader = new StreamReader(version_txt_path, Encoding.UTF8);
                     current_version = file_reader.ReadLine();
                     if (current_version != local_version)
                     {
@@ -46,6 +46,7 @@ namespace Read4Me
                         MessageBox.Show("No new version available.");
                     }
                     file_reader.Close();
+                    file_reader.Dispose();
                     if (File.Exists(version_txt_path))
                     {
                         try

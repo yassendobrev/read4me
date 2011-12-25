@@ -367,6 +367,7 @@ namespace Read4Me
 
         private void WriteSettings()
         {
+            StreamWriter file_writer;
             try
             {
                 file_writer = new StreamWriter(Path.GetDirectoryName(Application.ExecutablePath) + "\\Read4Me.ini", false, Encoding.UTF8);
@@ -391,6 +392,7 @@ namespace Read4Me
             file_writer.Write("    <batch_settings type=\"batch_settings\" lang=\"" + cbLanguageBatch.SelectedItem + "\" voice=\"" + cbVoiceBatch.SelectedItem + "\" srate=\"" + cbRateBatch.SelectedItem + "\" volume=\"" + cbVolumeBatch.SelectedItem + "\"></batch_settings>\r\n");
             file_writer.Write("</settings>\r\n");
             file_writer.Close();
+            file_writer.Dispose();
             UnregisterHotkeys();
             ReadSettings();
         }
