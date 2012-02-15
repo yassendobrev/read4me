@@ -135,27 +135,40 @@ namespace Read4Me
             // check if old directories exist and delete them
             if (Directory.Exists(outdir))
             {
-                try
+                if (MessageBox.Show("Output directory already exists, empty it?", "Confirm delete", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    Directory.Delete(outdir, true);
+                    try
+                    {
+                        string[] files = Directory.GetFiles(outdir);
+                        foreach (string file in files)
+                        {
+                            File.Delete(file);
+                        }
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Output directory exists and could not be deleted.");
+                        bGo.Enabled = true;
+                        return;
+                    }
                 }
-                catch
+                else
                 {
-                    MessageBox.Show("Output directory exists and could not be deleted.");
-                    bGo.Enabled = true;
                     return;
                 }
             }
-
-            try
+            else
             {
-                Directory.CreateDirectory(outdir);
-            }
-            catch
-            {
-                MessageBox.Show("Output directory " + outdir + " could not be created.");
-                bGo.Enabled = true;
-                return;
+                try
+                {
+                    Directory.CreateDirectory(outdir);
+                }
+                catch
+                {
+                    MessageBox.Show("Output directory " + outdir + " could not be created.");
+                    bGo.Enabled = true;
+                    return;
+                }
             }
 
             try
@@ -355,6 +368,9 @@ namespace Read4Me
             toSpeak = reader.ReadToEnd();
             SpeechStreamFileMode SpFileMode = SpeechStreamFileMode.SSFMCreateForWrite;
             SpFileStream SpFileStream = new SpFileStream();
+            // http://www.autoitscript.com/forum/topic/133903-need-help-with-text-to-speech-output-format/
+            // http://msdn.microsoft.com/en-us/library/ms717276(VS.85).aspx
+            SpFileStream.Format.Type = SpeechLib.SpeechAudioFormatType.SAFT48kHz16BitMono;
             SpFileStream.Open(file.Replace(".xml", ".wav"), SpFileMode, false);
             speech_Convert.Rate = SpeechRate;
             speech_Convert.Volume = SpeechVolume;

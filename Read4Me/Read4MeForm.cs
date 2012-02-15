@@ -11,12 +11,13 @@ namespace Read4Me
         // some required members 
         SpVoice speech_cpRead = new SpVoice();
 
-        int speechRate = 4; // Ranges from -10 to 10 
-        int volume_global = 80; // Range from 0 to 100.
-        bool paused = false;
+        int SpeechRateGlobal = 4; // Ranges from -10 to 10 
+        int VolumeGlobal = 80; // Range from 0 to 100.
+        bool PausedGlobal = false;
+        SpObjectToken SpeechVoiceGlobal;
 
         // program version
-        string local_version = "0.3.6";
+        string local_version = "0.3.7";
         
         SortedList langids = new SortedList();
         SortedList ligatures = new SortedList();
@@ -30,6 +31,7 @@ namespace Read4Me
             InitializeComponent();
             this.Text = this.Text + local_version;
 
+            lLinkDiscussion.Links.Add(0, lLinkDiscussion.Text.Length, lLinkDiscussion.Text);
             lLinkEspeak.Links.Add(0, lLinkEspeak.Text.Length, lLinkEspeak.Text);
 
             // http://www.jonasjohn.de/snippets/csharp/drag-and-drop-example.htm
@@ -54,8 +56,8 @@ namespace Read4Me
                 cbLang6.Items.Add(Token.GetDescription(49));
             }
             cmbVoices.SelectedIndex = 0; // Select the first Index of the comboBox 
-            tbarRate.Value = speechRate;
-            trbVolume.Value = volume_global;
+            tbarRate.Value = SpeechRateGlobal;
+            trbVolume.Value = VolumeGlobal;
 
             // init ligatures list
             InitLigatures();
@@ -87,6 +89,11 @@ namespace Read4Me
             WhatsNewDialog dialog = new WhatsNewDialog(local_version);
             dialog.ShowDialog(this);
             dialog.Dispose();
+        }
+
+        private void lLinkDiscussion_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(e.Link.LinkData.ToString());
         }
     }
 }

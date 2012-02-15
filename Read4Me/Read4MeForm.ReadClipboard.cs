@@ -18,14 +18,14 @@ namespace Read4Me
             if (speech_cpRead.Status.RunningState == SpeechRunState.SRSEIsSpeaking)
             {
                 speech_cpRead.Pause();
-                paused = true;
+                PausedGlobal = true;
             }
             else
             {
-                if (paused == true)
+                if (PausedGlobal == true)
                 {
                     speech_cpRead.Resume();
-                    paused = false;
+                    PausedGlobal = false;
                 }
             }
         }
@@ -34,7 +34,7 @@ namespace Read4Me
         {
             string toRead;
             SpObjectToken voice_sp = speech_cpRead.GetVoices("Name=" + voice, "Language=" + langid).Item(0);
-            paused = false;
+            PausedGlobal = false;
             toRead = Clipboard.GetText();
 
             // no silence on new line

@@ -165,6 +165,8 @@ namespace Read4Me
             this.tbGetVoices = new System.Windows.Forms.TabPage();
             this.lLinkEspeak = new System.Windows.Forms.LinkLabel();
             this.lVoicesDescribe = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.lLinkDiscussion = new System.Windows.Forms.LinkLabel();
             this.contextMenuStrip1.SuspendLayout();
             this.sStrip.SuspendLayout();
             this.mMainMenuStrip.SuspendLayout();
@@ -217,9 +219,9 @@ namespace Read4Me
             // 
             this.sStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sWorkingStatus});
-            this.sStrip.Location = new System.Drawing.Point(0, 394);
+            this.sStrip.Location = new System.Drawing.Point(0, 402);
             this.sStrip.Name = "sStrip";
-            this.sStrip.Size = new System.Drawing.Size(700, 22);
+            this.sStrip.Size = new System.Drawing.Size(691, 22);
             this.sStrip.TabIndex = 19;
             // 
             // sWorkingStatus
@@ -234,7 +236,7 @@ namespace Read4Me
             this.miHelp});
             this.mMainMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.mMainMenuStrip.Name = "mMainMenuStrip";
-            this.mMainMenuStrip.Size = new System.Drawing.Size(700, 24);
+            this.mMainMenuStrip.Size = new System.Drawing.Size(691, 24);
             this.mMainMenuStrip.TabIndex = 49;
             this.mMainMenuStrip.Text = "Main Menu";
             // 
@@ -1507,7 +1509,7 @@ namespace Read4Me
             this.tabControlMain.Controls.Add(this.tpSpeak);
             this.tabControlMain.Controls.Add(this.tbSettings);
             this.tabControlMain.Controls.Add(this.tbGetVoices);
-            this.tabControlMain.Location = new System.Drawing.Point(9, 27);
+            this.tabControlMain.Location = new System.Drawing.Point(9, 40);
             this.tabControlMain.Name = "tabControlMain";
             this.tabControlMain.SelectedIndex = 0;
             this.tabControlMain.Size = new System.Drawing.Size(679, 355);
@@ -1544,11 +1546,33 @@ namespace Read4Me
             this.lVoicesDescribe.TabIndex = 56;
             this.lVoicesDescribe.Text = resources.GetString("lVoicesDescribe.Text");
             // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(12, 24);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(164, 13);
+            this.label24.TabIndex = 57;
+            this.label24.Text = "Bug reports and feature requests:";
+            // 
+            // lLinkDiscussion
+            // 
+            this.lLinkDiscussion.AutoSize = true;
+            this.lLinkDiscussion.Location = new System.Drawing.Point(182, 24);
+            this.lLinkDiscussion.Name = "lLinkDiscussion";
+            this.lLinkDiscussion.Size = new System.Drawing.Size(248, 13);
+            this.lLinkDiscussion.TabIndex = 56;
+            this.lLinkDiscussion.TabStop = true;
+            this.lLinkDiscussion.Text = "https://sourceforge.net/p/read4mecbr/discussion/";
+            this.lLinkDiscussion.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lLinkDiscussion_LinkClicked);
+            // 
             // Read4MeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(700, 416);
+            this.ClientSize = new System.Drawing.Size(691, 424);
+            this.Controls.Add(this.label24);
+            this.Controls.Add(this.lLinkDiscussion);
             this.Controls.Add(this.sStrip);
             this.Controls.Add(this.mMainMenuStrip);
             this.Controls.Add(this.tabControlMain);
@@ -1727,6 +1751,8 @@ namespace Read4Me
         private System.Windows.Forms.ToolStripMenuItem whatsNewToolStripMenuItem;
         private System.Windows.Forms.CheckBox cbSlowRate;
         private System.Windows.Forms.CheckBox cbCaptialLetters;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.LinkLabel lLinkDiscussion;
     }
 }
 
