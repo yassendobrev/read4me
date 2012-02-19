@@ -37,6 +37,13 @@ namespace Read4Me
             PausedGlobal = false;
             toRead = Clipboard.GetText();
 
+            // init TTS
+            speech_cpRead.Rate = 10;
+            speech_cpRead.Volume = 0;
+            speech_cpRead.Voice = voice_sp;
+            speech_cpRead.Speak("а", SpeechVoiceSpeakFlags.SVSFlagsAsync | SpeechVoiceSpeakFlags.SVSFIsXML | SpeechVoiceSpeakFlags.SVSFPurgeBeforeSpeak);
+            System.Threading.Thread.Sleep(100);
+
             // no silence on new line
             toRead = toRead.Replace("\r\n", " ");
 
@@ -45,7 +52,6 @@ namespace Read4Me
                 toRead = toRead.Replace(entry.Key.ToString(), entry.Value.ToString());
             }
 
-            toRead = "<lang langid=\"" + langid + "\"><pitch middle='0'>" + toRead + "</pitch></lang>";
             speech_cpRead.Rate = srate;
             speech_cpRead.Volume = volume;
             speech_cpRead.Voice = voice_sp;

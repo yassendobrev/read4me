@@ -203,7 +203,6 @@ namespace Read4Me
                 return;
             }
 
-            file_writer.Write("<lang langid=\"" + LangID + "\">");
             while (!file_reader.EndOfStream)
             {
                 if (StopConversion)
@@ -274,8 +273,7 @@ namespace Read4Me
                     if (start_new_file)
                     {
                         start_new_file = false;
-                        file_writer.Write("<lang langid=\"409\"><silence msec=\"200\" /></lang>"); // longer pause at the end of chapter
-                        file_writer.Write("</lang>");
+                        file_writer.Write("."); // put an ending dot at the end of chapter (ofter there isn't any)
                         file_writer.Close();
                         file_writer.Dispose();
                         filename++;
@@ -291,7 +289,6 @@ namespace Read4Me
                             return;
                         }
 
-                        file_writer.Write("<lang langid=\"" + LangID + "\">");
                         file_writer.Write(line);
                         file_writer.Write(" ");
                     }
@@ -404,7 +401,9 @@ namespace Read4Me
             // init TTS
             speech_Convert.Rate = 10;
             speech_Convert.Volume = 0;
-            speech_Convert.Speak("<lang langid=\"402\">а</lang>", SpeechVoiceSpeakFlags.SVSFlagsAsync | SpeechVoiceSpeakFlags.SVSFIsXML | SpeechVoiceSpeakFlags.SVSFPurgeBeforeSpeak);
+            speech_Convert.Voice = SpeechVoice;
+            speech_Convert.Speak("а", SpeechVoiceSpeakFlags.SVSFlagsAsync | SpeechVoiceSpeakFlags.SVSFIsXML | SpeechVoiceSpeakFlags.SVSFPurgeBeforeSpeak);
+            System.Threading.Thread.Sleep(100);
 
             reader = new StreamReader(file, Encoding.UTF8);
             toSpeak = reader.ReadToEnd();

@@ -39,9 +39,9 @@
             this.lPlsDwn.AutoSize = true;
             this.lPlsDwn.Location = new System.Drawing.Point(15, 26);
             this.lPlsDwn.Name = "lPlsDwn";
-            this.lPlsDwn.Size = new System.Drawing.Size(164, 39);
+            this.lPlsDwn.Size = new System.Drawing.Size(204, 26);
             this.lPlsDwn.TabIndex = 56;
-            this.lPlsDwn.Text = "- Better text to mp3 sound quality.\r\n- Slightly more lightweight.\r\n- Bug fixes.";
+            this.lPlsDwn.Text = "- Text to mp3 conversion can be stopped.\r\n- Simplify SAPI input xml code.";
             // 
             // bOK
             // 

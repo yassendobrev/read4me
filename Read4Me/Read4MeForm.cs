@@ -17,7 +17,7 @@ namespace Read4Me
         SpObjectToken SpeechVoiceGlobal;
 
         // program version
-        string local_version = "0.3.7";
+        string local_version = "0.3.8";
         
         SortedList langids = new SortedList();
         SortedList ligatures = new SortedList();
@@ -65,11 +65,6 @@ namespace Read4Me
             // restore user settings
             init_lists();
             ReadSettings();
-
-            // init TTS
-            speech_cpRead.Rate = 10;
-            speech_cpRead.Volume = 0;
-            speech_cpRead.Speak("<lang langid=\"402\">а</lang>", SpeechVoiceSpeakFlags.SVSFlagsAsync | SpeechVoiceSpeakFlags.SVSFIsXML | SpeechVoiceSpeakFlags.SVSFPurgeBeforeSpeak);
         }
 
         private void miAbout_Click(object sender, System.EventArgs e)
