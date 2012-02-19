@@ -15,7 +15,8 @@ namespace Read4Me
 {
     partial class Read4MeForm
     {
-        Thread oThread;
+        static Thread oThread;
+        bool StopConversion = false;
 
         private void bSource_Click(object sender, EventArgs e)
         {
@@ -29,13 +30,33 @@ namespace Read4Me
             }
         }
 
+        private void bGoStartState()
+        {
+            bGo.Text = "Start text to mp3 conversion";
+            bGo.Enabled = true;
+            StopConversion = false;
+        }
+        
+        private void bGoStopState()
+        {
+            bGo.Text = "Stop conversion";
+            bGo.Enabled = true;
+        }
+
+        private void bGoStoppingState()
+        {
+            bGo.Text = "Stopping conversion...";
+            bGo.Enabled = false;
+        }
+
         private void bGo_Click(object sender, EventArgs e)
         {
             try
             {
                 if (oThread.IsAlive)
                 {
-                    MessageBox.Show("Current conversion still running. Please wait.");
+                    StopConversion = true;
+                    bGoStoppingState();
                     return;
                 }
             }
@@ -83,7 +104,7 @@ namespace Read4Me
 
             // Thread oThread = new Thread(new ParameterizedThreadStart(doConvert));
             oThread = new Thread(() => this.doConvert(SpeechRate, SpeechVolume, LangID, SpeechVoice, FilePath, artist, album, year));
-            bGo.Enabled = false;
+            bGoStopState();
             oThread.Start();
         }
 
@@ -111,7 +132,7 @@ namespace Read4Me
             catch
             {
                 MessageBox.Show("Error opening files!");
-                bGo.Enabled = true;
+                bGoStartState();
                 return;
             }
 
@@ -147,8 +168,8 @@ namespace Read4Me
                     }
                     catch
                     {
-                        MessageBox.Show("Output directory exists and could not be deleted.");
-                        bGo.Enabled = true;
+                        MessageBox.Show("Could not empty output directory.");
+                        bGoStartState();
                         return;
                     }
                 }
@@ -166,7 +187,7 @@ namespace Read4Me
                 catch
                 {
                     MessageBox.Show("Output directory " + outdir + " could not be created.");
-                    bGo.Enabled = true;
+                    bGoStartState();
                     return;
                 }
             }
@@ -178,13 +199,22 @@ namespace Read4Me
             catch
             {
                 MessageBox.Show("Could not open .xml file for writing.");
-                bGo.Enabled = true;
+                bGoStartState();
                 return;
             }
 
             file_writer.Write("<lang langid=\"" + LangID + "\">");
             while (!file_reader.EndOfStream)
             {
+                if (StopConversion)
+                {
+                    // if conversion aborted
+                    file_writer.Close();
+                    file_reader.Close();
+                    bGoStartState();
+                    return;
+                }
+
                 line = file_reader.ReadLine().Replace("\t", "");
                 line = line.Replace(" ", " "); // replace Non-breaking space 0xA0 with normal space 0x20
 
@@ -257,7 +287,7 @@ namespace Read4Me
                         catch
                         {
                             MessageBox.Show("Could not open .xml file for writing during xml conversion.");
-                            bGo.Enabled = true;
+                            bGoStartState();
                             return;
                         }
 
@@ -284,9 +314,7 @@ namespace Read4Me
                 }
             }
             file_reader.Close();
-            file_reader.Dispose();
             file_writer.Close();
-            file_writer.Dispose();
 
             this.Invoke((MethodInvoker)delegate
             {
@@ -295,7 +323,7 @@ namespace Read4Me
 
             // batch convert xml to mp3
             BatchConvert(outdir, SpeechRate, SpeechVolume, SpeechVoice, artist, album, year);
-            bGo.Enabled = true;
+            bGoStartState();
         }
 
         private bool AllCapitals(string inputString)
@@ -317,13 +345,20 @@ namespace Read4Me
             catch
             {
                 MessageBox.Show("No folder for batch!");
-                bGo.Enabled = true;
+                bGoStartState();
                 return;
             }
 
             int i = 1;
             foreach (string FileName in fileEntries)
             {
+                if (StopConversion)
+                {
+                    // if conversion aborted
+                    bGoStartState();
+                    return;
+                }
+
                 Application.DoEvents();
                 this.Invoke((MethodInvoker)delegate
                 {
@@ -334,6 +369,13 @@ namespace Read4Me
 
                 // convert xml to wav
                 SpeakText(FileName, SpeechRate, SpeechVolume, SpeechVoice);
+
+                if (StopConversion)
+                {
+                    // if conversion aborted
+                    bGoStartState();
+                    return;
+                }
 
                 // prepare id3 tags
                 title = FileName.Replace(folder + "\\", "");

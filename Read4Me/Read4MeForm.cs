@@ -9,7 +9,7 @@ namespace Read4Me
     public partial class Read4MeForm : Form
     {
         // some required members 
-        SpVoice speech_cpRead = new SpVoice();
+        static SpVoice speech_cpRead = new SpVoice();
 
         int SpeechRateGlobal = 4; // Ranges from -10 to 10 
         int VolumeGlobal = 80; // Range from 0 to 100.
