@@ -39,6 +39,11 @@ namespace Read4Me
                 string CurrentVersion = input.ReadLine();
                 input.Close();
 
+                if (CurrentVersion == "0")
+                {
+                    return 2;
+                }
+
                 if (LocalVersion != CurrentVersion)
                 {
                     return 1;                    
