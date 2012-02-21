@@ -30,10 +30,10 @@ namespace Read4Me
             }
         }
 
-        private void ReadClipboard(string langid, string voice, int srate, int volume)
+        private void ReadClipboard(string voice, int srate, int volume)
         {
             string toRead;
-            SpObjectToken voice_sp = speech_cpRead.GetVoices("Name=" + voice, "Language=" + langid).Item(0);
+            SpObjectToken voice_sp = speech_cpRead.GetVoices("Name=" + voice).Item(0);
             PausedGlobal = false;
             toRead = Clipboard.GetText();
 

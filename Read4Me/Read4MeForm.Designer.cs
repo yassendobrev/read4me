@@ -61,16 +61,9 @@ namespace Read4Me
             this.cbSRate2 = new System.Windows.Forms.ComboBox();
             this.cbVolume1 = new System.Windows.Forms.ComboBox();
             this.cbSRate1 = new System.Windows.Forms.ComboBox();
-            this.cbLangid6 = new System.Windows.Forms.ComboBox();
-            this.cbLangid5 = new System.Windows.Forms.ComboBox();
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.cbLangid4 = new System.Windows.Forms.ComboBox();
-            this.cbLangid3 = new System.Windows.Forms.ComboBox();
-            this.cbLangid2 = new System.Windows.Forms.ComboBox();
-            this.cbLangid1 = new System.Windows.Forms.ComboBox();
             this.cbLang3 = new System.Windows.Forms.ComboBox();
             this.cbLang2 = new System.Windows.Forms.ComboBox();
             this.cbLang1 = new System.Windows.Forms.ComboBox();
@@ -154,12 +147,10 @@ namespace Read4Me
             this.gbConvSettings = new System.Windows.Forms.GroupBox();
             this.cbRateBatch = new System.Windows.Forms.ComboBox();
             this.bApplyBatch = new System.Windows.Forms.Button();
-            this.cbLanguageBatch = new System.Windows.Forms.ComboBox();
             this.label20 = new System.Windows.Forms.Label();
             this.cbVolumeBatch = new System.Windows.Forms.ComboBox();
             this.label21 = new System.Windows.Forms.Label();
             this.cbVoiceBatch = new System.Windows.Forms.ComboBox();
-            this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.tabControlMain = new System.Windows.Forms.TabControl();
             this.tbGetVoices = new System.Windows.Forms.TabPage();
@@ -167,6 +158,7 @@ namespace Read4Me
             this.lVoicesDescribe = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.lLinkDiscussion = new System.Windows.Forms.LinkLabel();
+            this.gbSpeakControl = new System.Windows.Forms.GroupBox();
             this.contextMenuStrip1.SuspendLayout();
             this.sStrip.SuspendLayout();
             this.mMainMenuStrip.SuspendLayout();
@@ -183,6 +175,7 @@ namespace Read4Me
             this.gbConvSettings.SuspendLayout();
             this.tabControlMain.SuspendLayout();
             this.tbGetVoices.SuspendLayout();
+            this.gbSpeakControl.SuspendLayout();
             this.SuspendLayout();
             // 
             // mynotifyicon
@@ -221,7 +214,7 @@ namespace Read4Me
             this.sWorkingStatus});
             this.sStrip.Location = new System.Drawing.Point(0, 402);
             this.sStrip.Name = "sStrip";
-            this.sStrip.Size = new System.Drawing.Size(691, 22);
+            this.sStrip.Size = new System.Drawing.Size(544, 22);
             this.sStrip.TabIndex = 19;
             // 
             // sWorkingStatus
@@ -236,7 +229,7 @@ namespace Read4Me
             this.miHelp});
             this.mMainMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.mMainMenuStrip.Name = "mMainMenuStrip";
-            this.mMainMenuStrip.Size = new System.Drawing.Size(691, 24);
+            this.mMainMenuStrip.Size = new System.Drawing.Size(544, 24);
             this.mMainMenuStrip.TabIndex = 49;
             this.mMainMenuStrip.Text = "Main Menu";
             // 
@@ -295,14 +288,14 @@ namespace Read4Me
             this.tbSettings.Controls.Add(this.gbGeneral);
             this.tbSettings.Location = new System.Drawing.Point(4, 22);
             this.tbSettings.Name = "tbSettings";
-            this.tbSettings.Size = new System.Drawing.Size(671, 329);
+            this.tbSettings.Size = new System.Drawing.Size(522, 329);
             this.tbSettings.TabIndex = 2;
             this.tbSettings.Text = "Settings";
             this.tbSettings.UseVisualStyleBackColor = true;
             // 
             // Apply
             // 
-            this.Apply.Location = new System.Drawing.Point(541, 300);
+            this.Apply.Location = new System.Drawing.Point(415, 300);
             this.Apply.Name = "Apply";
             this.Apply.Size = new System.Drawing.Size(94, 23);
             this.Apply.TabIndex = 6;
@@ -327,16 +320,9 @@ namespace Read4Me
             this.gbVoices.Controls.Add(this.cbSRate2);
             this.gbVoices.Controls.Add(this.cbVolume1);
             this.gbVoices.Controls.Add(this.cbSRate1);
-            this.gbVoices.Controls.Add(this.cbLangid6);
-            this.gbVoices.Controls.Add(this.cbLangid5);
             this.gbVoices.Controls.Add(this.label19);
             this.gbVoices.Controls.Add(this.label18);
-            this.gbVoices.Controls.Add(this.label17);
             this.gbVoices.Controls.Add(this.label16);
-            this.gbVoices.Controls.Add(this.cbLangid4);
-            this.gbVoices.Controls.Add(this.cbLangid3);
-            this.gbVoices.Controls.Add(this.cbLangid2);
-            this.gbVoices.Controls.Add(this.cbLangid1);
             this.gbVoices.Controls.Add(this.cbLang3);
             this.gbVoices.Controls.Add(this.cbLang2);
             this.gbVoices.Controls.Add(this.cbLang1);
@@ -366,7 +352,7 @@ namespace Read4Me
             this.gbVoices.Controls.Add(this.lAltlang1);
             this.gbVoices.Location = new System.Drawing.Point(3, 121);
             this.gbVoices.Name = "gbVoices";
-            this.gbVoices.Size = new System.Drawing.Size(645, 173);
+            this.gbVoices.Size = new System.Drawing.Size(506, 173);
             this.gbVoices.TabIndex = 5;
             this.gbVoices.TabStop = false;
             this.gbVoices.Text = "Read clipboard hotkeys";
@@ -375,7 +361,7 @@ namespace Read4Me
             // 
             this.cbLang6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLang6.FormattingEnabled = true;
-            this.cbLang6.Location = new System.Drawing.Point(194, 143);
+            this.cbLang6.Location = new System.Drawing.Point(194, 145);
             this.cbLang6.Name = "cbLang6";
             this.cbLang6.Size = new System.Drawing.Size(201, 21);
             this.cbLang6.TabIndex = 26;
@@ -384,7 +370,7 @@ namespace Read4Me
             // 
             this.cbLang5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLang5.FormattingEnabled = true;
-            this.cbLang5.Location = new System.Drawing.Point(194, 120);
+            this.cbLang5.Location = new System.Drawing.Point(194, 122);
             this.cbLang5.Name = "cbLang5";
             this.cbLang5.Size = new System.Drawing.Size(201, 21);
             this.cbLang5.TabIndex = 26;
@@ -393,7 +379,7 @@ namespace Read4Me
             // 
             this.cbLang4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLang4.FormattingEnabled = true;
-            this.cbLang4.Location = new System.Drawing.Point(194, 97);
+            this.cbLang4.Location = new System.Drawing.Point(194, 99);
             this.cbLang4.Name = "cbLang4";
             this.cbLang4.Size = new System.Drawing.Size(201, 21);
             this.cbLang4.TabIndex = 26;
@@ -402,7 +388,7 @@ namespace Read4Me
             // 
             this.cbVolume6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbVolume6.FormattingEnabled = true;
-            this.cbVolume6.Location = new System.Drawing.Point(588, 143);
+            this.cbVolume6.Location = new System.Drawing.Point(451, 145);
             this.cbVolume6.Name = "cbVolume6";
             this.cbVolume6.Size = new System.Drawing.Size(44, 21);
             this.cbVolume6.TabIndex = 26;
@@ -411,7 +397,7 @@ namespace Read4Me
             // 
             this.cbSRate6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSRate6.FormattingEnabled = true;
-            this.cbSRate6.Location = new System.Drawing.Point(538, 143);
+            this.cbSRate6.Location = new System.Drawing.Point(401, 145);
             this.cbSRate6.Name = "cbSRate6";
             this.cbSRate6.Size = new System.Drawing.Size(44, 21);
             this.cbSRate6.TabIndex = 26;
@@ -420,7 +406,7 @@ namespace Read4Me
             // 
             this.cbVolume5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbVolume5.FormattingEnabled = true;
-            this.cbVolume5.Location = new System.Drawing.Point(588, 120);
+            this.cbVolume5.Location = new System.Drawing.Point(451, 122);
             this.cbVolume5.Name = "cbVolume5";
             this.cbVolume5.Size = new System.Drawing.Size(44, 21);
             this.cbVolume5.TabIndex = 26;
@@ -429,7 +415,7 @@ namespace Read4Me
             // 
             this.cbSRate5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSRate5.FormattingEnabled = true;
-            this.cbSRate5.Location = new System.Drawing.Point(538, 120);
+            this.cbSRate5.Location = new System.Drawing.Point(401, 122);
             this.cbSRate5.Name = "cbSRate5";
             this.cbSRate5.Size = new System.Drawing.Size(44, 21);
             this.cbSRate5.TabIndex = 26;
@@ -438,7 +424,7 @@ namespace Read4Me
             // 
             this.cbVolume4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbVolume4.FormattingEnabled = true;
-            this.cbVolume4.Location = new System.Drawing.Point(588, 97);
+            this.cbVolume4.Location = new System.Drawing.Point(451, 99);
             this.cbVolume4.Name = "cbVolume4";
             this.cbVolume4.Size = new System.Drawing.Size(44, 21);
             this.cbVolume4.TabIndex = 26;
@@ -447,7 +433,7 @@ namespace Read4Me
             // 
             this.cbSRate4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSRate4.FormattingEnabled = true;
-            this.cbSRate4.Location = new System.Drawing.Point(538, 97);
+            this.cbSRate4.Location = new System.Drawing.Point(401, 99);
             this.cbSRate4.Name = "cbSRate4";
             this.cbSRate4.Size = new System.Drawing.Size(44, 21);
             this.cbSRate4.TabIndex = 26;
@@ -456,7 +442,7 @@ namespace Read4Me
             // 
             this.cbVolume3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbVolume3.FormattingEnabled = true;
-            this.cbVolume3.Location = new System.Drawing.Point(588, 74);
+            this.cbVolume3.Location = new System.Drawing.Point(451, 76);
             this.cbVolume3.Name = "cbVolume3";
             this.cbVolume3.Size = new System.Drawing.Size(44, 21);
             this.cbVolume3.TabIndex = 26;
@@ -465,7 +451,7 @@ namespace Read4Me
             // 
             this.cbSRate3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSRate3.FormattingEnabled = true;
-            this.cbSRate3.Location = new System.Drawing.Point(538, 74);
+            this.cbSRate3.Location = new System.Drawing.Point(401, 76);
             this.cbSRate3.Name = "cbSRate3";
             this.cbSRate3.Size = new System.Drawing.Size(44, 21);
             this.cbSRate3.TabIndex = 26;
@@ -474,7 +460,7 @@ namespace Read4Me
             // 
             this.cbVolume2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbVolume2.FormattingEnabled = true;
-            this.cbVolume2.Location = new System.Drawing.Point(588, 51);
+            this.cbVolume2.Location = new System.Drawing.Point(451, 53);
             this.cbVolume2.Name = "cbVolume2";
             this.cbVolume2.Size = new System.Drawing.Size(44, 21);
             this.cbVolume2.TabIndex = 26;
@@ -483,7 +469,7 @@ namespace Read4Me
             // 
             this.cbSRate2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSRate2.FormattingEnabled = true;
-            this.cbSRate2.Location = new System.Drawing.Point(538, 51);
+            this.cbSRate2.Location = new System.Drawing.Point(401, 53);
             this.cbSRate2.Name = "cbSRate2";
             this.cbSRate2.Size = new System.Drawing.Size(44, 21);
             this.cbSRate2.TabIndex = 26;
@@ -492,7 +478,7 @@ namespace Read4Me
             // 
             this.cbVolume1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbVolume1.FormattingEnabled = true;
-            this.cbVolume1.Location = new System.Drawing.Point(588, 28);
+            this.cbVolume1.Location = new System.Drawing.Point(451, 30);
             this.cbVolume1.Name = "cbVolume1";
             this.cbVolume1.Size = new System.Drawing.Size(44, 21);
             this.cbVolume1.TabIndex = 26;
@@ -501,33 +487,15 @@ namespace Read4Me
             // 
             this.cbSRate1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSRate1.FormattingEnabled = true;
-            this.cbSRate1.Location = new System.Drawing.Point(538, 28);
+            this.cbSRate1.Location = new System.Drawing.Point(401, 30);
             this.cbSRate1.Name = "cbSRate1";
             this.cbSRate1.Size = new System.Drawing.Size(44, 21);
             this.cbSRate1.TabIndex = 26;
             // 
-            // cbLangid6
-            // 
-            this.cbLangid6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbLangid6.FormattingEnabled = true;
-            this.cbLangid6.Location = new System.Drawing.Point(401, 143);
-            this.cbLangid6.Name = "cbLangid6";
-            this.cbLangid6.Size = new System.Drawing.Size(131, 21);
-            this.cbLangid6.TabIndex = 26;
-            // 
-            // cbLangid5
-            // 
-            this.cbLangid5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbLangid5.FormattingEnabled = true;
-            this.cbLangid5.Location = new System.Drawing.Point(401, 120);
-            this.cbLangid5.Name = "cbLangid5";
-            this.cbLangid5.Size = new System.Drawing.Size(131, 21);
-            this.cbLangid5.TabIndex = 26;
-            // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(585, 13);
+            this.label19.Location = new System.Drawing.Point(448, 13);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(42, 13);
             this.label19.TabIndex = 1;
@@ -536,20 +504,11 @@ namespace Read4Me
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(535, 13);
+            this.label18.Location = new System.Drawing.Point(398, 13);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(30, 13);
             this.label18.TabIndex = 1;
             this.label18.Text = "Rate";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(398, 13);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(55, 13);
-            this.label17.TabIndex = 1;
-            this.label17.Text = "Language";
             // 
             // label16
             // 
@@ -560,47 +519,11 @@ namespace Read4Me
             this.label16.TabIndex = 1;
             this.label16.Text = "Voice";
             // 
-            // cbLangid4
-            // 
-            this.cbLangid4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbLangid4.FormattingEnabled = true;
-            this.cbLangid4.Location = new System.Drawing.Point(401, 97);
-            this.cbLangid4.Name = "cbLangid4";
-            this.cbLangid4.Size = new System.Drawing.Size(131, 21);
-            this.cbLangid4.TabIndex = 26;
-            // 
-            // cbLangid3
-            // 
-            this.cbLangid3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbLangid3.FormattingEnabled = true;
-            this.cbLangid3.Location = new System.Drawing.Point(401, 75);
-            this.cbLangid3.Name = "cbLangid3";
-            this.cbLangid3.Size = new System.Drawing.Size(131, 21);
-            this.cbLangid3.TabIndex = 26;
-            // 
-            // cbLangid2
-            // 
-            this.cbLangid2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbLangid2.FormattingEnabled = true;
-            this.cbLangid2.Location = new System.Drawing.Point(401, 51);
-            this.cbLangid2.Name = "cbLangid2";
-            this.cbLangid2.Size = new System.Drawing.Size(131, 21);
-            this.cbLangid2.TabIndex = 26;
-            // 
-            // cbLangid1
-            // 
-            this.cbLangid1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbLangid1.FormattingEnabled = true;
-            this.cbLangid1.Location = new System.Drawing.Point(401, 28);
-            this.cbLangid1.Name = "cbLangid1";
-            this.cbLangid1.Size = new System.Drawing.Size(131, 21);
-            this.cbLangid1.TabIndex = 26;
-            // 
             // cbLang3
             // 
             this.cbLang3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLang3.FormattingEnabled = true;
-            this.cbLang3.Location = new System.Drawing.Point(194, 75);
+            this.cbLang3.Location = new System.Drawing.Point(194, 76);
             this.cbLang3.Name = "cbLang3";
             this.cbLang3.Size = new System.Drawing.Size(201, 21);
             this.cbLang3.TabIndex = 26;
@@ -609,7 +532,7 @@ namespace Read4Me
             // 
             this.cbLang2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLang2.FormattingEnabled = true;
-            this.cbLang2.Location = new System.Drawing.Point(194, 52);
+            this.cbLang2.Location = new System.Drawing.Point(194, 53);
             this.cbLang2.Name = "cbLang2";
             this.cbLang2.Size = new System.Drawing.Size(201, 21);
             this.cbLang2.TabIndex = 26;
@@ -618,7 +541,7 @@ namespace Read4Me
             // 
             this.cbLang1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLang1.FormattingEnabled = true;
-            this.cbLang1.Location = new System.Drawing.Point(194, 29);
+            this.cbLang1.Location = new System.Drawing.Point(194, 30);
             this.cbLang1.Name = "cbLang1";
             this.cbLang1.Size = new System.Drawing.Size(201, 21);
             this.cbLang1.TabIndex = 26;
@@ -1070,24 +993,13 @@ namespace Read4Me
             // 
             // tpSpeak
             // 
+            this.tpSpeak.Controls.Add(this.gbSpeakControl);
             this.tpSpeak.Controls.Add(this.tbspeech);
             this.tpSpeak.Controls.Add(this.label1);
-            this.tpSpeak.Controls.Add(this.btnSpeak);
-            this.tpSpeak.Controls.Add(this.label8);
-            this.tpSpeak.Controls.Add(this.label7);
-            this.tpSpeak.Controls.Add(this.cmbVoices);
-            this.tpSpeak.Controls.Add(this.label6);
-            this.tpSpeak.Controls.Add(this.tbarRate);
-            this.tpSpeak.Controls.Add(this.trbVolume);
-            this.tpSpeak.Controls.Add(this.label2);
-            this.tpSpeak.Controls.Add(this.btnPause);
-            this.tpSpeak.Controls.Add(this.label3);
-            this.tpSpeak.Controls.Add(this.label5);
-            this.tpSpeak.Controls.Add(this.label4);
             this.tpSpeak.Location = new System.Drawing.Point(4, 22);
             this.tpSpeak.Name = "tpSpeak";
             this.tpSpeak.Padding = new System.Windows.Forms.Padding(3);
-            this.tpSpeak.Size = new System.Drawing.Size(671, 329);
+            this.tpSpeak.Size = new System.Drawing.Size(522, 329);
             this.tpSpeak.TabIndex = 1;
             this.tpSpeak.Text = "Speak Text";
             this.tpSpeak.UseVisualStyleBackColor = true;
@@ -1097,7 +1009,7 @@ namespace Read4Me
             this.tbspeech.Location = new System.Drawing.Point(6, 25);
             this.tbspeech.Multiline = true;
             this.tbspeech.Name = "tbspeech";
-            this.tbspeech.Size = new System.Drawing.Size(375, 298);
+            this.tbspeech.Size = new System.Drawing.Size(245, 298);
             this.tbspeech.TabIndex = 20;
             // 
             // label1
@@ -1112,7 +1024,7 @@ namespace Read4Me
             // 
             // btnSpeak
             // 
-            this.btnSpeak.Location = new System.Drawing.Point(391, 57);
+            this.btnSpeak.Location = new System.Drawing.Point(6, 187);
             this.btnSpeak.Name = "btnSpeak";
             this.btnSpeak.Size = new System.Drawing.Size(75, 23);
             this.btnSpeak.TabIndex = 22;
@@ -1124,7 +1036,7 @@ namespace Read4Me
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(499, 56);
+            this.label8.Location = new System.Drawing.Point(33, 61);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(52, 13);
             this.label8.TabIndex = 30;
@@ -1133,7 +1045,7 @@ namespace Read4Me
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(492, 154);
+            this.label7.Location = new System.Drawing.Point(26, 159);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(13, 13);
             this.label7.TabIndex = 14;
@@ -1143,16 +1055,16 @@ namespace Read4Me
             // 
             this.cmbVoices.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbVoices.FormattingEnabled = true;
-            this.cmbVoices.Location = new System.Drawing.Point(391, 25);
+            this.cmbVoices.Location = new System.Drawing.Point(6, 36);
             this.cmbVoices.Name = "cmbVoices";
-            this.cmbVoices.Size = new System.Drawing.Size(247, 21);
+            this.cmbVoices.Size = new System.Drawing.Size(156, 21);
             this.cmbVoices.TabIndex = 25;
             this.cmbVoices.SelectedIndexChanged += new System.EventHandler(this.cmbVoices_SelectedIndexChanged);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(477, 72);
+            this.label6.Location = new System.Drawing.Point(11, 77);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(28, 13);
             this.label6.TabIndex = 13;
@@ -1162,7 +1074,7 @@ namespace Read4Me
             // 
             this.tbarRate.BackColor = System.Drawing.Color.White;
             this.tbarRate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.tbarRate.Location = new System.Drawing.Point(593, 72);
+            this.tbarRate.Location = new System.Drawing.Point(127, 77);
             this.tbarRate.Minimum = -10;
             this.tbarRate.Name = "tbarRate";
             this.tbarRate.Orientation = System.Windows.Forms.Orientation.Vertical;
@@ -1175,7 +1087,7 @@ namespace Read4Me
             this.trbVolume.BackColor = System.Drawing.Color.White;
             this.trbVolume.Cursor = System.Windows.Forms.Cursors.Hand;
             this.trbVolume.LargeChange = 20;
-            this.trbVolume.Location = new System.Drawing.Point(511, 72);
+            this.trbVolume.Location = new System.Drawing.Point(45, 77);
             this.trbVolume.Maximum = 100;
             this.trbVolume.Name = "trbVolume";
             this.trbVolume.Orientation = System.Windows.Forms.Orientation.Vertical;
@@ -1188,7 +1100,7 @@ namespace Read4Me
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(565, 78);
+            this.label2.Location = new System.Drawing.Point(99, 83);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(22, 13);
             this.label2.TabIndex = 6;
@@ -1196,7 +1108,7 @@ namespace Read4Me
             // 
             // btnPause
             // 
-            this.btnPause.Location = new System.Drawing.Point(391, 86);
+            this.btnPause.Location = new System.Drawing.Point(87, 187);
             this.btnPause.Name = "btnPause";
             this.btnPause.Size = new System.Drawing.Size(75, 23);
             this.btnPause.TabIndex = 23;
@@ -1207,7 +1119,7 @@ namespace Read4Me
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(562, 153);
+            this.label3.Location = new System.Drawing.Point(96, 158);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(25, 13);
             this.label3.TabIndex = 7;
@@ -1217,7 +1129,7 @@ namespace Read4Me
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(388, 9);
+            this.label5.Location = new System.Drawing.Point(3, 20);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(83, 13);
             this.label5.TabIndex = 29;
@@ -1227,7 +1139,7 @@ namespace Read4Me
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(565, 56);
+            this.label4.Location = new System.Drawing.Point(99, 61);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(38, 13);
             this.label4.TabIndex = 28;
@@ -1407,12 +1319,10 @@ namespace Read4Me
             // 
             this.gbConvSettings.Controls.Add(this.cbRateBatch);
             this.gbConvSettings.Controls.Add(this.bApplyBatch);
-            this.gbConvSettings.Controls.Add(this.cbLanguageBatch);
             this.gbConvSettings.Controls.Add(this.label20);
             this.gbConvSettings.Controls.Add(this.cbVolumeBatch);
             this.gbConvSettings.Controls.Add(this.label21);
             this.gbConvSettings.Controls.Add(this.cbVoiceBatch);
-            this.gbConvSettings.Controls.Add(this.label22);
             this.gbConvSettings.Controls.Add(this.label23);
             this.gbConvSettings.Location = new System.Drawing.Point(6, 205);
             this.gbConvSettings.Name = "gbConvSettings";
@@ -1425,14 +1335,14 @@ namespace Read4Me
             // 
             this.cbRateBatch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbRateBatch.FormattingEnabled = true;
-            this.cbRateBatch.Location = new System.Drawing.Point(356, 39);
+            this.cbRateBatch.Location = new System.Drawing.Point(219, 39);
             this.cbRateBatch.Name = "cbRateBatch";
             this.cbRateBatch.Size = new System.Drawing.Size(44, 21);
             this.cbRateBatch.TabIndex = 47;
             // 
             // bApplyBatch
             // 
-            this.bApplyBatch.Location = new System.Drawing.Point(359, 66);
+            this.bApplyBatch.Location = new System.Drawing.Point(221, 70);
             this.bApplyBatch.Name = "bApplyBatch";
             this.bApplyBatch.Size = new System.Drawing.Size(92, 23);
             this.bApplyBatch.TabIndex = 55;
@@ -1440,19 +1350,10 @@ namespace Read4Me
             this.bApplyBatch.UseVisualStyleBackColor = true;
             this.bApplyBatch.Click += new System.EventHandler(this.bApplyBatch_Click);
             // 
-            // cbLanguageBatch
-            // 
-            this.cbLanguageBatch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbLanguageBatch.FormattingEnabled = true;
-            this.cbLanguageBatch.Location = new System.Drawing.Point(219, 39);
-            this.cbLanguageBatch.Name = "cbLanguageBatch";
-            this.cbLanguageBatch.Size = new System.Drawing.Size(131, 21);
-            this.cbLanguageBatch.TabIndex = 48;
-            // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(408, 23);
+            this.label20.Location = new System.Drawing.Point(266, 23);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(42, 13);
             this.label20.TabIndex = 53;
@@ -1462,7 +1363,7 @@ namespace Read4Me
             // 
             this.cbVolumeBatch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbVolumeBatch.FormattingEnabled = true;
-            this.cbVolumeBatch.Location = new System.Drawing.Point(406, 39);
+            this.cbVolumeBatch.Location = new System.Drawing.Point(269, 39);
             this.cbVolumeBatch.Name = "cbVolumeBatch";
             this.cbVolumeBatch.Size = new System.Drawing.Size(44, 21);
             this.cbVolumeBatch.TabIndex = 50;
@@ -1470,7 +1371,7 @@ namespace Read4Me
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(356, 23);
+            this.label21.Location = new System.Drawing.Point(216, 23);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(30, 13);
             this.label21.TabIndex = 54;
@@ -1484,15 +1385,6 @@ namespace Read4Me
             this.cbVoiceBatch.Name = "cbVoiceBatch";
             this.cbVoiceBatch.Size = new System.Drawing.Size(201, 21);
             this.cbVoiceBatch.TabIndex = 49;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(216, 23);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(55, 13);
-            this.label22.TabIndex = 51;
-            this.label22.Text = "Language";
             // 
             // label23
             // 
@@ -1512,7 +1404,7 @@ namespace Read4Me
             this.tabControlMain.Location = new System.Drawing.Point(9, 40);
             this.tabControlMain.Name = "tabControlMain";
             this.tabControlMain.SelectedIndex = 0;
-            this.tabControlMain.Size = new System.Drawing.Size(679, 355);
+            this.tabControlMain.Size = new System.Drawing.Size(530, 355);
             this.tabControlMain.TabIndex = 48;
             // 
             // tbGetVoices
@@ -1521,7 +1413,7 @@ namespace Read4Me
             this.tbGetVoices.Controls.Add(this.lVoicesDescribe);
             this.tbGetVoices.Location = new System.Drawing.Point(4, 22);
             this.tbGetVoices.Name = "tbGetVoices";
-            this.tbGetVoices.Size = new System.Drawing.Size(671, 329);
+            this.tbGetVoices.Size = new System.Drawing.Size(522, 329);
             this.tbGetVoices.TabIndex = 3;
             this.tbGetVoices.Text = "Get Voices";
             this.tbGetVoices.UseVisualStyleBackColor = true;
@@ -1566,11 +1458,32 @@ namespace Read4Me
             this.lLinkDiscussion.Text = "https://sourceforge.net/p/read4mecbr/discussion/";
             this.lLinkDiscussion.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lLinkDiscussion_LinkClicked);
             // 
+            // gbSpeakControl
+            // 
+            this.gbSpeakControl.Controls.Add(this.cmbVoices);
+            this.gbSpeakControl.Controls.Add(this.label4);
+            this.gbSpeakControl.Controls.Add(this.label5);
+            this.gbSpeakControl.Controls.Add(this.btnSpeak);
+            this.gbSpeakControl.Controls.Add(this.label3);
+            this.gbSpeakControl.Controls.Add(this.label8);
+            this.gbSpeakControl.Controls.Add(this.btnPause);
+            this.gbSpeakControl.Controls.Add(this.label7);
+            this.gbSpeakControl.Controls.Add(this.label2);
+            this.gbSpeakControl.Controls.Add(this.trbVolume);
+            this.gbSpeakControl.Controls.Add(this.label6);
+            this.gbSpeakControl.Controls.Add(this.tbarRate);
+            this.gbSpeakControl.Location = new System.Drawing.Point(282, 25);
+            this.gbSpeakControl.Name = "gbSpeakControl";
+            this.gbSpeakControl.Size = new System.Drawing.Size(174, 218);
+            this.gbSpeakControl.TabIndex = 31;
+            this.gbSpeakControl.TabStop = false;
+            this.gbSpeakControl.Text = "Settings";
+            // 
             // Read4MeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(691, 424);
+            this.ClientSize = new System.Drawing.Size(544, 424);
             this.Controls.Add(this.label24);
             this.Controls.Add(this.lLinkDiscussion);
             this.Controls.Add(this.sStrip);
@@ -1609,6 +1522,8 @@ namespace Read4Me
             this.tabControlMain.ResumeLayout(false);
             this.tbGetVoices.ResumeLayout(false);
             this.tbGetVoices.PerformLayout();
+            this.gbSpeakControl.ResumeLayout(false);
+            this.gbSpeakControl.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1645,16 +1560,9 @@ namespace Read4Me
         private System.Windows.Forms.ComboBox cbSRate2;
         private System.Windows.Forms.ComboBox cbVolume1;
         private System.Windows.Forms.ComboBox cbSRate1;
-        private System.Windows.Forms.ComboBox cbLangid6;
-        private System.Windows.Forms.ComboBox cbLangid5;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.ComboBox cbLangid4;
-        private System.Windows.Forms.ComboBox cbLangid3;
-        private System.Windows.Forms.ComboBox cbLangid2;
-        private System.Windows.Forms.ComboBox cbLangid1;
         private System.Windows.Forms.ComboBox cbLang3;
         private System.Windows.Forms.ComboBox cbLang2;
         private System.Windows.Forms.ComboBox cbLang1;
@@ -1735,12 +1643,10 @@ namespace Read4Me
         private System.Windows.Forms.GroupBox gbConvSettings;
         private System.Windows.Forms.ComboBox cbRateBatch;
         private System.Windows.Forms.Button bApplyBatch;
-        private System.Windows.Forms.ComboBox cbLanguageBatch;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.ComboBox cbVolumeBatch;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.ComboBox cbVoiceBatch;
-        private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.TabControl tabControlMain;
         private System.Windows.Forms.TabPage tbGetVoices;
@@ -1753,6 +1659,7 @@ namespace Read4Me
         private System.Windows.Forms.CheckBox cbCaptialLetters;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.LinkLabel lLinkDiscussion;
+        private System.Windows.Forms.GroupBox gbSpeakControl;
     }
 }
 

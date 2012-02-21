@@ -67,7 +67,6 @@ namespace Read4Me
 
             int SpeechRate;
             int SpeechVolume;
-            string LangID;
             SpObjectToken SpeechVoice;
             string FilePath;
             string artist;
@@ -78,7 +77,6 @@ namespace Read4Me
             {
                 SpeechRate = Int16.Parse(cbRateBatch.SelectedItem.ToString());
                 SpeechVolume = Int16.Parse(cbVolumeBatch.SelectedItem.ToString());
-                LangID = (string)langids[cbLanguageBatch.SelectedItem.ToString()];
                 SpeechVoice = speech_cpRead.GetVoices(string.Empty, string.Empty).Item(cbVoiceBatch.SelectedIndex);
                 FilePath = tbSource.Text;
             }
@@ -103,12 +101,12 @@ namespace Read4Me
             }
 
             // Thread oThread = new Thread(new ParameterizedThreadStart(doConvert));
-            oThread = new Thread(() => this.doConvert(SpeechRate, SpeechVolume, LangID, SpeechVoice, FilePath, artist, album, year));
+            oThread = new Thread(() => this.doConvert(SpeechRate, SpeechVolume, SpeechVoice, FilePath, artist, album, year));
             bGoStopState();
             oThread.Start();
         }
 
-        private void doConvert(int SpeechRate, int SpeechVolume, string LangID, SpObjectToken SpeechVoice, string FilePath, string artist, string album, string year)
+        private void doConvert(int SpeechRate, int SpeechVolume, SpObjectToken SpeechVoice, string FilePath, string artist, string album, string year)
         {
             string outdir;
             int filename = 1;

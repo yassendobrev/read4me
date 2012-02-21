@@ -11,7 +11,6 @@ namespace Read4Me
     partial class Read4MeForm
     {
         List<ComboBox> comboboxes_voice = new List<ComboBox>();
-        List<ComboBox> comboboxes_lang = new List<ComboBox>();
         List<ComboBox> comboboxes_srate = new List<ComboBox>();
         List<ComboBox> comboboxes_volume = new List<ComboBox>();
         List<CheckBox> checkboxes_ctrl_lang = new List<CheckBox>();
@@ -55,13 +54,6 @@ namespace Read4Me
             textboxes_lang.Add(tbHKlang5);
             textboxes_lang.Add(tbHKlang6);
 
-            comboboxes_lang.Add(cbLangid1);
-            comboboxes_lang.Add(cbLangid2);
-            comboboxes_lang.Add(cbLangid3);
-            comboboxes_lang.Add(cbLangid4);
-            comboboxes_lang.Add(cbLangid5);
-            comboboxes_lang.Add(cbLangid6);
-
             comboboxes_srate.Add(cbSRate1);
             comboboxes_srate.Add(cbSRate2);
             comboboxes_srate.Add(cbSRate3);
@@ -85,8 +77,6 @@ namespace Read4Me
             bool ctrl;
             bool winkey;
             bool alt;
-            string lang;
-            string langid;
             string voice;
             char key;
             int lang_num = 0;
@@ -118,8 +108,8 @@ namespace Read4Me
                                 {
                                     key = '\0';
                                 }
-                                SetViewSettings(type, ctrl, winkey, alt, key, "", "", 0, 0, 0, false, false);
-                                RegisterHotkey(type, ctrl, winkey, alt, key, "", "", 0, 0);
+                                SetViewSettings(type, ctrl, winkey, alt, key, "", 0, 0, 0, false, false);
+                                RegisterHotkey(type, ctrl, winkey, alt, key, "", 0, 0);
                                 break;
 
                             case "hotkey_speech":
@@ -135,8 +125,6 @@ namespace Read4Me
                                 {
                                     key = '\0';
                                 }
-                                lang = reader["lang"];
-                                langid = (string)langids[lang];
                                 voice = reader["voice"];
                                 if (reader["srate"] != "")
                                 {
@@ -154,15 +142,13 @@ namespace Read4Me
                                 {
                                     volume = int.MinValue;
                                 }
-                                SetViewSettings(type, ctrl, winkey, alt, key, lang, voice, lang_num, srate, volume, false, false);
-                                RegisterHotkey(type, ctrl, winkey, alt, key, langid, voice, srate, volume);
+                                SetViewSettings(type, ctrl, winkey, alt, key, voice, lang_num, srate, volume, false, false);
+                                RegisterHotkey(type, ctrl, winkey, alt, key, voice, srate, volume);
                                 lang_num++;
                                 break;
 
                             case "batch_settings":
                                 type = reader["type"];
-                                lang = reader["lang"];
-                                langid = (string)langids[lang];
                                 voice = reader["voice"];
                                 if (reader["srate"] != "")
                                 {
@@ -180,13 +166,13 @@ namespace Read4Me
                                 {
                                     volume = int.MinValue;
                                 }
-                                SetViewSettings(type, false, false, false, '\0', lang, voice, 0, srate, volume, false, false);
+                                SetViewSettings(type, false, false, false, '\0', voice, 0, srate, volume, false, false);
                                 lang_num++;
                                 break;
 
                             case "other_settings":
                                 type = reader["type"];
-                                SetViewSettings(type, false, false, false, '\0', "", "", 0, 0, 0, false, false);
+                                SetViewSettings(type, false, false, false, '\0', "", 0, 0, 0, false, false);
                                 break;
 
                             default:
@@ -202,7 +188,7 @@ namespace Read4Me
             }
         }
 
-        private void SetViewSettings(string type, bool ctrl, bool winkey, bool alt, char key, string lang, string voice, int lang_num, int srate, int volume, bool silence, bool silence_batch)
+        private void SetViewSettings(string type, bool ctrl, bool winkey, bool alt, char key, string voice, int lang_num, int srate, int volume, bool silence, bool silence_batch)
         {
             switch (type)
             {
@@ -275,14 +261,12 @@ namespace Read4Me
                         textboxes_lang[lang_num].Text = key.ToString();
                     }
                     comboboxes_voice[lang_num].SelectedIndex = cbLang1.FindStringExact(voice);
-                    comboboxes_lang[lang_num].SelectedIndex = cbLangid1.FindStringExact(lang);
                     comboboxes_srate[lang_num].SelectedIndex = cbSRate1.FindStringExact(srate.ToString());
                     comboboxes_volume[lang_num].SelectedIndex = cbVolume1.FindStringExact(volume.ToString());
                     break;
 
                 case "batch_settings":
                     cbVoiceBatch.SelectedIndex = cbVoiceBatch.FindStringExact(voice);
-                    cbLanguageBatch.SelectedIndex = cbLanguageBatch.FindStringExact(lang);
                     cbRateBatch.SelectedIndex = cbRateBatch.FindStringExact(srate.ToString());
                     cbVolumeBatch.SelectedIndex = cbVolumeBatch.FindStringExact(volume.ToString());
                     break;
@@ -298,12 +282,11 @@ namespace Read4Me
         List<Hotkey> hotkeys = new List<Hotkey>();
         List<Keys> keycodes = new List<Keys>();
         List<Action> actions = new List<Action>();
-        private bool RegisterHotkey(string type, bool ctrl, bool winkey, bool alt, char key, string langid, string voice, int srate, int volume)
+        private bool RegisterHotkey(string type, bool ctrl, bool winkey, bool alt, char key, string voice, int srate, int volume)
         {
             // register hotkeys
             // http://bloggablea.wordpress.com/2007/05/01/global-hotkeys-with-net/
 
-            // langid: http://www.usb.org/developers/docs/USB_LANGIDs.pdf
             hotkeys.Add(new Hotkey());
             int current_hotkey = hotkeys.Count - 1;
             hotkeys[current_hotkey].Control = ctrl;
@@ -332,7 +315,7 @@ namespace Read4Me
                     break;
 
                 case "speech":
-                    todo_action = () => ReadClipboard(langid, voice, srate, volume);
+                    todo_action = () => ReadClipboard(voice, srate, volume);
                     break;
             }
             hotkeys[current_hotkey].Pressed += delegate { todo_action(); };
@@ -384,12 +367,9 @@ namespace Read4Me
             file_writer.Write("    <hotkey_general type=\"next_sentence\" ctrl=\"" + (lCtrl3.Checked ? "1" : "0") + "\" winkey=\"" + (lWinKey3.Checked ? "1" : "0") + "\" alt=\"" + (lAlt3.Checked ? "1" : "0") + "\" key=\"" + tbHK3.Text + "\"></hotkey_general>\r\n");
             for (int i = 0; i < comboboxes_voice.Count; i++)
             {
-                // if ((textboxes_lang[i].Text != "") && ((string)comboboxes_lang[i].SelectedItem != "" && ((string)comboboxes_voice[i].SelectedItem != "")))
-                // {
-                    file_writer.Write("    <hotkey_speech type=\"speech\" ctrl=\"" + (checkboxes_ctrl_lang[i].Checked ? "1" : "0") + "\" winkey=\"" + (checkboxes_winkey_lang[i].Checked ? "1" : "0") + "\" alt=\"" + (checkboxes_alt_lang[i].Checked ? "1" : "0") + "\" key=\"" + textboxes_lang[i].Text + "\" lang=\"" + comboboxes_lang[i].SelectedItem + "\" voice=\"" + comboboxes_voice[i].SelectedItem + "\" srate=\"" + comboboxes_srate[i].SelectedItem + "\" volume=\"" + comboboxes_volume[i].SelectedItem + "\"></hotkey_speech>\r\n");
-                // }
+                file_writer.Write("    <hotkey_speech type=\"speech\" ctrl=\"" + (checkboxes_ctrl_lang[i].Checked ? "1" : "0") + "\" winkey=\"" + (checkboxes_winkey_lang[i].Checked ? "1" : "0") + "\" alt=\"" + (checkboxes_alt_lang[i].Checked ? "1" : "0") + "\" key=\"" + textboxes_lang[i].Text + "\" voice=\"" + comboboxes_voice[i].SelectedItem + "\" srate=\"" + comboboxes_srate[i].SelectedItem + "\" volume=\"" + comboboxes_volume[i].SelectedItem + "\"></hotkey_speech>\r\n");
             }
-            file_writer.Write("    <batch_settings type=\"batch_settings\" lang=\"" + cbLanguageBatch.SelectedItem + "\" voice=\"" + cbVoiceBatch.SelectedItem + "\" srate=\"" + cbRateBatch.SelectedItem + "\" volume=\"" + cbVolumeBatch.SelectedItem + "\"></batch_settings>\r\n");
+            file_writer.Write("    <batch_settings type=\"batch_settings\" voice=\"" + cbVoiceBatch.SelectedItem + "\" srate=\"" + cbRateBatch.SelectedItem + "\" volume=\"" + cbVolumeBatch.SelectedItem + "\"></batch_settings>\r\n");
             file_writer.Write("</settings>\r\n");
             file_writer.Close();
             file_writer.Dispose();
@@ -399,160 +379,6 @@ namespace Read4Me
 
         private void InitComboboxes()
         {
-            langids.Add("Afrikaans", "436");
-            langids.Add("Albanian", "41c");
-            langids.Add("Arabic (Saudi Arabia)", "401");
-            langids.Add("Arabic (Iraq)", "801");
-            langids.Add("Arabic (Egypt)", "c01");
-            langids.Add("Arabic (Libya)", "1001");
-            langids.Add("Arabic (Algeria)", "1401");
-            langids.Add("Arabic (Morocco)", "1801");
-            langids.Add("Arabic (Tunisia)", "1c01");
-            langids.Add("Arabic (Oman)", "2001");
-            langids.Add("Arabic (Yemen)", "2401");
-            langids.Add("Arabic (Syria)", "2801");
-            langids.Add("Arabic (Jordan)", "2c01");
-            langids.Add("Arabic (Lebanon)", "3001");
-            langids.Add("Arabic (Kuwait)", "3401");
-            langids.Add("Arabic (U.A.E.)", "3801");
-            langids.Add("Arabic (Bahrain)", "3c01");
-            langids.Add("Arabic (Qatar)", "4001");
-            langids.Add("Armenian", "42b");
-            langids.Add("Assamese", "44d");
-            langids.Add("Azeri (Latin)", "42c");
-            langids.Add("Azeri (Cyrillic)", "82c");
-            langids.Add("Basque", "42d");
-            langids.Add("Belarussian", "423");
-            langids.Add("Bengali", "445");
-            langids.Add("Bulgarian", "402");
-            langids.Add("Burmese", "455");
-            langids.Add("Catalan", "403");
-            langids.Add("Chinese (Taiwan)", "404");
-            langids.Add("Chinese (PRC)", "804");
-            langids.Add("Chinese (Hong Kong SAR, PRC)", "c04");
-            langids.Add("Chinese (Singapore)5", "1004");
-            langids.Add("Chinese (Macau SAR)", "1404");
-            langids.Add("Croatian", "41a");
-            langids.Add("Czech", "405");
-            langids.Add("Danish", "406");
-            langids.Add("Dutch (Netherlands)", "413");
-            langids.Add("Dutch (Belgium)", "813");
-            langids.Add("English (United States)", "409");
-            langids.Add("English (United Kingdom)", "809");
-            langids.Add("English (Australian)", "c09");
-            langids.Add("English (Canadian)", "1009");
-            langids.Add("English (New Zealand)", "1409");
-            langids.Add("English (Ireland)", "1809");
-            langids.Add("English (South Africa)", "1c09");
-            langids.Add("English (Jamaica)", "2009");
-            langids.Add("English (Caribbean)", "2409");
-            langids.Add("English (Belize)", "2809");
-            langids.Add("English (Trinidad)", "2c09");
-            langids.Add("English (Zimbabwe)", "3009");
-            langids.Add("English (Philippines)", "3409");
-            langids.Add("Estonian", "425");
-            langids.Add("Faeroese", "438");
-            langids.Add("Farsi", "429");
-            langids.Add("Finnish", "40b");
-            langids.Add("French (Standard)", "40c");
-            langids.Add("French (Belgian)", "80c");
-            langids.Add("French (Canadian)", "c0c");
-            langids.Add("French (Switzerland)", "100c");
-            langids.Add("French (Luxembourg)", "140c");
-            langids.Add("French (Monaco)", "180c");
-            langids.Add("Georgian", "437");
-            langids.Add("German (Standard)", "407");
-            langids.Add("German (Switzerland)", "807");
-            langids.Add("German (Austria)", "c07");
-            langids.Add("German (Luxembourg)", "1007");
-            langids.Add("German (Liechtenstein)", "1407");
-            langids.Add("Greek", "408");
-            langids.Add("Gujarati", "447");
-            langids.Add("Hebrew", "40d");
-            langids.Add("Hindi", "439");
-            langids.Add("Hungarian", "40e");
-            langids.Add("Icelandic", "40f");
-            langids.Add("Indonesian", "421");
-            langids.Add("Italian (Standard)", "410");
-            langids.Add("Italian (Switzerland)", "810");
-            langids.Add("Japanese", "411");
-            langids.Add("Kannada", "44b");
-            langids.Add("Kashmiri (India)", "860");
-            langids.Add("Kazakh", "43f");
-            langids.Add("Konkani", "457");
-            langids.Add("Korean", "412");
-            langids.Add("Korean (Johab)", "812");
-            langids.Add("Latvian", "426");
-            langids.Add("Lithuanian", "427");
-            langids.Add("Lithuanian (Classic)", "827");
-            langids.Add("Macedonian6", "42f");
-            langids.Add("Malay (Malaysian)", "43e");
-            langids.Add("Malay (Brunei Darussalam)", "83e");
-            langids.Add("Malayalam", "44c");
-            langids.Add("Manipuri", "458");
-            langids.Add("Marathi", "44e");
-            langids.Add("Nepali (India)", "861");
-            langids.Add("Norwegian (Bokmal)", "414");
-            langids.Add("Norwegian (Nynorsk)", "814");
-            langids.Add("Oriya", "448");
-            langids.Add("Polish", "415");
-            langids.Add("Portuguese (Brazil)", "416");
-            langids.Add("Portuguese (Standard)", "816");
-            langids.Add("Punjabi", "446");
-            langids.Add("Romanian", "418");
-            langids.Add("Russian", "419");
-            langids.Add("Sanskrit", "44f");
-            langids.Add("Serbian (Cyrillic)", "c1a");
-            langids.Add("Serbian (Latin)", "81a");
-            langids.Add("Sindhi", "459");
-            langids.Add("Slovak", "41b");
-            langids.Add("Slovenian", "424");
-            langids.Add("Spanish (Traditional Sort)", "40a");
-            langids.Add("Spanish (Mexican)", "80a");
-            langids.Add("Spanish (Modern Sort)", "c0a");
-            langids.Add("Spanish (Guatemala)", "100a");
-            langids.Add("Spanish (Costa Rica)", "140a");
-            langids.Add("Spanish (Panama)", "180a");
-            langids.Add("Spanish (Dominican Republic)", "1c0a");
-            langids.Add("Spanish (Venezuela)", "200a");
-            langids.Add("Spanish (Colombia)", "240a");
-            langids.Add("Spanish (Peru)", "280a");
-            langids.Add("Spanish (Argentina)", "2c0a");
-            langids.Add("Spanish (Ecuador)", "300a");
-            langids.Add("Spanish (Chile)", "340a");
-            langids.Add("Spanish (Uruguay)", "380a");
-            langids.Add("Spanish (Paraguay)", "3c0a");
-            langids.Add("Spanish (Bolivia)", "400a");
-            langids.Add("Spanish (El Salvador)", "440a");
-            langids.Add("Spanish (Honduras)", "480a");
-            langids.Add("Spanish (Nicaragua)", "4c0a");
-            langids.Add("Spanish (Puerto Rico)", "500a");
-            langids.Add("Sutu", "430");
-            langids.Add("Swahili (Kenya)", "441");
-            langids.Add("Swedish", "41d");
-            langids.Add("Swedish (Finland)", "81d");
-            langids.Add("Tamil", "449");
-            langids.Add("Tatar (Tatarstan)", "444");
-            langids.Add("Telugu", "44a");
-            langids.Add("Thai", "41e");
-            langids.Add("Turkish", "41f");
-            langids.Add("Ukrainian", "422");
-            langids.Add("Urdu (Pakistan)", "420");
-            langids.Add("Urdu (India)", "820");
-            langids.Add("Uzbek (Latin)", "443");
-            langids.Add("Uzbek (Cyrillic)", "843");
-            langids.Add("Vietnamese", "42a");
-
-            for (int i = 0; i < comboboxes_lang.Count; i++)
-            {
-                foreach (DictionaryEntry entry in langids)
-                {
-                    comboboxes_lang[i].Items.Add(entry.Key);
-                    if (i == 0)
-                        cbLanguageBatch.Items.Add(entry.Key);
-                }
-            }
-
             for (int i = 0; i < comboboxes_srate.Count; i++)
             {
                 for (int j = -10; j <= 10; j++)
