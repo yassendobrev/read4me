@@ -10,63 +10,63 @@ namespace Read4Me
 {
     partial class Read4MeForm
     {
-        List<ComboBox> comboboxes_voice = new List<ComboBox>();
-        List<ComboBox> comboboxes_srate = new List<ComboBox>();
-        List<ComboBox> comboboxes_volume = new List<ComboBox>();
-        List<CheckBox> checkboxes_ctrl_lang = new List<CheckBox>();
-        List<CheckBox> checkboxes_winkey_lang = new List<CheckBox>();
-        List<CheckBox> checkboxes_alt_lang = new List<CheckBox>();
-        List<TextBox> textboxes_lang = new List<TextBox>();
+        List<ComboBox> ComboboxesVoiceCB = new List<ComboBox>();
+        List<ComboBox> ComboboxesRateCB = new List<ComboBox>();
+        List<ComboBox> ComboboxesVolumeCB = new List<ComboBox>();
+        List<CheckBox> CheckboxesCtrlCB = new List<CheckBox>();
+        List<CheckBox> CheckboxesWinkeyCB = new List<CheckBox>();
+        List<CheckBox> CheckboxesAltCB = new List<CheckBox>();
+        List<TextBox> TextboxesHotkeyCB = new List<TextBox>();
         private void init_lists()
         {
-            comboboxes_voice.Add(cbLang1);
-            comboboxes_voice.Add(cbLang2);
-            comboboxes_voice.Add(cbLang3);
-            comboboxes_voice.Add(cbLang4);
-            comboboxes_voice.Add(cbLang5);
-            comboboxes_voice.Add(cbLang6);
+            ComboboxesVoiceCB.Add(cbLang1);
+            ComboboxesVoiceCB.Add(cbLang2);
+            ComboboxesVoiceCB.Add(cbLang3);
+            ComboboxesVoiceCB.Add(cbLang4);
+            ComboboxesVoiceCB.Add(cbLang5);
+            ComboboxesVoiceCB.Add(cbLang6);
 
-            checkboxes_ctrl_lang.Add(lCtrllang1);
-            checkboxes_ctrl_lang.Add(lCtrllang2);
-            checkboxes_ctrl_lang.Add(lCtrllang3);
-            checkboxes_ctrl_lang.Add(lCtrllang4);
-            checkboxes_ctrl_lang.Add(lCtrllang5);
-            checkboxes_ctrl_lang.Add(lCtrllang6);
+            CheckboxesCtrlCB.Add(lCtrllang1);
+            CheckboxesCtrlCB.Add(lCtrllang2);
+            CheckboxesCtrlCB.Add(lCtrllang3);
+            CheckboxesCtrlCB.Add(lCtrllang4);
+            CheckboxesCtrlCB.Add(lCtrllang5);
+            CheckboxesCtrlCB.Add(lCtrllang6);
 
-            checkboxes_winkey_lang.Add(lWinKeylang1);
-            checkboxes_winkey_lang.Add(lWinKeylang2);
-            checkboxes_winkey_lang.Add(lWinKeylang3);
-            checkboxes_winkey_lang.Add(lWinKeylang4);
-            checkboxes_winkey_lang.Add(lWinKeylang5);
-            checkboxes_winkey_lang.Add(lWinKeylang6);
+            CheckboxesWinkeyCB.Add(lWinKeylang1);
+            CheckboxesWinkeyCB.Add(lWinKeylang2);
+            CheckboxesWinkeyCB.Add(lWinKeylang3);
+            CheckboxesWinkeyCB.Add(lWinKeylang4);
+            CheckboxesWinkeyCB.Add(lWinKeylang5);
+            CheckboxesWinkeyCB.Add(lWinKeylang6);
 
-            checkboxes_alt_lang.Add(lAltlang1);
-            checkboxes_alt_lang.Add(lAltlang2);
-            checkboxes_alt_lang.Add(lAltlang3);
-            checkboxes_alt_lang.Add(lAltlang4);
-            checkboxes_alt_lang.Add(lAltlang5);
-            checkboxes_alt_lang.Add(lAltlang6);
+            CheckboxesAltCB.Add(lAltlang1);
+            CheckboxesAltCB.Add(lAltlang2);
+            CheckboxesAltCB.Add(lAltlang3);
+            CheckboxesAltCB.Add(lAltlang4);
+            CheckboxesAltCB.Add(lAltlang5);
+            CheckboxesAltCB.Add(lAltlang6);
 
-            textboxes_lang.Add(tbHKlang1);
-            textboxes_lang.Add(tbHKlang2);
-            textboxes_lang.Add(tbHKlang3);
-            textboxes_lang.Add(tbHKlang4);
-            textboxes_lang.Add(tbHKlang5);
-            textboxes_lang.Add(tbHKlang6);
+            TextboxesHotkeyCB.Add(tbHKlang1);
+            TextboxesHotkeyCB.Add(tbHKlang2);
+            TextboxesHotkeyCB.Add(tbHKlang3);
+            TextboxesHotkeyCB.Add(tbHKlang4);
+            TextboxesHotkeyCB.Add(tbHKlang5);
+            TextboxesHotkeyCB.Add(tbHKlang6);
 
-            comboboxes_srate.Add(cbSRate1);
-            comboboxes_srate.Add(cbSRate2);
-            comboboxes_srate.Add(cbSRate3);
-            comboboxes_srate.Add(cbSRate4);
-            comboboxes_srate.Add(cbSRate5);
-            comboboxes_srate.Add(cbSRate6);
+            ComboboxesRateCB.Add(cbSRate1);
+            ComboboxesRateCB.Add(cbSRate2);
+            ComboboxesRateCB.Add(cbSRate3);
+            ComboboxesRateCB.Add(cbSRate4);
+            ComboboxesRateCB.Add(cbSRate5);
+            ComboboxesRateCB.Add(cbSRate6);
 
-            comboboxes_volume.Add(cbVolume1);
-            comboboxes_volume.Add(cbVolume2);
-            comboboxes_volume.Add(cbVolume3);
-            comboboxes_volume.Add(cbVolume4);
-            comboboxes_volume.Add(cbVolume5);
-            comboboxes_volume.Add(cbVolume6);
+            ComboboxesVolumeCB.Add(cbVolume1);
+            ComboboxesVolumeCB.Add(cbVolume2);
+            ComboboxesVolumeCB.Add(cbVolume3);
+            ComboboxesVolumeCB.Add(cbVolume4);
+            ComboboxesVolumeCB.Add(cbVolume5);
+            ComboboxesVolumeCB.Add(cbVolume6);
 
             InitComboboxes();
         }
@@ -249,20 +249,20 @@ namespace Read4Me
                     break;
 
                 case "speech":
-                    checkboxes_ctrl_lang[lang_num].Checked = ctrl;
-                    checkboxes_winkey_lang[lang_num].Checked = winkey;
-                    checkboxes_alt_lang[lang_num].Checked = alt;
+                    CheckboxesCtrlCB[lang_num].Checked = ctrl;
+                    CheckboxesWinkeyCB[lang_num].Checked = winkey;
+                    CheckboxesAltCB[lang_num].Checked = alt;
                     if (key == '\0')
                     {
-                        textboxes_lang[lang_num].Text = "";
+                        TextboxesHotkeyCB[lang_num].Text = "";
                     }
                     else
                     {
-                        textboxes_lang[lang_num].Text = key.ToString();
+                        TextboxesHotkeyCB[lang_num].Text = key.ToString();
                     }
-                    comboboxes_voice[lang_num].SelectedIndex = cbLang1.FindStringExact(voice);
-                    comboboxes_srate[lang_num].SelectedIndex = cbSRate1.FindStringExact(srate.ToString());
-                    comboboxes_volume[lang_num].SelectedIndex = cbVolume1.FindStringExact(volume.ToString());
+                    ComboboxesVoiceCB[lang_num].SelectedIndex = cbLang1.FindStringExact(voice);
+                    ComboboxesRateCB[lang_num].SelectedIndex = cbSRate1.FindStringExact(srate.ToString());
+                    ComboboxesVolumeCB[lang_num].SelectedIndex = cbVolume1.FindStringExact(volume.ToString());
                     break;
 
                 case "batch_settings":
@@ -350,50 +350,50 @@ namespace Read4Me
 
         private void WriteSettings()
         {
-            StreamWriter file_writer;
+            StreamWriter FileWriter;
             try
             {
-                file_writer = new StreamWriter(Path.GetDirectoryName(Application.ExecutablePath) + "\\Read4Me.ini", false, Encoding.UTF8);
+                FileWriter = new StreamWriter(Path.GetDirectoryName(Application.ExecutablePath) + "\\Read4Me.ini", false, Encoding.UTF8);
             }
             catch
             {
                 return;
             }
-            file_writer.Write("<?xml version=\"1.0\" encoding=\"utf-8\" ?>\r\n");
-            file_writer.Write("<settings>\r\n");
-            file_writer.Write("    <hotkey_general type=\"show_hide\" ctrl=\"" + (lCtrl0.Checked ? "1" : "0") + "\" winkey=\"" + (lWinKey0.Checked ? "1" : "0") + "\" alt=\"" + (lAlt0.Checked ? "1" : "0") + "\" key=\"" + tbHK0.Text + "\"></hotkey_general>\r\n");
-            file_writer.Write("    <hotkey_general type=\"pause_resume\" ctrl=\"" + (lCtrl1.Checked ? "1" : "0") + "\" winkey=\"" + (lWinKey1.Checked ? "1" : "0") + "\" alt=\"" + (lAlt1.Checked ? "1" : "0") + "\" key=\"" + tbHK1.Text + "\"></hotkey_general>\r\n");
-            file_writer.Write("    <hotkey_general type=\"previous_sentence\" ctrl=\"" + (lCtrl2.Checked ? "1" : "0") + "\" winkey=\"" + (lWinKey2.Checked ? "1" : "0") + "\" alt=\"" + (lAlt2.Checked ? "1" : "0") + "\" key=\"" + tbHK2.Text + "\"></hotkey_general>\r\n");
-            file_writer.Write("    <hotkey_general type=\"next_sentence\" ctrl=\"" + (lCtrl3.Checked ? "1" : "0") + "\" winkey=\"" + (lWinKey3.Checked ? "1" : "0") + "\" alt=\"" + (lAlt3.Checked ? "1" : "0") + "\" key=\"" + tbHK3.Text + "\"></hotkey_general>\r\n");
-            for (int i = 0; i < comboboxes_voice.Count; i++)
+            FileWriter.Write("<?xml version=\"1.0\" encoding=\"utf-8\" ?>\r\n");
+            FileWriter.Write("<settings>\r\n");
+            FileWriter.Write("    <hotkey_general type=\"show_hide\" ctrl=\"" + (lCtrl0.Checked ? "1" : "0") + "\" winkey=\"" + (lWinKey0.Checked ? "1" : "0") + "\" alt=\"" + (lAlt0.Checked ? "1" : "0") + "\" key=\"" + tbHK0.Text + "\"></hotkey_general>\r\n");
+            FileWriter.Write("    <hotkey_general type=\"pause_resume\" ctrl=\"" + (lCtrl1.Checked ? "1" : "0") + "\" winkey=\"" + (lWinKey1.Checked ? "1" : "0") + "\" alt=\"" + (lAlt1.Checked ? "1" : "0") + "\" key=\"" + tbHK1.Text + "\"></hotkey_general>\r\n");
+            FileWriter.Write("    <hotkey_general type=\"previous_sentence\" ctrl=\"" + (lCtrl2.Checked ? "1" : "0") + "\" winkey=\"" + (lWinKey2.Checked ? "1" : "0") + "\" alt=\"" + (lAlt2.Checked ? "1" : "0") + "\" key=\"" + tbHK2.Text + "\"></hotkey_general>\r\n");
+            FileWriter.Write("    <hotkey_general type=\"next_sentence\" ctrl=\"" + (lCtrl3.Checked ? "1" : "0") + "\" winkey=\"" + (lWinKey3.Checked ? "1" : "0") + "\" alt=\"" + (lAlt3.Checked ? "1" : "0") + "\" key=\"" + tbHK3.Text + "\"></hotkey_general>\r\n");
+            for (int i = 0; i < ComboboxesVoiceCB.Count; i++)
             {
-                file_writer.Write("    <hotkey_speech type=\"speech\" ctrl=\"" + (checkboxes_ctrl_lang[i].Checked ? "1" : "0") + "\" winkey=\"" + (checkboxes_winkey_lang[i].Checked ? "1" : "0") + "\" alt=\"" + (checkboxes_alt_lang[i].Checked ? "1" : "0") + "\" key=\"" + textboxes_lang[i].Text + "\" voice=\"" + comboboxes_voice[i].SelectedItem + "\" srate=\"" + comboboxes_srate[i].SelectedItem + "\" volume=\"" + comboboxes_volume[i].SelectedItem + "\"></hotkey_speech>\r\n");
+                FileWriter.Write("    <hotkey_speech type=\"speech\" ctrl=\"" + (CheckboxesCtrlCB[i].Checked ? "1" : "0") + "\" winkey=\"" + (CheckboxesWinkeyCB[i].Checked ? "1" : "0") + "\" alt=\"" + (CheckboxesAltCB[i].Checked ? "1" : "0") + "\" key=\"" + TextboxesHotkeyCB[i].Text + "\" voice=\"" + ComboboxesVoiceCB[i].SelectedItem + "\" srate=\"" + ComboboxesRateCB[i].SelectedItem + "\" volume=\"" + ComboboxesVolumeCB[i].SelectedItem + "\"></hotkey_speech>\r\n");
             }
-            file_writer.Write("    <batch_settings type=\"batch_settings\" voice=\"" + cbVoiceBatch.SelectedItem + "\" srate=\"" + cbRateBatch.SelectedItem + "\" volume=\"" + cbVolumeBatch.SelectedItem + "\"></batch_settings>\r\n");
-            file_writer.Write("</settings>\r\n");
-            file_writer.Close();
-            file_writer.Dispose();
+            FileWriter.Write("    <batch_settings type=\"batch_settings\" voice=\"" + cbVoiceBatch.SelectedItem + "\" srate=\"" + cbRateBatch.SelectedItem + "\" volume=\"" + cbVolumeBatch.SelectedItem + "\"></batch_settings>\r\n");
+            FileWriter.Write("</settings>\r\n");
+            FileWriter.Close();
+            FileWriter.Dispose();
             UnregisterHotkeys();
             ReadSettings();
         }
 
         private void InitComboboxes()
         {
-            for (int i = 0; i < comboboxes_srate.Count; i++)
+            for (int i = 0; i < ComboboxesRateCB.Count; i++)
             {
                 for (int j = -10; j <= 10; j++)
                 {
-                    comboboxes_srate[i].Items.Add(j.ToString());
+                    ComboboxesRateCB[i].Items.Add(j.ToString());
                     if (i == 0)
                         cbRateBatch.Items.Add(j.ToString());
                 }
             }
 
-            for (int i = 0; i < comboboxes_srate.Count; i++)
+            for (int i = 0; i < ComboboxesRateCB.Count; i++)
             {
                 for (int j = 0; j <= 100; j++)
                 {
-                    comboboxes_volume[i].Items.Add(j.ToString());
+                    ComboboxesVolumeCB[i].Items.Add(j.ToString());
                     if (i == 0)
                         cbVolumeBatch.Items.Add(j.ToString());
                 }

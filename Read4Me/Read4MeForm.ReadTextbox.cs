@@ -11,21 +11,21 @@ namespace Read4Me
         {
             if (PausedGlobal)
             {
-                speech_cpRead.Resume();
+                TTSVoiceClipboard.Resume();
                 PausedGlobal = false;
             }
             else
             {
-                speech_cpRead.Voice = SpeechVoiceGlobal;
-                speech_cpRead.Rate = SpeechRateGlobal;
-                speech_cpRead.Volume = VolumeGlobal;
-                speech_cpRead.Speak(tbspeech.Text, SpeechVoiceSpeakFlags.SVSFlagsAsync | SpeechVoiceSpeakFlags.SVSFIsXML);
+                TTSVoiceClipboard.Voice = SpeechVoiceGlobal;
+                TTSVoiceClipboard.Rate = SpeechRateGlobal;
+                TTSVoiceClipboard.Volume = VolumeGlobal;
+                TTSVoiceClipboard.Speak(tbspeech.Text, SpeechVoiceSpeakFlags.SVSFlagsAsync | SpeechVoiceSpeakFlags.SVSFIsXML);
             }
         }
 
         private void cmbVoices_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SpeechVoiceGlobal = speech_cpRead.GetVoices(string.Empty, string.Empty).Item(cmbVoices.SelectedIndex);
+            SpeechVoiceGlobal = TTSVoiceClipboard.GetVoices(string.Empty, string.Empty).Item(cmbVoices.SelectedIndex);
         }
 
         private void tbarRate_Scroll(object sender, EventArgs e)
@@ -35,7 +35,7 @@ namespace Read4Me
 
         private void btnPause_Click(object sender, EventArgs e)
         {
-            speech_cpRead.Pause();
+            TTSVoiceClipboard.Pause();
             PausedGlobal = true;
         }
 

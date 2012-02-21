@@ -77,7 +77,7 @@ namespace Read4Me
             {
                 SpeechRate = Int16.Parse(cbRateBatch.SelectedItem.ToString());
                 SpeechVolume = Int16.Parse(cbVolumeBatch.SelectedItem.ToString());
-                SpeechVoice = speech_cpRead.GetVoices(string.Empty, string.Empty).Item(cbVoiceBatch.SelectedIndex);
+                SpeechVoice = TTSVoiceClipboard.GetVoices(string.Empty, string.Empty).Item(cbVoiceBatch.SelectedIndex);
                 FilePath = tbSource.Text;
             }
             catch
@@ -394,13 +394,13 @@ namespace Read4Me
         {
             StreamReader reader;
             string toSpeak;
-            SpVoice speech_Convert = new SpVoice();
+            SpVoice TTSVoiceConvert = new SpVoice();
 
             // init TTS
-            speech_Convert.Rate = 10;
-            speech_Convert.Volume = 0;
-            speech_Convert.Voice = SpeechVoice;
-            speech_Convert.Speak("а", SpeechVoiceSpeakFlags.SVSFlagsAsync | SpeechVoiceSpeakFlags.SVSFIsXML | SpeechVoiceSpeakFlags.SVSFPurgeBeforeSpeak);
+            TTSVoiceConvert.Rate = 10;
+            TTSVoiceConvert.Volume = 0;
+            TTSVoiceConvert.Voice = SpeechVoice;
+            TTSVoiceConvert.Speak("а", SpeechVoiceSpeakFlags.SVSFlagsAsync | SpeechVoiceSpeakFlags.SVSFIsXML | SpeechVoiceSpeakFlags.SVSFPurgeBeforeSpeak);
             System.Threading.Thread.Sleep(100);
 
             reader = new StreamReader(file, Encoding.UTF8);
@@ -411,13 +411,13 @@ namespace Read4Me
             // http://msdn.microsoft.com/en-us/library/ms717276(VS.85).aspx
             SpFileStream.Format.Type = SpeechLib.SpeechAudioFormatType.SAFT48kHz16BitMono;
             SpFileStream.Open(file.Replace(".xml", ".wav"), SpFileMode, false);
-            speech_Convert.Rate = SpeechRate;
-            speech_Convert.Volume = SpeechVolume;
-            speech_Convert.Voice = SpeechVoice;
-            speech_Convert.AudioOutputStream = SpFileStream;
+            TTSVoiceConvert.Rate = SpeechRate;
+            TTSVoiceConvert.Volume = SpeechVolume;
+            TTSVoiceConvert.Voice = SpeechVoice;
+            TTSVoiceConvert.AudioOutputStream = SpFileStream;
             // speech.Speak(FileName, SpeechVoiceSpeakFlags.SVSFIsFilename); // not working properly
-            speech_Convert.Speak(toSpeak, SpeechVoiceSpeakFlags.SVSFlagsAsync | SpeechVoiceSpeakFlags.SVSFIsXML);
-            speech_Convert.WaitUntilDone(Timeout.Infinite);
+            TTSVoiceConvert.Speak(toSpeak, SpeechVoiceSpeakFlags.SVSFlagsAsync | SpeechVoiceSpeakFlags.SVSFIsXML);
+            TTSVoiceConvert.WaitUntilDone(Timeout.Infinite);
             SpFileStream.Close();
             reader.Close();
         }

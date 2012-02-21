@@ -12,61 +12,45 @@ namespace Read4Me
     {
         private void checkForUpdateToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
-            string current_version;
-
-            string version_txt_path = Environment.CurrentDirectory + "\\current_version.txt";
-            if (File.Exists(version_txt_path))
+            switch (CheckForUpdate())
             {
-                try
-                {
-                    File.Delete(version_txt_path);
-                }
-                catch
-                {
-                }
+                case 0:
+                    MessageBox.Show("No new version available.");
+                    break;
+                case 1:
+                    UpdateDialog dialog = new UpdateDialog();
+                    dialog.ShowDialog(this);
+                    dialog.Dispose();
+                    break;
+                case 2:
+                    MessageBox.Show("Couldn't connect to server.");
+                    break;
             }
+        }
 
+        private uint CheckForUpdate()
+        {
             try
             {
-                WebClient webClient = new WebClient();
-                webClient.DownloadFile("http://sourceforge.net/p/read4mecbr/code/ci/master/tree/current_version.txt?format=raw", version_txt_path);
-                webClient.Dispose();
-                try
-                {
-                    StreamReader file_reader = new StreamReader(version_txt_path, Encoding.UTF8);
-                    current_version = file_reader.ReadLine();
-                    if (current_version != local_version)
-                    {
-                        UpdateDialog dialog = new UpdateDialog();
-                        dialog.ShowDialog(this);
-                        dialog.Dispose();
-                    }
-                    else
-                    {
-                        MessageBox.Show("No new version available.");
-                    }
-                    file_reader.Close();
-                    file_reader.Dispose();
-                    if (File.Exists(version_txt_path))
-                    {
-                        try
-                        {
-                            File.Delete(version_txt_path);
-                        }
-                        catch
-                        {
-                        }
-                    }
-                }
-                catch
-                {
-                    MessageBox.Show("Error while determining version.");
-                }
+                // HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://sourceforge.net/p/read4mecbr/code/ci/master/tree/current_version.txt?format=raw");
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://antday.com/r4m/r4m_updater.php");
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                StreamReader input = new StreamReader(response.GetResponseStream());
+                string CurrentVersion = input.ReadLine();
+                input.Close();
 
+                if (LocalVersion != CurrentVersion)
+                {
+                    return 1;                    
+                }
+                else
+                {
+                    return 0;
+                }
             }
             catch
             {
-                MessageBox.Show("Couldn't connect to server.");
+                return 2;
             }
         }
     }

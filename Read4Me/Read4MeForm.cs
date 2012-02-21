@@ -9,7 +9,7 @@ namespace Read4Me
     public partial class Read4MeForm : Form
     {
         // some required members 
-        static SpVoice speech_cpRead = new SpVoice();
+        static SpVoice TTSVoiceClipboard = new SpVoice();
 
         int SpeechRateGlobal = 4; // Ranges from -10 to 10 
         int VolumeGlobal = 80; // Range from 0 to 100.
@@ -17,7 +17,7 @@ namespace Read4Me
         SpObjectToken SpeechVoiceGlobal;
 
         // program version
-        string local_version = "0.3.8";
+        string LocalVersion = "0.3.8";
         
         SortedList ligatures = new SortedList();
 
@@ -28,7 +28,7 @@ namespace Read4Me
         public Read4MeForm()
         {
             InitializeComponent();
-            this.Text = this.Text + local_version;
+            this.Text = this.Text + LocalVersion;
 
             lLinkDiscussion.Links.Add(0, lLinkDiscussion.Text.Length, lLinkDiscussion.Text);
             lLinkEspeak.Links.Add(0, lLinkEspeak.Text.Length, lLinkEspeak.Text);
@@ -42,7 +42,7 @@ namespace Read4Me
             this.DragEnter += new DragEventHandler(Form_DragEnter);
             this.DragDrop += new DragEventHandler(Form_DragDrop);
 
-            foreach (ISpeechObjectToken Token in speech_cpRead.GetVoices(string.Empty, string.Empty))
+            foreach (ISpeechObjectToken Token in TTSVoiceClipboard.GetVoices(string.Empty, string.Empty))
             {
                 // Populate the ComboBox Entries ..
                 cmbVoices.Items.Add(Token.GetDescription(49));
@@ -64,11 +64,19 @@ namespace Read4Me
             // restore user settings
             init_lists();
             ReadSettings();
+
+            // check for update on startup
+            if (CheckForUpdate() == 1)
+            {
+                UpdateDialog dialog = new UpdateDialog();
+                dialog.ShowDialog(this);
+                dialog.Dispose();
+            }
         }
 
         private void miAbout_Click(object sender, System.EventArgs e)
         {
-            AboutDialog dialog = new AboutDialog(local_version);
+            AboutDialog dialog = new AboutDialog(LocalVersion);
             dialog.ShowDialog(this);
             dialog.Dispose();
         }
@@ -80,7 +88,7 @@ namespace Read4Me
 
         private void whatsNewToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
-            WhatsNewDialog dialog = new WhatsNewDialog(local_version);
+            WhatsNewDialog dialog = new WhatsNewDialog(LocalVersion);
             dialog.ShowDialog(this);
             dialog.Dispose();
         }

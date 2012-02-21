@@ -10,21 +10,21 @@ namespace Read4Me
     {
         private void SpeechSkip(int items)
         {
-            speech_cpRead.Skip("Sentence", items);
+            TTSVoiceClipboard.Skip("Sentence", items);
         }
 
         private void SpeechStop()
         {
-            if (speech_cpRead.Status.RunningState == SpeechRunState.SRSEIsSpeaking)
+            if (TTSVoiceClipboard.Status.RunningState == SpeechRunState.SRSEIsSpeaking)
             {
-                speech_cpRead.Pause();
+                TTSVoiceClipboard.Pause();
                 PausedGlobal = true;
             }
             else
             {
                 if (PausedGlobal == true)
                 {
-                    speech_cpRead.Resume();
+                    TTSVoiceClipboard.Resume();
                     PausedGlobal = false;
                 }
             }
@@ -33,15 +33,15 @@ namespace Read4Me
         private void ReadClipboard(string voice, int srate, int volume)
         {
             string toRead;
-            SpObjectToken voice_sp = speech_cpRead.GetVoices("Name=" + voice).Item(0);
+            SpObjectToken voice_sp = TTSVoiceClipboard.GetVoices("Name=" + voice).Item(0);
             PausedGlobal = false;
             toRead = Clipboard.GetText();
 
             // init TTS
-            speech_cpRead.Rate = 10;
-            speech_cpRead.Volume = 0;
-            speech_cpRead.Voice = voice_sp;
-            speech_cpRead.Speak("а", SpeechVoiceSpeakFlags.SVSFlagsAsync | SpeechVoiceSpeakFlags.SVSFIsXML | SpeechVoiceSpeakFlags.SVSFPurgeBeforeSpeak);
+            TTSVoiceClipboard.Rate = 10;
+            TTSVoiceClipboard.Volume = 0;
+            TTSVoiceClipboard.Voice = voice_sp;
+            TTSVoiceClipboard.Speak("а", SpeechVoiceSpeakFlags.SVSFlagsAsync | SpeechVoiceSpeakFlags.SVSFIsXML | SpeechVoiceSpeakFlags.SVSFPurgeBeforeSpeak);
             System.Threading.Thread.Sleep(100);
 
             // no silence on new line
@@ -52,11 +52,11 @@ namespace Read4Me
                 toRead = toRead.Replace(entry.Key.ToString(), entry.Value.ToString());
             }
 
-            speech_cpRead.Rate = srate;
-            speech_cpRead.Volume = volume;
-            speech_cpRead.Voice = voice_sp;
-            speech_cpRead.Resume();
-            speech_cpRead.Speak(toRead, SpeechVoiceSpeakFlags.SVSFlagsAsync | SpeechVoiceSpeakFlags.SVSFIsXML | SpeechVoiceSpeakFlags.SVSFPurgeBeforeSpeak);
+            TTSVoiceClipboard.Rate = srate;
+            TTSVoiceClipboard.Volume = volume;
+            TTSVoiceClipboard.Voice = voice_sp;
+            TTSVoiceClipboard.Resume();
+            TTSVoiceClipboard.Speak(toRead, SpeechVoiceSpeakFlags.SVSFlagsAsync | SpeechVoiceSpeakFlags.SVSFIsXML | SpeechVoiceSpeakFlags.SVSFPurgeBeforeSpeak);
         }
 
         private void InitLigatures()
