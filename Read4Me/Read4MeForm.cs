@@ -97,5 +97,12 @@ namespace Read4Me
         {
             System.Diagnostics.Process.Start(e.Link.LinkData.ToString());
         }
+
+        private void bIvona_Click(object sender, System.EventArgs e)
+        {
+            // http://www.gorancic.com/blog/net/c-paypal-donate-button
+            string url = "http://affiliate.ivona.com/l/32/23620";
+            System.Diagnostics.Process.Start(url);
+        }
     }
 }
