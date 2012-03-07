@@ -51,12 +51,13 @@ namespace Read4Me
             {
                 toRead = toRead.Replace(entry.Key.ToString(), entry.Value.ToString());
             }
-
+            
             TTSVoiceClipboard.Rate = srate;
             TTSVoiceClipboard.Volume = volume;
             TTSVoiceClipboard.Voice = voice_sp;
             TTSVoiceClipboard.Resume();
-            TTSVoiceClipboard.Speak(toRead, SpeechVoiceSpeakFlags.SVSFlagsAsync | SpeechVoiceSpeakFlags.SVSFIsXML | SpeechVoiceSpeakFlags.SVSFPurgeBeforeSpeak);
+            // TTSVoiceClipboard.Speak(toRead, SpeechVoiceSpeakFlags.SVSFlagsAsync | SpeechVoiceSpeakFlags.SVSFIsXML | SpeechVoiceSpeakFlags.SVSFPurgeBeforeSpeak);
+            TTSVoiceClipboard.Speak(toRead, SpeechVoiceSpeakFlags.SVSFlagsAsync | SpeechVoiceSpeakFlags.SVSFPurgeBeforeSpeak);
         }
 
         private void InitLigatures()
