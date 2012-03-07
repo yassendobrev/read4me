@@ -399,5 +399,83 @@ namespace Read4Me
                 }
             }
         }
+
+        void tbKey_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            e.SuppressKeyPress = true;
+
+            if (e.KeyCode == Keys.ShiftKey || e.KeyCode == Keys.ControlKey || e.KeyCode == Keys.LWin || e.KeyCode == Keys.Menu)
+            {
+                // monitor modifiers "manually", since e.Modifiers does not contain winkey
+                pKeys.Add(e.KeyCode);
+            }
+
+            string tbHotkey = "";
+            if (e.KeyCode != Keys.ShiftKey && e.KeyCode != Keys.ControlKey && e.KeyCode != Keys.LWin && e.KeyCode != Keys.Menu)
+            {
+                this.Invoke((MethodInvoker)delegate
+                {
+                    foreach (Keys key in pKeys.PressedKeysList) // Loop through List with foreach
+                    {
+                        string KeyString = "";
+                        if (key == Keys.ShiftKey)
+                        {
+                            KeyString = "Shift";
+                        }
+                        if (key == Keys.ControlKey)
+                        {
+                            KeyString = "Ctrl";
+                        }
+                        if (key == Keys.LWin)
+                        {
+                            KeyString = "WinKey";
+                        }
+                        if (key == Keys.Menu)
+                        {
+                            KeyString = "Alt";
+                        }
+                        tbHotkey += KeyString + "+";
+                    }
+
+                    if (char.IsLetter((char)e.KeyData) || char.IsDigit((char)e.KeyData))
+                    {
+                        tbKey.Text = tbHotkey + char.ConvertFromUtf32(e.KeyValue);
+                    }
+                });
+            }
+        }
+
+        void tbKey_KeyUp(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            e.SuppressKeyPress = true;
+            if (e.KeyCode == Keys.ShiftKey || e.KeyCode == Keys.ControlKey || e.KeyCode == Keys.LWin || e.KeyCode == Keys.Menu)
+            {
+                // monitor modifiers "manually", since e.Modifiers does not contain winkey
+                pKeys.Remove(e.KeyCode);
+            }
+        }
+    }
+
+    class PressedKeys
+    {
+        public List<Keys> PressedKeysList;
+
+        public PressedKeys()
+        {
+            PressedKeysList = new List<Keys>();
+        }
+
+        public void Add(Keys key)
+        {
+            if (!PressedKeysList.Contains(key))
+            {
+                PressedKeysList.Add(key);
+            }
+        }
+
+        public void Remove(Keys key)
+        {
+            PressedKeysList.Remove(key);
+        }
     }
 }

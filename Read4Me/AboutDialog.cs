@@ -215,7 +215,7 @@ namespace Read4Me
             this.bDonate.Image = ((System.Drawing.Image)(resources.GetObject("bDonate.Image")));
             this.bDonate.Location = new System.Drawing.Point(136, 19);
             this.bDonate.Name = "bDonate";
-            this.bDonate.Size = new System.Drawing.Size(97, 36);
+            this.bDonate.Size = new System.Drawing.Size(92, 26);
             this.bDonate.TabIndex = 59;
             this.bDonate.UseVisualStyleBackColor = true;
             this.bDonate.Click += new System.EventHandler(this.bDonate_Click);

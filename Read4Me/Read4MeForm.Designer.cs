@@ -44,6 +44,7 @@ namespace Read4Me
             this.whatsNewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.miAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.tbSettings = new System.Windows.Forms.TabPage();
+            this.tbKey = new System.Windows.Forms.TextBox();
             this.Apply = new System.Windows.Forms.Button();
             this.gbVoices = new System.Windows.Forms.GroupBox();
             this.cbLang6 = new System.Windows.Forms.ComboBox();
@@ -285,6 +286,7 @@ namespace Read4Me
             // 
             this.tbSettings.AutoScroll = true;
             this.tbSettings.AutoScrollMargin = new System.Drawing.Size(5, 5);
+            this.tbSettings.Controls.Add(this.tbKey);
             this.tbSettings.Controls.Add(this.Apply);
             this.tbSettings.Controls.Add(this.gbVoices);
             this.tbSettings.Controls.Add(this.gbGeneral);
@@ -294,6 +296,16 @@ namespace Read4Me
             this.tbSettings.TabIndex = 2;
             this.tbSettings.Text = "Settings";
             this.tbSettings.UseVisualStyleBackColor = true;
+            // 
+            // tbKey
+            // 
+            this.tbKey.Location = new System.Drawing.Point(9, 300);
+            this.tbKey.Name = "tbKey";
+            this.tbKey.ShortcutsEnabled = false;
+            this.tbKey.Size = new System.Drawing.Size(400, 20);
+            this.tbKey.TabIndex = 7;
+            this.tbKey.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbKey_KeyDown);
+            this.tbKey.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbKey_KeyUp);
             // 
             // Apply
             // 
@@ -1447,9 +1459,8 @@ namespace Read4Me
             this.bIvona.Image = global::Read4Me.Properties.Resources.ivona;
             this.bIvona.Location = new System.Drawing.Point(18, 56);
             this.bIvona.Name = "bIvona";
-            this.bIvona.Size = new System.Drawing.Size(321, 270);
+            this.bIvona.Size = new System.Drawing.Size(300, 250);
             this.bIvona.TabIndex = 57;
-            this.bIvona.Text = "button1";
             this.bIvona.UseVisualStyleBackColor = true;
             this.bIvona.Click += new System.EventHandler(this.bIvona_Click);
             // 
@@ -1524,6 +1535,7 @@ namespace Read4Me
             this.mMainMenuStrip.ResumeLayout(false);
             this.mMainMenuStrip.PerformLayout();
             this.tbSettings.ResumeLayout(false);
+            this.tbSettings.PerformLayout();
             this.gbVoices.ResumeLayout(false);
             this.gbVoices.PerformLayout();
             this.gbGeneral.ResumeLayout(false);
@@ -1684,6 +1696,7 @@ namespace Read4Me
         private System.Windows.Forms.Label lHK2;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.Button bIvona;
+        private System.Windows.Forms.TextBox tbKey;
     }
 }
 

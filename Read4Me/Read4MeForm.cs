@@ -20,6 +20,7 @@ namespace Read4Me
         string LocalVersion = "0.4";
         
         SortedList ligatures = new SortedList();
+        PressedKeys pKeys;
 
         // show/hide main window
         bool mAllowVisible;     // ContextMenu's Show command used
@@ -72,6 +73,9 @@ namespace Read4Me
                 dialog.ShowDialog(this);
                 dialog.Dispose();
             }
+
+            // create tbKey PressedKeys object
+            pKeys = new PressedKeys();
         }
 
         private void miAbout_Click(object sender, System.EventArgs e)

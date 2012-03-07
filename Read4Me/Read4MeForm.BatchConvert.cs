@@ -440,7 +440,7 @@ namespace Read4Me
 
             // add the summed length to the title of the mp3
             TimeSpan t = TimeSpan.FromSeconds(summed_secs_new);
-            string position_secs = string.Format("{0:D2}h:{1:D2}m:{2:D2}s", t.Hours, t.Minutes, t.Seconds);
+            string position_secs = string.Format("{0:D2}h:{1:D2}m:{2:D2}s", t.Hours + t.Days * 24, t.Minutes, t.Seconds);
             title = title + " " + position_secs;
 
             Yeti.Lame.BE_CONFIG cfg = new Yeti.Lame.BE_CONFIG(InStr.Format, 64); // 64kbps
