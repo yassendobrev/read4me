@@ -39,10 +39,9 @@
             this.lPlsDwn.AutoSize = true;
             this.lPlsDwn.Location = new System.Drawing.Point(15, 26);
             this.lPlsDwn.Name = "lPlsDwn";
-            this.lPlsDwn.Size = new System.Drawing.Size(379, 26);
+            this.lPlsDwn.Size = new System.Drawing.Size(129, 13);
             this.lPlsDwn.TabIndex = 56;
-            this.lPlsDwn.Text = "- Bug fix - Clipboard reader crashes when text contains < or > since last update." +
-                "\r\n- Added Ivona Voices add.";
+            this.lPlsDwn.Text = "- Optional minimize to tray.";
             // 
             // bOK
             // 

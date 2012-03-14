@@ -5,38 +5,16 @@ namespace Read4Me
 {
     partial class Read4MeForm
     {
-
-        // http://social.msdn.microsoft.com/Forums/en/csharpgeneral/thread/e85c9461-394f-4391-903e-8ea1bd243075
-        // shutting down does not work in XP without this code
-        private const int WM_QUERYENDSESSION = 0x0011;
-        protected override void WndProc( ref Message m )
-        {
-            if (m.Msg == WM_QUERYENDSESSION)
-            {
-                // You're shutting down
-                mAllowClose = true;
-            }
-            base.WndProc(ref m);
-        }
-
         // Minimize app to tray
         // http://stackoverflow.com/questions/1730731/how-to-start-winform-app-minimized-to-tray
         protected override void SetVisibleCore(bool value)
         {
-            if (!mAllowVisible) value = false;
-            base.SetVisibleCore(value);
-        }
-
-        // Close to tray
-        protected override void OnFormClosing(FormClosingEventArgs e)
-        {
-            if (!mAllowClose)
-            {
-                HideForm();
-                e.Cancel = true;
-            }
-            base.OnFormClosing(e);
-        }
+           if (MinToTray)
+           {
+               if (!mAllowVisible) value = false;
+           }
+           base.SetVisibleCore(value);
+       }
 
         // Show form from tray strip menu
         private void showStripMenuItem_Click(object sender, EventArgs e)
@@ -47,7 +25,7 @@ namespace Read4Me
         // Close form from tray strip menu
         private void exitStripMenuItem_Click(object sender, EventArgs e)
         {
-            CloseForm();
+            Close();
         }
 
         // Show/hide form when icon in tray clicked
@@ -72,41 +50,62 @@ namespace Read4Me
         // Show form
         private void ShowForm()
         {
-            mAllowVisible = true;
-            Show();
-            this.Activate();
+            if (MinToTray)
+            {
+                mAllowVisible = true;
+                Show();
+                this.Activate();
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
         }
 
         // Hide form to tray
         private void HideForm()
         {
-            mAllowVisible = false;
-            this.Hide();
+            if (MinToTray)
+            {
+                mAllowVisible = false;
+                this.Hide();
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Minimized;
+            }
         }
 
         // Toggle form visibility
         private void ToggleForm()
         {
-            if (mAllowVisible == true)
+            if (MinToTray)
             {
-                HideForm();
+                if (mAllowVisible == true)
+                {
+                    HideForm();
+                }
+                else
+                {
+                    ShowForm();
+                }
             }
             else
             {
-                ShowForm();
+                if (this.WindowState == FormWindowState.Minimized)
+                {
+                    this.WindowState = FormWindowState.Normal;
+                }
+                else
+                {
+                    this.WindowState = FormWindowState.Minimized;
+                }
             }
-        }
-
-        // Close form
-        void CloseForm()
-        {
-            mAllowClose = true;
-            Close();
         }
 
         private void miExit_Click(object sender, System.EventArgs e)
         {
-            CloseForm();
+            Close();
         }
     }
 }

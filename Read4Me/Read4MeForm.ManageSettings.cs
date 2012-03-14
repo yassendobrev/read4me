@@ -17,7 +17,7 @@ namespace Read4Me
         List<CheckBox> CheckboxesWinkeyCB = new List<CheckBox>();
         List<CheckBox> CheckboxesAltCB = new List<CheckBox>();
         List<TextBox> TextboxesHotkeyCB = new List<TextBox>();
-        private void init_lists()
+        private void InitLists()
         {
             ComboboxesVoiceCB.Add(cbLang1);
             ComboboxesVoiceCB.Add(cbLang2);
@@ -82,6 +82,7 @@ namespace Read4Me
             int lang_num = 0;
             int srate = 0;
             int volume = 0;
+            bool min_to_tray;
             XmlReader reader;
 
             if (File.Exists(Path.GetDirectoryName(Application.ExecutablePath) + "\\Read4Me.ini"))
@@ -108,7 +109,7 @@ namespace Read4Me
                                 {
                                     key = '\0';
                                 }
-                                SetViewSettings(type, ctrl, winkey, alt, key, "", 0, 0, 0, false, false);
+                                SetViewSettings(type, ctrl, winkey, alt, key, "", 0, 0, 0, false, false, false);
                                 RegisterHotkey(type, ctrl, winkey, alt, key, "", 0, 0);
                                 break;
 
@@ -142,7 +143,7 @@ namespace Read4Me
                                 {
                                     volume = int.MinValue;
                                 }
-                                SetViewSettings(type, ctrl, winkey, alt, key, voice, lang_num, srate, volume, false, false);
+                                SetViewSettings(type, ctrl, winkey, alt, key, voice, lang_num, srate, volume, false, false, false);
                                 RegisterHotkey(type, ctrl, winkey, alt, key, voice, srate, volume);
                                 lang_num++;
                                 break;
@@ -166,13 +167,19 @@ namespace Read4Me
                                 {
                                     volume = int.MinValue;
                                 }
-                                SetViewSettings(type, false, false, false, '\0', voice, 0, srate, volume, false, false);
+                                SetViewSettings(type, false, false, false, '\0', voice, 0, srate, volume, false, false, false);
                                 lang_num++;
+                                break;
+
+                            case "win_bevaviour_settings":
+                                type = reader["type"];
+                                min_to_tray = (reader["min_to_tray"] == "1") ? true : false;
+                                SetViewSettings(type, false, false, false, '\0', "", 0, 0, 0, false, false, min_to_tray);
                                 break;
 
                             case "other_settings":
                                 type = reader["type"];
-                                SetViewSettings(type, false, false, false, '\0', "", 0, 0, 0, false, false);
+                                SetViewSettings(type, false, false, false, '\0', "", 0, 0, 0, false, false, false);
                                 break;
 
                             default:
@@ -188,7 +195,7 @@ namespace Read4Me
             }
         }
 
-        private void SetViewSettings(string type, bool ctrl, bool winkey, bool alt, char key, string voice, int lang_num, int srate, int volume, bool silence, bool silence_batch)
+        private void SetViewSettings(string type, bool ctrl, bool winkey, bool alt, char key, string voice, int lang_num, int srate, int volume, bool silence, bool silence_batch, bool min_to_tray)
         {
             switch (type)
             {
@@ -269,6 +276,11 @@ namespace Read4Me
                     cbVoiceBatch.SelectedIndex = cbVoiceBatch.FindStringExact(voice);
                     cbRateBatch.SelectedIndex = cbRateBatch.FindStringExact(srate.ToString());
                     cbVolumeBatch.SelectedIndex = cbVolumeBatch.FindStringExact(volume.ToString());
+                    break;
+
+                case "min_to_tray":
+                    cbMinToTray.Checked = min_to_tray;
+                    MinToTray = min_to_tray;
                     break;
 
                 case "other_settings":
@@ -370,6 +382,7 @@ namespace Read4Me
                 FileWriter.Write("    <hotkey_speech type=\"speech\" ctrl=\"" + (CheckboxesCtrlCB[i].Checked ? "1" : "0") + "\" winkey=\"" + (CheckboxesWinkeyCB[i].Checked ? "1" : "0") + "\" alt=\"" + (CheckboxesAltCB[i].Checked ? "1" : "0") + "\" key=\"" + TextboxesHotkeyCB[i].Text + "\" voice=\"" + ComboboxesVoiceCB[i].SelectedItem + "\" srate=\"" + ComboboxesRateCB[i].SelectedItem + "\" volume=\"" + ComboboxesVolumeCB[i].SelectedItem + "\"></hotkey_speech>\r\n");
             }
             FileWriter.Write("    <batch_settings type=\"batch_settings\" voice=\"" + cbVoiceBatch.SelectedItem + "\" srate=\"" + cbRateBatch.SelectedItem + "\" volume=\"" + cbVolumeBatch.SelectedItem + "\"></batch_settings>\r\n");
+            FileWriter.Write("    <win_bevaviour_settings type=\"min_to_tray\" min_to_tray=\"" + (cbMinToTray.Checked ? "1" : "0") + "\"></win_bevaviour_settings>\r\n");
             FileWriter.Write("</settings>\r\n");
             FileWriter.Close();
             FileWriter.Dispose();

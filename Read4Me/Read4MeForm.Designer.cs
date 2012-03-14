@@ -44,6 +44,8 @@ namespace Read4Me
             this.whatsNewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.miAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.tbSettings = new System.Windows.Forms.TabPage();
+            this.gbBehaviour = new System.Windows.Forms.GroupBox();
+            this.cbMinToTray = new System.Windows.Forms.CheckBox();
             this.tbKey = new System.Windows.Forms.TextBox();
             this.Apply = new System.Windows.Forms.Button();
             this.gbVoices = new System.Windows.Forms.GroupBox();
@@ -156,7 +158,6 @@ namespace Read4Me
             this.label23 = new System.Windows.Forms.Label();
             this.tabControlMain = new System.Windows.Forms.TabControl();
             this.tbGetVoices = new System.Windows.Forms.TabPage();
-            this.bIvona = new System.Windows.Forms.Button();
             this.lLinkEspeak = new System.Windows.Forms.LinkLabel();
             this.lVoicesDescribe = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
@@ -166,6 +167,7 @@ namespace Read4Me
             this.sStrip.SuspendLayout();
             this.mMainMenuStrip.SuspendLayout();
             this.tbSettings.SuspendLayout();
+            this.gbBehaviour.SuspendLayout();
             this.gbVoices.SuspendLayout();
             this.gbGeneral.SuspendLayout();
             this.tpSpeak.SuspendLayout();
@@ -286,6 +288,7 @@ namespace Read4Me
             // 
             this.tbSettings.AutoScroll = true;
             this.tbSettings.AutoScrollMargin = new System.Drawing.Size(5, 5);
+            this.tbSettings.Controls.Add(this.gbBehaviour);
             this.tbSettings.Controls.Add(this.tbKey);
             this.tbSettings.Controls.Add(this.Apply);
             this.tbSettings.Controls.Add(this.gbVoices);
@@ -296,6 +299,26 @@ namespace Read4Me
             this.tbSettings.TabIndex = 2;
             this.tbSettings.Text = "Settings";
             this.tbSettings.UseVisualStyleBackColor = true;
+            // 
+            // gbBehaviour
+            // 
+            this.gbBehaviour.Controls.Add(this.cbMinToTray);
+            this.gbBehaviour.Location = new System.Drawing.Point(324, 4);
+            this.gbBehaviour.Name = "gbBehaviour";
+            this.gbBehaviour.Size = new System.Drawing.Size(185, 111);
+            this.gbBehaviour.TabIndex = 8;
+            this.gbBehaviour.TabStop = false;
+            this.gbBehaviour.Text = "Window behaviour";
+            // 
+            // cbMinToTray
+            // 
+            this.cbMinToTray.AutoSize = true;
+            this.cbMinToTray.Location = new System.Drawing.Point(7, 18);
+            this.cbMinToTray.Name = "cbMinToTray";
+            this.cbMinToTray.Size = new System.Drawing.Size(98, 17);
+            this.cbMinToTray.TabIndex = 0;
+            this.cbMinToTray.Text = "Minimize to tray";
+            this.cbMinToTray.UseVisualStyleBackColor = true;
             // 
             // tbKey
             // 
@@ -1444,7 +1467,6 @@ namespace Read4Me
             // 
             // tbGetVoices
             // 
-            this.tbGetVoices.Controls.Add(this.bIvona);
             this.tbGetVoices.Controls.Add(this.lLinkEspeak);
             this.tbGetVoices.Controls.Add(this.lVoicesDescribe);
             this.tbGetVoices.Location = new System.Drawing.Point(4, 22);
@@ -1453,16 +1475,6 @@ namespace Read4Me
             this.tbGetVoices.TabIndex = 3;
             this.tbGetVoices.Text = "Get Voices";
             this.tbGetVoices.UseVisualStyleBackColor = true;
-            // 
-            // bIvona
-            // 
-            this.bIvona.Image = global::Read4Me.Properties.Resources.ivona;
-            this.bIvona.Location = new System.Drawing.Point(18, 56);
-            this.bIvona.Name = "bIvona";
-            this.bIvona.Size = new System.Drawing.Size(300, 250);
-            this.bIvona.TabIndex = 57;
-            this.bIvona.UseVisualStyleBackColor = true;
-            this.bIvona.Click += new System.EventHandler(this.bIvona_Click);
             // 
             // lLinkEspeak
             // 
@@ -1480,11 +1492,10 @@ namespace Read4Me
             this.lVoicesDescribe.AutoSize = true;
             this.lVoicesDescribe.Location = new System.Drawing.Point(15, 9);
             this.lVoicesDescribe.Name = "lVoicesDescribe";
-            this.lVoicesDescribe.Size = new System.Drawing.Size(399, 39);
+            this.lVoicesDescribe.Size = new System.Drawing.Size(399, 26);
             this.lVoicesDescribe.TabIndex = 56;
             this.lVoicesDescribe.Text = "This program uses the TTS (Text To Speech) voices preinstalled on your computer.\r" +
-                "\nYou can download free TTS voices for many languages from\r\nFurthermore, you can " +
-                "buy the great Ivona Voices.";
+                "\nYou can download free TTS voices for many languages from";
             // 
             // label24
             // 
@@ -1525,7 +1536,6 @@ namespace Read4Me
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "Read4MeForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Read4Me Clipboard Reader and Text to mp3 Converter v";
@@ -1536,6 +1546,8 @@ namespace Read4Me
             this.mMainMenuStrip.PerformLayout();
             this.tbSettings.ResumeLayout(false);
             this.tbSettings.PerformLayout();
+            this.gbBehaviour.ResumeLayout(false);
+            this.gbBehaviour.PerformLayout();
             this.gbVoices.ResumeLayout(false);
             this.gbVoices.PerformLayout();
             this.gbGeneral.ResumeLayout(false);
@@ -1695,8 +1707,9 @@ namespace Read4Me
         private System.Windows.Forms.Label lHK1;
         private System.Windows.Forms.Label lHK2;
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.Button bIvona;
         private System.Windows.Forms.TextBox tbKey;
+        private System.Windows.Forms.GroupBox gbBehaviour;
+        private System.Windows.Forms.CheckBox cbMinToTray;
     }
 }
 

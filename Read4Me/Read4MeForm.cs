@@ -24,7 +24,7 @@ namespace Read4Me
 
         // show/hide main window
         bool mAllowVisible;     // ContextMenu's Show command used
-        bool mAllowClose;       // ContextMenu's Exit command used
+        bool MinToTray = false; // minimize program or hide program
 
         public Read4MeForm()
         {
@@ -63,8 +63,11 @@ namespace Read4Me
             InitLigatures();
 
             // restore user settings
-            init_lists();
+            InitLists();
             ReadSettings();
+
+            // set minimize / hide settings
+            mAllowVisible = !cbMinToTray.Checked;
 
             // check for update on startup
             if (CheckForUpdate() == 1)
