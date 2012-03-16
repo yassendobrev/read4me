@@ -1522,6 +1522,8 @@ namespace Read4Me
             this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            //
+            this.SizeChanged += new System.EventHandler(this.Form1_SizeChanged);
             // 
             // Read4MeForm
             // 

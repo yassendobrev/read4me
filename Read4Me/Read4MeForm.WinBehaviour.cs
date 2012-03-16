@@ -107,5 +107,14 @@ namespace Read4Me
         {
             Close();
         }
+
+        private void Form1_SizeChanged(object sender, System.EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized && MinToTray)
+            {
+                HideForm();
+                this.WindowState = FormWindowState.Normal;
+            }
+        }
     }
 }

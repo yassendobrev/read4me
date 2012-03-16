@@ -66,12 +66,5 @@ namespace Read4Me.Properties {
                 return ((System.Drawing.Icon)(obj));
             }
         }
-        
-        internal static System.Drawing.Bitmap ivona {
-            get {
-                object obj = ResourceManager.GetObject("ivona", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
     }
 }
