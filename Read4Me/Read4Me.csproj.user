@@ -9,6 +9,6 @@
     <ErrorReportUrlHistory />
     <FallbackCulture>en-US</FallbackCulture>
     <VerifyUploadedFiles>false</VerifyUploadedFiles>
-    <PlatformTarget> x86 </PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
 </Project>
