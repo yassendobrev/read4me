@@ -41,7 +41,7 @@
             this.lPlsDwn.Name = "lPlsDwn";
             this.lPlsDwn.Size = new System.Drawing.Size(129, 13);
             this.lPlsDwn.TabIndex = 56;
-            this.lPlsDwn.Text = "- Optional minimize to tray.";
+            this.lPlsDwn.Text = "- Bug fix for Windows XP.";
             // 
             // bOK
             // 

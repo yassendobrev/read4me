@@ -67,7 +67,7 @@ namespace Read4Me
 
             int SpeechRate;
             int SpeechVolume;
-            SpObjectToken SpeechVoice;
+            string SpeechVoice;
             string FilePath;
             string artist;
             string album;
@@ -77,7 +77,8 @@ namespace Read4Me
             {
                 SpeechRate = Int16.Parse(cbRateBatch.SelectedItem.ToString());
                 SpeechVolume = Int16.Parse(cbVolumeBatch.SelectedItem.ToString());
-                SpeechVoice = TTSVoiceClipboard.GetVoices(string.Empty, string.Empty).Item(cbVoiceBatch.SelectedIndex);
+                SpeechVoice = cbVoiceBatch.Text;
+                // SpeechVoice = TTSVoiceClipboard.GetVoices("Name=" + cbVoiceBatch.Text, string.Empty).Item(0);
                 FilePath = tbSource.Text;
             }
             catch
@@ -106,7 +107,7 @@ namespace Read4Me
             oThread.Start();
         }
 
-        private void doConvert(int SpeechRate, int SpeechVolume, SpObjectToken SpeechVoice, string FilePath, string artist, string album, string year)
+        private void doConvert(int SpeechRate, int SpeechVolume, string SpeechVoice, string FilePath, string artist, string album, string year)
         {
             string outdir;
             int filename = 1;
@@ -120,7 +121,7 @@ namespace Read4Me
 
             this.Invoke((MethodInvoker)delegate
             {
-                sWorkingStatus.Text = "Starting conversion.";
+                sWorkingStatus.Text = "Starting conversion...";
             });
 
             try
@@ -326,7 +327,7 @@ namespace Read4Me
             return (inputString == inputString.ToUpper());
         }
 
-        private void BatchConvert(string folder, int SpeechRate, int SpeechVolume, SpObjectToken SpeechVoice, string artist, string album, string year)
+        private void BatchConvert(string folder, int SpeechRate, int SpeechVolume, string SpeechVoice, string artist, string album, string year)
         {
             string[] fileEntries;
             string title;
@@ -390,16 +391,16 @@ namespace Read4Me
             MessageBox.Show("All done!");
         }
 
-        public void SpeakText(string file, int SpeechRate, int SpeechVolume, SpObjectToken SpeechVoice)
+        public void SpeakText(string file, int SpeechRate, int SpeechVolume, string SpeechVoice)
         {
             StreamReader reader;
             string toSpeak;
             SpVoice TTSVoiceConvert = new SpVoice();
-
+            
             // init TTS
             TTSVoiceConvert.Rate = 10;
             TTSVoiceConvert.Volume = 0;
-            TTSVoiceConvert.Voice = SpeechVoice;
+            TTSVoiceConvert.Voice = TTSVoiceConvert.GetVoices("Name=" + SpeechVoice, string.Empty).Item(0);
             TTSVoiceConvert.Speak("а", SpeechVoiceSpeakFlags.SVSFlagsAsync | SpeechVoiceSpeakFlags.SVSFIsXML | SpeechVoiceSpeakFlags.SVSFPurgeBeforeSpeak);
             System.Threading.Thread.Sleep(100);
 
@@ -413,9 +414,8 @@ namespace Read4Me
             SpFileStream.Open(file.Replace(".xml", ".wav"), SpFileMode, false);
             TTSVoiceConvert.Rate = SpeechRate;
             TTSVoiceConvert.Volume = SpeechVolume;
-            TTSVoiceConvert.Voice = SpeechVoice;
+            TTSVoiceConvert.Voice = TTSVoiceConvert.GetVoices("Name=" + SpeechVoice, string.Empty).Item(0);
             TTSVoiceConvert.AudioOutputStream = SpFileStream;
-            // speech.Speak(FileName, SpeechVoiceSpeakFlags.SVSFIsFilename); // not working properly
             TTSVoiceConvert.Speak(toSpeak, SpeechVoiceSpeakFlags.SVSFlagsAsync | SpeechVoiceSpeakFlags.SVSFIsXML);
             TTSVoiceConvert.WaitUntilDone(Timeout.Infinite);
             SpFileStream.Close();
