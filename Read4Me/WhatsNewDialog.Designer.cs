@@ -39,9 +39,9 @@
             this.lPlsDwn.AutoSize = true;
             this.lPlsDwn.Location = new System.Drawing.Point(15, 26);
             this.lPlsDwn.Name = "lPlsDwn";
-            this.lPlsDwn.Size = new System.Drawing.Size(129, 13);
+            this.lPlsDwn.Size = new System.Drawing.Size(120, 13);
             this.lPlsDwn.TabIndex = 56;
-            this.lPlsDwn.Text = "- Bug fix for Windows XP.";
+            this.lPlsDwn.Text = "- Stability improvements.";
             // 
             // bOK
             // 

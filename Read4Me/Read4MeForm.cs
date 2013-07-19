@@ -17,7 +17,7 @@ namespace Read4Me
         SpObjectToken SpeechVoiceGlobal;
 
         // program version
-        string LocalVersion = "0.4.2";
+        string LocalVersion = "0.4.3";
         
         SortedList ligatures = new SortedList();
         PressedKeys pKeys;

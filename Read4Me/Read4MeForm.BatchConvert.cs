@@ -400,7 +400,27 @@ namespace Read4Me
             // init TTS
             TTSVoiceConvert.Rate = 10;
             TTSVoiceConvert.Volume = 0;
-            TTSVoiceConvert.Voice = TTSVoiceConvert.GetVoices("Name=" + SpeechVoice, string.Empty).Item(0);
+
+            SpObjectToken voice_sp = null;
+            int i = 0;
+            ISpeechObjectTokens AvailableVoices = TTSVoiceClipboard.GetVoices(string.Empty, string.Empty);
+            foreach (ISpeechObjectToken Token in AvailableVoices)
+            {
+                if (SpeechVoice == Token.GetDescription(49))
+                {
+                    voice_sp = AvailableVoices.Item(i);
+                    break;
+                }
+                i++;
+            }
+
+            if (voice_sp == null)
+            {
+                MessageBox.Show("Error! Voice not found!");
+                return;
+            }
+
+            TTSVoiceConvert.Voice = voice_sp;
             TTSVoiceConvert.Speak("а", SpeechVoiceSpeakFlags.SVSFlagsAsync | SpeechVoiceSpeakFlags.SVSFIsXML | SpeechVoiceSpeakFlags.SVSFPurgeBeforeSpeak);
             System.Threading.Thread.Sleep(100);
 
@@ -414,7 +434,6 @@ namespace Read4Me
             SpFileStream.Open(file.Replace(".xml", ".wav"), SpFileMode, false);
             TTSVoiceConvert.Rate = SpeechRate;
             TTSVoiceConvert.Volume = SpeechVolume;
-            TTSVoiceConvert.Voice = TTSVoiceConvert.GetVoices("Name=" + SpeechVoice, string.Empty).Item(0);
             TTSVoiceConvert.AudioOutputStream = SpFileStream;
             TTSVoiceConvert.Speak(toSpeak, SpeechVoiceSpeakFlags.SVSFlagsAsync | SpeechVoiceSpeakFlags.SVSFIsXML);
             TTSVoiceConvert.WaitUntilDone(Timeout.Infinite);

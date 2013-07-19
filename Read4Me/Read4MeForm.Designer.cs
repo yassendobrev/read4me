@@ -397,6 +397,7 @@ namespace Read4Me
             // cbLang6
             // 
             this.cbLang6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbLang6.DropDownWidth = 320;
             this.cbLang6.FormattingEnabled = true;
             this.cbLang6.Location = new System.Drawing.Point(194, 145);
             this.cbLang6.Name = "cbLang6";
@@ -406,6 +407,7 @@ namespace Read4Me
             // cbLang5
             // 
             this.cbLang5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbLang5.DropDownWidth = 320;
             this.cbLang5.FormattingEnabled = true;
             this.cbLang5.Location = new System.Drawing.Point(194, 122);
             this.cbLang5.Name = "cbLang5";
@@ -415,6 +417,7 @@ namespace Read4Me
             // cbLang4
             // 
             this.cbLang4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbLang4.DropDownWidth = 320;
             this.cbLang4.FormattingEnabled = true;
             this.cbLang4.Location = new System.Drawing.Point(194, 99);
             this.cbLang4.Name = "cbLang4";
@@ -559,6 +562,7 @@ namespace Read4Me
             // cbLang3
             // 
             this.cbLang3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbLang3.DropDownWidth = 320;
             this.cbLang3.FormattingEnabled = true;
             this.cbLang3.Location = new System.Drawing.Point(194, 76);
             this.cbLang3.Name = "cbLang3";
@@ -568,6 +572,7 @@ namespace Read4Me
             // cbLang2
             // 
             this.cbLang2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbLang2.DropDownWidth = 320;
             this.cbLang2.FormattingEnabled = true;
             this.cbLang2.Location = new System.Drawing.Point(194, 53);
             this.cbLang2.Name = "cbLang2";
@@ -577,6 +582,7 @@ namespace Read4Me
             // cbLang1
             // 
             this.cbLang1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbLang1.DropDownWidth = 320;
             this.cbLang1.FormattingEnabled = true;
             this.cbLang1.Location = new System.Drawing.Point(194, 30);
             this.cbLang1.Name = "cbLang1";
@@ -1495,7 +1501,7 @@ namespace Read4Me
             this.lVoicesDescribe.Size = new System.Drawing.Size(399, 26);
             this.lVoicesDescribe.TabIndex = 56;
             this.lVoicesDescribe.Text = "This program uses the TTS (Text To Speech) voices preinstalled on your computer.\r" +
-                "\nYou can download free TTS voices for many languages from";
+    "\nYou can download free TTS voices for many languages from";
             // 
             // label24
             // 
@@ -1522,8 +1528,6 @@ namespace Read4Me
             this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            //
-            this.SizeChanged += new System.EventHandler(this.Form1_SizeChanged);
             // 
             // Read4MeForm
             // 
@@ -1541,6 +1545,7 @@ namespace Read4Me
             this.Name = "Read4MeForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Read4Me Clipboard Reader and Text to mp3 Converter v";
+            this.SizeChanged += new System.EventHandler(this.Form1_SizeChanged);
             this.contextMenuStrip1.ResumeLayout(false);
             this.sStrip.ResumeLayout(false);
             this.sStrip.PerformLayout();

@@ -400,16 +400,18 @@ namespace Read4Me
                     if (i == 0)
                         cbRateBatch.Items.Add(j.ToString());
                 }
+                ComboboxesRateCB[i].SelectedIndex = ComboboxesRateCB[i].FindStringExact(SpeechRateGlobal.ToString());
             }
 
-            for (int i = 0; i < ComboboxesRateCB.Count; i++)
+            for (int i = 0; i < ComboboxesVolumeCB.Count; i++)
             {
-                for (int j = 0; j <= 100; j++)
+                for (int j = 0; j <= 100; j=j+5)
                 {
                     ComboboxesVolumeCB[i].Items.Add(j.ToString());
                     if (i == 0)
                         cbVolumeBatch.Items.Add(j.ToString());
                 }
+                ComboboxesVolumeCB[i].SelectedIndex = ComboboxesVolumeCB[i].FindStringExact(VolumeGlobal.ToString());
             }
         }
 

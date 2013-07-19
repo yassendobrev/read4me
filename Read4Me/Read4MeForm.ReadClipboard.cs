@@ -33,7 +33,25 @@ namespace Read4Me
         private void ReadClipboard(string voice, int srate, int volume)
         {
             string toRead;
-            SpObjectToken voice_sp = TTSVoiceClipboard.GetVoices("Name=" + voice).Item(0);
+            SpObjectToken voice_sp = null;
+            int i = 0;
+            ISpeechObjectTokens AvailableVoices = TTSVoiceClipboard.GetVoices(string.Empty, string.Empty);
+            foreach (ISpeechObjectToken Token in AvailableVoices)
+            {
+                if (voice == Token.GetDescription(49))
+                {
+                    voice_sp = AvailableVoices.Item(i);
+                    break;
+                }
+                i++;
+            }
+
+            if (voice_sp == null)
+            {
+                MessageBox.Show("Error! Voice not found!");
+                return;
+            }
+
             PausedGlobal = false;
             toRead = Clipboard.GetText();
 
