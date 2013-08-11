@@ -3,6 +3,7 @@ using SpeechLib;
 using System.Threading;
 using System.IO;
 using System.Collections;
+using System;
 
 namespace Read4Me
 {
@@ -129,6 +130,21 @@ namespace Read4Me
             // http://www.gorancic.com/blog/net/c-paypal-donate-button
             string url = "http://affiliate.ivona.com/l/32/23620";
             System.Diagnostics.Process.Start(url);
+        }
+
+        private void SetBalloonTip(string title, string text, ToolTipIcon icon)
+        {
+            mynotifyicon.BalloonTipTitle = title;
+            mynotifyicon.BalloonTipText = text;
+            mynotifyicon.BalloonTipIcon = icon;
+            mynotifyicon.ShowBalloonTip(5000);
+            sWorkingStatus.Text = text;
+            this.Click += new EventHandler(BallonNotificationClick);
+        }
+
+        void BallonNotificationClick(object sender, EventArgs e)
+        {
+            ShowForm();
         }
     }
 }

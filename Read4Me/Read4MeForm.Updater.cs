@@ -15,7 +15,7 @@ namespace Read4Me
             switch (CheckForUpdate())
             {
                 case 0:
-                    MessageBox.Show("No new version available.");
+                    SetBalloonTip("Update", "No new version available.", ToolTipIcon.Info);
                     break;
                 case 1:
                     UpdateDialog dialog = new UpdateDialog();
@@ -23,7 +23,7 @@ namespace Read4Me
                     dialog.Dispose();
                     break;
                 case 2:
-                    MessageBox.Show("Couldn't connect to server.");
+                    SetBalloonTip("Error", "Couldn't connect to server.", ToolTipIcon.Error);
                     break;
             }
         }

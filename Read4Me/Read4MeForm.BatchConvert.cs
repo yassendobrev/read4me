@@ -83,7 +83,7 @@ namespace Read4Me
             }
             catch
             {
-                MessageBox.Show("Error setting voice.");
+                SetBalloonTip("Error", "Error setting voice.", ToolTipIcon.Error);
                 return;
             }
 
@@ -130,7 +130,7 @@ namespace Read4Me
             }
             catch
             {
-                MessageBox.Show("Error opening files!");
+                SetBalloonTip("Error", "Error opening files!", ToolTipIcon.Error);
                 bGoStartState();
                 return;
             }
@@ -167,7 +167,7 @@ namespace Read4Me
                     }
                     catch
                     {
-                        MessageBox.Show("Could not empty output directory.");
+                        SetBalloonTip("Error", "Could not empty output directory.", ToolTipIcon.Error);
                         bGoStartState();
                         return;
                     }
@@ -185,7 +185,7 @@ namespace Read4Me
                 }
                 catch
                 {
-                    MessageBox.Show("Output directory " + outdir + " could not be created.");
+                    SetBalloonTip("Error", "Output directory " + outdir + " could not be created.", ToolTipIcon.Error);
                     bGoStartState();
                     return;
                 }
@@ -197,7 +197,7 @@ namespace Read4Me
             }
             catch
             {
-                MessageBox.Show("Could not open .xml file for writing.");
+                SetBalloonTip("Error", "Could not open .xml file for writing.", ToolTipIcon.Error);
                 bGoStartState();
                 return;
             }
@@ -284,7 +284,7 @@ namespace Read4Me
                         }
                         catch
                         {
-                            MessageBox.Show("Could not open .xml file for writing during xml conversion.");
+                            SetBalloonTip("Error", "Could not open .xml file for writing during xml conversion.", ToolTipIcon.Error);
                             bGoStartState();
                             return;
                         }
@@ -341,7 +341,7 @@ namespace Read4Me
             }
             catch
             {
-                MessageBox.Show("No folder for batch!");
+                SetBalloonTip("Error", "No folder for batch!", ToolTipIcon.Error);
                 bGoStartState();
                 return;
             }
@@ -389,7 +389,7 @@ namespace Read4Me
             {
                 sWorkingStatus.Text = "Conversion finished";
             });
-            MessageBox.Show("All done!");
+            SetBalloonTip("Conversion finished", "All done successfully :)", ToolTipIcon.Info);
         }
 
         public void SpeakText(string file, int SpeechRate, int SpeechVolume, string SpeechVoice)
@@ -417,7 +417,7 @@ namespace Read4Me
 
             if (voice_sp == null)
             {
-                MessageBox.Show("Error! Voice not found!");
+                SetBalloonTip("Error", "Error! Voice not found!", ToolTipIcon.Error);
                 return;
             }
 
