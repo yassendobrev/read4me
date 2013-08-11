@@ -18,7 +18,7 @@ namespace Read4Me
         SpObjectToken SpeechVoiceGlobal;
 
         // program version
-        string LocalVersion = "0.4.3";
+        string LocalVersion = "0.5.0";
         
         SortedList ligatures = new SortedList();
         PressedKeys pKeys;
@@ -89,13 +89,8 @@ namespace Read4Me
             // set minimize / hide settings
             mAllowVisible = !cbMinToTray.Checked;
 
-            // check for update on startup
-            if (CheckForUpdate() == 1)
-            {
-                UpdateDialog dialog = new UpdateDialog();
-                dialog.ShowDialog(this);
-                dialog.Dispose();
-            }
+            // check for update at startup
+            ThreadedUpdateChecker();
 
             // create tbKey PressedKeys object
             pKeys = new PressedKeys();
@@ -132,19 +127,32 @@ namespace Read4Me
             System.Diagnostics.Process.Start(url);
         }
 
-        private void SetBalloonTip(string title, string text, ToolTipIcon icon)
+        private void SetBalloonTip(string title, string text, ToolTipIcon icon, string type)
         {
             mynotifyicon.BalloonTipTitle = title;
             mynotifyicon.BalloonTipText = text;
             mynotifyicon.BalloonTipIcon = icon;
             mynotifyicon.ShowBalloonTip(5000);
-            sWorkingStatus.Text = text;
-            this.Click += new EventHandler(BallonNotificationClick);
+            
+            if (type == "update")
+            {
+                mynotifyicon.BalloonTipClicked += new EventHandler(UpdateBalloonNotificationClick);
+            }
+            else
+            {
+                sWorkingStatus.Text = text;
+                mynotifyicon.BalloonTipClicked += new EventHandler(BalloonNotificationClick);
+            }
         }
 
-        void BallonNotificationClick(object sender, EventArgs e)
+        void BalloonNotificationClick(object sender, EventArgs e)
         {
             ShowForm();
+        }
+
+        void UpdateBalloonNotificationClick(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://sourceforge.net/projects/read4mecbr/files/latest/download?source=files");
         }
     }
 }

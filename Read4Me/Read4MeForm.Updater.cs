@@ -5,6 +5,7 @@ using System.Text;
 using System.Net;
 using System.Windows.Forms;
 using System.IO;
+using System.Threading;
 
 namespace Read4Me
 {
@@ -12,20 +13,14 @@ namespace Read4Me
     {
         private void checkForUpdateToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
-            switch (CheckForUpdate())
-            {
-                case 0:
-                    SetBalloonTip("Update", "No new version available.", ToolTipIcon.Info);
-                    break;
-                case 1:
-                    UpdateDialog dialog = new UpdateDialog();
-                    dialog.ShowDialog(this);
-                    dialog.Dispose();
-                    break;
-                case 2:
-                    SetBalloonTip("Error", "Couldn't connect to server.", ToolTipIcon.Error);
-                    break;
-            }
+            ThreadedUpdateChecker();
+        }
+
+        private void ThreadedUpdateChecker()
+        {
+            Thread updateThread;
+            updateThread = new Thread(() => this.CheckForUpdate());
+            updateThread.Start();
         }
 
         private uint CheckForUpdate()
@@ -41,22 +36,41 @@ namespace Read4Me
 
                 if (CurrentVersion == "0")
                 {
+                    UpdateError();
                     return 2;
                 }
 
                 if (LocalVersion != CurrentVersion)
                 {
+                    UpdateFound();
                     return 1;                    
                 }
                 else
                 {
+                    UpdateNotFound();
                     return 0;
                 }
             }
             catch
             {
+                UpdateError();
                 return 2;
             }
+        }
+
+        private void UpdateNotFound()
+        {
+            SetBalloonTip("Update", "No new version available.", ToolTipIcon.Info, "info");
+        }
+
+        private void UpdateFound()
+        {
+            SetBalloonTip("Update available", "A new version is available, click here to download it.", ToolTipIcon.Info, "update");
+        }
+
+        private void UpdateError()
+        {
+            SetBalloonTip("Error", "Couldn't connect to update server.", ToolTipIcon.Error, "error");
         }
     }
 }

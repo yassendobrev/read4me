@@ -83,7 +83,7 @@ namespace Read4Me
             }
             catch
             {
-                SetBalloonTip("Error", "Error setting voice.", ToolTipIcon.Error);
+                SetBalloonTip("Error", "Error setting voice.", ToolTipIcon.Error, "error");
                 return;
             }
 
@@ -130,7 +130,7 @@ namespace Read4Me
             }
             catch
             {
-                SetBalloonTip("Error", "Error opening files!", ToolTipIcon.Error);
+                SetBalloonTip("Error", "Error opening files!", ToolTipIcon.Error, "error");
                 bGoStartState();
                 return;
             }
@@ -167,7 +167,7 @@ namespace Read4Me
                     }
                     catch
                     {
-                        SetBalloonTip("Error", "Could not empty output directory.", ToolTipIcon.Error);
+                        SetBalloonTip("Error", "Could not empty output directory.", ToolTipIcon.Error, "error");
                         bGoStartState();
                         return;
                     }
@@ -185,7 +185,7 @@ namespace Read4Me
                 }
                 catch
                 {
-                    SetBalloonTip("Error", "Output directory " + outdir + " could not be created.", ToolTipIcon.Error);
+                    SetBalloonTip("Error", "Output directory " + outdir + " could not be created.", ToolTipIcon.Error, "error");
                     bGoStartState();
                     return;
                 }
@@ -197,7 +197,7 @@ namespace Read4Me
             }
             catch
             {
-                SetBalloonTip("Error", "Could not open .xml file for writing.", ToolTipIcon.Error);
+                SetBalloonTip("Error", "Could not open .xml file for writing.", ToolTipIcon.Error, "error");
                 bGoStartState();
                 return;
             }
@@ -284,7 +284,7 @@ namespace Read4Me
                         }
                         catch
                         {
-                            SetBalloonTip("Error", "Could not open .xml file for writing during xml conversion.", ToolTipIcon.Error);
+                            SetBalloonTip("Error", "Could not open .xml file for writing during xml conversion.", ToolTipIcon.Error, "error");
                             bGoStartState();
                             return;
                         }
@@ -341,7 +341,7 @@ namespace Read4Me
             }
             catch
             {
-                SetBalloonTip("Error", "No folder for batch!", ToolTipIcon.Error);
+                SetBalloonTip("Error", "No folder for batch!", ToolTipIcon.Error, "error");
                 bGoStartState();
                 return;
             }
@@ -389,7 +389,7 @@ namespace Read4Me
             {
                 sWorkingStatus.Text = "Conversion finished";
             });
-            SetBalloonTip("Conversion finished", "All done successfully :)", ToolTipIcon.Info);
+            SetBalloonTip("Conversion finished", "All done successfully :)", ToolTipIcon.Info, "info");
         }
 
         public void SpeakText(string file, int SpeechRate, int SpeechVolume, string SpeechVoice)
@@ -417,7 +417,7 @@ namespace Read4Me
 
             if (voice_sp == null)
             {
-                SetBalloonTip("Error", "Error! Voice not found!", ToolTipIcon.Error);
+                SetBalloonTip("Error", "Error! Voice not found!", ToolTipIcon.Error, "error");
                 return;
             }
 

@@ -80,7 +80,7 @@ namespace Read4Me
                 string lanCode = ld.Detect(toRead);
                 if (lanCode == null)
                 {
-                    SetBalloonTip("Error", "The language could not be detected.", ToolTipIcon.Error);
+                    SetBalloonTip("Error", "The language could not be detected.", ToolTipIcon.Error, "error");
                     return;
                 }
                 for (int setVoiceNum = 0; setVoiceNum < ComboboxesVoiceCB.Count; setVoiceNum++)
@@ -108,7 +108,7 @@ namespace Read4Me
 
                 if (!found)
                 {
-                    SetBalloonTip("Language detection", "The language was detected as " + ld.GetLanguageNameByCode(lanCode) + ", but no appropriate TTS voice available.", ToolTipIcon.Error);
+                    SetBalloonTip("Language detection", "The language was detected as " + ld.GetLanguageNameByCode(lanCode) + ", but no appropriate TTS voice available.", ToolTipIcon.Error, "error");
                     return;
                 }
             }
@@ -126,7 +126,7 @@ namespace Read4Me
 
             if (voice_sp == null)
             {
-                SetBalloonTip("Error", "Error! Voice not found!", ToolTipIcon.Error);
+                SetBalloonTip("Error", "Error! Voice not found!", ToolTipIcon.Error, "error");
                 return;
             }
 

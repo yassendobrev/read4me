@@ -55,9 +55,7 @@ namespace Read4Me
                 if (this.WindowState == FormWindowState.Minimized)
                 {
                     this.Restore();
-                    // SetBalloonTip("", this.WindowState.ToString(), ToolTipIcon.Info);
                     this.WindowState = FormWindowState.Normal;
-                    SetBalloonTip("", this.WindowState.ToString(), ToolTipIcon.Info);
                 }
 
                 mAllowVisible = true;

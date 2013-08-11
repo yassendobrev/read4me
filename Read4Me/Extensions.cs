@@ -1,5 +1,9 @@
 ﻿using System.Runtime.InteropServices;
 
+// http://stackoverflow.com/questions/354445/restore-windowstate-from-minimized
+// used in WinBehaviour: this.Restore();
+// because this.WindowState = FormWindowState.Normal; doesn't work
+
 namespace System.Windows.Forms
 {
     public static class Extensions

@@ -39,9 +39,11 @@
             this.lPlsDwn.AutoSize = true;
             this.lPlsDwn.Location = new System.Drawing.Point(15, 26);
             this.lPlsDwn.Name = "lPlsDwn";
-            this.lPlsDwn.Size = new System.Drawing.Size(120, 13);
+            this.lPlsDwn.Size = new System.Drawing.Size(249, 52);
             this.lPlsDwn.TabIndex = 56;
-            this.lPlsDwn.Text = "- Stability improvements.";
+            this.lPlsDwn.Text = "- Automatic language detection added.\r\n- Messageboxes replaced with balloon notif" +
+    "ications.\r\n- Bug fixed when minimized form does not show up.\r\n- Improved update " +
+    "system.";
             // 
             // bOK
             // 

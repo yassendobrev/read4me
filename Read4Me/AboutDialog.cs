@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 
 namespace Read4Me
 {
@@ -19,6 +20,7 @@ namespace Read4Me
         private Button bOK;
         private Button bDonate;
         private GroupBox groupBox1;
+        private LinkLabel linkLanguageDetection;
 
         string local_version;
     
@@ -26,7 +28,7 @@ namespace Read4Me
         {
             local_version = version;
             InitializeComponent();
-            lAbout1.Text = "Read4Me Clipboard Reader and Text to mp3 Converter v" + local_version + "\n(c) 2011-2012 Yassen Dobr" +
+            lAbout1.Text = "Read4Me Clipboard Reader and Text to mp3 Converter v" + local_version + "\n© 2011-" + DateTime.Now.Year.ToString() + " Yassen Dobr" +
                 "ev\nLicensed under GNU GPLv3 or later";
 
             lLinkDiscussion.Links.Add(0, lLinkDiscussion.Text.Length, lLinkDiscussion.Text);
@@ -35,6 +37,7 @@ namespace Read4Me
             linkLAME.Links.Add(0, linkLAME.Text.Length, linkLAME.Text);
             linkHotkey.Links.Add(0, linkHotkey.Text.Length, linkHotkey.Text);
             linkSAPI.Links.Add(0, linkSAPI.Text.Length, linkSAPI.Text);
+            linkLanguageDetection.Links.Add(0, linkLanguageDetection.Text.Length, linkLanguageDetection.Text);
         }
 
         // Hide form when ESC key pressed
@@ -65,6 +68,7 @@ namespace Read4Me
             this.lDisclaimer = new System.Windows.Forms.Label();
             this.bDonate = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.linkLanguageDetection = new System.Windows.Forms.LinkLabel();
             this.gbAbout.SuspendLayout();
             this.gbThanks.SuspendLayout();
             this.gbDisclaimer.SuspendLayout();
@@ -124,6 +128,7 @@ namespace Read4Me
             // 
             // gbThanks
             // 
+            this.gbThanks.Controls.Add(this.linkLanguageDetection);
             this.gbThanks.Controls.Add(this.linkSAPI);
             this.gbThanks.Controls.Add(this.linkHotkey);
             this.gbThanks.Controls.Add(this.linkMP3Compressor);
@@ -131,7 +136,7 @@ namespace Read4Me
             this.gbThanks.Controls.Add(this.lLinkIDSharp);
             this.gbThanks.Location = new System.Drawing.Point(12, 185);
             this.gbThanks.Name = "gbThanks";
-            this.gbThanks.Size = new System.Drawing.Size(361, 91);
+            this.gbThanks.Size = new System.Drawing.Size(361, 106);
             this.gbThanks.TabIndex = 57;
             this.gbThanks.TabStop = false;
             this.gbThanks.Text = "Third-party software used";
@@ -191,6 +196,17 @@ namespace Read4Me
             this.lLinkIDSharp.Text = "http://www.idsharp.com/products/tagging.php";
             this.lLinkIDSharp.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lLinkIDSharp_LinkClicked);
             // 
+            // linkLanguageDetection
+            // 
+            this.linkLanguageDetection.AutoSize = true;
+            this.linkLanguageDetection.Location = new System.Drawing.Point(6, 81);
+            this.linkLanguageDetection.Name = "linkLanguageDetection";
+            this.linkLanguageDetection.Size = new System.Drawing.Size(261, 13);
+            this.linkLanguageDetection.TabIndex = 59;
+            this.linkLanguageDetection.TabStop = true;
+            this.linkLanguageDetection.Text = "http://idsyst.hu/development/language_detector.html";
+            this.linkLanguageDetection.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLanguageDetection_LinkClicked);
+            // 
             // gbDisclaimer
             // 
             this.gbDisclaimer.Controls.Add(this.lDisclaimer);
@@ -223,9 +239,9 @@ namespace Read4Me
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.bDonate);
-            this.groupBox1.Location = new System.Drawing.Point(14, 282);
+            this.groupBox1.Location = new System.Drawing.Point(14, 297);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(361, 65);
+            this.groupBox1.Size = new System.Drawing.Size(361, 50);
             this.groupBox1.TabIndex = 59;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Support the development of Read4Me TTS Clipboard Reader";
@@ -290,6 +306,11 @@ namespace Read4Me
         }
 
         private void linkSAPI_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(e.Link.LinkData.ToString());
+        }
+
+        private void linkLanguageDetection_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start(e.Link.LinkData.ToString());
         }
