@@ -43,17 +43,36 @@ namespace Read4Me
             this.DragEnter += new DragEventHandler(Form_DragEnter);
             this.DragDrop += new DragEventHandler(Form_DragDrop);
 
+            // Add empty value
+            cmbVoices.Items.Add("");
+            cbVoiceBatch.Items.Add("");
+            cbLang1.Items.Add("");
+            cbLang2.Items.Add("");
+            cbLang3.Items.Add("");
+            cbLang4.Items.Add("");
+            cbLang5.Items.Add("");
+            cbLang6.Items.Add("");
+
+            // Add language detection
+            cmbVoices.Items.Add("Detect language");
+            cbLang1.Items.Add("Detect language");
+            cbLang2.Items.Add("Detect language");
+            cbLang3.Items.Add("Detect language");
+            cbLang4.Items.Add("Detect language");
+            cbLang5.Items.Add("Detect language");
+            cbLang6.Items.Add("Detect language");
+
+            // add available TTS voices
             foreach (ISpeechObjectToken Token in TTSVoiceClipboard.GetVoices(string.Empty, string.Empty))
             {
-                // Populate the ComboBox Entries ..
-                cmbVoices.Items.Add(Token.GetDescription(49));
-                cbVoiceBatch.Items.Add(Token.GetDescription(49));
-                cbLang1.Items.Add(Token.GetDescription(49));
-                cbLang2.Items.Add(Token.GetDescription(49));
-                cbLang3.Items.Add(Token.GetDescription(49));
-                cbLang4.Items.Add(Token.GetDescription(49));
-                cbLang5.Items.Add(Token.GetDescription(49));
-                cbLang6.Items.Add(Token.GetDescription(49));
+                cmbVoices.Items.Add(Token.GetDescription(0));
+                cbVoiceBatch.Items.Add(Token.GetDescription(0));
+                cbLang1.Items.Add(Token.GetDescription(0));
+                cbLang2.Items.Add(Token.GetDescription(0));
+                cbLang3.Items.Add(Token.GetDescription(0));
+                cbLang4.Items.Add(Token.GetDescription(0));
+                cbLang5.Items.Add(Token.GetDescription(0));
+                cbLang6.Items.Add(Token.GetDescription(0));
             }
             cmbVoices.SelectedIndex = 0; // Select the first Index of the comboBox 
             tbarRate.Value = SpeechRateGlobal;

@@ -315,7 +315,7 @@ namespace Read4Me
                     break;
 
                 case "pause_resume":
-                    todo_action = () => SpeechStop();
+                    todo_action = () => SpeechPause();
                     break;
 
                 case "previous_sentence":
@@ -357,10 +357,10 @@ namespace Read4Me
 
         private void bApplyClick(object sender, EventArgs e)
         {
-            WriteSettings();
+            WriteSettingsIni();
         }
 
-        private void WriteSettings()
+        private void WriteSettingsIni()
         {
             StreamWriter FileWriter;
             try

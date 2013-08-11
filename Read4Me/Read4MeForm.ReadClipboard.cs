@@ -3,6 +3,9 @@ using SpeechLib;
 using System.IO;
 using System.Collections;
 using System.Collections.Generic;
+using LiteMiner.classes;
+using System.Globalization;
+using System;
 
 namespace Read4Me
 {
@@ -10,10 +13,28 @@ namespace Read4Me
     {
         private void SpeechSkip(int items)
         {
-            TTSVoiceClipboard.Skip("Sentence", items);
+            if (PausedGlobal)
+            {
+                int volume = TTSVoiceClipboard.Volume;
+                TTSVoiceClipboard.Volume = 0;
+                TTSVoiceClipboard.Resume();
+                while (!(TTSVoiceClipboard.Status.RunningState == SpeechRunState.SRSEIsSpeaking))
+                {
+                }
+                TTSVoiceClipboard.Skip("Sentence", items);
+                TTSVoiceClipboard.Pause();
+                while (TTSVoiceClipboard.Status.RunningState == SpeechRunState.SRSEIsSpeaking)
+                {
+                }
+                TTSVoiceClipboard.Volume = volume;
+            }
+            else
+            {
+                TTSVoiceClipboard.Skip("Sentence", items);
+            }
         }
 
-        private void SpeechStop()
+        private void SpeechPause()
         {
             if (TTSVoiceClipboard.Status.RunningState == SpeechRunState.SRSEIsSpeaking)
             {
@@ -35,10 +56,67 @@ namespace Read4Me
             string toRead;
             SpObjectToken voice_sp = null;
             int i = 0;
+            bool found = false;
+
+            // get clipboard content
+            toRead = Clipboard.GetText();
+
+            // no silence on new line
+            toRead = toRead.Replace("\r\n", " ");
+
+            // remove ligatures
+            foreach (DictionaryEntry entry in ligatures)
+            {
+                toRead = toRead.Replace(entry.Key.ToString(), entry.Value.ToString());
+            }
+
+            // get all available voices
+            // for some reason this doesn't work always: ISpeechObjectTokens setVoices = TTSVoiceClipboard.GetVoices("Name=" + ComboboxesVoiceCB[setVoiceNum].SelectedItem, string.Empty);
             ISpeechObjectTokens AvailableVoices = TTSVoiceClipboard.GetVoices(string.Empty, string.Empty);
+
+            if (voice == "Detect language")
+            {
+                LanguageDetector ld = new LanguageDetector();
+                string lanCode = ld.Detect(toRead);
+                if (lanCode == null)
+                {
+                    MessageBox.Show("The language could not be detected.");
+                    return;
+                }
+                for (int setVoiceNum = 0; setVoiceNum < ComboboxesVoiceCB.Count; setVoiceNum++)
+                {
+                    i = 0;
+                    foreach (ISpeechObjectToken Token in AvailableVoices)
+                    {
+                        if (ComboboxesVoiceCB[setVoiceNum].SelectedItem.ToString() == Token.GetDescription(0))
+                        {
+                            voice_sp = AvailableVoices.Item(i);
+                            CultureInfo myCItrad = new CultureInfo(int.Parse(voice_sp.GetAttribute("Language"), System.Globalization.NumberStyles.HexNumber), false);
+                            if (lanCode == myCItrad.TwoLetterISOLanguageName)
+                            {
+                                found = true;
+                                break;
+                            }
+                        }
+                        if (found)
+                        {
+                            break;
+                        }
+                        i++;
+                    }
+                }
+
+                if (!found)
+                {
+                    MessageBox.Show("The language was detected as " + ld.GetLanguageNameByCode(lanCode) + ", but no appropriate TTS voice available.");
+                    return;
+                }
+            }
+
+            i = 0;
             foreach (ISpeechObjectToken Token in AvailableVoices)
             {
-                if (voice == Token.GetDescription(49))
+                if (voice == Token.GetDescription(0))
                 {
                     voice_sp = AvailableVoices.Item(i);
                     break;
@@ -53,7 +131,6 @@ namespace Read4Me
             }
 
             PausedGlobal = false;
-            toRead = Clipboard.GetText();
 
             // init TTS
             TTSVoiceClipboard.Rate = 10;
@@ -61,14 +138,6 @@ namespace Read4Me
             TTSVoiceClipboard.Voice = voice_sp;
             TTSVoiceClipboard.Speak("а", SpeechVoiceSpeakFlags.SVSFlagsAsync | SpeechVoiceSpeakFlags.SVSFIsXML | SpeechVoiceSpeakFlags.SVSFPurgeBeforeSpeak);
             System.Threading.Thread.Sleep(100);
-
-            // no silence on new line
-            toRead = toRead.Replace("\r\n", " ");
-
-            foreach (DictionaryEntry entry in ligatures)
-            {
-                toRead = toRead.Replace(entry.Key.ToString(), entry.Value.ToString());
-            }
             
             TTSVoiceClipboard.Rate = srate;
             TTSVoiceClipboard.Volume = volume;

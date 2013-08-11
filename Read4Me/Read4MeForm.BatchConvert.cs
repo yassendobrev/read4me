@@ -230,6 +230,7 @@ namespace Read4Me
                 line = line.Replace(">", " ");
                 line = line.Replace("«", " ");
                 line = line.Replace("»", " ");
+                line = line.Replace("­", ""); // there is a SOFT HYPHEN between the 1st "" (UTF-8 (hex)	0xC2 0xAD (c2ad))
 
                 // SLOWER RATE WHEN words surrounded with _words_ -> emphasize!
                 // use <rate absspeed="-7"/>
@@ -406,7 +407,7 @@ namespace Read4Me
             ISpeechObjectTokens AvailableVoices = TTSVoiceClipboard.GetVoices(string.Empty, string.Empty);
             foreach (ISpeechObjectToken Token in AvailableVoices)
             {
-                if (SpeechVoice == Token.GetDescription(49))
+                if (SpeechVoice == Token.GetDescription(0))
                 {
                     voice_sp = AvailableVoices.Item(i);
                     break;
@@ -487,7 +488,7 @@ namespace Read4Me
 
         private void bApplyBatch_Click(object sender, System.EventArgs e)
         {
-            WriteSettings();
+            WriteSettingsIni();
         }
 
         // This event occurs when the user drags over the form with 
