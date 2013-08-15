@@ -90,7 +90,7 @@ namespace Read4Me
             mAllowVisible = !cbMinToTray.Checked;
 
             // check for update at startup
-            ThreadedUpdateChecker();
+            ThreadedUpdateChecker(true);
 
             // create tbKey PressedKeys object
             pKeys = new PressedKeys();

@@ -94,6 +94,8 @@ namespace Read4Me
                             CultureInfo myCItrad = new CultureInfo(int.Parse(voice_sp.GetAttribute("Language"), System.Globalization.NumberStyles.HexNumber), false);
                             if (lanCode == myCItrad.TwoLetterISOLanguageName)
                             {
+                                volume = Int16.Parse(ComboboxesVolumeCB[setVoiceNum].SelectedItem.ToString());
+                                srate = Int16.Parse(ComboboxesRateCB[setVoiceNum].SelectedItem.ToString());
                                 found = true;
                                 break;
                             }

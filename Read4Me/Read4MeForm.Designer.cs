@@ -397,7 +397,7 @@ namespace Read4Me
             // cbLang6
             // 
             this.cbLang6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbLang6.DropDownWidth = 320;
+            this.cbLang6.DropDownWidth = 300;
             this.cbLang6.FormattingEnabled = true;
             this.cbLang6.Location = new System.Drawing.Point(194, 145);
             this.cbLang6.Name = "cbLang6";
@@ -407,7 +407,7 @@ namespace Read4Me
             // cbLang5
             // 
             this.cbLang5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbLang5.DropDownWidth = 320;
+            this.cbLang5.DropDownWidth = 300;
             this.cbLang5.FormattingEnabled = true;
             this.cbLang5.Location = new System.Drawing.Point(194, 122);
             this.cbLang5.Name = "cbLang5";
@@ -417,7 +417,7 @@ namespace Read4Me
             // cbLang4
             // 
             this.cbLang4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbLang4.DropDownWidth = 320;
+            this.cbLang4.DropDownWidth = 300;
             this.cbLang4.FormattingEnabled = true;
             this.cbLang4.Location = new System.Drawing.Point(194, 99);
             this.cbLang4.Name = "cbLang4";
@@ -562,7 +562,7 @@ namespace Read4Me
             // cbLang3
             // 
             this.cbLang3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbLang3.DropDownWidth = 320;
+            this.cbLang3.DropDownWidth = 300;
             this.cbLang3.FormattingEnabled = true;
             this.cbLang3.Location = new System.Drawing.Point(194, 76);
             this.cbLang3.Name = "cbLang3";
@@ -572,7 +572,7 @@ namespace Read4Me
             // cbLang2
             // 
             this.cbLang2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbLang2.DropDownWidth = 320;
+            this.cbLang2.DropDownWidth = 300;
             this.cbLang2.FormattingEnabled = true;
             this.cbLang2.Location = new System.Drawing.Point(194, 53);
             this.cbLang2.Name = "cbLang2";
@@ -582,7 +582,7 @@ namespace Read4Me
             // cbLang1
             // 
             this.cbLang1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbLang1.DropDownWidth = 320;
+            this.cbLang1.DropDownWidth = 300;
             this.cbLang1.FormattingEnabled = true;
             this.cbLang1.Location = new System.Drawing.Point(194, 30);
             this.cbLang1.Name = "cbLang1";
@@ -1071,6 +1071,7 @@ namespace Read4Me
             // cmbVoices
             // 
             this.cmbVoices.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbVoices.DropDownWidth = 300;
             this.cmbVoices.FormattingEnabled = true;
             this.cmbVoices.Location = new System.Drawing.Point(6, 36);
             this.cmbVoices.Name = "cmbVoices";
@@ -1251,6 +1252,8 @@ namespace Read4Me
             // cbCaptialLetters
             // 
             this.cbCaptialLetters.AutoSize = true;
+            this.cbCaptialLetters.Checked = true;
+            this.cbCaptialLetters.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbCaptialLetters.Location = new System.Drawing.Point(7, 53);
             this.cbCaptialLetters.Name = "cbCaptialLetters";
             this.cbCaptialLetters.Size = new System.Drawing.Size(124, 30);
@@ -1261,6 +1264,8 @@ namespace Read4Me
             // cbSlowRate
             // 
             this.cbSlowRate.AutoSize = true;
+            this.cbSlowRate.Checked = true;
+            this.cbSlowRate.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbSlowRate.Location = new System.Drawing.Point(7, 89);
             this.cbSlowRate.Name = "cbSlowRate";
             this.cbSlowRate.Size = new System.Drawing.Size(154, 30);
@@ -1444,6 +1449,7 @@ namespace Read4Me
             // cbVoiceBatch
             // 
             this.cbVoiceBatch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbVoiceBatch.DropDownWidth = 300;
             this.cbVoiceBatch.FormattingEnabled = true;
             this.cbVoiceBatch.Location = new System.Drawing.Point(12, 39);
             this.cbVoiceBatch.Name = "cbVoiceBatch";

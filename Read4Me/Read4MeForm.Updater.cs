@@ -13,17 +13,17 @@ namespace Read4Me
     {
         private void checkForUpdateToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
-            ThreadedUpdateChecker();
+            ThreadedUpdateChecker(false);
         }
 
-        private void ThreadedUpdateChecker()
+        private void ThreadedUpdateChecker(bool silent)
         {
             Thread updateThread;
-            updateThread = new Thread(() => this.CheckForUpdate());
+            updateThread = new Thread(() => this.CheckForUpdate(silent));
             updateThread.Start();
         }
 
-        private uint CheckForUpdate()
+        private void CheckForUpdate(bool silent)
         {
             try
             {
@@ -36,25 +36,30 @@ namespace Read4Me
 
                 if (CurrentVersion == "0")
                 {
-                    UpdateError();
-                    return 2;
+                    if (!silent)
+                    {
+                        UpdateError();
+                    }
                 }
 
                 if (LocalVersion != CurrentVersion)
                 {
-                    UpdateFound();
-                    return 1;                    
+                    UpdateFound();                
                 }
                 else
                 {
-                    UpdateNotFound();
-                    return 0;
+                    if (!silent)
+                    {
+                        UpdateNotFound();
+                    }
                 }
             }
             catch
             {
-                UpdateError();
-                return 2;
+                if (!silent)
+                {
+                    UpdateError();
+                }
             }
         }
 
