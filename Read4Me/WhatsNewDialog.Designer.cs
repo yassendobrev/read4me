@@ -37,18 +37,16 @@
             // lPlsDwn
             // 
             this.lPlsDwn.AutoSize = true;
-            this.lPlsDwn.Location = new System.Drawing.Point(15, 26);
+            this.lPlsDwn.Location = new System.Drawing.Point(12, 26);
             this.lPlsDwn.Name = "lPlsDwn";
-            this.lPlsDwn.Size = new System.Drawing.Size(249, 52);
+            this.lPlsDwn.Size = new System.Drawing.Size(350, 91);
             this.lPlsDwn.TabIndex = 56;
-            this.lPlsDwn.Text = "- Automatic language detection added.\r\n- Messageboxes replaced with balloon notif" +
-    "ications.\r\n- Bug fixed when minimized form does not show up.\r\n- Improved update " +
-    "system.";
+            this.lPlsDwn.Text = resources.GetString("lPlsDwn.Text");
             // 
             // bOK
             // 
             this.bOK.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.bOK.Location = new System.Drawing.Point(18, 117);
+            this.bOK.Location = new System.Drawing.Point(18, 120);
             this.bOK.Name = "bOK";
             this.bOK.Size = new System.Drawing.Size(75, 23);
             this.bOK.TabIndex = 1;

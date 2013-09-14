@@ -163,6 +163,7 @@ namespace Read4Me
             this.label24 = new System.Windows.Forms.Label();
             this.lLinkDiscussion = new System.Windows.Forms.LinkLabel();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.cbReadSelectedText = new System.Windows.Forms.CheckBox();
             this.contextMenuStrip1.SuspendLayout();
             this.sStrip.SuspendLayout();
             this.mMainMenuStrip.SuspendLayout();
@@ -302,6 +303,7 @@ namespace Read4Me
             // 
             // gbBehaviour
             // 
+            this.gbBehaviour.Controls.Add(this.cbReadSelectedText);
             this.gbBehaviour.Controls.Add(this.cbMinToTray);
             this.gbBehaviour.Location = new System.Drawing.Point(324, 4);
             this.gbBehaviour.Name = "gbBehaviour";
@@ -1535,6 +1537,16 @@ namespace Read4Me
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
+            // cbReadSelectedText
+            // 
+            this.cbReadSelectedText.AutoSize = true;
+            this.cbReadSelectedText.Location = new System.Drawing.Point(7, 38);
+            this.cbReadSelectedText.Name = "cbReadSelectedText";
+            this.cbReadSelectedText.Size = new System.Drawing.Size(184, 17);
+            this.cbReadSelectedText.TabIndex = 1;
+            this.cbReadSelectedText.Text = "Read selected text (vs. clipboard)";
+            this.cbReadSelectedText.UseVisualStyleBackColor = true;
+            // 
             // Read4MeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1723,6 +1735,7 @@ namespace Read4Me
         private System.Windows.Forms.TextBox tbKey;
         private System.Windows.Forms.GroupBox gbBehaviour;
         private System.Windows.Forms.CheckBox cbMinToTray;
+        private System.Windows.Forms.CheckBox cbReadSelectedText;
     }
 }
 

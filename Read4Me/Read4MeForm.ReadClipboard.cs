@@ -6,11 +6,55 @@ using System.Collections.Generic;
 using LiteMiner.classes;
 using System.Globalization;
 using System;
+using System.Runtime.InteropServices;
+using System.Threading;
+using Microsoft.Win32;
 
 namespace Read4Me
 {
     partial class Read4MeForm
     {
+        [DllImport("User32.dll")]
+        private static extern bool SetForegroundWindow(IntPtr hWnd);
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        static public extern IntPtr GetForegroundWindow();
+
+        [DllImport("user32.dll")]
+        static extern void keybd_event(byte bVk, byte bScan, uint dwFlags, uint dwExtraInfo);
+
+        [DllImport("User32.dll", CharSet = CharSet.Auto)]
+        public static extern IntPtr SetClipboardViewer(IntPtr hWndNewViewer);
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        public static extern int SendMessage(IntPtr hwnd, int wMsg, IntPtr wParam, IntPtr lParam);
+
+        private void SendCtrlC(IntPtr hWnd)
+        {
+            uint KEYEVENTF_KEYUP = 2;
+            byte VK_CONTROL = 0x11;
+            SetForegroundWindow(hWnd);
+            keybd_event(VK_CONTROL,0,0,0);
+            keybd_event (0x43, 0, 0, 0 ); //Send the C key (43 is "C")
+            keybd_event (0x43, 0, KEYEVENTF_KEYUP, 0);
+            keybd_event (VK_CONTROL, 0, KEYEVENTF_KEYUP, 0);// 'Left Control Up
+        }
+
+        // http://www.radsoftware.com.au/articles/clipboardmonitor.aspx
+        protected override void WndProc(ref Message m)
+        {
+            switch (m.Msg)
+            {
+                case 0x0308:
+                    // MessageBox.Show(Clipboard.GetText());
+                    SendMessage(_ClipboardViewerNext, m.Msg, m.WParam, m.LParam);
+                    break;
+                default:
+                    base.WndProc(ref m);
+                    break;
+            }
+        }
+
         private void SpeechSkip(int items)
         {
             if (PausedGlobal)
@@ -36,6 +80,7 @@ namespace Read4Me
 
         private void SpeechPause()
         {
+
             if (TTSVoiceClipboard.Status.RunningState == SpeechRunState.SRSEIsSpeaking)
             {
                 TTSVoiceClipboard.Pause();
@@ -53,13 +98,27 @@ namespace Read4Me
 
         private void ReadClipboard(string voice, int srate, int volume)
         {
+            // IDataObject OldClipboard = null;
+            if (cbReadSelectedText.Checked)
+            {
+                // OldClipboard = Clipboard.GetDataObject();
+                SendCtrlC(GetForegroundWindow());
+                Thread.Sleep(100); // it takes some time until the content arrives in the clipboard
+            }
             string toRead;
+
             SpObjectToken voice_sp = null;
             int i = 0;
             bool found = false;
 
             // get clipboard content
             toRead = Clipboard.GetText();
+            /*
+            if (cbReadSelectedText.Checked)
+            {
+                Clipboard.SetDataObject(OldClipboard);
+            }
+             */
 
             // no silence on new line
             toRead = toRead.Replace("\r\n", " ");

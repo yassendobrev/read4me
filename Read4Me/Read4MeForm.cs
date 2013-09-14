@@ -18,7 +18,7 @@ namespace Read4Me
         SpObjectToken SpeechVoiceGlobal;
 
         // program version
-        string LocalVersion = "0.5.0";
+        string LocalVersion = "0.5.1";
         
         SortedList ligatures = new SortedList();
         PressedKeys pKeys;
@@ -26,6 +26,9 @@ namespace Read4Me
         // show/hide main window
         bool mAllowVisible;     // ContextMenu's Show command used
         bool MinToTray = false; // minimize program or hide program
+        bool ReadSelectedText = false; // read selected text or read clipboard
+
+        IntPtr _ClipboardViewerNext;
 
         public Read4MeForm()
         {
@@ -94,6 +97,9 @@ namespace Read4Me
 
             // create tbKey PressedKeys object
             pKeys = new PressedKeys();
+
+            // register clipboard viewer
+            // _ClipboardViewerNext = SetClipboardViewer(this.Handle); // register if necessary
         }
 
         private void miAbout_Click(object sender, System.EventArgs e)
