@@ -4,6 +4,7 @@ using System.Threading;
 using System.IO;
 using System.Collections;
 using System;
+using System.Speech.Synthesis;
 
 namespace Read4Me
 {
@@ -11,6 +12,7 @@ namespace Read4Me
     {
         // some required members 
         static SpVoice TTSVoiceClipboard = new SpVoice();
+        static SpeechSynthesizer TTSVoiceClipboardSynth = new SpeechSynthesizer();
 
         int SpeechRateGlobal = 4; // Ranges from -10 to 10 
         int VolumeGlobal = 80; // Range from 0 to 100.
