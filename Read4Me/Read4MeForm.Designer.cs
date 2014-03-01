@@ -1,3 +1,4 @@
+using System;
 namespace Read4Me
 {
     partial class Read4MeForm
@@ -127,6 +128,7 @@ namespace Read4Me
             this.lHK1 = new System.Windows.Forms.Label();
             this.lHK2 = new System.Windows.Forms.Label();
             this.tpSpeak = new System.Windows.Forms.TabPage();
+            this.tbspeech = new System.Windows.Forms.RichTextBox();
             this.gbSpeakControl = new System.Windows.Forms.GroupBox();
             this.cmbVoices = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -173,7 +175,6 @@ namespace Read4Me
             this.label24 = new System.Windows.Forms.Label();
             this.lLinkDiscussion = new System.Windows.Forms.LinkLabel();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.tbspeech = new System.Windows.Forms.RichTextBox();
             this.contextMenuStrip1.SuspendLayout();
             this.sStrip.SuspendLayout();
             this.mMainMenuStrip.SuspendLayout();
@@ -1173,6 +1174,15 @@ namespace Read4Me
             this.tpSpeak.Text = "Speak Text";
             this.tpSpeak.UseVisualStyleBackColor = true;
             // 
+            // tbspeech
+            // 
+            this.tbspeech.EnableAutoDragDrop = true;
+            this.tbspeech.Location = new System.Drawing.Point(0, 25);
+            this.tbspeech.Name = "tbspeech";
+            this.tbspeech.Size = new System.Drawing.Size(276, 349);
+            this.tbspeech.TabIndex = 32;
+            this.tbspeech.Text = "";
+            // 
             // gbSpeakControl
             // 
             this.gbSpeakControl.Controls.Add(this.cmbVoices);
@@ -1652,14 +1662,6 @@ namespace Read4Me
             this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            // 
-            // tbspeech
-            // 
-            this.tbspeech.Location = new System.Drawing.Point(0, 25);
-            this.tbspeech.Name = "tbspeech";
-            this.tbspeech.Size = new System.Drawing.Size(276, 349);
-            this.tbspeech.TabIndex = 32;
-            this.tbspeech.Text = "";
             // 
             // Read4MeForm
             // 

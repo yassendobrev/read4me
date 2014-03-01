@@ -28,6 +28,9 @@ namespace Read4Me
         bool MinToTray = false; // minimize program or hide program
         bool ReadSelectedText = false; // read selected text or read clipboard
 
+        MenuItem mi;
+        ContextMenu cm;
+
         IntPtr _ClipboardViewerNext;
 
         public Read4MeForm()
@@ -65,6 +68,19 @@ namespace Read4Me
             cbLang4.Items.Add("Detect language");
             cbLang5.Items.Add("Detect language");
             cbLang6.Items.Add("Detect language");
+
+            // add cut copy paste menu to textbox
+            cm = new ContextMenu();
+            mi = new System.Windows.Forms.MenuItem("Cut");
+            mi.Click += new EventHandler(mi_Cut);
+            cm.MenuItems.Add(mi);
+            mi = new System.Windows.Forms.MenuItem("Copy");
+            mi.Click += new EventHandler(mi_Copy);
+            cm.MenuItems.Add(mi);
+            mi = new System.Windows.Forms.MenuItem("Paste");
+            mi.Click += new EventHandler(mi_Paste);
+            cm.MenuItems.Add(mi);
+            tbspeech.ContextMenu = cm;
 
             // add available TTS voices
             foreach (ISpeechObjectToken Token in TTSVoiceClipboard.GetVoices(string.Empty, string.Empty))
@@ -167,6 +183,23 @@ namespace Read4Me
         void UpdateBalloonNotificationClick(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("http://sourceforge.net/projects/read4mecbr/files/latest/download?source=files");
+        }
+
+        void mi_Cut(object sender, EventArgs e)
+        {
+            tbspeech.Cut();
+        }
+        void mi_Copy(object sender, EventArgs e)
+        {
+            //Clipboard.SetData(DataFormats.Rtf, tbspeech.SelectedRtf);
+            tbspeech.Copy();
+        }
+        void mi_Paste(object sender, EventArgs e)
+        {
+            if (Clipboard.ContainsText(TextDataFormat.Rtf))
+            {
+                tbspeech.SelectedRtf = Clipboard.GetData(DataFormats.Rtf).ToString();
+            }
         }
     }
 }
