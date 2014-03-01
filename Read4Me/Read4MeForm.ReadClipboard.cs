@@ -55,7 +55,7 @@ namespace Read4Me
                     break;
             }
         }
-
+        /*
         private void SpeechSkip(int items)
         {
             if (PausedGlobal)
@@ -132,12 +132,11 @@ namespace Read4Me
 
             // get clipboard content
             toRead = Clipboard.GetText();
-            /*
-            if (cbReadSelectedText.Checked)
-            {
-                Clipboard.SetDataObject(OldClipboard);
-            }
-             */
+            
+            //if (cbReadSelectedText.Checked)
+            //{
+            //    Clipboard.SetDataObject(OldClipboard);
+            //}
 
             // no silence on new line
             toRead = toRead.Replace("\r\n", " ");
@@ -232,8 +231,8 @@ namespace Read4Me
             TTSVoiceClipboard.Resume();
             TTSVoiceClipboard.Speak(toRead, SpeechVoiceSpeakFlags.SVSFlagsAsync | SpeechVoiceSpeakFlags.SVSFIsXML | SpeechVoiceSpeakFlags.SVSFPurgeBeforeSpeak);
         }
-
-        /*
+        */
+        
         // http://msdn.microsoft.com/en-us/library/jj572477(v=office.14).aspx
         private void SpeechSkip(int items)
         {
@@ -422,7 +421,7 @@ namespace Read4Me
             posTTS = e.CharacterPosition;
             MessageBox.Show(posTTS.ToString() + " " + textTTS);
         }
-        */
+        
         private void InitLigatures()
         {
             // http://www.softerviews.org/LibreOffice.html#Remove_Ligatures
