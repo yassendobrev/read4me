@@ -45,6 +45,7 @@ namespace Read4Me
             this.miAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.tbSettings = new System.Windows.Forms.TabPage();
             this.gbBehaviour = new System.Windows.Forms.GroupBox();
+            this.cbReadSelectedText = new System.Windows.Forms.CheckBox();
             this.cbMinToTray = new System.Windows.Forms.CheckBox();
             this.tbKey = new System.Windows.Forms.TextBox();
             this.Apply = new System.Windows.Forms.Button();
@@ -163,7 +164,16 @@ namespace Read4Me
             this.label24 = new System.Windows.Forms.Label();
             this.lLinkDiscussion = new System.Windows.Forms.LinkLabel();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.cbReadSelectedText = new System.Windows.Forms.CheckBox();
+            this.tbHK4 = new System.Windows.Forms.TextBox();
+            this.lCtrl4 = new System.Windows.Forms.CheckBox();
+            this.lAlt4 = new System.Windows.Forms.CheckBox();
+            this.lWinKey4 = new System.Windows.Forms.CheckBox();
+            this.lHK4 = new System.Windows.Forms.Label();
+            this.tbHK5 = new System.Windows.Forms.TextBox();
+            this.lCtrl5 = new System.Windows.Forms.CheckBox();
+            this.lAlt5 = new System.Windows.Forms.CheckBox();
+            this.lWinKey5 = new System.Windows.Forms.CheckBox();
+            this.lHK5 = new System.Windows.Forms.Label();
             this.contextMenuStrip1.SuspendLayout();
             this.sStrip.SuspendLayout();
             this.mMainMenuStrip.SuspendLayout();
@@ -218,7 +228,7 @@ namespace Read4Me
             // 
             this.sStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sWorkingStatus});
-            this.sStrip.Location = new System.Drawing.Point(0, 402);
+            this.sStrip.Location = new System.Drawing.Point(0, 462);
             this.sStrip.Name = "sStrip";
             this.sStrip.Size = new System.Drawing.Size(544, 22);
             this.sStrip.TabIndex = 19;
@@ -296,7 +306,7 @@ namespace Read4Me
             this.tbSettings.Controls.Add(this.gbGeneral);
             this.tbSettings.Location = new System.Drawing.Point(4, 22);
             this.tbSettings.Name = "tbSettings";
-            this.tbSettings.Size = new System.Drawing.Size(522, 329);
+            this.tbSettings.Size = new System.Drawing.Size(522, 380);
             this.tbSettings.TabIndex = 2;
             this.tbSettings.Text = "Settings";
             this.tbSettings.UseVisualStyleBackColor = true;
@@ -312,6 +322,16 @@ namespace Read4Me
             this.gbBehaviour.TabStop = false;
             this.gbBehaviour.Text = "Window behaviour";
             // 
+            // cbReadSelectedText
+            // 
+            this.cbReadSelectedText.AutoSize = true;
+            this.cbReadSelectedText.Location = new System.Drawing.Point(7, 38);
+            this.cbReadSelectedText.Name = "cbReadSelectedText";
+            this.cbReadSelectedText.Size = new System.Drawing.Size(184, 17);
+            this.cbReadSelectedText.TabIndex = 1;
+            this.cbReadSelectedText.Text = "Read selected text (vs. clipboard)";
+            this.cbReadSelectedText.UseVisualStyleBackColor = true;
+            // 
             // cbMinToTray
             // 
             this.cbMinToTray.AutoSize = true;
@@ -324,7 +344,7 @@ namespace Read4Me
             // 
             // tbKey
             // 
-            this.tbKey.Location = new System.Drawing.Point(9, 300);
+            this.tbKey.Location = new System.Drawing.Point(9, 345);
             this.tbKey.Name = "tbKey";
             this.tbKey.ShortcutsEnabled = false;
             this.tbKey.Size = new System.Drawing.Size(400, 20);
@@ -334,7 +354,7 @@ namespace Read4Me
             // 
             // Apply
             // 
-            this.Apply.Location = new System.Drawing.Point(415, 300);
+            this.Apply.Location = new System.Drawing.Point(415, 345);
             this.Apply.Name = "Apply";
             this.Apply.Size = new System.Drawing.Size(94, 23);
             this.Apply.TabIndex = 6;
@@ -389,7 +409,7 @@ namespace Read4Me
             this.gbVoices.Controls.Add(this.lWinKeylang5);
             this.gbVoices.Controls.Add(this.lWinKeylang4);
             this.gbVoices.Controls.Add(this.lAltlang1);
-            this.gbVoices.Location = new System.Drawing.Point(3, 121);
+            this.gbVoices.Location = new System.Drawing.Point(3, 166);
             this.gbVoices.Name = "gbVoices";
             this.gbVoices.Size = new System.Drawing.Size(506, 173);
             this.gbVoices.TabIndex = 5;
@@ -821,6 +841,16 @@ namespace Read4Me
             // 
             // gbGeneral
             // 
+            this.gbGeneral.Controls.Add(this.tbHK5);
+            this.gbGeneral.Controls.Add(this.lCtrl5);
+            this.gbGeneral.Controls.Add(this.lAlt5);
+            this.gbGeneral.Controls.Add(this.lWinKey5);
+            this.gbGeneral.Controls.Add(this.lHK5);
+            this.gbGeneral.Controls.Add(this.tbHK4);
+            this.gbGeneral.Controls.Add(this.lCtrl4);
+            this.gbGeneral.Controls.Add(this.lAlt4);
+            this.gbGeneral.Controls.Add(this.lWinKey4);
+            this.gbGeneral.Controls.Add(this.lHK4);
             this.gbGeneral.Controls.Add(this.lCtrl0);
             this.gbGeneral.Controls.Add(this.tbHK3);
             this.gbGeneral.Controls.Add(this.lCtrl1);
@@ -843,7 +873,7 @@ namespace Read4Me
             this.gbGeneral.Controls.Add(this.lHK2);
             this.gbGeneral.Location = new System.Drawing.Point(3, 3);
             this.gbGeneral.Name = "gbGeneral";
-            this.gbGeneral.Size = new System.Drawing.Size(314, 112);
+            this.gbGeneral.Size = new System.Drawing.Size(314, 157);
             this.gbGeneral.TabIndex = 4;
             this.gbGeneral.TabStop = false;
             this.gbGeneral.Text = "General hotkeys";
@@ -1476,7 +1506,7 @@ namespace Read4Me
             this.tabControlMain.Location = new System.Drawing.Point(9, 40);
             this.tabControlMain.Name = "tabControlMain";
             this.tabControlMain.SelectedIndex = 0;
-            this.tabControlMain.Size = new System.Drawing.Size(530, 355);
+            this.tabControlMain.Size = new System.Drawing.Size(530, 406);
             this.tabControlMain.TabIndex = 48;
             // 
             // tbGetVoices
@@ -1537,21 +1567,105 @@ namespace Read4Me
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // cbReadSelectedText
+            // tbHK4
             // 
-            this.cbReadSelectedText.AutoSize = true;
-            this.cbReadSelectedText.Location = new System.Drawing.Point(7, 38);
-            this.cbReadSelectedText.Name = "cbReadSelectedText";
-            this.cbReadSelectedText.Size = new System.Drawing.Size(184, 17);
-            this.cbReadSelectedText.TabIndex = 1;
-            this.cbReadSelectedText.Text = "Read selected text (vs. clipboard)";
-            this.cbReadSelectedText.UseVisualStyleBackColor = true;
+            this.tbHK4.Location = new System.Drawing.Point(166, 108);
+            this.tbHK4.MaxLength = 1;
+            this.tbHK4.Name = "tbHK4";
+            this.tbHK4.Size = new System.Drawing.Size(19, 20);
+            this.tbHK4.TabIndex = 8;
+            // 
+            // lCtrl4
+            // 
+            this.lCtrl4.AutoSize = true;
+            this.lCtrl4.Location = new System.Drawing.Point(6, 111);
+            this.lCtrl4.Name = "lCtrl4";
+            this.lCtrl4.Size = new System.Drawing.Size(41, 17);
+            this.lCtrl4.TabIndex = 4;
+            this.lCtrl4.Text = "Ctrl";
+            this.lCtrl4.UseVisualStyleBackColor = true;
+            // 
+            // lAlt4
+            // 
+            this.lAlt4.AutoSize = true;
+            this.lAlt4.Location = new System.Drawing.Point(122, 111);
+            this.lAlt4.Name = "lAlt4";
+            this.lAlt4.Size = new System.Drawing.Size(38, 17);
+            this.lAlt4.TabIndex = 7;
+            this.lAlt4.Text = "Alt";
+            this.lAlt4.UseVisualStyleBackColor = true;
+            // 
+            // lWinKey4
+            // 
+            this.lWinKey4.AutoSize = true;
+            this.lWinKey4.Location = new System.Drawing.Point(53, 111);
+            this.lWinKey4.Name = "lWinKey4";
+            this.lWinKey4.Size = new System.Drawing.Size(63, 17);
+            this.lWinKey4.TabIndex = 5;
+            this.lWinKey4.Text = "WinKey";
+            this.lWinKey4.UseVisualStyleBackColor = true;
+            // 
+            // lHK4
+            // 
+            this.lHK4.AutoSize = true;
+            this.lHK4.Location = new System.Drawing.Point(191, 112);
+            this.lHK4.Name = "lHK4";
+            this.lHK4.Size = new System.Drawing.Size(104, 13);
+            this.lHK4.TabIndex = 6;
+            this.lHK4.Text = "Increase TTS speed";
+            // 
+            // tbHK5
+            // 
+            this.tbHK5.Location = new System.Drawing.Point(166, 131);
+            this.tbHK5.MaxLength = 1;
+            this.tbHK5.Name = "tbHK5";
+            this.tbHK5.Size = new System.Drawing.Size(19, 20);
+            this.tbHK5.TabIndex = 13;
+            // 
+            // lCtrl5
+            // 
+            this.lCtrl5.AutoSize = true;
+            this.lCtrl5.Location = new System.Drawing.Point(6, 134);
+            this.lCtrl5.Name = "lCtrl5";
+            this.lCtrl5.Size = new System.Drawing.Size(41, 17);
+            this.lCtrl5.TabIndex = 9;
+            this.lCtrl5.Text = "Ctrl";
+            this.lCtrl5.UseVisualStyleBackColor = true;
+            // 
+            // lAlt5
+            // 
+            this.lAlt5.AutoSize = true;
+            this.lAlt5.Location = new System.Drawing.Point(122, 134);
+            this.lAlt5.Name = "lAlt5";
+            this.lAlt5.Size = new System.Drawing.Size(38, 17);
+            this.lAlt5.TabIndex = 12;
+            this.lAlt5.Text = "Alt";
+            this.lAlt5.UseVisualStyleBackColor = true;
+            // 
+            // lWinKey5
+            // 
+            this.lWinKey5.AutoSize = true;
+            this.lWinKey5.Location = new System.Drawing.Point(53, 134);
+            this.lWinKey5.Name = "lWinKey5";
+            this.lWinKey5.Size = new System.Drawing.Size(63, 17);
+            this.lWinKey5.TabIndex = 10;
+            this.lWinKey5.Text = "WinKey";
+            this.lWinKey5.UseVisualStyleBackColor = true;
+            // 
+            // lHK5
+            // 
+            this.lHK5.AutoSize = true;
+            this.lHK5.Location = new System.Drawing.Point(191, 135);
+            this.lHK5.Name = "lHK5";
+            this.lHK5.Size = new System.Drawing.Size(109, 13);
+            this.lHK5.TabIndex = 11;
+            this.lHK5.Text = "Decrease TTS speed";
             // 
             // Read4MeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(544, 424);
+            this.ClientSize = new System.Drawing.Size(544, 484);
             this.Controls.Add(this.label24);
             this.Controls.Add(this.lLinkDiscussion);
             this.Controls.Add(this.sStrip);
@@ -1736,6 +1850,16 @@ namespace Read4Me
         private System.Windows.Forms.GroupBox gbBehaviour;
         private System.Windows.Forms.CheckBox cbMinToTray;
         private System.Windows.Forms.CheckBox cbReadSelectedText;
+        private System.Windows.Forms.TextBox tbHK5;
+        private System.Windows.Forms.CheckBox lCtrl5;
+        private System.Windows.Forms.CheckBox lAlt5;
+        private System.Windows.Forms.CheckBox lWinKey5;
+        private System.Windows.Forms.Label lHK5;
+        private System.Windows.Forms.TextBox tbHK4;
+        private System.Windows.Forms.CheckBox lCtrl4;
+        private System.Windows.Forms.CheckBox lAlt4;
+        private System.Windows.Forms.CheckBox lWinKey4;
+        private System.Windows.Forms.Label lHK4;
     }
 }
 

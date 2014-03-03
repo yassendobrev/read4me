@@ -21,6 +21,7 @@ namespace Read4Me
         private Button bDonate;
         private GroupBox groupBox1;
         private LinkLabel linkLanguageDetection;
+        private Label label1;
 
         string local_version;
     
@@ -28,8 +29,7 @@ namespace Read4Me
         {
             local_version = version;
             InitializeComponent();
-            lAbout1.Text = "Read4Me Clipboard Reader and Text to mp3 Converter v" + local_version + "\n© 2011-" + DateTime.Now.Year.ToString() + " Yassen Dobr" +
-                "ev\nLicensed under GNU GPLv3 or later";
+            lAbout1.Text = "Read4Me Clipboard Reader and Text to mp3 Converter v" + local_version + "\n© 2011-" + DateTime.Now.Year.ToString() + " Yassen Dobrev\n";
 
             lLinkDiscussion.Links.Add(0, lLinkDiscussion.Text.Length, lLinkDiscussion.Text);
             lLinkIDSharp.Links.Add(0, lLinkIDSharp.Text.Length, lLinkIDSharp.Text);
@@ -59,6 +59,7 @@ namespace Read4Me
             this.gbAbout = new System.Windows.Forms.GroupBox();
             this.lAbout1 = new System.Windows.Forms.Label();
             this.gbThanks = new System.Windows.Forms.GroupBox();
+            this.linkLanguageDetection = new System.Windows.Forms.LinkLabel();
             this.linkSAPI = new System.Windows.Forms.LinkLabel();
             this.linkHotkey = new System.Windows.Forms.LinkLabel();
             this.linkMP3Compressor = new System.Windows.Forms.LinkLabel();
@@ -68,7 +69,7 @@ namespace Read4Me
             this.lDisclaimer = new System.Windows.Forms.Label();
             this.bDonate = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.linkLanguageDetection = new System.Windows.Forms.LinkLabel();
+            this.label1 = new System.Windows.Forms.Label();
             this.gbAbout.SuspendLayout();
             this.gbThanks.SuspendLayout();
             this.gbDisclaimer.SuspendLayout();
@@ -78,7 +79,7 @@ namespace Read4Me
             // bOK
             // 
             this.bOK.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.bOK.Location = new System.Drawing.Point(161, 353);
+            this.bOK.Location = new System.Drawing.Point(149, 366);
             this.bOK.Name = "bOK";
             this.bOK.Size = new System.Drawing.Size(75, 23);
             this.bOK.TabIndex = 0;
@@ -89,7 +90,7 @@ namespace Read4Me
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(6, 70);
+            this.label24.Location = new System.Drawing.Point(6, 81);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(164, 13);
             this.label24.TabIndex = 55;
@@ -98,7 +99,7 @@ namespace Read4Me
             // lLinkDiscussion
             // 
             this.lLinkDiscussion.AutoSize = true;
-            this.lLinkDiscussion.Location = new System.Drawing.Point(6, 83);
+            this.lLinkDiscussion.Location = new System.Drawing.Point(6, 94);
             this.lLinkDiscussion.Name = "lLinkDiscussion";
             this.lLinkDiscussion.Size = new System.Drawing.Size(248, 13);
             this.lLinkDiscussion.TabIndex = 54;
@@ -108,12 +109,13 @@ namespace Read4Me
             // 
             // gbAbout
             // 
+            this.gbAbout.Controls.Add(this.label1);
             this.gbAbout.Controls.Add(this.lAbout1);
             this.gbAbout.Controls.Add(this.label24);
             this.gbAbout.Controls.Add(this.lLinkDiscussion);
             this.gbAbout.Location = new System.Drawing.Point(12, 12);
             this.gbAbout.Name = "gbAbout";
-            this.gbAbout.Size = new System.Drawing.Size(361, 104);
+            this.gbAbout.Size = new System.Drawing.Size(361, 117);
             this.gbAbout.TabIndex = 56;
             this.gbAbout.TabStop = false;
             this.gbAbout.Text = "About";
@@ -134,12 +136,23 @@ namespace Read4Me
             this.gbThanks.Controls.Add(this.linkMP3Compressor);
             this.gbThanks.Controls.Add(this.linkLAME);
             this.gbThanks.Controls.Add(this.lLinkIDSharp);
-            this.gbThanks.Location = new System.Drawing.Point(12, 185);
+            this.gbThanks.Location = new System.Drawing.Point(12, 198);
             this.gbThanks.Name = "gbThanks";
             this.gbThanks.Size = new System.Drawing.Size(361, 106);
             this.gbThanks.TabIndex = 57;
             this.gbThanks.TabStop = false;
             this.gbThanks.Text = "Third-party software used";
+            // 
+            // linkLanguageDetection
+            // 
+            this.linkLanguageDetection.AutoSize = true;
+            this.linkLanguageDetection.Location = new System.Drawing.Point(6, 81);
+            this.linkLanguageDetection.Name = "linkLanguageDetection";
+            this.linkLanguageDetection.Size = new System.Drawing.Size(261, 13);
+            this.linkLanguageDetection.TabIndex = 59;
+            this.linkLanguageDetection.TabStop = true;
+            this.linkLanguageDetection.Text = "http://idsyst.hu/development/language_detector.html";
+            this.linkLanguageDetection.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLanguageDetection_LinkClicked);
             // 
             // linkSAPI
             // 
@@ -196,21 +209,10 @@ namespace Read4Me
             this.lLinkIDSharp.Text = "http://www.idsharp.com/products/tagging.php";
             this.lLinkIDSharp.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lLinkIDSharp_LinkClicked);
             // 
-            // linkLanguageDetection
-            // 
-            this.linkLanguageDetection.AutoSize = true;
-            this.linkLanguageDetection.Location = new System.Drawing.Point(6, 81);
-            this.linkLanguageDetection.Name = "linkLanguageDetection";
-            this.linkLanguageDetection.Size = new System.Drawing.Size(261, 13);
-            this.linkLanguageDetection.TabIndex = 59;
-            this.linkLanguageDetection.TabStop = true;
-            this.linkLanguageDetection.Text = "http://idsyst.hu/development/language_detector.html";
-            this.linkLanguageDetection.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLanguageDetection_LinkClicked);
-            // 
             // gbDisclaimer
             // 
             this.gbDisclaimer.Controls.Add(this.lDisclaimer);
-            this.gbDisclaimer.Location = new System.Drawing.Point(12, 122);
+            this.gbDisclaimer.Location = new System.Drawing.Point(12, 135);
             this.gbDisclaimer.Name = "gbDisclaimer";
             this.gbDisclaimer.Size = new System.Drawing.Size(361, 57);
             this.gbDisclaimer.TabIndex = 58;
@@ -239,17 +241,26 @@ namespace Read4Me
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.bDonate);
-            this.groupBox1.Location = new System.Drawing.Point(14, 297);
+            this.groupBox1.Location = new System.Drawing.Point(12, 310);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(361, 50);
             this.groupBox1.TabIndex = 59;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Support the development of Read4Me TTS Clipboard Reader";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 42);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(290, 26);
+            this.label1.TabIndex = 57;
+            this.label1.Text = "Licensed under:\r\nCreative Commons Attribution Non-Commercial License V2.0";
+            // 
             // AboutDialog
             // 
             this.CancelButton = this.bOK;
-            this.ClientSize = new System.Drawing.Size(387, 387);
+            this.ClientSize = new System.Drawing.Size(387, 396);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gbDisclaimer);
             this.Controls.Add(this.gbThanks);

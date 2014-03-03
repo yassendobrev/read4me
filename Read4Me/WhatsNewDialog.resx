@@ -118,13 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="lPlsDwn.Text" xml:space="preserve">
-    <value>- A setting to read the clipboard or the selected text in the active window.
+    <value>v0.5.2:
+- Hotkeys to increase and decrease the TTS reading speed "on-the-fly" added.
+- Changed license to
+ Creative Commons Attribution Non-Commercial License V2.0
 
-0.5.0:
-- Automatic language detection added.
-- Messageboxes replaced with balloon notifications.
-- Bug fixed when minimized form does not show up.
-- Improved update system.</value>
+v0.5.1:
+- A setting to read the clipboard or the selected text in the active window.</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

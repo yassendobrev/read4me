@@ -257,6 +257,34 @@ namespace Read4Me
                     }
                     break;
 
+                case "increase_tts_speed":
+                    lCtrl4.Checked = ctrl;
+                    lWinKey4.Checked = winkey;
+                    lAlt4.Checked = alt;
+                    if (key == '\0')
+                    {
+                        tbHK4.Text = "";
+                    }
+                    else
+                    {
+                        tbHK4.Text = key.ToString();
+                    }
+                    break;
+
+                case "decrease_tts_speed":
+                    lCtrl5.Checked = ctrl;
+                    lWinKey5.Checked = winkey;
+                    lAlt5.Checked = alt;
+                    if (key == '\0')
+                    {
+                        tbHK5.Text = "";
+                    }
+                    else
+                    {
+                        tbHK5.Text = key.ToString();
+                    }
+                    break;
+
                 case "speech":
                     CheckboxesCtrlCB[lang_num].Checked = ctrl;
                     CheckboxesWinkeyCB[lang_num].Checked = winkey;
@@ -333,6 +361,14 @@ namespace Read4Me
                     todo_action = () => SpeechSkip(1);
                     break;
 
+                case "increase_tts_speed":
+                    todo_action = () => ChangeTTSSpeed(1);
+                    break;
+
+                case "decrease_tts_speed":
+                    todo_action = () => ChangeTTSSpeed(-1);
+                    break;
+
                 case "speech":
                     todo_action = () => ReadClipboard(voice, srate, volume);
                     break;
@@ -384,6 +420,8 @@ namespace Read4Me
             FileWriter.Write("    <hotkey_general type=\"pause_resume\" ctrl=\"" + (lCtrl1.Checked ? "1" : "0") + "\" winkey=\"" + (lWinKey1.Checked ? "1" : "0") + "\" alt=\"" + (lAlt1.Checked ? "1" : "0") + "\" key=\"" + tbHK1.Text + "\"></hotkey_general>\r\n");
             FileWriter.Write("    <hotkey_general type=\"previous_sentence\" ctrl=\"" + (lCtrl2.Checked ? "1" : "0") + "\" winkey=\"" + (lWinKey2.Checked ? "1" : "0") + "\" alt=\"" + (lAlt2.Checked ? "1" : "0") + "\" key=\"" + tbHK2.Text + "\"></hotkey_general>\r\n");
             FileWriter.Write("    <hotkey_general type=\"next_sentence\" ctrl=\"" + (lCtrl3.Checked ? "1" : "0") + "\" winkey=\"" + (lWinKey3.Checked ? "1" : "0") + "\" alt=\"" + (lAlt3.Checked ? "1" : "0") + "\" key=\"" + tbHK3.Text + "\"></hotkey_general>\r\n");
+            FileWriter.Write("    <hotkey_general type=\"increase_tts_speed\" ctrl=\"" + (lCtrl4.Checked ? "1" : "0") + "\" winkey=\"" + (lWinKey4.Checked ? "1" : "0") + "\" alt=\"" + (lAlt4.Checked ? "1" : "0") + "\" key=\"" + tbHK4.Text + "\"></hotkey_general>\r\n");
+            FileWriter.Write("    <hotkey_general type=\"decrease_tts_speed\" ctrl=\"" + (lCtrl5.Checked ? "1" : "0") + "\" winkey=\"" + (lWinKey5.Checked ? "1" : "0") + "\" alt=\"" + (lAlt5.Checked ? "1" : "0") + "\" key=\"" + tbHK5.Text + "\"></hotkey_general>\r\n");
             for (int i = 0; i < ComboboxesVoiceCB.Count; i++)
             {
                 FileWriter.Write("    <hotkey_speech type=\"speech\" ctrl=\"" + (CheckboxesCtrlCB[i].Checked ? "1" : "0") + "\" winkey=\"" + (CheckboxesWinkeyCB[i].Checked ? "1" : "0") + "\" alt=\"" + (CheckboxesAltCB[i].Checked ? "1" : "0") + "\" key=\"" + TextboxesHotkeyCB[i].Text + "\" voice=\"" + ComboboxesVoiceCB[i].SelectedItem + "\" srate=\"" + ComboboxesRateCB[i].SelectedItem + "\" volume=\"" + ComboboxesVolumeCB[i].SelectedItem + "\"></hotkey_speech>\r\n");

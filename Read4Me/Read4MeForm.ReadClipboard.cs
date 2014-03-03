@@ -34,10 +34,10 @@ namespace Read4Me
             uint KEYEVENTF_KEYUP = 2;
             byte VK_CONTROL = 0x11;
             SetForegroundWindow(hWnd);
-            keybd_event(VK_CONTROL,0,0,0);
-            keybd_event (0x43, 0, 0, 0 ); //Send the C key (43 is "C")
-            keybd_event (0x43, 0, KEYEVENTF_KEYUP, 0);
-            keybd_event (VK_CONTROL, 0, KEYEVENTF_KEYUP, 0);// 'Left Control Up
+            keybd_event(VK_CONTROL, 0, 0, 0);
+            keybd_event(0x43, 0, 0, 0); //Send the C key (43 is "C")
+            keybd_event(0x43, 0, KEYEVENTF_KEYUP, 0);
+            keybd_event(VK_CONTROL, 0, KEYEVENTF_KEYUP, 0);// 'Left Control Up
         }
 
         // http://www.radsoftware.com.au/articles/clipboardmonitor.aspx
@@ -93,6 +93,24 @@ namespace Read4Me
                     TTSVoiceClipboard.Resume();
                     PausedGlobal = false;
                 }
+            }
+        }
+
+        private void ChangeTTSSpeed(int speed)
+        {
+            if (TTSVoiceClipboard.Status.RunningState == SpeechRunState.SRSEIsSpeaking)
+            {
+                TTSVoiceClipboard.Pause();
+                if (TTSVoiceClipboard.Rate < 10 && speed > 0)
+                {
+                    TTSVoiceClipboard.Rate = TTSVoiceClipboard.Rate + speed;
+                }
+                if (TTSVoiceClipboard.Rate > -10 && speed < 0)
+                {
+                    TTSVoiceClipboard.Rate = TTSVoiceClipboard.Rate + speed;
+                }
+                SetBalloonTip("TTS Speech rate", "TTS Speech rate set to " + TTSVoiceClipboard.Rate.ToString(), ToolTipIcon.Info, "info");
+                TTSVoiceClipboard.Resume();
             }
         }
 
@@ -199,7 +217,8 @@ namespace Read4Me
             TTSVoiceClipboard.Voice = voice_sp;
             TTSVoiceClipboard.Speak("а", SpeechVoiceSpeakFlags.SVSFlagsAsync | SpeechVoiceSpeakFlags.SVSFIsXML | SpeechVoiceSpeakFlags.SVSFPurgeBeforeSpeak);
             System.Threading.Thread.Sleep(100);
-            
+
+            // start real tts
             TTSVoiceClipboard.Rate = srate;
             TTSVoiceClipboard.Volume = volume;
             TTSVoiceClipboard.Voice = voice_sp;

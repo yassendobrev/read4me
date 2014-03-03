@@ -18,8 +18,8 @@ namespace Read4Me
         SpObjectToken SpeechVoiceGlobal;
 
         // program version
-        string LocalVersion = "0.5.1";
-        
+        string LocalVersion = "0.5.2";
+
         SortedList ligatures = new SortedList();
         PressedKeys pKeys;
 
@@ -138,8 +138,16 @@ namespace Read4Me
             mynotifyicon.BalloonTipTitle = title;
             mynotifyicon.BalloonTipText = text;
             mynotifyicon.BalloonTipIcon = icon;
-            mynotifyicon.ShowBalloonTip(5000);
-            
+
+            if (type == "info")
+            {
+                mynotifyicon.ShowBalloonTip(500);
+            }
+            else
+            {
+                mynotifyicon.ShowBalloonTip(5000);
+            }
+
             if (type == "update")
             {
                 mynotifyicon.BalloonTipClicked += new EventHandler(UpdateBalloonNotificationClick);
