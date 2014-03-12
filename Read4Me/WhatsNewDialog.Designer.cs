@@ -39,7 +39,7 @@
             this.lPlsDwn.AutoSize = true;
             this.lPlsDwn.Location = new System.Drawing.Point(12, 35);
             this.lPlsDwn.Name = "lPlsDwn";
-            this.lPlsDwn.Size = new System.Drawing.Size(379, 91);
+            this.lPlsDwn.Size = new System.Drawing.Size(379, 104);
             this.lPlsDwn.TabIndex = 56;
             this.lPlsDwn.Text = resources.GetString("lPlsDwn.Text");
             // 

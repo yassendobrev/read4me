@@ -96,6 +96,16 @@ namespace Read4Me
             this.lWinKeylang4 = new System.Windows.Forms.CheckBox();
             this.lAltlang1 = new System.Windows.Forms.CheckBox();
             this.gbGeneral = new System.Windows.Forms.GroupBox();
+            this.tbHK5 = new System.Windows.Forms.TextBox();
+            this.lCtrl5 = new System.Windows.Forms.CheckBox();
+            this.lAlt5 = new System.Windows.Forms.CheckBox();
+            this.lWinKey5 = new System.Windows.Forms.CheckBox();
+            this.lHK5 = new System.Windows.Forms.Label();
+            this.tbHK4 = new System.Windows.Forms.TextBox();
+            this.lCtrl4 = new System.Windows.Forms.CheckBox();
+            this.lAlt4 = new System.Windows.Forms.CheckBox();
+            this.lWinKey4 = new System.Windows.Forms.CheckBox();
+            this.lHK4 = new System.Windows.Forms.Label();
             this.lCtrl0 = new System.Windows.Forms.CheckBox();
             this.tbHK3 = new System.Windows.Forms.TextBox();
             this.lCtrl1 = new System.Windows.Forms.CheckBox();
@@ -130,7 +140,6 @@ namespace Read4Me
             this.trbVolume = new System.Windows.Forms.TrackBar();
             this.label6 = new System.Windows.Forms.Label();
             this.tbarRate = new System.Windows.Forms.TrackBar();
-            this.tbspeech = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tpConv = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -164,16 +173,7 @@ namespace Read4Me
             this.label24 = new System.Windows.Forms.Label();
             this.lLinkDiscussion = new System.Windows.Forms.LinkLabel();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.tbHK4 = new System.Windows.Forms.TextBox();
-            this.lCtrl4 = new System.Windows.Forms.CheckBox();
-            this.lAlt4 = new System.Windows.Forms.CheckBox();
-            this.lWinKey4 = new System.Windows.Forms.CheckBox();
-            this.lHK4 = new System.Windows.Forms.Label();
-            this.tbHK5 = new System.Windows.Forms.TextBox();
-            this.lCtrl5 = new System.Windows.Forms.CheckBox();
-            this.lAlt5 = new System.Windows.Forms.CheckBox();
-            this.lWinKey5 = new System.Windows.Forms.CheckBox();
-            this.lHK5 = new System.Windows.Forms.Label();
+            this.tbspeech = new System.Windows.Forms.RichTextBox();
             this.contextMenuStrip1.SuspendLayout();
             this.sStrip.SuspendLayout();
             this.mMainMenuStrip.SuspendLayout();
@@ -878,6 +878,100 @@ namespace Read4Me
             this.gbGeneral.TabStop = false;
             this.gbGeneral.Text = "General hotkeys";
             // 
+            // tbHK5
+            // 
+            this.tbHK5.Location = new System.Drawing.Point(166, 131);
+            this.tbHK5.MaxLength = 1;
+            this.tbHK5.Name = "tbHK5";
+            this.tbHK5.Size = new System.Drawing.Size(19, 20);
+            this.tbHK5.TabIndex = 13;
+            // 
+            // lCtrl5
+            // 
+            this.lCtrl5.AutoSize = true;
+            this.lCtrl5.Location = new System.Drawing.Point(6, 134);
+            this.lCtrl5.Name = "lCtrl5";
+            this.lCtrl5.Size = new System.Drawing.Size(41, 17);
+            this.lCtrl5.TabIndex = 9;
+            this.lCtrl5.Text = "Ctrl";
+            this.lCtrl5.UseVisualStyleBackColor = true;
+            // 
+            // lAlt5
+            // 
+            this.lAlt5.AutoSize = true;
+            this.lAlt5.Location = new System.Drawing.Point(122, 134);
+            this.lAlt5.Name = "lAlt5";
+            this.lAlt5.Size = new System.Drawing.Size(38, 17);
+            this.lAlt5.TabIndex = 12;
+            this.lAlt5.Text = "Alt";
+            this.lAlt5.UseVisualStyleBackColor = true;
+            // 
+            // lWinKey5
+            // 
+            this.lWinKey5.AutoSize = true;
+            this.lWinKey5.Location = new System.Drawing.Point(53, 134);
+            this.lWinKey5.Name = "lWinKey5";
+            this.lWinKey5.Size = new System.Drawing.Size(63, 17);
+            this.lWinKey5.TabIndex = 10;
+            this.lWinKey5.Text = "WinKey";
+            this.lWinKey5.UseVisualStyleBackColor = true;
+            // 
+            // lHK5
+            // 
+            this.lHK5.AutoSize = true;
+            this.lHK5.Location = new System.Drawing.Point(191, 135);
+            this.lHK5.Name = "lHK5";
+            this.lHK5.Size = new System.Drawing.Size(109, 13);
+            this.lHK5.TabIndex = 11;
+            this.lHK5.Text = "Decrease TTS speed";
+            // 
+            // tbHK4
+            // 
+            this.tbHK4.Location = new System.Drawing.Point(166, 108);
+            this.tbHK4.MaxLength = 1;
+            this.tbHK4.Name = "tbHK4";
+            this.tbHK4.Size = new System.Drawing.Size(19, 20);
+            this.tbHK4.TabIndex = 8;
+            // 
+            // lCtrl4
+            // 
+            this.lCtrl4.AutoSize = true;
+            this.lCtrl4.Location = new System.Drawing.Point(6, 111);
+            this.lCtrl4.Name = "lCtrl4";
+            this.lCtrl4.Size = new System.Drawing.Size(41, 17);
+            this.lCtrl4.TabIndex = 4;
+            this.lCtrl4.Text = "Ctrl";
+            this.lCtrl4.UseVisualStyleBackColor = true;
+            // 
+            // lAlt4
+            // 
+            this.lAlt4.AutoSize = true;
+            this.lAlt4.Location = new System.Drawing.Point(122, 111);
+            this.lAlt4.Name = "lAlt4";
+            this.lAlt4.Size = new System.Drawing.Size(38, 17);
+            this.lAlt4.TabIndex = 7;
+            this.lAlt4.Text = "Alt";
+            this.lAlt4.UseVisualStyleBackColor = true;
+            // 
+            // lWinKey4
+            // 
+            this.lWinKey4.AutoSize = true;
+            this.lWinKey4.Location = new System.Drawing.Point(53, 111);
+            this.lWinKey4.Name = "lWinKey4";
+            this.lWinKey4.Size = new System.Drawing.Size(63, 17);
+            this.lWinKey4.TabIndex = 5;
+            this.lWinKey4.Text = "WinKey";
+            this.lWinKey4.UseVisualStyleBackColor = true;
+            // 
+            // lHK4
+            // 
+            this.lHK4.AutoSize = true;
+            this.lHK4.Location = new System.Drawing.Point(191, 112);
+            this.lHK4.Name = "lHK4";
+            this.lHK4.Size = new System.Drawing.Size(104, 13);
+            this.lHK4.TabIndex = 6;
+            this.lHK4.Text = "Increase TTS speed";
+            // 
             // lCtrl0
             // 
             this.lCtrl0.AutoSize = true;
@@ -1068,13 +1162,13 @@ namespace Read4Me
             // 
             // tpSpeak
             // 
-            this.tpSpeak.Controls.Add(this.gbSpeakControl);
             this.tpSpeak.Controls.Add(this.tbspeech);
+            this.tpSpeak.Controls.Add(this.gbSpeakControl);
             this.tpSpeak.Controls.Add(this.label1);
             this.tpSpeak.Location = new System.Drawing.Point(4, 22);
             this.tpSpeak.Name = "tpSpeak";
             this.tpSpeak.Padding = new System.Windows.Forms.Padding(3);
-            this.tpSpeak.Size = new System.Drawing.Size(522, 329);
+            this.tpSpeak.Size = new System.Drawing.Size(522, 380);
             this.tpSpeak.TabIndex = 1;
             this.tpSpeak.Text = "Speak Text";
             this.tpSpeak.UseVisualStyleBackColor = true;
@@ -1224,14 +1318,6 @@ namespace Read4Me
             this.tbarRate.TabIndex = 24;
             this.tbarRate.Scroll += new System.EventHandler(this.tbarRate_Scroll);
             // 
-            // tbspeech
-            // 
-            this.tbspeech.Location = new System.Drawing.Point(6, 25);
-            this.tbspeech.Multiline = true;
-            this.tbspeech.Name = "tbspeech";
-            this.tbspeech.Size = new System.Drawing.Size(245, 298);
-            this.tbspeech.TabIndex = 20;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -1249,7 +1335,7 @@ namespace Read4Me
             this.tpConv.Location = new System.Drawing.Point(4, 22);
             this.tpConv.Name = "tpConv";
             this.tpConv.Padding = new System.Windows.Forms.Padding(3);
-            this.tpConv.Size = new System.Drawing.Size(522, 329);
+            this.tpConv.Size = new System.Drawing.Size(522, 380);
             this.tpConv.TabIndex = 0;
             this.tpConv.Text = "Convert to mp3";
             this.tpConv.UseVisualStyleBackColor = true;
@@ -1515,7 +1601,7 @@ namespace Read4Me
             this.tbGetVoices.Controls.Add(this.lVoicesDescribe);
             this.tbGetVoices.Location = new System.Drawing.Point(4, 22);
             this.tbGetVoices.Name = "tbGetVoices";
-            this.tbGetVoices.Size = new System.Drawing.Size(522, 329);
+            this.tbGetVoices.Size = new System.Drawing.Size(522, 380);
             this.tbGetVoices.TabIndex = 3;
             this.tbGetVoices.Text = "Get Voices";
             this.tbGetVoices.UseVisualStyleBackColor = true;
@@ -1567,99 +1653,13 @@ namespace Read4Me
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // tbHK4
+            // tbspeech
             // 
-            this.tbHK4.Location = new System.Drawing.Point(166, 108);
-            this.tbHK4.MaxLength = 1;
-            this.tbHK4.Name = "tbHK4";
-            this.tbHK4.Size = new System.Drawing.Size(19, 20);
-            this.tbHK4.TabIndex = 8;
-            // 
-            // lCtrl4
-            // 
-            this.lCtrl4.AutoSize = true;
-            this.lCtrl4.Location = new System.Drawing.Point(6, 111);
-            this.lCtrl4.Name = "lCtrl4";
-            this.lCtrl4.Size = new System.Drawing.Size(41, 17);
-            this.lCtrl4.TabIndex = 4;
-            this.lCtrl4.Text = "Ctrl";
-            this.lCtrl4.UseVisualStyleBackColor = true;
-            // 
-            // lAlt4
-            // 
-            this.lAlt4.AutoSize = true;
-            this.lAlt4.Location = new System.Drawing.Point(122, 111);
-            this.lAlt4.Name = "lAlt4";
-            this.lAlt4.Size = new System.Drawing.Size(38, 17);
-            this.lAlt4.TabIndex = 7;
-            this.lAlt4.Text = "Alt";
-            this.lAlt4.UseVisualStyleBackColor = true;
-            // 
-            // lWinKey4
-            // 
-            this.lWinKey4.AutoSize = true;
-            this.lWinKey4.Location = new System.Drawing.Point(53, 111);
-            this.lWinKey4.Name = "lWinKey4";
-            this.lWinKey4.Size = new System.Drawing.Size(63, 17);
-            this.lWinKey4.TabIndex = 5;
-            this.lWinKey4.Text = "WinKey";
-            this.lWinKey4.UseVisualStyleBackColor = true;
-            // 
-            // lHK4
-            // 
-            this.lHK4.AutoSize = true;
-            this.lHK4.Location = new System.Drawing.Point(191, 112);
-            this.lHK4.Name = "lHK4";
-            this.lHK4.Size = new System.Drawing.Size(104, 13);
-            this.lHK4.TabIndex = 6;
-            this.lHK4.Text = "Increase TTS speed";
-            // 
-            // tbHK5
-            // 
-            this.tbHK5.Location = new System.Drawing.Point(166, 131);
-            this.tbHK5.MaxLength = 1;
-            this.tbHK5.Name = "tbHK5";
-            this.tbHK5.Size = new System.Drawing.Size(19, 20);
-            this.tbHK5.TabIndex = 13;
-            // 
-            // lCtrl5
-            // 
-            this.lCtrl5.AutoSize = true;
-            this.lCtrl5.Location = new System.Drawing.Point(6, 134);
-            this.lCtrl5.Name = "lCtrl5";
-            this.lCtrl5.Size = new System.Drawing.Size(41, 17);
-            this.lCtrl5.TabIndex = 9;
-            this.lCtrl5.Text = "Ctrl";
-            this.lCtrl5.UseVisualStyleBackColor = true;
-            // 
-            // lAlt5
-            // 
-            this.lAlt5.AutoSize = true;
-            this.lAlt5.Location = new System.Drawing.Point(122, 134);
-            this.lAlt5.Name = "lAlt5";
-            this.lAlt5.Size = new System.Drawing.Size(38, 17);
-            this.lAlt5.TabIndex = 12;
-            this.lAlt5.Text = "Alt";
-            this.lAlt5.UseVisualStyleBackColor = true;
-            // 
-            // lWinKey5
-            // 
-            this.lWinKey5.AutoSize = true;
-            this.lWinKey5.Location = new System.Drawing.Point(53, 134);
-            this.lWinKey5.Name = "lWinKey5";
-            this.lWinKey5.Size = new System.Drawing.Size(63, 17);
-            this.lWinKey5.TabIndex = 10;
-            this.lWinKey5.Text = "WinKey";
-            this.lWinKey5.UseVisualStyleBackColor = true;
-            // 
-            // lHK5
-            // 
-            this.lHK5.AutoSize = true;
-            this.lHK5.Location = new System.Drawing.Point(191, 135);
-            this.lHK5.Name = "lHK5";
-            this.lHK5.Size = new System.Drawing.Size(109, 13);
-            this.lHK5.TabIndex = 11;
-            this.lHK5.Text = "Decrease TTS speed";
+            this.tbspeech.Location = new System.Drawing.Point(0, 25);
+            this.tbspeech.Name = "tbspeech";
+            this.tbspeech.Size = new System.Drawing.Size(276, 349);
+            this.tbspeech.TabIndex = 32;
+            this.tbspeech.Text = "";
             // 
             // Read4MeForm
             // 
@@ -1729,7 +1729,6 @@ namespace Read4Me
         private System.Windows.Forms.ToolStripMenuItem miAbout;
         private System.Windows.Forms.TabPage tbSettings;
         private System.Windows.Forms.TabPage tpSpeak;
-        private System.Windows.Forms.TextBox tbspeech;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSpeak;
         private System.Windows.Forms.Label label8;
@@ -1860,6 +1859,7 @@ namespace Read4Me
         private System.Windows.Forms.CheckBox lAlt4;
         private System.Windows.Forms.CheckBox lWinKey4;
         private System.Windows.Forms.Label lHK4;
+        private System.Windows.Forms.RichTextBox tbspeech;
     }
 }
 
