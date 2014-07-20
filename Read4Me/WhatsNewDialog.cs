@@ -15,7 +15,6 @@ namespace Read4Me
         public WhatsNewDialog(string local_version)
         {
             InitializeComponent();
-            lWhatsNew.Text += local_version;
         }
 
         private void bOK_Click(object sender, EventArgs e)

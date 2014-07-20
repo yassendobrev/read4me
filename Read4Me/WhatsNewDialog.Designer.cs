@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WhatsNewDialog));
             this.lPlsDwn = new System.Windows.Forms.Label();
             this.bOK = new System.Windows.Forms.Button();
-            this.lWhatsNew = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lPlsDwn
@@ -39,7 +38,7 @@
             this.lPlsDwn.AutoSize = true;
             this.lPlsDwn.Location = new System.Drawing.Point(12, 35);
             this.lPlsDwn.Name = "lPlsDwn";
-            this.lPlsDwn.Size = new System.Drawing.Size(379, 104);
+            this.lPlsDwn.Size = new System.Drawing.Size(362, 104);
             this.lPlsDwn.TabIndex = 56;
             this.lPlsDwn.Text = resources.GetString("lPlsDwn.Text");
             // 
@@ -54,22 +53,12 @@
             this.bOK.UseVisualStyleBackColor = true;
             this.bOK.Click += new System.EventHandler(this.bOK_Click);
             // 
-            // lWhatsNew
-            // 
-            this.lWhatsNew.AutoSize = true;
-            this.lWhatsNew.Location = new System.Drawing.Point(12, 9);
-            this.lWhatsNew.Name = "lWhatsNew";
-            this.lWhatsNew.Size = new System.Drawing.Size(66, 13);
-            this.lWhatsNew.TabIndex = 57;
-            this.lWhatsNew.Text = "What\'s new:";
-            // 
             // WhatsNewDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.bOK;
             this.ClientSize = new System.Drawing.Size(393, 226);
-            this.Controls.Add(this.lWhatsNew);
             this.Controls.Add(this.bOK);
             this.Controls.Add(this.lPlsDwn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -90,6 +79,5 @@
 
         private System.Windows.Forms.Label lPlsDwn;
         private System.Windows.Forms.Button bOK;
-        private System.Windows.Forms.Label lWhatsNew;
     }
 }

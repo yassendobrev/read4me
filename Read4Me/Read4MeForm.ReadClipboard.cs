@@ -56,7 +56,7 @@ namespace Read4Me
             }
         }
 
-        private void SpeechSkipSp(int items)
+        private void SpeechSkip(int items)
         {
             if (PausedGlobal)
             {
@@ -79,7 +79,7 @@ namespace Read4Me
             }
         }
 
-        private void SpeechPauseSp()
+        private void SpeechPause()
         {
             // USE SpeechSynthesizer instead...
             if (TTSVoiceClipboard.Status.RunningState == SpeechRunState.SRSEIsSpeaking)
@@ -97,7 +97,7 @@ namespace Read4Me
             }
         }
 
-        private void ChangeTTSSpeedSp(int speed)
+        private void ChangeTTSSpeed(int speed)
         {
             if (TTSVoiceClipboard.Status.RunningState == SpeechRunState.SRSEIsSpeaking)
             {
@@ -115,7 +115,7 @@ namespace Read4Me
             }
         }
 
-        private void ReadClipboardSp(string voice, int srate, int volume)
+        private void ReadClipboard(string voice, int srate, int volume)
         {
             // IDataObject OldClipboard = null;
             if (cbReadSelectedText.Checked)
@@ -169,13 +169,19 @@ namespace Read4Me
                         if (ComboboxesVoiceCB[setVoiceNum].SelectedItem.ToString() == Token.GetDescription(0))
                         {
                             voice_sp = AvailableVoices.Item(i);
-                            CultureInfo myCItrad = new CultureInfo(int.Parse(voice_sp.GetAttribute("Language"), System.Globalization.NumberStyles.HexNumber), false);
-                            if (lanCode == myCItrad.TwoLetterISOLanguageName)
+
+                            // for voices supporting multiple languages, they are separated by ";"
+                            string[] langs = voice_sp.GetAttribute("Language").Split(';');
+                            foreach (string lang in langs)
                             {
-                                volume = Int16.Parse(ComboboxesVolumeCB[setVoiceNum].SelectedItem.ToString());
-                                srate = Int16.Parse(ComboboxesRateCB[setVoiceNum].SelectedItem.ToString());
-                                found = true;
-                                break;
+                                CultureInfo myCItrad = new CultureInfo(int.Parse(lang, System.Globalization.NumberStyles.HexNumber), false);
+                                if (lanCode == myCItrad.TwoLetterISOLanguageName)
+                                {
+                                    volume = Int16.Parse(ComboboxesVolumeCB[setVoiceNum].SelectedItem.ToString());
+                                    srate = Int16.Parse(ComboboxesRateCB[setVoiceNum].SelectedItem.ToString());
+                                    found = true;
+                                    break;
+                                }
                             }
                         }
                         if (found)
@@ -227,6 +233,8 @@ namespace Read4Me
             TTSVoiceClipboard.Speak(toRead, SpeechVoiceSpeakFlags.SVSFlagsAsync | SpeechVoiceSpeakFlags.SVSFIsXML | SpeechVoiceSpeakFlags.SVSFPurgeBeforeSpeak);
         }
 
+        /*
+        // http://msdn.microsoft.com/en-us/library/jj572477(v=office.14).aspx
         private void SpeechSkip(int items)
         {
             if (PausedGlobal)
@@ -254,7 +262,7 @@ namespace Read4Me
         private void SpeechPause()
         {
             // USE SpeechSynthesizer instead...
-            if (!PausedGlobal)
+            if (TTSVoiceClipboardSynth.State.ToString() == "Speaking" && PausedGlobal == false)
             {
                 TTSVoiceClipboardSynth.Pause();
                 PausedGlobal = true;
@@ -268,20 +276,22 @@ namespace Read4Me
 
         private void ChangeTTSSpeed(int speed)
         {
-            if (TTSVoiceClipboard.Status.RunningState == SpeechRunState.SRSEIsSpeaking)
-            {
-                TTSVoiceClipboard.Pause();
-                if (TTSVoiceClipboard.Rate < 10 && speed > 0)
-                {
-                    TTSVoiceClipboard.Rate = TTSVoiceClipboard.Rate + speed;
-                }
-                if (TTSVoiceClipboard.Rate > -10 && speed < 0)
-                {
-                    TTSVoiceClipboard.Rate = TTSVoiceClipboard.Rate + speed;
-                }
-                SetBalloonTip("TTS Speech rate", "TTS Speech rate set to " + TTSVoiceClipboard.Rate.ToString(), ToolTipIcon.Info, "info");
-                TTSVoiceClipboard.Resume();
-            }
+            MessageBox.Show(textTTS + " " + posTTS.ToString() + " " + toRead);
+            //if (TTSVoiceClipboardSynth.State.ToString() == "Speaking")
+            //{
+            //    //TTSVoiceClipboardSynth.SpeakAsyncCancelAll();
+            //    if (TTSVoiceClipboardSynth.Rate < 10 && speed > 0)
+            //    {
+            //        TTSVoiceClipboardSynth.Rate = TTSVoiceClipboardSynth.Rate + speed;
+            //    }
+            //    if (TTSVoiceClipboardSynth.Rate > -10 && speed < 0)
+            //    {
+            //        TTSVoiceClipboardSynth.Rate = TTSVoiceClipboardSynth.Rate + speed;
+            //    }
+            //    SetBalloonTip("TTS Speech rate", "TTS Speech rate set to " + TTSVoiceClipboardSynth.Rate.ToString(), ToolTipIcon.Info, "info");
+            //    MessageBox.Show(toRead.Substring(posTTS));
+            //    TTSVoiceClipboardSynth.SpeakAsync(toRead.Substring(posTTS));
+            //}
         }
 
         private void ReadClipboard(string voice, int srate, int volume)
@@ -293,7 +303,6 @@ namespace Read4Me
                 SendCtrlC(GetForegroundWindow());
                 Thread.Sleep(100); // it takes some time until the content arrives in the clipboard
             }
-            string toRead;
 
             SpObjectToken voice_sp = null;
             int i = 0;
@@ -301,14 +310,7 @@ namespace Read4Me
 
             // get clipboard content
             toRead = Clipboard.GetText();
-            MessageBox.Show(toRead);
-            /*
-            if (cbReadSelectedText.Checked)
-            {
-                Clipboard.SetDataObject(OldClipboard);
-            }
-             */
-
+            
             // no silence on new line
             toRead = toRead.Replace("\r\n", " ");
 
@@ -340,13 +342,11 @@ namespace Read4Me
                         if (ComboboxesVoiceCB[setVoiceNum].SelectedItem.ToString() == Token.GetDescription(0))
                         {
                             voice_sp = AvailableVoices.Item(i);
-                            //MessageBox.Show(voice_sp.GetAttribute("Language"));
 
                             // for voices supporting multiple languages, they are separated by ";"
                             string[] langs = voice_sp.GetAttribute("Language").Split(';');
                             foreach (string lang in langs)
                             {
-                                MessageBox.Show(lang);
                                 CultureInfo myCItrad = new CultureInfo(int.Parse(lang, System.Globalization.NumberStyles.HexNumber), false);
                                 if (lanCode == myCItrad.TwoLetterISOLanguageName)
                                 {
@@ -389,29 +389,40 @@ namespace Read4Me
                 return;
             }
 
-            PausedGlobal = false;
-
             // init TTS
-            TTSVoiceClipboardSynth.SelectVoice(voice_sp.GetAttribute("Name"));
-            TTSVoiceClipboardSynth.Rate = 10;
-            TTSVoiceClipboardSynth.Volume = 0;
-            TTSVoiceClipboardSynth.SpeakAsync("a");
-            System.Threading.Thread.Sleep(100);
+            //TTSVoiceClipboardSynth.SelectVoice(voice_sp.GetAttribute("Name"));
+            //TTSVoiceClipboardSynth.Rate = 10;
+            //TTSVoiceClipboardSynth.Volume = 0;
+            //TTSVoiceClipboardSynth.SpeakAsync("a");
+            //System.Threading.Thread.Sleep(100);
+            //TTSVoiceClipboardSynth.SpeakAsyncCancelAll();
 
             // start real tts
+            
+            TTSVoiceClipboardSynth.SpeakAsyncCancelAll();
+            //MessageBox.Show(TTSVoiceClipboardSynth.State.ToString());
             TTSVoiceClipboardSynth.SelectVoice(voice_sp.GetAttribute("Name"));
             TTSVoiceClipboardSynth.Rate = srate;
             TTSVoiceClipboardSynth.Volume = volume;
             TTSVoiceClipboardSynth.SpeakCompleted += new EventHandler<SpeakCompletedEventArgs>(TTSVoiceClipboardSynth_SpeakCompleted);
-            PausedGlobal = false;
+            TTSVoiceClipboardSynth.SpeakProgress += new EventHandler<SpeakProgressEventArgs>(synth_SpeakProgress);
             TTSVoiceClipboardSynth.SpeakAsync(toRead);
+            PausedGlobal = false;
         }
 
         void TTSVoiceClipboardSynth_SpeakCompleted(object sender, SpeakCompletedEventArgs e)
         {
+            TTSVoiceClipboardSynth.Resume();
             PausedGlobal = true;
         }
 
+        static void synth_SpeakProgress(object sender, SpeakProgressEventArgs e)
+        {
+            textTTS = e.Text;
+            posTTS = e.CharacterPosition;
+            MessageBox.Show(posTTS.ToString() + " " + textTTS);
+        }
+        */
         private void InitLigatures()
         {
             // http://www.softerviews.org/LibreOffice.html#Remove_Ligatures

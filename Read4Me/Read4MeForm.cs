@@ -19,8 +19,12 @@ namespace Read4Me
         bool PausedGlobal = false;
         SpObjectToken SpeechVoiceGlobal;
 
+        static string textTTS;
+        static int posTTS;
+        static string toRead;
+
         // program version
-        string LocalVersion = "0.5.3";
+        string LocalVersion = "0.5.4";
 
         SortedList ligatures = new SortedList();
         PressedKeys pKeys;
