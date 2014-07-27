@@ -232,29 +232,45 @@ namespace Read4Me
             TTSVoiceClipboard.Speak(toRead, SpeechVoiceSpeakFlags.SVSFlagsAsync | SpeechVoiceSpeakFlags.SVSFIsXML | SpeechVoiceSpeakFlags.SVSFPurgeBeforeSpeak);
         }
         */
-        
+
         // http://msdn.microsoft.com/en-us/library/jj572477(v=office.14).aspx
         private void SpeechSkip(int items)
         {
             if (PausedGlobal)
             {
-                int volume = TTSVoiceClipboard.Volume;
-                TTSVoiceClipboard.Volume = 0;
-                TTSVoiceClipboard.Resume();
-                //TTSVoiceClipboardSynth.Skip();
-                while (!(TTSVoiceClipboard.Status.RunningState == SpeechRunState.SRSEIsSpeaking))
+                if (items < 0)
                 {
+                    if (toReadSentenceNum + items >= 0)
+                    {
+                        toReadSentenceNum = toReadSentenceNum + items;
+                    }
                 }
-                TTSVoiceClipboard.Skip("Sentence", items);
-                TTSVoiceClipboard.Pause();
-                while (TTSVoiceClipboard.Status.RunningState == SpeechRunState.SRSEIsSpeaking)
+                else
                 {
+                    if (toReadSentenceNum + items <= toReadSentences.Length - 1)
+                    {
+                        toReadSentenceNum = toReadSentenceNum + items;
+                    }
                 }
-                TTSVoiceClipboard.Volume = volume;
             }
             else
             {
-                TTSVoiceClipboard.Skip("Sentence", items);
+                TTSVoiceClipboardSynth.SpeakAsyncCancelAll();
+                if (items < 0)
+                {
+                    if (toReadSentenceNum + items >= 0)
+                    {
+                        toReadSentenceNum = toReadSentenceNum + items;
+                    }
+                }
+                else
+                {
+                    if (toReadSentenceNum + items <= toReadSentences.Length - 1)
+                    {
+                        toReadSentenceNum = toReadSentenceNum + items;
+                    }
+                }
+                readd();
             }
         }
 
@@ -268,31 +284,32 @@ namespace Read4Me
             }
             else
             {
-               TTSVoiceClipboardSynth.Resume();
-               PausedGlobal = false;
+                TTSVoiceClipboardSynth.Resume();
+                PausedGlobal = false;
             }
         }
 
         private void ChangeTTSSpeed(int speed)
         {
-            MessageBox.Show(textTTS + " " + posTTS.ToString() + " " + toRead);
-            //if (TTSVoiceClipboardSynth.State.ToString() == "Speaking")
-            //{
-            //    //TTSVoiceClipboardSynth.SpeakAsyncCancelAll();
-            //    if (TTSVoiceClipboardSynth.Rate < 10 && speed > 0)
-            //    {
-            //        TTSVoiceClipboardSynth.Rate = TTSVoiceClipboardSynth.Rate + speed;
-            //    }
-            //    if (TTSVoiceClipboardSynth.Rate > -10 && speed < 0)
-            //    {
-            //        TTSVoiceClipboardSynth.Rate = TTSVoiceClipboardSynth.Rate + speed;
-            //    }
-            //    SetBalloonTip("TTS Speech rate", "TTS Speech rate set to " + TTSVoiceClipboardSynth.Rate.ToString(), ToolTipIcon.Info, "info");
-            //    MessageBox.Show(toRead.Substring(posTTS));
-            //    TTSVoiceClipboardSynth.SpeakAsync(toRead.Substring(posTTS));
-            //}
+            if (TTSVoiceClipboardSynth.State.ToString() == "Speaking")
+            {
+                TTSVoiceClipboardSynth.SpeakAsyncCancelAll();
+                if (TTSVoiceClipboardSynth.Rate < 10 && speed > 0)
+                {
+                    TTSVoiceClipboardSynth.Rate = TTSVoiceClipboardSynth.Rate + speed;
+                }
+                if (TTSVoiceClipboardSynth.Rate > -10 && speed < 0)
+                {
+                    TTSVoiceClipboardSynth.Rate = TTSVoiceClipboardSynth.Rate + speed;
+                }
+                SetBalloonTip("TTS Speech rate", "TTS Speech rate set to " + TTSVoiceClipboardSynth.Rate.ToString(), ToolTipIcon.Info, "info");
+                readd();
+            }
         }
 
+        string[] toReadSentences;
+        int toReadSentenceNum;
+        char[] toReadSplitChar = { '.', '?', '!', ':', (char)10 }; // 10 is new line
         private void ReadClipboard(string voice, int srate, int volume)
         {
             // IDataObject OldClipboard = null;
@@ -309,9 +326,9 @@ namespace Read4Me
 
             // get clipboard content
             toRead = Clipboard.GetText();
-            
+
             // no silence on new line
-            toRead = toRead.Replace("\r\n", " ");
+            //toRead = toRead.Replace("\r\n", " ");
 
             // remove ligatures
             foreach (DictionaryEntry entry in ligatures)
@@ -396,32 +413,37 @@ namespace Read4Me
             //System.Threading.Thread.Sleep(100);
             //TTSVoiceClipboardSynth.SpeakAsyncCancelAll();
 
-            // start real tts
+            toReadSentences = toRead.Split(toReadSplitChar);
             
+            // start real tts
             TTSVoiceClipboardSynth.SpeakAsyncCancelAll();
             //MessageBox.Show(TTSVoiceClipboardSynth.State.ToString());
             TTSVoiceClipboardSynth.SelectVoice(voice_sp.GetAttribute("Name"));
             TTSVoiceClipboardSynth.Rate = srate;
             TTSVoiceClipboardSynth.Volume = volume;
             TTSVoiceClipboardSynth.SpeakCompleted += new EventHandler<SpeakCompletedEventArgs>(TTSVoiceClipboardSynth_SpeakCompleted);
-            TTSVoiceClipboardSynth.SpeakProgress += new EventHandler<SpeakProgressEventArgs>(synth_SpeakProgress);
-            TTSVoiceClipboardSynth.SpeakAsync(toRead);
+
+            TTSVoiceClipboardSynth.SpeakAsync(toReadSentences[0]);
             PausedGlobal = false;
+        }
+
+        void readd()
+        {
+            TTSVoiceClipboardSynth.SpeakAsync(toReadSentences[toReadSentenceNum]);
         }
 
         void TTSVoiceClipboardSynth_SpeakCompleted(object sender, SpeakCompletedEventArgs e)
         {
-            TTSVoiceClipboardSynth.Resume();
-            PausedGlobal = true;
+            if (!e.Cancelled)
+            {
+                if (toReadSentenceNum < toReadSentences.Length - 1)
+                {
+                    toReadSentenceNum++;
+                    readd();
+                }
+            }
         }
 
-        static void synth_SpeakProgress(object sender, SpeakProgressEventArgs e)
-        {
-            textTTS = e.Text;
-            posTTS = e.CharacterPosition;
-            MessageBox.Show(posTTS.ToString() + " " + textTTS);
-        }
-        
         private void InitLigatures()
         {
             // http://www.softerviews.org/LibreOffice.html#Remove_Ligatures
