@@ -51,6 +51,13 @@ namespace Read4Me
             this.tbKey = new System.Windows.Forms.TextBox();
             this.Apply = new System.Windows.Forms.Button();
             this.gbVoices = new System.Windows.Forms.GroupBox();
+            this.cbComp6 = new System.Windows.Forms.CheckBox();
+            this.cbComp5 = new System.Windows.Forms.CheckBox();
+            this.cbComp4 = new System.Windows.Forms.CheckBox();
+            this.cbComp3 = new System.Windows.Forms.CheckBox();
+            this.cbComp2 = new System.Windows.Forms.CheckBox();
+            this.cbComp1 = new System.Windows.Forms.CheckBox();
+            this.lCompatibility = new System.Windows.Forms.Label();
             this.cbLang6 = new System.Windows.Forms.ComboBox();
             this.cbLang5 = new System.Windows.Forms.ComboBox();
             this.cbLang4 = new System.Windows.Forms.ComboBox();
@@ -128,6 +135,8 @@ namespace Read4Me
             this.lHK1 = new System.Windows.Forms.Label();
             this.lHK2 = new System.Windows.Forms.Label();
             this.tpSpeak = new System.Windows.Forms.TabPage();
+            this.cbCompTB = new System.Windows.Forms.CheckBox();
+            this.lCompatibilityTB = new System.Windows.Forms.Label();
             this.tbspeech = new System.Windows.Forms.RichTextBox();
             this.gbSpeakControl = new System.Windows.Forms.GroupBox();
             this.cmbVoices = new System.Windows.Forms.ComboBox();
@@ -175,6 +184,8 @@ namespace Read4Me
             this.label24 = new System.Windows.Forms.Label();
             this.lLinkDiscussion = new System.Windows.Forms.LinkLabel();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.cbCompBatch = new System.Windows.Forms.CheckBox();
+            this.lCompatibilityBatch = new System.Windows.Forms.Label();
             this.contextMenuStrip1.SuspendLayout();
             this.sStrip.SuspendLayout();
             this.mMainMenuStrip.SuspendLayout();
@@ -231,7 +242,7 @@ namespace Read4Me
             this.sWorkingStatus});
             this.sStrip.Location = new System.Drawing.Point(0, 462);
             this.sStrip.Name = "sStrip";
-            this.sStrip.Size = new System.Drawing.Size(544, 22);
+            this.sStrip.Size = new System.Drawing.Size(597, 22);
             this.sStrip.TabIndex = 19;
             // 
             // sWorkingStatus
@@ -246,7 +257,7 @@ namespace Read4Me
             this.miHelp});
             this.mMainMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.mMainMenuStrip.Name = "mMainMenuStrip";
-            this.mMainMenuStrip.Size = new System.Drawing.Size(544, 24);
+            this.mMainMenuStrip.Size = new System.Drawing.Size(597, 24);
             this.mMainMenuStrip.TabIndex = 49;
             this.mMainMenuStrip.Text = "Main Menu";
             // 
@@ -307,7 +318,7 @@ namespace Read4Me
             this.tbSettings.Controls.Add(this.gbGeneral);
             this.tbSettings.Location = new System.Drawing.Point(4, 22);
             this.tbSettings.Name = "tbSettings";
-            this.tbSettings.Size = new System.Drawing.Size(522, 380);
+            this.tbSettings.Size = new System.Drawing.Size(577, 380);
             this.tbSettings.TabIndex = 2;
             this.tbSettings.Text = "Settings";
             this.tbSettings.UseVisualStyleBackColor = true;
@@ -318,7 +329,7 @@ namespace Read4Me
             this.gbBehaviour.Controls.Add(this.cbMinToTray);
             this.gbBehaviour.Location = new System.Drawing.Point(324, 4);
             this.gbBehaviour.Name = "gbBehaviour";
-            this.gbBehaviour.Size = new System.Drawing.Size(185, 111);
+            this.gbBehaviour.Size = new System.Drawing.Size(197, 111);
             this.gbBehaviour.TabIndex = 8;
             this.gbBehaviour.TabStop = false;
             this.gbBehaviour.Text = "Window behaviour";
@@ -350,6 +361,7 @@ namespace Read4Me
             this.tbKey.ShortcutsEnabled = false;
             this.tbKey.Size = new System.Drawing.Size(400, 20);
             this.tbKey.TabIndex = 7;
+            this.tbKey.Visible = false;
             this.tbKey.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbKey_KeyDown);
             this.tbKey.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbKey_KeyUp);
             // 
@@ -365,6 +377,13 @@ namespace Read4Me
             // 
             // gbVoices
             // 
+            this.gbVoices.Controls.Add(this.cbComp6);
+            this.gbVoices.Controls.Add(this.cbComp5);
+            this.gbVoices.Controls.Add(this.cbComp4);
+            this.gbVoices.Controls.Add(this.cbComp3);
+            this.gbVoices.Controls.Add(this.cbComp2);
+            this.gbVoices.Controls.Add(this.cbComp1);
+            this.gbVoices.Controls.Add(this.lCompatibility);
             this.gbVoices.Controls.Add(this.cbLang6);
             this.gbVoices.Controls.Add(this.cbLang5);
             this.gbVoices.Controls.Add(this.cbLang4);
@@ -412,10 +431,73 @@ namespace Read4Me
             this.gbVoices.Controls.Add(this.lAltlang1);
             this.gbVoices.Location = new System.Drawing.Point(3, 166);
             this.gbVoices.Name = "gbVoices";
-            this.gbVoices.Size = new System.Drawing.Size(506, 173);
+            this.gbVoices.Size = new System.Drawing.Size(567, 173);
             this.gbVoices.TabIndex = 5;
             this.gbVoices.TabStop = false;
             this.gbVoices.Text = "Read clipboard hotkeys";
+            // 
+            // cbComp6
+            // 
+            this.cbComp6.AutoSize = true;
+            this.cbComp6.Location = new System.Drawing.Point(503, 148);
+            this.cbComp6.Name = "cbComp6";
+            this.cbComp6.Size = new System.Drawing.Size(15, 14);
+            this.cbComp6.TabIndex = 29;
+            this.cbComp6.UseVisualStyleBackColor = true;
+            // 
+            // cbComp5
+            // 
+            this.cbComp5.AutoSize = true;
+            this.cbComp5.Location = new System.Drawing.Point(503, 125);
+            this.cbComp5.Name = "cbComp5";
+            this.cbComp5.Size = new System.Drawing.Size(15, 14);
+            this.cbComp5.TabIndex = 30;
+            this.cbComp5.UseVisualStyleBackColor = true;
+            // 
+            // cbComp4
+            // 
+            this.cbComp4.AutoSize = true;
+            this.cbComp4.Location = new System.Drawing.Point(503, 102);
+            this.cbComp4.Name = "cbComp4";
+            this.cbComp4.Size = new System.Drawing.Size(15, 14);
+            this.cbComp4.TabIndex = 31;
+            this.cbComp4.UseVisualStyleBackColor = true;
+            // 
+            // cbComp3
+            // 
+            this.cbComp3.AutoSize = true;
+            this.cbComp3.Location = new System.Drawing.Point(503, 79);
+            this.cbComp3.Name = "cbComp3";
+            this.cbComp3.Size = new System.Drawing.Size(15, 14);
+            this.cbComp3.TabIndex = 33;
+            this.cbComp3.UseVisualStyleBackColor = true;
+            // 
+            // cbComp2
+            // 
+            this.cbComp2.AutoSize = true;
+            this.cbComp2.Location = new System.Drawing.Point(503, 56);
+            this.cbComp2.Name = "cbComp2";
+            this.cbComp2.Size = new System.Drawing.Size(15, 14);
+            this.cbComp2.TabIndex = 32;
+            this.cbComp2.UseVisualStyleBackColor = true;
+            // 
+            // cbComp1
+            // 
+            this.cbComp1.AutoSize = true;
+            this.cbComp1.Location = new System.Drawing.Point(503, 33);
+            this.cbComp1.Name = "cbComp1";
+            this.cbComp1.Size = new System.Drawing.Size(15, 14);
+            this.cbComp1.TabIndex = 28;
+            this.cbComp1.UseVisualStyleBackColor = true;
+            // 
+            // lCompatibility
+            // 
+            this.lCompatibility.AutoSize = true;
+            this.lCompatibility.Location = new System.Drawing.Point(500, 13);
+            this.lCompatibility.Name = "lCompatibility";
+            this.lCompatibility.Size = new System.Drawing.Size(65, 13);
+            this.lCompatibility.TabIndex = 27;
+            this.lCompatibility.Text = "Compatibility";
             // 
             // cbLang6
             // 
@@ -1163,16 +1245,36 @@ namespace Read4Me
             // 
             // tpSpeak
             // 
+            this.tpSpeak.Controls.Add(this.cbCompTB);
+            this.tpSpeak.Controls.Add(this.lCompatibilityTB);
             this.tpSpeak.Controls.Add(this.tbspeech);
             this.tpSpeak.Controls.Add(this.gbSpeakControl);
             this.tpSpeak.Controls.Add(this.label1);
             this.tpSpeak.Location = new System.Drawing.Point(4, 22);
             this.tpSpeak.Name = "tpSpeak";
             this.tpSpeak.Padding = new System.Windows.Forms.Padding(3);
-            this.tpSpeak.Size = new System.Drawing.Size(522, 380);
+            this.tpSpeak.Size = new System.Drawing.Size(577, 380);
             this.tpSpeak.TabIndex = 1;
             this.tpSpeak.Text = "Speak Text";
             this.tpSpeak.UseVisualStyleBackColor = true;
+            // 
+            // cbCompTB
+            // 
+            this.cbCompTB.AutoSize = true;
+            this.cbCompTB.Location = new System.Drawing.Point(455, 65);
+            this.cbCompTB.Name = "cbCompTB";
+            this.cbCompTB.Size = new System.Drawing.Size(15, 14);
+            this.cbCompTB.TabIndex = 34;
+            this.cbCompTB.UseVisualStyleBackColor = true;
+            // 
+            // lCompatibilityTB
+            // 
+            this.lCompatibilityTB.AutoSize = true;
+            this.lCompatibilityTB.Location = new System.Drawing.Point(450, 46);
+            this.lCompatibilityTB.Name = "lCompatibilityTB";
+            this.lCompatibilityTB.Size = new System.Drawing.Size(65, 13);
+            this.lCompatibilityTB.TabIndex = 33;
+            this.lCompatibilityTB.Text = "Compatibility";
             // 
             // tbspeech
             // 
@@ -1199,7 +1301,7 @@ namespace Read4Me
             this.gbSpeakControl.Controls.Add(this.tbarRate);
             this.gbSpeakControl.Location = new System.Drawing.Point(282, 25);
             this.gbSpeakControl.Name = "gbSpeakControl";
-            this.gbSpeakControl.Size = new System.Drawing.Size(174, 218);
+            this.gbSpeakControl.Size = new System.Drawing.Size(235, 218);
             this.gbSpeakControl.TabIndex = 31;
             this.gbSpeakControl.TabStop = false;
             this.gbSpeakControl.Text = "Settings";
@@ -1345,7 +1447,7 @@ namespace Read4Me
             this.tpConv.Location = new System.Drawing.Point(4, 22);
             this.tpConv.Name = "tpConv";
             this.tpConv.Padding = new System.Windows.Forms.Padding(3);
-            this.tpConv.Size = new System.Drawing.Size(522, 380);
+            this.tpConv.Size = new System.Drawing.Size(577, 380);
             this.tpConv.TabIndex = 0;
             this.tpConv.Text = "Convert to mp3";
             this.tpConv.UseVisualStyleBackColor = true;
@@ -1514,6 +1616,8 @@ namespace Read4Me
             // 
             // gbConvSettings
             // 
+            this.gbConvSettings.Controls.Add(this.cbCompBatch);
+            this.gbConvSettings.Controls.Add(this.lCompatibilityBatch);
             this.gbConvSettings.Controls.Add(this.cbRateBatch);
             this.gbConvSettings.Controls.Add(this.bApplyBatch);
             this.gbConvSettings.Controls.Add(this.label20);
@@ -1602,7 +1706,7 @@ namespace Read4Me
             this.tabControlMain.Location = new System.Drawing.Point(9, 40);
             this.tabControlMain.Name = "tabControlMain";
             this.tabControlMain.SelectedIndex = 0;
-            this.tabControlMain.Size = new System.Drawing.Size(530, 406);
+            this.tabControlMain.Size = new System.Drawing.Size(585, 406);
             this.tabControlMain.TabIndex = 48;
             // 
             // tbGetVoices
@@ -1611,7 +1715,7 @@ namespace Read4Me
             this.tbGetVoices.Controls.Add(this.lVoicesDescribe);
             this.tbGetVoices.Location = new System.Drawing.Point(4, 22);
             this.tbGetVoices.Name = "tbGetVoices";
-            this.tbGetVoices.Size = new System.Drawing.Size(522, 380);
+            this.tbGetVoices.Size = new System.Drawing.Size(577, 380);
             this.tbGetVoices.TabIndex = 3;
             this.tbGetVoices.Text = "Get Voices";
             this.tbGetVoices.UseVisualStyleBackColor = true;
@@ -1663,11 +1767,31 @@ namespace Read4Me
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
+            // cbCompBatch
+            // 
+            this.cbCompBatch.AutoSize = true;
+            this.cbCompBatch.Location = new System.Drawing.Point(319, 42);
+            this.cbCompBatch.Name = "cbCompBatch";
+            this.cbCompBatch.Size = new System.Drawing.Size(15, 14);
+            this.cbCompBatch.TabIndex = 57;
+            this.cbCompBatch.UseVisualStyleBackColor = true;
+            this.cbCompBatch.Visible = false;
+            // 
+            // lCompatibilityBatch
+            // 
+            this.lCompatibilityBatch.AutoSize = true;
+            this.lCompatibilityBatch.Location = new System.Drawing.Point(314, 23);
+            this.lCompatibilityBatch.Name = "lCompatibilityBatch";
+            this.lCompatibilityBatch.Size = new System.Drawing.Size(65, 13);
+            this.lCompatibilityBatch.TabIndex = 56;
+            this.lCompatibilityBatch.Text = "Compatibility";
+            this.lCompatibilityBatch.Visible = false;
+            // 
             // Read4MeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(544, 484);
+            this.ClientSize = new System.Drawing.Size(597, 484);
             this.Controls.Add(this.label24);
             this.Controls.Add(this.lLinkDiscussion);
             this.Controls.Add(this.sStrip);
@@ -1862,6 +1986,17 @@ namespace Read4Me
         private System.Windows.Forms.CheckBox lWinKey4;
         private System.Windows.Forms.Label lHK4;
         private System.Windows.Forms.RichTextBox tbspeech;
+        private System.Windows.Forms.Label lCompatibility;
+        private System.Windows.Forms.CheckBox cbComp6;
+        private System.Windows.Forms.CheckBox cbComp5;
+        private System.Windows.Forms.CheckBox cbComp4;
+        private System.Windows.Forms.CheckBox cbComp3;
+        private System.Windows.Forms.CheckBox cbComp2;
+        private System.Windows.Forms.CheckBox cbComp1;
+        private System.Windows.Forms.CheckBox cbCompTB;
+        private System.Windows.Forms.Label lCompatibilityTB;
+        private System.Windows.Forms.CheckBox cbCompBatch;
+        private System.Windows.Forms.Label lCompatibilityBatch;
     }
 }
 

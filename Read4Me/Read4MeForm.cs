@@ -16,15 +16,11 @@ namespace Read4Me
 
         int SpeechRateGlobal = 4; // Ranges from -10 to 10 
         int VolumeGlobal = 80; // Range from 0 to 100.
-        bool PausedGlobal = false;
-        SpObjectToken SpeechVoiceGlobal;
-
-        static string textTTS;
-        static int posTTS;
-        static string toRead;
+        bool CompatGlobal = false;
+        string SpeechVoiceGlobal;
 
         // program version
-        string LocalVersion = "0.5.5";
+        string LocalVersion = "0.6";
 
         SortedList ligatures = new SortedList();
         PressedKeys pKeys;
@@ -57,7 +53,7 @@ namespace Read4Me
             this.DragDrop += new DragEventHandler(Form_DragDrop);
 
             // Add empty value
-            cmbVoices.Items.Add("");
+            //cmbVoices.Items.Add("");
             cbVoiceBatch.Items.Add("");
             cbLang1.Items.Add("");
             cbLang2.Items.Add("");

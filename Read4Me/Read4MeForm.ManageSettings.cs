@@ -17,6 +17,7 @@ namespace Read4Me
         List<CheckBox> CheckboxesWinkeyCB = new List<CheckBox>();
         List<CheckBox> CheckboxesAltCB = new List<CheckBox>();
         List<TextBox> TextboxesHotkeyCB = new List<TextBox>();
+        List<CheckBox> CheckboxesCompat = new List<CheckBox>();
         private void InitLists()
         {
             ComboboxesVoiceCB.Add(cbLang1);
@@ -68,6 +69,13 @@ namespace Read4Me
             ComboboxesVolumeCB.Add(cbVolume5);
             ComboboxesVolumeCB.Add(cbVolume6);
 
+            CheckboxesCompat.Add(cbComp1);
+            CheckboxesCompat.Add(cbComp2);
+            CheckboxesCompat.Add(cbComp3);
+            CheckboxesCompat.Add(cbComp4);
+            CheckboxesCompat.Add(cbComp5);
+            CheckboxesCompat.Add(cbComp6);
+
             InitComboboxes();
         }
 
@@ -77,6 +85,7 @@ namespace Read4Me
             bool ctrl;
             bool winkey;
             bool alt;
+            bool compat;
             string voice;
             char key;
             int lang_num = 0;
@@ -110,8 +119,8 @@ namespace Read4Me
                                 {
                                     key = '\0';
                                 }
-                                SetViewSettings(type, ctrl, winkey, alt, key, "", 0, 0, 0, false, false, false, false);
-                                RegisterHotkey(type, ctrl, winkey, alt, key, "", 0, 0);
+                                SetViewSettings(type, ctrl, winkey, alt, key, "", 0, 0, 0, false, false, false, false, false);
+                                RegisterHotkey(type, ctrl, winkey, alt, key, "", 0, 0, false);
                                 break;
 
                             case "hotkey_speech":
@@ -144,8 +153,9 @@ namespace Read4Me
                                 {
                                     volume = int.MinValue;
                                 }
-                                SetViewSettings(type, ctrl, winkey, alt, key, voice, lang_num, srate, volume, false, false, false, false);
-                                RegisterHotkey(type, ctrl, winkey, alt, key, voice, srate, volume);
+                                compat = (reader["compatibility"] == "1") ? true : false;
+                                SetViewSettings(type, ctrl, winkey, alt, key, voice, lang_num, srate, volume, compat, false, false, false, false);
+                                RegisterHotkey(type, ctrl, winkey, alt, key, voice, srate, volume, compat);
                                 lang_num++;
                                 break;
 
@@ -168,7 +178,8 @@ namespace Read4Me
                                 {
                                     volume = int.MinValue;
                                 }
-                                SetViewSettings(type, false, false, false, '\0', voice, 0, srate, volume, false, false, false, false);
+                                compat = (reader["compatibility"] == "1") ? true : false;
+                                SetViewSettings(type, false, false, false, '\0', voice, 0, srate, volume, compat, false, false, false, false);
                                 lang_num++;
                                 break;
 
@@ -176,12 +187,12 @@ namespace Read4Me
                                 type = reader["type"];
                                 min_to_tray = (reader["min_to_tray"] == "1") ? true : false;
                                 read_selected_text = (reader["read_selected_text"] == "1") ? true : false;
-                                SetViewSettings(type, false, false, false, '\0', "", 0, 0, 0, false, false, min_to_tray, read_selected_text);
+                                SetViewSettings(type, false, false, false, '\0', "", 0, 0, 0, false, false, false, min_to_tray, read_selected_text);
                                 break;
 
                             case "other_settings":
                                 type = reader["type"];
-                                SetViewSettings(type, false, false, false, '\0', "", 0, 0, 0, false, false, false, false);
+                                SetViewSettings(type, false, false, false, '\0', "", 0, 0, 0, false, false, false, false, false);
                                 break;
 
                             default:
@@ -197,7 +208,7 @@ namespace Read4Me
             }
         }
 
-        private void SetViewSettings(string type, bool ctrl, bool winkey, bool alt, char key, string voice, int lang_num, int srate, int volume, bool silence, bool silence_batch, bool min_to_tray, bool read_selected_text)
+        private void SetViewSettings(string type, bool ctrl, bool winkey, bool alt, char key, string voice, int lang_num, int srate, int volume, bool compat, bool silence, bool silence_batch, bool min_to_tray, bool read_selected_text)
         {
             switch (type)
             {
@@ -300,12 +311,14 @@ namespace Read4Me
                     ComboboxesVoiceCB[lang_num].SelectedIndex = cbLang1.FindStringExact(voice);
                     ComboboxesRateCB[lang_num].SelectedIndex = cbSRate1.FindStringExact(srate.ToString());
                     ComboboxesVolumeCB[lang_num].SelectedIndex = cbVolume1.FindStringExact(volume.ToString());
+                    CheckboxesCompat[lang_num].Checked = compat;
                     break;
 
                 case "batch_settings":
                     cbVoiceBatch.SelectedIndex = cbVoiceBatch.FindStringExact(voice);
                     cbRateBatch.SelectedIndex = cbRateBatch.FindStringExact(srate.ToString());
                     cbVolumeBatch.SelectedIndex = cbVolumeBatch.FindStringExact(volume.ToString());
+                    cbCompBatch.Checked = compat;
                     break;
 
                 case "min_to_tray":
@@ -329,7 +342,7 @@ namespace Read4Me
         List<Hotkey> hotkeys = new List<Hotkey>();
         List<Keys> keycodes = new List<Keys>();
         List<Action> actions = new List<Action>();
-        private bool RegisterHotkey(string type, bool ctrl, bool winkey, bool alt, char key, string voice, int srate, int volume)
+        private bool RegisterHotkey(string type, bool ctrl, bool winkey, bool alt, char key, string voice, int srate, int volume, bool compat)
         {
             // register hotkeys
             // http://bloggablea.wordpress.com/2007/05/01/global-hotkeys-with-net/
@@ -370,7 +383,7 @@ namespace Read4Me
                     break;
 
                 case "speech":
-                    todo_action = () => ReadClipboard(voice, srate, volume);
+                    todo_action = () => ReadWithTTS(voice, srate, volume, compat, true, "");
                     break;
             }
             hotkeys[current_hotkey].Pressed += delegate { todo_action(); };
@@ -424,9 +437,9 @@ namespace Read4Me
             FileWriter.Write("    <hotkey_general type=\"decrease_tts_speed\" ctrl=\"" + (lCtrl5.Checked ? "1" : "0") + "\" winkey=\"" + (lWinKey5.Checked ? "1" : "0") + "\" alt=\"" + (lAlt5.Checked ? "1" : "0") + "\" key=\"" + tbHK5.Text + "\"></hotkey_general>\r\n");
             for (int i = 0; i < ComboboxesVoiceCB.Count; i++)
             {
-                FileWriter.Write("    <hotkey_speech type=\"speech\" ctrl=\"" + (CheckboxesCtrlCB[i].Checked ? "1" : "0") + "\" winkey=\"" + (CheckboxesWinkeyCB[i].Checked ? "1" : "0") + "\" alt=\"" + (CheckboxesAltCB[i].Checked ? "1" : "0") + "\" key=\"" + TextboxesHotkeyCB[i].Text + "\" voice=\"" + ComboboxesVoiceCB[i].SelectedItem + "\" srate=\"" + ComboboxesRateCB[i].SelectedItem + "\" volume=\"" + ComboboxesVolumeCB[i].SelectedItem + "\"></hotkey_speech>\r\n");
+                FileWriter.Write("    <hotkey_speech type=\"speech\" ctrl=\"" + (CheckboxesCtrlCB[i].Checked ? "1" : "0") + "\" winkey=\"" + (CheckboxesWinkeyCB[i].Checked ? "1" : "0") + "\" alt=\"" + (CheckboxesAltCB[i].Checked ? "1" : "0") + "\" key=\"" + TextboxesHotkeyCB[i].Text + "\" voice=\"" + ComboboxesVoiceCB[i].SelectedItem + "\" srate=\"" + ComboboxesRateCB[i].SelectedItem + "\" volume=\"" + ComboboxesVolumeCB[i].SelectedItem + "\" compatibility=\"" + (CheckboxesCompat[i].Checked ? "1" : "0") + "\"></hotkey_speech>\r\n");
             }
-            FileWriter.Write("    <batch_settings type=\"batch_settings\" voice=\"" + cbVoiceBatch.SelectedItem + "\" srate=\"" + cbRateBatch.SelectedItem + "\" volume=\"" + cbVolumeBatch.SelectedItem + "\"></batch_settings>\r\n");
+            FileWriter.Write("    <batch_settings type=\"batch_settings\" voice=\"" + cbVoiceBatch.SelectedItem + "\" srate=\"" + cbRateBatch.SelectedItem + "\" volume=\"" + cbVolumeBatch.SelectedItem + "\" compatibility=\"" + (cbMinToTray.Checked ? "1" : "0") + "\"></batch_settings>\r\n");
             FileWriter.Write("    <win_bevaviour_settings type=\"min_to_tray\" min_to_tray=\"" + (cbMinToTray.Checked ? "1" : "0") + "\"></win_bevaviour_settings>\r\n");
             FileWriter.Write("    <win_bevaviour_settings type=\"read_selected_text\" read_selected_text=\"" + (cbReadSelectedText.Checked ? "1" : "0") + "\"></win_bevaviour_settings>\r\n");
             FileWriter.Write("</settings>\r\n");
