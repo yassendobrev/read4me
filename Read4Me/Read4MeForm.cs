@@ -24,7 +24,7 @@ namespace Read4Me
         static string toRead;
 
         // program version
-        string LocalVersion = "0.5.4";
+        string LocalVersion = "0.5.5";
 
         SortedList ligatures = new SortedList();
         PressedKeys pKeys;

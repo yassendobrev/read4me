@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using SpeechLib;
 using System.Threading;
+using System.Collections;
 
 namespace Read4Me
 {
@@ -20,7 +21,21 @@ namespace Read4Me
                 TTSVoiceClipboard.Rate = SpeechRateGlobal;
                 TTSVoiceClipboard.Volume = VolumeGlobal;
                 TTSVoiceClipboard.Resume();
-                TTSVoiceClipboard.Speak(tbspeech.Text, SpeechVoiceSpeakFlags.SVSFlagsAsync | SpeechVoiceSpeakFlags.SVSFIsXML | SpeechVoiceSpeakFlags.SVSFPurgeBeforeSpeak);
+
+                // get clipboard content
+                toRead = tbspeech.Text;
+                
+                // no silence on new line
+                toRead = toRead.Replace("\t", " ").Replace("\n", " ").Replace("\r", " ");
+                toRead = toRead.Replace("  ", " ").Replace("  ", " ").Replace("  ", " ").Replace("  ", " ");//normalize multiple spaces
+
+                // remove ligatures
+                foreach (DictionaryEntry entry in ligatures)
+                {
+                    toRead = toRead.Replace(entry.Key.ToString(), entry.Value.ToString());
+                }
+
+                TTSVoiceClipboard.Speak(toRead, SpeechVoiceSpeakFlags.SVSFlagsAsync | SpeechVoiceSpeakFlags.SVSFIsXML | SpeechVoiceSpeakFlags.SVSFPurgeBeforeSpeak);
             }
         }
 

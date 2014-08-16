@@ -118,14 +118,12 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="lPlsDwn.Text" xml:space="preserve">
-    <value>v0.5.4:
+    <value>v0.5.5:
+- On user request: Smarter end-of-line pause remover.
+
+v0.5.4:
 - On user request: Read clipboard understands SSML
 - On user request: Cut/Copy/Paste right-click menu in "Read text" text area
-
-
-v0.5.3:
-- On user request: Standard hotkeys working in "Read text" text area
-- Improved "Read text" stability
 </value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
