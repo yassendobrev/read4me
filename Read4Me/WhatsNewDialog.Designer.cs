@@ -38,9 +38,11 @@
             this.lPlsDwn.AutoSize = true;
             this.lPlsDwn.Location = new System.Drawing.Point(12, 35);
             this.lPlsDwn.Name = "lPlsDwn";
-            this.lPlsDwn.Size = new System.Drawing.Size(362, 117);
+            this.lPlsDwn.Size = new System.Drawing.Size(267, 104);
             this.lPlsDwn.TabIndex = 56;
-            this.lPlsDwn.Text = resources.GetString("lPlsDwn.Text");
+            this.lPlsDwn.Text = "v0.6.1:\r\n- Bug with compatibility mode fixed.\r\n\r\nv0.6:\r\n- Added compatibility mod" +
+    "e for some bad-coded voices.\r\n\r\nv0.5.5:\r\n- On user request: Smarter end-of-line " +
+    "pause remover.";
             // 
             // bOK
             // 

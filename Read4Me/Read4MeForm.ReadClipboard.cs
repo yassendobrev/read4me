@@ -55,7 +55,7 @@ namespace Read4Me
                     break;
             }
         }
-        
+
         // http://msdn.microsoft.com/en-us/library/jj572477(v=office.14).aspx
         private void SpeechSkip(int items)
         {
@@ -304,9 +304,10 @@ namespace Read4Me
 
                 //if (TTSVoiceClipboardSynth.State.ToString() == "Paused")
                 //{
-                    TTSVoiceClipboardSynth.Resume();
+                TTSVoiceClipboardSynth.Resume();
                 //}
 
+                toReadSentenceNum = 0;
                 toReadSentences = toRead.Split(toReadSplitChar);
 
                 // start tts
@@ -325,9 +326,9 @@ namespace Read4Me
 
                 //if (TTSVoiceClipboard.Status.RunningState == 0 || TTSVoiceClipboard.Status.RunningState == SpeechRunState.SRSEDone)
                 //{
-                    // need to detect and get out of paused state
-                    // returns 0 when paused...
-                    TTSVoiceClipboard.Resume();
+                // need to detect and get out of paused state
+                // returns 0 when paused...
+                TTSVoiceClipboard.Resume();
                 //}
 
                 // init TTS
