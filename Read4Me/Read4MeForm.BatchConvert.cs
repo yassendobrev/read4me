@@ -32,6 +32,11 @@ namespace Read4Me
 
         private void bGoStartState()
         {
+            if (this.bGo.InvokeRequired)
+            {
+                this.bGo.Invoke(new Action(bGoStartState));
+                return;
+            }
             bGo.Text = "Start text to mp3 conversion";
             bGo.Enabled = true;
             StopConversion = false;
@@ -104,6 +109,7 @@ namespace Read4Me
             // Thread oThread = new Thread(new ParameterizedThreadStart(doConvert));
             oThread = new Thread(() => this.doConvert(SpeechRate, SpeechVolume, SpeechVoice, FilePath, artist, album, year));
             bGoStopState();
+            oThread.SetApartmentState(ApartmentState.STA);
             oThread.Start();
         }
 
