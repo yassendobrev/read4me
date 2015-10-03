@@ -170,6 +170,8 @@ namespace Read4Me
             this.label14 = new System.Windows.Forms.Label();
             this.bSource = new System.Windows.Forms.Button();
             this.gbConvSettings = new System.Windows.Forms.GroupBox();
+            this.cbCompBatch = new System.Windows.Forms.CheckBox();
+            this.lCompatibilityBatch = new System.Windows.Forms.Label();
             this.cbRateBatch = new System.Windows.Forms.ComboBox();
             this.bApplyBatch = new System.Windows.Forms.Button();
             this.label20 = new System.Windows.Forms.Label();
@@ -184,8 +186,6 @@ namespace Read4Me
             this.label24 = new System.Windows.Forms.Label();
             this.lLinkDiscussion = new System.Windows.Forms.LinkLabel();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.cbCompBatch = new System.Windows.Forms.CheckBox();
-            this.lCompatibilityBatch = new System.Windows.Forms.Label();
             this.contextMenuStrip1.SuspendLayout();
             this.sStrip.SuspendLayout();
             this.mMainMenuStrip.SuspendLayout();
@@ -1592,6 +1592,7 @@ namespace Read4Me
             // 
             this.tbSource.Location = new System.Drawing.Point(94, 19);
             this.tbSource.Name = "tbSource";
+            this.tbSource.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tbSource.Size = new System.Drawing.Size(271, 20);
             this.tbSource.TabIndex = 8;
             // 
@@ -1631,6 +1632,26 @@ namespace Read4Me
             this.gbConvSettings.TabIndex = 57;
             this.gbConvSettings.TabStop = false;
             this.gbConvSettings.Text = "Text to mp3 conversion settings";
+            // 
+            // cbCompBatch
+            // 
+            this.cbCompBatch.AutoSize = true;
+            this.cbCompBatch.Location = new System.Drawing.Point(319, 42);
+            this.cbCompBatch.Name = "cbCompBatch";
+            this.cbCompBatch.Size = new System.Drawing.Size(15, 14);
+            this.cbCompBatch.TabIndex = 57;
+            this.cbCompBatch.UseVisualStyleBackColor = true;
+            this.cbCompBatch.Visible = false;
+            // 
+            // lCompatibilityBatch
+            // 
+            this.lCompatibilityBatch.AutoSize = true;
+            this.lCompatibilityBatch.Location = new System.Drawing.Point(314, 23);
+            this.lCompatibilityBatch.Name = "lCompatibilityBatch";
+            this.lCompatibilityBatch.Size = new System.Drawing.Size(65, 13);
+            this.lCompatibilityBatch.TabIndex = 56;
+            this.lCompatibilityBatch.Text = "Compatibility";
+            this.lCompatibilityBatch.Visible = false;
             // 
             // cbRateBatch
             // 
@@ -1766,26 +1787,6 @@ namespace Read4Me
             this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            // 
-            // cbCompBatch
-            // 
-            this.cbCompBatch.AutoSize = true;
-            this.cbCompBatch.Location = new System.Drawing.Point(319, 42);
-            this.cbCompBatch.Name = "cbCompBatch";
-            this.cbCompBatch.Size = new System.Drawing.Size(15, 14);
-            this.cbCompBatch.TabIndex = 57;
-            this.cbCompBatch.UseVisualStyleBackColor = true;
-            this.cbCompBatch.Visible = false;
-            // 
-            // lCompatibilityBatch
-            // 
-            this.lCompatibilityBatch.AutoSize = true;
-            this.lCompatibilityBatch.Location = new System.Drawing.Point(314, 23);
-            this.lCompatibilityBatch.Name = "lCompatibilityBatch";
-            this.lCompatibilityBatch.Size = new System.Drawing.Size(65, 13);
-            this.lCompatibilityBatch.TabIndex = 56;
-            this.lCompatibilityBatch.Text = "Compatibility";
-            this.lCompatibilityBatch.Visible = false;
             // 
             // Read4MeForm
             // 

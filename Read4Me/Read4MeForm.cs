@@ -20,7 +20,7 @@ namespace Read4Me
         string SpeechVoiceGlobal;
 
         // program version
-        string LocalVersion = "0.6.1";
+        string LocalVersion = "0.6.2";
 
         SortedList ligatures = new SortedList();
         PressedKeys pKeys;

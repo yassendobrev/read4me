@@ -40,9 +40,9 @@
             this.lPlsDwn.Name = "lPlsDwn";
             this.lPlsDwn.Size = new System.Drawing.Size(267, 104);
             this.lPlsDwn.TabIndex = 56;
-            this.lPlsDwn.Text = "v0.6.1:\r\n- Bug with compatibility mode fixed.\r\n\r\nv0.6:\r\n- Added compatibility mod" +
-    "e for some bad-coded voices.\r\n\r\nv0.5.5:\r\n- On user request: Smarter end-of-line " +
-    "pause remover.";
+            this.lPlsDwn.Text = "v0.6.2:\r\n- Improved compatibility with some TTS synthesizers.\r\n\r\nv0.6.1:\r\n- Bug w" +
+    "ith compatibility mode fixed.\r\n\r\nv0.6:\r\n- Added compatibility mode for some bad-" +
+    "coded voices.\r\n";
             // 
             // bOK
             // 

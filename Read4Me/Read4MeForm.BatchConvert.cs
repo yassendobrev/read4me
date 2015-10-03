@@ -10,6 +10,7 @@ using Yeti.MMedia;
 using Yeti.MMedia.Mp3;
 using WaveLib;
 using System.Windows.Media;
+using System.Collections.Generic;
 
 namespace Read4Me
 {
@@ -219,7 +220,9 @@ namespace Read4Me
                     return;
                 }
 
-                line = file_reader.ReadLine().Replace("\t", "");
+                line = file_reader.ReadLine();
+
+                line = line.Replace("\t", "");
                 line = line.Replace(" ", " "); // replace Non-breaking space 0xA0 with normal space 0x20
 
                 /*
@@ -237,7 +240,7 @@ namespace Read4Me
                 line = line.Replace("«", " ");
                 line = line.Replace("»", " ");
                 line = line.Replace("­", ""); // there is a SOFT HYPHEN between the 1st "" (UTF-8 (hex)	0xC2 0xAD (c2ad))
-
+                
                 // SLOWER RATE WHEN words surrounded with _words_ -> emphasize!
                 // use <rate absspeed="-7"/>
                 if (cbSlowRate.Checked)
@@ -442,10 +445,25 @@ namespace Read4Me
             TTSVoiceConvert.Rate = SpeechRate;
             TTSVoiceConvert.Volume = SpeechVolume;
             TTSVoiceConvert.AudioOutputStream = SpFileStream;
+
+            // split toSpeak in chunks of 2499, some TTS crashes for longer chunks...
+            //foreach (string toSpeakPart in SplitByLength(toSpeak, 2000))
+            //{
+            //    TTSVoiceConvert.Speak(toSpeakPart, SpeechVoiceSpeakFlags.SVSFlagsAsync | SpeechVoiceSpeakFlags.SVSFIsXML);
+            //}
             TTSVoiceConvert.Speak(toSpeak, SpeechVoiceSpeakFlags.SVSFlagsAsync | SpeechVoiceSpeakFlags.SVSFIsXML);
             TTSVoiceConvert.WaitUntilDone(Timeout.Infinite);
             SpFileStream.Close();
             reader.Close();
+        }
+
+        // https://msdn.microsoft.com/en-us/library/9k7k7cf0.aspx
+        public static IEnumerable<string> SplitByLength(this string str, int maxLength)
+        {
+            for (int index = 0; index < str.Length; index += maxLength)
+            {
+                yield return str.Substring(index, Math.Min(maxLength, str.Length - index));
+            }
         }
 
         public int wav2mp3(string FileName, string title, string artist, string album, string track, int summed_secs)
