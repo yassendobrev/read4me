@@ -221,7 +221,7 @@ namespace Read4Me
             // no silence on new line
             toRead = toRead.Replace("\t", " ").Replace("\n", " ").Replace("\r", " ");
             toRead = toRead.Replace("  ", " ").Replace("  ", " ").Replace("  ", " ").Replace("  ", " ");//normalize multiple spaces
-
+            
             // remove ligatures
             foreach (DictionaryEntry entry in ligatures)
             {

@@ -445,26 +445,27 @@ namespace Read4Me
             TTSVoiceConvert.Rate = SpeechRate;
             TTSVoiceConvert.Volume = SpeechVolume;
             TTSVoiceConvert.AudioOutputStream = SpFileStream;
-
+            
             // split toSpeak in chunks of 2499, some TTS crashes for longer chunks...
             //foreach (string toSpeakPart in SplitByLength(toSpeak, 2000))
             //{
             //    TTSVoiceConvert.Speak(toSpeakPart, SpeechVoiceSpeakFlags.SVSFlagsAsync | SpeechVoiceSpeakFlags.SVSFIsXML);
+            //    TTSVoiceConvert.WaitUntilDone(Timeout.Infinite);
             //}
             TTSVoiceConvert.Speak(toSpeak, SpeechVoiceSpeakFlags.SVSFlagsAsync | SpeechVoiceSpeakFlags.SVSFIsXML);
-            TTSVoiceConvert.WaitUntilDone(Timeout.Infinite);
+            
             SpFileStream.Close();
             reader.Close();
         }
 
-        // https://msdn.microsoft.com/en-us/library/9k7k7cf0.aspx
-        public static IEnumerable<string> SplitByLength(this string str, int maxLength)
-        {
-            for (int index = 0; index < str.Length; index += maxLength)
-            {
-                yield return str.Substring(index, Math.Min(maxLength, str.Length - index));
-            }
-        }
+        //// https://msdn.microsoft.com/en-us/library/9k7k7cf0.aspx
+        //public static IEnumerable<string> SplitByLength(this string str, int maxLength)
+        //{
+        //    for (int index = 0; index < str.Length; index += maxLength)
+        //    {
+        //        yield return str.Substring(index, Math.Min(maxLength, str.Length - index));
+        //    }
+        //}
 
         public int wav2mp3(string FileName, string title, string artist, string album, string track, int summed_secs)
         {
