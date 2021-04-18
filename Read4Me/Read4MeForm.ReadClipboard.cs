@@ -218,8 +218,11 @@ namespace Read4Me
                 toRead = toReadInput;
             }
 
-            // no silence on new line
-            toRead = toRead.Replace("\t", " ").Replace("\n", " ").Replace("\r", " ");
+            // no silence on new line, unless specified
+            if (!cbPauseOnNewLine.Checked)
+            {
+                toRead = toRead.Replace("\t", " ").Replace("\n", " ").Replace("\r", " ");
+            }
             toRead = toRead.Replace("  ", " ").Replace("  ", " ").Replace("  ", " ").Replace("  ", " ");//normalize multiple spaces
             
             // remove ligatures

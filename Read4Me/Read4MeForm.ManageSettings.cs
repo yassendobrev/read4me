@@ -93,6 +93,7 @@ namespace Read4Me
             int volume = 0;
             bool min_to_tray;
             bool read_selected_text;
+            bool pause_on_newline;
             XmlReader reader;
 
             if (File.Exists(Path.GetDirectoryName(Application.ExecutablePath) + "\\Read4Me.ini"))
@@ -119,7 +120,7 @@ namespace Read4Me
                                 {
                                     key = '\0';
                                 }
-                                SetViewSettings(type, ctrl, winkey, alt, key, "", 0, 0, 0, false, false, false, false, false);
+                                SetViewSettings(type, ctrl, winkey, alt, key, "", 0, 0, 0, false, false, false, false, false, false);
                                 RegisterHotkey(type, ctrl, winkey, alt, key, "", 0, 0, false);
                                 break;
 
@@ -154,7 +155,7 @@ namespace Read4Me
                                     volume = int.MinValue;
                                 }
                                 compat = (reader["compatibility"] == "1") ? true : false;
-                                SetViewSettings(type, ctrl, winkey, alt, key, voice, lang_num, srate, volume, compat, false, false, false, false);
+                                SetViewSettings(type, ctrl, winkey, alt, key, voice, lang_num, srate, volume, compat, false, false, false, false, false);
                                 RegisterHotkey(type, ctrl, winkey, alt, key, voice, srate, volume, compat);
                                 lang_num++;
                                 break;
@@ -179,7 +180,7 @@ namespace Read4Me
                                     volume = int.MinValue;
                                 }
                                 compat = (reader["compatibility"] == "1") ? true : false;
-                                SetViewSettings(type, false, false, false, '\0', voice, 0, srate, volume, compat, false, false, false, false);
+                                SetViewSettings(type, false, false, false, '\0', voice, 0, srate, volume, compat, false, false, false, false, false);
                                 lang_num++;
                                 break;
 
@@ -187,12 +188,13 @@ namespace Read4Me
                                 type = reader["type"];
                                 min_to_tray = (reader["min_to_tray"] == "1") ? true : false;
                                 read_selected_text = (reader["read_selected_text"] == "1") ? true : false;
-                                SetViewSettings(type, false, false, false, '\0', "", 0, 0, 0, false, false, false, min_to_tray, read_selected_text);
+                                pause_on_newline = (reader["pause_on_newline"] == "1") ? true : false;
+                                SetViewSettings(type, false, false, false, '\0', "", 0, 0, 0, false, false, false, min_to_tray, read_selected_text, pause_on_newline);
                                 break;
 
                             case "other_settings":
                                 type = reader["type"];
-                                SetViewSettings(type, false, false, false, '\0', "", 0, 0, 0, false, false, false, false, false);
+                                SetViewSettings(type, false, false, false, '\0', "", 0, 0, 0, false, false, false, false, false, false);
                                 break;
 
                             default:
@@ -208,7 +210,7 @@ namespace Read4Me
             }
         }
 
-        private void SetViewSettings(string type, bool ctrl, bool winkey, bool alt, char key, string voice, int lang_num, int srate, int volume, bool compat, bool silence, bool silence_batch, bool min_to_tray, bool read_selected_text)
+        private void SetViewSettings(string type, bool ctrl, bool winkey, bool alt, char key, string voice, int lang_num, int srate, int volume, bool compat, bool silence, bool silence_batch, bool min_to_tray, bool read_selected_text, bool pause_on_newline)
         {
             switch (type)
             {
@@ -323,12 +325,14 @@ namespace Read4Me
 
                 case "min_to_tray":
                     cbMinToTray.Checked = min_to_tray;
-                    MinToTray = min_to_tray;
                     break;
 
                 case "read_selected_text":
                     cbReadSelectedText.Checked = read_selected_text;
-                    ReadSelectedText = read_selected_text;
+                    break;
+
+                case "pause_on_newline":
+                    cbPauseOnNewLine.Checked = pause_on_newline;
                     break;
 
                 case "other_settings":
@@ -442,6 +446,7 @@ namespace Read4Me
             FileWriter.Write("    <batch_settings type=\"batch_settings\" voice=\"" + cbVoiceBatch.SelectedItem + "\" srate=\"" + cbRateBatch.SelectedItem + "\" volume=\"" + cbVolumeBatch.SelectedItem + "\" compatibility=\"" + (cbMinToTray.Checked ? "1" : "0") + "\"></batch_settings>\r\n");
             FileWriter.Write("    <win_bevaviour_settings type=\"min_to_tray\" min_to_tray=\"" + (cbMinToTray.Checked ? "1" : "0") + "\"></win_bevaviour_settings>\r\n");
             FileWriter.Write("    <win_bevaviour_settings type=\"read_selected_text\" read_selected_text=\"" + (cbReadSelectedText.Checked ? "1" : "0") + "\"></win_bevaviour_settings>\r\n");
+            FileWriter.Write("    <win_bevaviour_settings type=\"pause_on_newline\" pause_on_newline=\"" + (cbPauseOnNewLine.Checked ? "1" : "0") + "\"></win_bevaviour_settings>\r\n");
             FileWriter.Write("</settings>\r\n");
             FileWriter.Close();
             FileWriter.Dispose();

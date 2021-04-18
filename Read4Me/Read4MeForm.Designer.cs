@@ -46,6 +46,7 @@ namespace Read4Me
             this.miAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.tbSettings = new System.Windows.Forms.TabPage();
             this.gbBehaviour = new System.Windows.Forms.GroupBox();
+            this.cbPauseOnNewLine = new System.Windows.Forms.CheckBox();
             this.cbReadSelectedText = new System.Windows.Forms.CheckBox();
             this.cbMinToTray = new System.Windows.Forms.CheckBox();
             this.tbKey = new System.Windows.Forms.TextBox();
@@ -325,6 +326,7 @@ namespace Read4Me
             // 
             // gbBehaviour
             // 
+            this.gbBehaviour.Controls.Add(this.cbPauseOnNewLine);
             this.gbBehaviour.Controls.Add(this.cbReadSelectedText);
             this.gbBehaviour.Controls.Add(this.cbMinToTray);
             this.gbBehaviour.Location = new System.Drawing.Point(324, 4);
@@ -332,7 +334,17 @@ namespace Read4Me
             this.gbBehaviour.Size = new System.Drawing.Size(197, 111);
             this.gbBehaviour.TabIndex = 8;
             this.gbBehaviour.TabStop = false;
-            this.gbBehaviour.Text = "Window behaviour";
+            this.gbBehaviour.Text = "Window Settings";
+            // 
+            // cbPauseOnNewLine
+            // 
+            this.cbPauseOnNewLine.AutoSize = true;
+            this.cbPauseOnNewLine.Location = new System.Drawing.Point(6, 58);
+            this.cbPauseOnNewLine.Name = "cbPauseOnNewLine";
+            this.cbPauseOnNewLine.Size = new System.Drawing.Size(156, 17);
+            this.cbPauseOnNewLine.TabIndex = 2;
+            this.cbPauseOnNewLine.Text = "Pause speech for new lines";
+            this.cbPauseOnNewLine.UseVisualStyleBackColor = true;
             // 
             // cbReadSelectedText
             // 
@@ -1998,6 +2010,7 @@ namespace Read4Me
         private System.Windows.Forms.Label lCompatibilityTB;
         private System.Windows.Forms.CheckBox cbCompBatch;
         private System.Windows.Forms.Label lCompatibilityBatch;
+        private System.Windows.Forms.CheckBox cbPauseOnNewLine;
     }
 }
 

@@ -40,9 +40,7 @@
             this.lPlsDwn.Name = "lPlsDwn";
             this.lPlsDwn.Size = new System.Drawing.Size(267, 104);
             this.lPlsDwn.TabIndex = 56;
-            this.lPlsDwn.Text = "v0.6.2:\r\n- Improved compatibility with some TTS synthesizers.\r\n\r\nv0.6.1:\r\n- Bug w" +
-    "ith compatibility mode fixed.\r\n\r\nv0.6:\r\n- Added compatibility mode for some bad-" +
-    "coded voices.\r\n";
+            this.lPlsDwn.Text = "v0.6.3:\r\n- There is now an option in Settings to pause before speaking a new line,\r\n such as for reading dotpoints.";
             // 
             // bOK
             // 
