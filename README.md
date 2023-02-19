@@ -8,3 +8,5 @@ Features
 - Read Clipboard or selected text using SAPI5 TTS using your pre-installed voices
 - Set multiple hotkeys for multiple voices, speech rates, volumes
 - Convert text files to mp3 with ID3 tags
+
+Recently migrated from https://sourceforge.net/projects/read4mecbr/
