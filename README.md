@@ -9,4 +9,4 @@ Features
 - Set multiple hotkeys for multiple voices, speech rates, volumes
 - Convert text files to mp3 with ID3 tags
 
-Recently migrated from https://sourceforge.net/projects/read4mecbr/
+Migrated from https://sourceforge.net/projects/read4mecbr/
